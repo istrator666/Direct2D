@@ -5,6 +5,22 @@
 
 #pragma comment (lib, "EngineBase.lib")
 #pragma comment (lib, "EnginePlatform.lib")
+#pragma comment (lib, "EngineCore.lib")
+
+
+class UEngineCore
+{
+public:
+	void Update()
+	{
+
+	}
+
+	void End()
+	{
+
+	}
+};
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
@@ -14,5 +30,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UEngineWindow NewWindow;
 	NewWindow.Open();
 
-	UEngineWindow::WindowMessageLoop(nullptr, nullptr);
+	// void(*_Update)()
+
+	UEngineCore Core;
+
+	UEngineWindow::WindowMessageLoop(
+		std::bind(&UEngineCore::Update, &Core),
+		std::bind(&UEngineCore::End, &Core)
+	);
 }
