@@ -177,6 +177,8 @@
     </ClInclude>
     <ClInclude Include="EngineGraphicDevice.h" />
     <ClInclude Include="EngineOption.h" />
+    <ClInclude Include="EngineRenderTarget.h" />
+    <ClInclude Include="EngineTexture.h" />
     <ClInclude Include="PreCompile.h" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +188,8 @@
     </ClCompile>
     <ClCompile Include="EngineGraphicDevice.cpp" />
     <ClCompile Include="EngineOption.cpp" />
+    <ClCompile Include="EngineRenderTarget.cpp" />
+    <ClCompile Include="EngineTexture.cpp" />
     <ClCompile Include="PreCompile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
