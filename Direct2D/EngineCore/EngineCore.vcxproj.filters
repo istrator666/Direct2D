@@ -28,8 +28,11 @@
     <Filter Include="Object\Actor\GameMode">
       <UniqueIdentifier>{cb697cf6-b230-4b67-84da-d6e4af6f5e11}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Component\Rendering">
-      <UniqueIdentifier>{91a8960f-4775-447a-86bc-327ae6d674f7}</UniqueIdentifier>
+    <Filter Include="Object\Rendering">
+      <UniqueIdentifier>{4366dcb8-5f12-4144-8ddf-1ae5a0e1354d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Rendering\Component">
+      <UniqueIdentifier>{4839dd90-71bc-4e07-af8d-566f7e8183c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,14 +66,20 @@
     <ClInclude Include="Actor.h">
       <Filter>Object\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Object\Component\Rendering</Filter>
+    <ClInclude Include="ActorComponent.h">
+      <Filter>Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="SceneComponent.h">
       <Filter>Object\Component</Filter>
     </ClInclude>
-    <ClInclude Include="ActorComponent.h">
-      <Filter>Object\Component</Filter>
+    <ClInclude Include="Renderer.h">
+      <Filter>Object\Rendering\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Object\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObject.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,14 +113,20 @@
     <ClCompile Include="Actor.cpp">
       <Filter>Object\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Object\Component\Rendering</Filter>
+    <ClCompile Include="ActorComponent.cpp">
+      <Filter>Object\Component</Filter>
     </ClCompile>
     <ClCompile Include="SceneComponent.cpp">
       <Filter>Object\Component</Filter>
     </ClCompile>
-    <ClCompile Include="ActorComponent.cpp">
-      <Filter>Object\Component</Filter>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Object\Rendering\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldObject.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
