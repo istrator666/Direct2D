@@ -11,12 +11,15 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="PreCompile">
-      <UniqueIdentifier>{666fb11b-6d77-4345-97e5-4ce07c44b4bc}</UniqueIdentifier>
+      <UniqueIdentifier>{39a4d04a-7b4d-4793-86a7-b3aff5739fe3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Doc\DirectX\랜파.jpg" />
   </ItemGroup>
 </Project>

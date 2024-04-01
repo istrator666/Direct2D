@@ -5,106 +5,41 @@
       <UniqueIdentifier>{1338ed61-f14c-449a-a61b-30aeeaec59da}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object">
-      <UniqueIdentifier>{c443d7e1-9920-4668-8d90-45b1d7d0f885}</UniqueIdentifier>
+      <UniqueIdentifier>{41d6e2e8-c777-412a-b746-fe8cbe9b58fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="PreCompile">
-      <UniqueIdentifier>{ffd1ebca-2d5f-4597-aaf4-ffacb539157a}</UniqueIdentifier>
+      <UniqueIdentifier>{525b5b85-9233-4009-a5e4-b77de518e5f3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Device">
-      <UniqueIdentifier>{0d8879b4-9583-45ed-b32e-10f80b59eabe}</UniqueIdentifier>
+      <UniqueIdentifier>{f90ea477-9364-46e1-8faf-181fe9d2c2d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
-      <UniqueIdentifier>{895a504a-a4c3-4443-a514-06a6cdc6f225}</UniqueIdentifier>
+      <UniqueIdentifier>{2a6770c2-13bd-4c8f-a6e7-60112e130733}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Texture">
-      <UniqueIdentifier>{ab735a89-7807-49ab-8ee0-7c4f1710fdcb}</UniqueIdentifier>
+      <UniqueIdentifier>{51702e4f-7a00-4cb1-b837-6536b4b3606a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Actor">
-      <UniqueIdentifier>{29424f5d-9873-46b5-9774-cdca815c0cb9}</UniqueIdentifier>
+      <UniqueIdentifier>{3a49f698-c2cd-40bd-bfbd-6857d0f90da6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Component">
-      <UniqueIdentifier>{3f6efe38-5b20-407c-b99a-a8012c07ec16}</UniqueIdentifier>
+      <UniqueIdentifier>{69b6ea50-155f-4701-a49c-2c9e23de93f3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Actor\GameMode">
-      <UniqueIdentifier>{cb697cf6-b230-4b67-84da-d6e4af6f5e11}</UniqueIdentifier>
+      <UniqueIdentifier>{578f2e8f-f445-4ff4-b051-3e2a1a6496c0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Rendering">
-      <UniqueIdentifier>{4366dcb8-5f12-4144-8ddf-1ae5a0e1354d}</UniqueIdentifier>
+      <UniqueIdentifier>{b1220329-bbb5-475a-af88-6656044db475}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Rendering\Component">
-      <UniqueIdentifier>{4839dd90-71bc-4e07-af8d-566f7e8183c1}</UniqueIdentifier>
+      <UniqueIdentifier>{d6cf3cbc-9156-4119-87dc-ba04912b170b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\EngineContent">
-      <UniqueIdentifier>{5389cfce-689b-41f9-bf76-c82f98ead2cf}</UniqueIdentifier>
+      <UniqueIdentifier>{8297fd64-4ec6-41e4-9bae-de26c1c3d425}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Mesh">
-      <UniqueIdentifier>{582824a9-43cf-4fd2-9a01-4ed999f27410}</UniqueIdentifier>
+      <UniqueIdentifier>{9cec7b7c-3972-425d-ac46-19fdeced76a6}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="EngineCore.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineOption.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="PreCompile.h">
-      <Filter>PreCompile</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineGraphicDevice.h">
-      <Filter>Device</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineRenderTarget.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineTexture.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="TickObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMode.h">
-      <Filter>Object\Actor\GameMode</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Object\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="ActorComponent.h">
-      <Filter>Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneComponent.h">
-      <Filter>Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Object\Rendering\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Object\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultSceneComponent.h">
-      <Filter>Object\EngineContent</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineBuffer.h">
-      <Filter>Resources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineIndexBuffer.h">
-      <Filter>Resources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineMesh.h">
-      <Filter>Resources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineVertex.h">
-      <Filter>Resources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineVertexBuffer.h">
-      <Filter>Resources\Mesh</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -119,20 +54,14 @@
     <ClCompile Include="EngineGraphicDevice.cpp">
       <Filter>Device</Filter>
     </ClCompile>
-    <ClCompile Include="EngineRenderTarget.cpp">
+    <ClCompile Include="EngineTexture.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="EngineTexture.cpp">
+    <ClCompile Include="EngineRenderTarget.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="TickObject.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMode.cpp">
-      <Filter>Object\Actor\GameMode</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
       <Filter>Object\Actor</Filter>
@@ -146,26 +75,100 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Object\Rendering\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Object\Rendering</Filter>
+    <ClCompile Include="TickObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMode.cpp">
+      <Filter>Object\Actor\GameMode</Filter>
     </ClCompile>
     <ClCompile Include="WorldObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
     <ClCompile Include="DefaultSceneComponent.cpp">
       <Filter>Object\EngineContent</Filter>
     </ClCompile>
-    <ClCompile Include="EngineBuffer.cpp">
+    <ClCompile Include="EngineVertexBuffer.cpp">
       <Filter>Resources\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="EngineGraphicDevice_Resources.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
     <ClCompile Include="EngineIndexBuffer.cpp">
+      <Filter>Resources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineBuffer.cpp">
       <Filter>Resources\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="EngineMesh.cpp">
       <Filter>Resources\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="EngineVertexBuffer.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineCore.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineOption.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PreCompile.h">
+      <Filter>PreCompile</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineGraphicDevice.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTexture.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineRenderTarget.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorComponent.h">
+      <Filter>Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneComponent.h">
+      <Filter>Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Object\Rendering\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="TickObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMode.h">
+      <Filter>Object\Actor\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Object\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSceneComponent.h">
+      <Filter>Object\EngineContent</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineVertexBuffer.h">
       <Filter>Resources\Mesh</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="EngineVertex.h">
+      <Filter>Resources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineIndexBuffer.h">
+      <Filter>Resources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBuffer.h">
+      <Filter>Resources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineMesh.h">
+      <Filter>Resources\Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
