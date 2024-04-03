@@ -193,6 +193,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="EngineEnums.h" />
     <ClInclude Include="EngineGraphicDevice.h">
       <SubType>
       </SubType>
