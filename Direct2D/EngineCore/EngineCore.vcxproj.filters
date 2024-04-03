@@ -144,6 +144,9 @@
     <ClCompile Include="EngineShaderResources.cpp">
       <Filter>Resources\ShaderResources</Filter>
     </ClCompile>
+    <ClCompile Include="EngineSampler.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="EngineEnums.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineSampler.h">
+      <Filter>Resources\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
