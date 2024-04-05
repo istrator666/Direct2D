@@ -13,8 +13,14 @@
     <Filter Include="Level\PlayLevel">
       <UniqueIdentifier>{2c7fb2c3-98e7-4f32-91fc-addee59b1a3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level\PlayLevel\Object">
+    <Filter Include="Level\TitleLevel">
+      <UniqueIdentifier>{debdf324-f88c-46fc-af11-a4d3fe7f5374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\PlayLevel\Actor">
       <UniqueIdentifier>{67327fbd-f5b1-4f4c-97e5-42213469615d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\TitleLevel\Actor">
+      <UniqueIdentifier>{835722bb-7d23-4838-901b-415019c8f8e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +34,13 @@
       <Filter>Level\PlayLevel</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level\PlayLevel\Object</Filter>
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGameMode.h">
+      <Filter>Level\TitleLevel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +54,13 @@
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level\PlayLevel\Object</Filter>
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGameMode.cpp">
+      <Filter>Level\TitleLevel</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

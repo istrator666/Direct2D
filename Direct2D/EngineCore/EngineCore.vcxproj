@@ -221,6 +221,7 @@
     <ClInclude Include="EngineSampler.h" />
     <ClInclude Include="EngineShader.h" />
     <ClInclude Include="EngineShaderResources.h" />
+    <ClInclude Include="EngineSprite.h" />
     <ClInclude Include="EngineTexture.h">
       <SubType>
       </SubType>
@@ -251,6 +252,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="ThirdParty\DirectxTex\inc\DirectXTex.h" />
     <ClInclude Include="TickObject.h">
       <SubType>
@@ -316,6 +318,7 @@
     <ClCompile Include="EngineSampler.cpp" />
     <ClCompile Include="EngineShader.cpp" />
     <ClCompile Include="EngineShaderResources.cpp" />
+    <ClCompile Include="EngineSprite.cpp" />
     <ClCompile Include="EngineTexture.cpp">
       <SubType>
       </SubType>
@@ -350,6 +353,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="TickObject.cpp">
       <SubType>
       </SubType>
