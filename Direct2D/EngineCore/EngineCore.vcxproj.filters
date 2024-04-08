@@ -283,5 +283,11 @@
     <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.lib">
       <Filter>ThirdParty\DirectXTex\Release</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.pdb">
+      <Filter>ThirdParty\DirectXTex\Debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb">
+      <Filter>ThirdParty\DirectXTex\Release</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
