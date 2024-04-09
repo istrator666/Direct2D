@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Stage.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -39,7 +39,7 @@
     <ClInclude Include="TitleMenu.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Stage.cpp">
       <SubType>
       </SubType>
     </ClCompile>

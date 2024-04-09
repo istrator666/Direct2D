@@ -1,7 +1,6 @@
 #pragma once
 #include <Enginecore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
-#include <EngineCore/EngineRenderTarget.h>
 
 // Ό³Έν :
 class ATitleMenu : public AActor

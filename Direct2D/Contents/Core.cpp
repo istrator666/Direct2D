@@ -43,8 +43,15 @@ void UCore::Initialize()
 		// 이미 이 이름을 가진 스프라이트가 존재한다.
 		// 그러면 기존의 스프라이트 데이터는 날려버리고
 		// 자른 스프라이트 데이터 변경한다.
-		UEngineSprite::CreateCutting("IntroEndings.png", 1, 9);
-		UEngineSprite::CreateCutting("Static.png", 1, 8);
+		{
+			UEngineSprite::CreateCutting("IntroEndings.png", 1, 9);
+			UEngineSprite::CreateCutting("Static.png", 1, 8);
+		}
+
+		{
+			UEngineSprite::CreateCutting("TheOffice.png", 1, 11);
+		}
+
 	}
 
 

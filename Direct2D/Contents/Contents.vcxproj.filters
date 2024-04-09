@@ -33,7 +33,7 @@
     <ClInclude Include="PlayGameMode.h">
       <Filter>Level\PlayLevel</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Stage.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TitleMenu.h">
@@ -53,7 +53,7 @@
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Stage.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="TitleMenu.cpp">
