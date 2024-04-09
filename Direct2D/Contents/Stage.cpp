@@ -17,9 +17,9 @@ void AStage::BeginPlay()
 
 	SetActorScale3D(FVector(1280.0f, 720.0f, 100.0f));
 
-	TheOfficeRenderer->SetSprite("TheOffice.png");
-	TheOfficeRenderer->CreateAnimation("Office", "TheOffice.png", 0.5f, true, 0, 3);
-	//TheOfficeRenderer->ChangeAnimation("Office");
+	TheOfficeRenderer->SetSprite("static.png");
+	TheOfficeRenderer->CreateAnimation("Office", "static.png", 0.01f, true, 0, 7);
+	TheOfficeRenderer->ChangeAnimation("Office");
 }
 
 void AStage::Tick(float _DeltaTime)
