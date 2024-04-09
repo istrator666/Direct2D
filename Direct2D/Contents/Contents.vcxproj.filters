@@ -36,7 +36,7 @@
     <ClInclude Include="Player.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="TitleLogo.h">
+    <ClInclude Include="TitleMenu.h">
       <Filter>Level\TitleLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TitleGameMode.h">
@@ -56,7 +56,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="TitleLogo.cpp">
+    <ClCompile Include="TitleMenu.cpp">
       <Filter>Level\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp">
