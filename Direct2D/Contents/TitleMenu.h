@@ -24,5 +24,6 @@ protected:
 
 private:
 	USpriteRenderer* TitleRenderer = nullptr;
+
 };
 

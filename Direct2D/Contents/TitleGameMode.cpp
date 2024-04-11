@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "TitleGameMode.h"
 #include "TitleMenu.h"
+#include "TitleNoise.h"
 #include <EngineCore/Camera.h>
 
 ATitleGameMode::ATitleGameMode() 
@@ -18,7 +19,15 @@ void ATitleGameMode::BeginPlay()
 
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
-	GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
+
+	{
+		std::shared_ptr<ATitleMenu> TitleMenu =GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
+	}
+
+	{
+		std::shared_ptr<ATitleNoise> TitleNoise = GetWorld()->SpawnActor<ATitleNoise>("TitleNoise");
+	}
+	
 }
 
 void ATitleGameMode::Tick(float _DeltaTime)

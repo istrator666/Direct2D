@@ -4,7 +4,6 @@
 ATitleMenu::ATitleMenu() 
 {
 	TitleRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	
 }
 
 ATitleMenu::~ATitleMenu()
@@ -21,6 +20,7 @@ void ATitleMenu::BeginPlay()
 	TitleRenderer->SetSprite("IntroEndings.png", 0);
 	TitleRenderer->CreateAnimation("FaceChange", "IntroEndings.png", 0.1f, true, 0, 0);
 	//TitleRenderer->ChangeAnimation("FaceChange");
+	TitleRenderer->SetOrder(1);
 
 }
 
@@ -28,5 +28,4 @@ void ATitleMenu::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	int a = 0;
 }

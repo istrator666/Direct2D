@@ -42,6 +42,12 @@
     <ClInclude Include="TitleGameMode.h">
       <Filter>Level\TitleLevel</Filter>
     </ClInclude>
+    <ClInclude Include="TitleNoise.h">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Fan.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -61,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp">
       <Filter>Level\TitleLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleNoise.cpp">
+      <Filter>Level\TitleLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Fan.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

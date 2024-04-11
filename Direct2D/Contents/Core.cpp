@@ -15,6 +15,15 @@ UCore::~UCore()
 void UCore::Initialize()
 {
 
+	std::shared_ptr<UEngineMaterial> OverlayMaterial = UEngineMaterial::Create("OverlayMaterial");
+	if (OverlayMaterial != nullptr)
+	{
+		OverlayMaterial->SetVertexShader("ImageShader.fx");
+		OverlayMaterial->SetPixelShader("ImageShader.fx");
+		OverlayMaterial->SetRasterizer("EngineBase");
+		OverlayMaterial->SetBlend("Overlay");
+	}
+
 	{
 		// 파일의 헤더
 		UEngineDirectory Dir;
@@ -50,6 +59,7 @@ void UCore::Initialize()
 
 		{
 			UEngineSprite::CreateCutting("TheOffice.png", 1, 11);
+			UEngineSprite::CreateCutting("Fan.png", 3, 1);
 		}
 
 	}
@@ -74,7 +84,7 @@ void UCore::Initialize()
 
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("TitleLevel");
+	GEngine->ChangeLevel("PlayLevel");
 
 
 }
