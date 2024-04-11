@@ -24,5 +24,7 @@ protected:
 
 private:
 	USpriteRenderer* TheOfficeRenderer = nullptr;
+
+	void DebugMessageFunction();
 };
 
