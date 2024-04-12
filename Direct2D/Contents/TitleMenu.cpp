@@ -4,6 +4,7 @@
 ATitleMenu::ATitleMenu() 
 {
 	TitleRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	SetRoot(TitleRenderer);
 }
 
 ATitleMenu::~ATitleMenu()

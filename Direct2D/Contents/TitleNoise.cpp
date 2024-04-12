@@ -4,6 +4,7 @@
 ATitleNoise::ATitleNoise()
 {
 	NoiseRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	SetRoot(NoiseRenderer);
 }
 
 ATitleNoise::~ATitleNoise()

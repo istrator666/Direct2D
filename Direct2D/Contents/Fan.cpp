@@ -5,6 +5,7 @@
 AFan::AFan()
 {
 	FanRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	SetRoot(FanRenderer);
 }
 
 AFan::~AFan()

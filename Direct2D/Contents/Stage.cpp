@@ -6,6 +6,7 @@
 AStage::AStage() 
 {
 	TheOfficeRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	SetRoot(TheOfficeRenderer);
 }
 
 AStage::~AStage()
