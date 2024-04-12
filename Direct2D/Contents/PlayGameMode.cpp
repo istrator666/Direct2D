@@ -27,8 +27,8 @@ void APlayGameMode::BeginPlay()
 
 	{
 		std::shared_ptr<AFan> Fan = GetWorld()->SpawnActor<AFan>("Fan");
-		Fan->SetActorScale3D(FVector(150.0f, 150.0f, 100.0f));
-		Fan->AddActorLocation(FVector(300.0f, -50.0f, 100.0f));
+		Fan->AddActorScale3D(FVector(110.0f, 200.0f, 100.0f));
+		Fan->AddActorLocation(FVector(38.0f, -40.0f, 100.0f));
 	}
 
 	

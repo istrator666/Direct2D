@@ -7,3 +7,8 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/EngineShaderResources.h>
 #include <EngineCore/EngineCore.h>
+
+#include <EngineCore/Collision.h>
+#include <EngineCore/Renderer.h>
+#include <EngineCore/SpriteRenderer.h>
+#include <EngineCore/EngineDebugMsgWindow.h>
