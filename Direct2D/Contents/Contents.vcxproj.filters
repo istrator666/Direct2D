@@ -48,6 +48,12 @@
     <ClInclude Include="GameDay.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="StageUI.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="StageCCTV.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -72,6 +78,12 @@
       <Filter>Level\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="GameDay.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="StageUI.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="StageCCTV.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>

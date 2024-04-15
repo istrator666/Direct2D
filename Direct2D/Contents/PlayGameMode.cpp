@@ -2,6 +2,8 @@
 #include "PlayGameMode.h"
 #include "Stage.h"
 #include "GameDay.h"
+#include "StageUI.h"
+#include "StageCCTV.h"
 #include <EngineCore/Camera.h>
 
 
@@ -25,9 +27,16 @@ void APlayGameMode::BeginPlay()
 	}
 
 	{
-		std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
+		//std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 	}
 
+	{
+		std::shared_ptr<AStageUI> StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
+	}
+
+	{
+		std::shared_ptr<AStageCCTV> StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
+	}
 	
 }
 
