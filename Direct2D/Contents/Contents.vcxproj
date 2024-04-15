@@ -41,7 +41,7 @@
     </ClInclude>
     <ClInclude Include="TitleGameMode.h" />
     <ClInclude Include="TitleMenu.h" />
-    <ClInclude Include="TitleNoise.h">
+    <ClInclude Include="TitleSelect.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -73,7 +73,7 @@
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp" />
     <ClCompile Include="TitleMenu.cpp" />
-    <ClCompile Include="TitleNoise.cpp">
+    <ClCompile Include="TitleSelect.cpp">
       <SubType>
       </SubType>
     </ClCompile>

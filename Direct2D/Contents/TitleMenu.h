@@ -23,7 +23,11 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* TitleRenderer = nullptr;
+	USpriteRenderer* TitleBackgroundRenderer = nullptr;
+	USpriteRenderer* NoiseRenderer = nullptr;
+	USpriteRenderer* CameraEffectsRenderer = nullptr;
+	USpriteRenderer* TitleNameRenderer = nullptr;
 
+	void DebugMessageFunction();
 };
 

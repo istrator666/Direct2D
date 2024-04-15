@@ -55,6 +55,7 @@ void UCore::Initialize()
 		{
 			UEngineSprite::CreateCutting("IntroEndings.png", 1, 9);
 			UEngineSprite::CreateCutting("Static.png", 1, 8);
+			UEngineSprite::CreateCutting("CameraEffects.png", 1, 16);
 		}
 
 		{
@@ -84,7 +85,7 @@ void UCore::Initialize()
 
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("PlayLevel");
+	GEngine->ChangeLevel("TitleLevel");
 
 
 }
