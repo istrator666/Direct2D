@@ -10,6 +10,8 @@ ATitleSelect::ATitleSelect()
 	TitleSelectRenderer->AddPosition(FVector(-500.0f, -70.0f, 100.0f));
 
 	SetRoot(TitleSelectRenderer);
+
+	InputOn();
 }
 
 ATitleSelect::~ATitleSelect()

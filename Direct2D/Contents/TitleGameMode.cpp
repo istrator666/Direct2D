@@ -25,7 +25,7 @@ void ATitleGameMode::BeginPlay()
 	}
 
 	{
-		std::shared_ptr<ATitleSelect> TitleNoise = GetWorld()->SpawnActor<ATitleSelect>("TitleSelect");
+		std::shared_ptr<ATitleSelect> TitleSelect = GetWorld()->SpawnActor<ATitleSelect>("TitleSelect");
 	}
 }
 

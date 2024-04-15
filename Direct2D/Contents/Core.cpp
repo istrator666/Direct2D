@@ -63,6 +63,10 @@ void UCore::Initialize()
 			UEngineSprite::CreateCutting("Fan.png", 3, 1);
 		}
 
+		{
+			UEngineSprite::CreateCutting("Day.png", 1, 6);
+		}
+
 	}
 
 
@@ -85,7 +89,7 @@ void UCore::Initialize()
 
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("TitleLevel");
+	GEngine->ChangeLevel("PlayLevel");
 
 
 }

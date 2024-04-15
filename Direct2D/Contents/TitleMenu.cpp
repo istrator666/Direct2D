@@ -13,6 +13,7 @@ ATitleMenu::ATitleMenu()
 	TitleBackgroundRenderer->SetSprite("IntroEndings.png", 0);
 	//TitleBackgroundRenderer->CreateAnimation("FaceChange", "IntroEndings.png", 0.1f, true, 0, 0);
 	//TitleBackgroundRenderer->ChangeAnimation("FaceChange");
+	TitleBackgroundRenderer->SetOrder(1);
 
 	NoiseRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	NoiseRenderer->SetupAttachment(TitleRoot);
@@ -20,6 +21,7 @@ ATitleMenu::ATitleMenu()
 	NoiseRenderer->SetMaterial("OverlayMaterial");
 	NoiseRenderer->CreateAnimation("Noise", "static.png", 0.1f, true, 0, 7);
 	NoiseRenderer->ChangeAnimation("Noise");
+	NoiseRenderer->SetOrder(2);
 
 
 	CameraEffectsRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
@@ -28,6 +30,7 @@ ATitleMenu::ATitleMenu()
 	CameraEffectsRenderer->SetMaterial("OverlayMaterial");
 	CameraEffectsRenderer->CreateAnimation("CameraEffects", "CameraEffects.png", 0.1f, true, 0, 15);
 	CameraEffectsRenderer->ChangeAnimation("CameraEffects");
+	//CameraEffectsRenderer->SetOrder(2);
 
 	TitleNameRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	TitleNameRenderer->SetupAttachment(TitleRoot);
@@ -35,7 +38,7 @@ ATitleMenu::ATitleMenu()
 	TitleNameRenderer->SetAutoSize(1.0f, true);
 	TitleNameRenderer->SetSprite("GameTitle.png", 0);
 	TitleNameRenderer->AddPosition(FVector(-350.0f, -20.0f, 100.0f));
-
+	TitleNameRenderer->SetOrder(3);
 
 
 	SetRoot(TitleRoot);
@@ -51,10 +54,6 @@ void ATitleMenu::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TitleBackgroundRenderer->SetOrder(1);
-	NoiseRenderer->SetOrder(2);
-	//CameraEffectsRenderer->SetOrder(2);
-	TitleNameRenderer->SetOrder(3);
 
 }
 

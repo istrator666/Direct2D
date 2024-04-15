@@ -1,7 +1,7 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
 #include "Stage.h"
-#include "Fan.h"
+#include "GameDay.h"
 #include <EngineCore/Camera.h>
 
 
@@ -22,13 +22,10 @@ void APlayGameMode::BeginPlay()
 
 	{
 		std::shared_ptr<AStage> Lobby = GetWorld()->SpawnActor<AStage>("Stage");
-		Lobby->SetActorScale3D(FVector(1280.0f, 720.0f, 100.0f));
 	}
 
 	{
-		std::shared_ptr<AFan> Fan = GetWorld()->SpawnActor<AFan>("Fan");
-		Fan->AddActorScale3D(FVector(110.0f, 200.0f, 100.0f));
-		Fan->AddActorLocation(FVector(38.5f, -41.0f, 100.0f));
+		std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 	}
 
 	

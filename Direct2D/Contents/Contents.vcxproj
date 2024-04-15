@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fan.h">
+    <ClInclude Include="GameDay.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -47,7 +47,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fan.cpp">
+    <ClCompile Include="GameDay.cpp">
       <SubType>
       </SubType>
     </ClCompile>
