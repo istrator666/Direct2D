@@ -30,9 +30,12 @@ private:
 	USpriteRenderer* PoewleftRenderer = nullptr;
 	USpriteRenderer* PoewleftCheckRenderer01 = nullptr;
 	USpriteRenderer* PoewleftCheckRenderer02 = nullptr;
+	USpriteRenderer* PersentRenderer = nullptr;
 
 	USpriteRenderer* UsageRenderer = nullptr;
-	USpriteRenderer* UsageCheckRenderer = nullptr;
+	USpriteRenderer* PowerMeterRenderer = nullptr;
+
+	USpriteRenderer* ChangeBarRenderer = nullptr;
 
 };
 
