@@ -24,6 +24,14 @@ AStage::AStage()
 	FanRenderer->AddPosition(FVector(45.0f, -41.0f, 0.0f));
 	FanRenderer->SetOrder(2);
 
+	//TestRenderer = CreateDefaultSubObject<URenderer>("Render");
+	//TestRenderer->SetupAttachment(StageRoot);
+	//TestRenderer->SetMesh("Rect");
+	//TestRenderer->SetMaterial("FisheyeMaterial");
+	//TestRenderer->Resources->SettingConstantBuffer("ScreenTexture", TestRenderer);
+	//TestRenderer->SetScale(FVector(1500.0f, 720.0f, 100.0f));
+	//TestRenderer->SetOrder(1);
+
 	SetRoot(StageRoot);
 }
 
@@ -34,8 +42,6 @@ AStage::~AStage()
 void AStage::BeginPlay()
 {
 	Super::BeginPlay();
-
-
 
 }
 

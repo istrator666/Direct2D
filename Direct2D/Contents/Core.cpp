@@ -3,6 +3,7 @@
 #include "PlayGameMode.h"
 #include "TitleGameMode.h"
 #include <EngineCore/EngineSprite.h>
+#include <EngineCore/EnginePixelShader.h>
 
 UCore::UCore()
 {
@@ -14,15 +15,33 @@ UCore::~UCore()
 
 void UCore::Initialize()
 {
-
-	std::shared_ptr<UEngineMaterial> OverlayMaterial = UEngineMaterial::Create("OverlayMaterial");
-	if (OverlayMaterial != nullptr)
 	{
-		OverlayMaterial->SetVertexShader("ImageShader.fx");
-		OverlayMaterial->SetPixelShader("ImageShader.fx");
-		OverlayMaterial->SetRasterizer("EngineBase");
-		OverlayMaterial->SetBlend("Overlay");
+		UEngineDirectory Dir;
+		Dir.MoveToSearchChild("ContentsShader");
+		UEngineShader::AutoCompile(Dir);
 	}
+
+	// 머티리얼 생성
+	{
+		std::shared_ptr<UEngineMaterial> OverlayMaterial = UEngineMaterial::Create("OverlayMaterial");
+		if (OverlayMaterial != nullptr)
+		{
+			OverlayMaterial->SetVertexShader("ImageShader.fx");
+			OverlayMaterial->SetPixelShader("ImageShader.fx");
+			OverlayMaterial->SetRasterizer("EngineBase");
+			OverlayMaterial->SetBlend("Overlay");
+		}
+
+		std::shared_ptr<UEngineMaterial> FisheyeMaterial = UEngineMaterial::Create("FisheyeMaterial");
+		if (FisheyeMaterial != nullptr)
+		{
+			FisheyeMaterial->SetVertexShader("Fisheye.fx");
+			FisheyeMaterial->SetPixelShader("Fisheye.fx");
+			FisheyeMaterial->SetRasterizer("EngineBase");
+			FisheyeMaterial->SetBlend("EngineBase");
+		}
+	}
+
 
 	{
 		UEngineDirectory Dir;
