@@ -76,11 +76,14 @@
     <Filter Include="Object\Component\Collision">
       <UniqueIdentifier>{44a10ffd-530a-4b58-afa0-2d686a0016b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Component\Component">
-      <UniqueIdentifier>{d6cf3cbc-9156-4119-87dc-ba04912b170b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Debug">
       <UniqueIdentifier>{77568c8f-9db4-4967-8625-ef76436f74c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\Rendering">
+      <UniqueIdentifier>{9da74ae2-b6b6-40ea-8786-34ef494fc066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\Rendering\Contents">
+      <UniqueIdentifier>{4ebc1840-b9e4-40d5-80d8-bfffff4cc638}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -113,9 +116,6 @@
     </ClCompile>
     <ClCompile Include="SceneComponent.cpp">
       <Filter>Object\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Object\Component\Component</Filter>
     </ClCompile>
     <ClCompile Include="TickObject.cpp">
       <Filter>Object</Filter>
@@ -180,9 +180,6 @@
     <ClCompile Include="EngineSampler.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>Object\Component\Component</Filter>
-    </ClCompile>
     <ClCompile Include="EngineSprite.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
@@ -228,6 +225,18 @@
     <ClCompile Include="EngineDebug3D.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Object\Component\Rendering\Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="TileRenderer.cpp">
+      <Filter>Object\Component\Rendering\Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineStruct.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -259,9 +268,6 @@
     </ClInclude>
     <ClInclude Include="SceneComponent.h">
       <Filter>Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Object\Component\Component</Filter>
     </ClInclude>
     <ClInclude Include="TickObject.h">
       <Filter>Object</Filter>
@@ -329,9 +335,6 @@
     <ClInclude Include="ThirdParty\DirectxTex\inc\DirectXTex.h">
       <Filter>ThirdParty\DirectXTex\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteRenderer.h">
-      <Filter>Object\Component\Component</Filter>
-    </ClInclude>
     <ClInclude Include="EngineSprite.h">
       <Filter>Resources\Texture</Filter>
     </ClInclude>
@@ -382,6 +385,18 @@
     </ClInclude>
     <ClInclude Include="EngineDebug3D.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Object\Component\Rendering\Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="TileRenderer.h">
+      <Filter>Object\Component\Rendering\Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStruct.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
