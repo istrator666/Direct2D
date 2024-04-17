@@ -3,20 +3,20 @@
 #include <EngineCore/SpriteRenderer.h>
 
 // Ό³Έν :
-class AStage : public AActor
+class ALobby : public AActor
 {
 	GENERATED_BODY(AActor)
 
 public:
 	// constrcuter destructer
-	AStage();
-	~AStage();
+	ALobby();
+	~ALobby();
 
 	// delete Function
-	AStage(const AStage& _Other) = delete;
-	AStage(AStage&& _Other) noexcept = delete;
-	AStage& operator=(const AStage& _Other) = delete;
-	AStage& operator=(AStage&& _Other) noexcept = delete;
+	ALobby(const ALobby& _Other) = delete;
+	ALobby(ALobby&& _Other) noexcept = delete;
+	ALobby& operator=(const ALobby& _Other) = delete;
+	ALobby& operator=(ALobby&& _Other) noexcept = delete;
 
 protected:
 	void BeginPlay() override;

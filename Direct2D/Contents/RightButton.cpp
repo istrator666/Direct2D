@@ -1,8 +1,9 @@
 #include "PreCompile.h"
 #include "RightButton.h"
+#include "ContentsEnum.h"
+
 #include <EngineCore/Renderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include "ContentsEnum.h"
 
 ARightButton::ARightButton()
 {
@@ -12,7 +13,7 @@ ARightButton::ARightButton()
 	RightButtonRenerer->SetupAttachment(RightButtonRoot);
 	RightButtonRenerer->SetSprite("RightButton", 0);
 	RightButtonRenerer->SetAutoSize(1.0f, true);
-	RightButtonRenerer->AddPosition(FVector(400.f, -100.0f, 100.0f));
+	RightButtonRenerer->AddPosition(FVector(400.f, -100.0f, 0.0f));
 	RightButtonRenerer->SetOrder(EOrderType::Actor);
 
 	SetRoot(RightButtonRoot);

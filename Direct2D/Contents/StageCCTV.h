@@ -22,6 +22,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	USpriteRenderer* CCTVRenderer = nullptr;
 
 };
 

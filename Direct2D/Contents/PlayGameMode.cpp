@@ -1,11 +1,13 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
-#include "Stage.h"
+#include "Lobby.h"
 #include "GameDay.h"
 #include "StageUI.h"
 #include "StageCCTV.h"
 #include "LeftButton.h"
 #include "RightButton.h"
+#include "MouseCursor.h"
+
 #include <EngineCore/Camera.h>
 
 
@@ -25,12 +27,13 @@ void APlayGameMode::BeginPlay()
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 
 	{
-		std::shared_ptr<AStage> Lobby = GetWorld()->SpawnActor<AStage>("Stage");
+		std::shared_ptr<ALobby> Lobby = GetWorld()->SpawnActor<ALobby>("Lobby");
 		//std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 		std::shared_ptr<AStageUI> StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
 		std::shared_ptr<AStageCCTV> StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
 		std::shared_ptr<ALeftButton> LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
 		std::shared_ptr<ARightButton> RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
+		std::shared_ptr<AMouseCursor> MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
 	}
 	
 }

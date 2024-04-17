@@ -1,8 +1,9 @@
 #include "PreCompile.h"
 #include "GameDay.h"
+#include "ContentsEnum.h"
+
 #include <EngineCore/Renderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include "ContentsEnum.h"
 
 AGameDay::AGameDay()
 {

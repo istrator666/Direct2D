@@ -31,11 +31,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MouseCursor.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="RightButton.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Stage.h">
+    <ClInclude Include="Lobby.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -75,11 +79,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MouseCursor.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="RightButton.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Stage.cpp">
+    <ClCompile Include="Lobby.cpp">
       <SubType>
       </SubType>
     </ClCompile>

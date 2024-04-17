@@ -36,6 +36,7 @@ private:
 	USpriteRenderer* PowerMeterRenderer = nullptr;
 
 	USpriteRenderer* ChangeBarRenderer = nullptr;
+	UCollision* ColChangeBar = nullptr;
 
 };
 

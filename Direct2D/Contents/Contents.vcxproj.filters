@@ -36,7 +36,7 @@
     <ClInclude Include="PlayGameMode.h">
       <Filter>Level\PlayLevel</Filter>
     </ClInclude>
-    <ClInclude Include="Stage.h">
+    <ClInclude Include="Lobby.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TitleMenu.h">
@@ -66,6 +66,9 @@
     <ClInclude Include="RightButton.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="MouseCursor.h">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -77,7 +80,7 @@
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="Stage.cpp">
+    <ClCompile Include="Lobby.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="TitleMenu.cpp">
@@ -102,6 +105,9 @@
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="RightButton.cpp">
+      <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseCursor.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>

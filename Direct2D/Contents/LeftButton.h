@@ -23,6 +23,8 @@ protected:
 
 private:
 	USpriteRenderer* LeftButtonRenerer = nullptr;
+	UCollision* ColLeftDoor = nullptr;
+	UCollision* ColLeftLight = nullptr;
 
 };
 

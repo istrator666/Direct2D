@@ -1,11 +1,12 @@
 #include "PreCompile.h"
-#include "Stage.h"
+#include "Lobby.h"
+#include "ContentsEnum.h"
+
 #include <EngineCore/Renderer.h>
 #include <EngineCore/EngineDebugMsgWindow.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include "ContentsEnum.h"
 
-AStage::AStage() 
+ALobby::ALobby()
 {
 	UDefaultSceneComponent* StageRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 
@@ -29,17 +30,17 @@ AStage::AStage()
 	SetRoot(StageRoot);
 }
 
-AStage::~AStage()
+ALobby::~ALobby()
 {
 }
 
-void AStage::BeginPlay()
+void ALobby::BeginPlay()
 {
 	Super::BeginPlay();
 
 }
 
-void AStage::Tick(float _DeltaTime)
+void ALobby::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
@@ -47,7 +48,7 @@ void AStage::Tick(float _DeltaTime)
 
 }
 
-void AStage::DebugMessageFunction()
+void ALobby::DebugMessageFunction()
 {
 	{
 		std::string Msg = std::format("PlayerPos : {}\n", GetActorLocation().ToString());
