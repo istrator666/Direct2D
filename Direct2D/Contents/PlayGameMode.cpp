@@ -4,6 +4,8 @@
 #include "GameDay.h"
 #include "StageUI.h"
 #include "StageCCTV.h"
+#include "LeftButton.h"
+#include "RightButton.h"
 #include <EngineCore/Camera.h>
 
 
@@ -24,18 +26,11 @@ void APlayGameMode::BeginPlay()
 
 	{
 		std::shared_ptr<AStage> Lobby = GetWorld()->SpawnActor<AStage>("Stage");
-	}
-
-	{
 		//std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
-	}
-
-	{
 		std::shared_ptr<AStageUI> StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
-	}
-
-	{
 		std::shared_ptr<AStageCCTV> StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
+		std::shared_ptr<ALeftButton> LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
+		std::shared_ptr<ARightButton> RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
 	}
 	
 }

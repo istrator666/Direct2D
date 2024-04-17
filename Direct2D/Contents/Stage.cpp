@@ -3,6 +3,7 @@
 #include <EngineCore/Renderer.h>
 #include <EngineCore/EngineDebugMsgWindow.h>
 #include <EngineCore/DefaultSceneComponent.h>
+#include "ContentsEnum.h"
 
 AStage::AStage() 
 {
@@ -12,7 +13,7 @@ AStage::AStage()
 	TheOfficeRenderer->SetupAttachment(StageRoot);
 	TheOfficeRenderer->SetSprite("TheOffice.png");
 	TheOfficeRenderer->SetScale(FVector(1500.0f, 720.0f, 100.0f));
-	TheOfficeRenderer->SetOrder(1);
+	TheOfficeRenderer->SetOrder(EOrderType::Background);
 
 	FanRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	FanRenderer->SetupAttachment(StageRoot);
@@ -22,15 +23,8 @@ AStage::AStage()
 	FanRenderer->SetScale(FVector(130.0f, 200.0f, 100.0f));
 	//FanRenderer->SetScale(FVector(110.0f, 200.0f, 100.0f));
 	FanRenderer->AddPosition(FVector(45.0f, -41.0f, 0.0f));
-	FanRenderer->SetOrder(2);
+	FanRenderer->SetOrder(EOrderType::Actor);
 
-	//TestRenderer = CreateDefaultSubObject<URenderer>("Render");
-	//TestRenderer->SetupAttachment(StageRoot);
-	//TestRenderer->SetMesh("Rect");
-	//TestRenderer->SetMaterial("FisheyeMaterial");
-	//TestRenderer->Resources->SettingConstantBuffer("ScreenTexture", TestRenderer);
-	//TestRenderer->SetScale(FVector(1500.0f, 720.0f, 100.0f));
-	//TestRenderer->SetOrder(1);
 
 	SetRoot(StageRoot);
 }

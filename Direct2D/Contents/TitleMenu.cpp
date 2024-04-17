@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "TitleMenu.h"
 #include <EngineCore/DefaultSceneComponent.h>
+#include "ContentsEnum.h"
 
 ATitleMenu::ATitleMenu() 
 {
@@ -13,7 +14,7 @@ ATitleMenu::ATitleMenu()
 	TitleBackgroundRenderer->SetSprite("IntroEndings.png", 0);
 	//TitleBackgroundRenderer->CreateAnimation("FaceChange", "IntroEndings.png", 0.1f, true, 0, 0);
 	//TitleBackgroundRenderer->ChangeAnimation("FaceChange");
-	TitleBackgroundRenderer->SetOrder(1);
+	TitleBackgroundRenderer->SetOrder(EOrderType::Background);
 
 	NoiseRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	NoiseRenderer->SetupAttachment(TitleRoot);
@@ -21,7 +22,7 @@ ATitleMenu::ATitleMenu()
 	NoiseRenderer->SetMaterial("OverlayMaterial");
 	NoiseRenderer->CreateAnimation("Noise", "static.png", 0.1f, true, 0, 7);
 	NoiseRenderer->ChangeAnimation("Noise");
-	NoiseRenderer->SetOrder(2);
+	NoiseRenderer->SetOrder(EOrderType::Overlay);
 
 
 	CameraEffectsRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
@@ -38,7 +39,7 @@ ATitleMenu::ATitleMenu()
 	TitleNameRenderer->SetAutoSize(1.0f, true);
 	TitleNameRenderer->SetSprite("GameTitle.png", 0);
 	TitleNameRenderer->AddPosition(FVector(-350.0f, -20.0f, 100.0f));
-	TitleNameRenderer->SetOrder(3);
+	TitleNameRenderer->SetOrder(EOrderType::Overlay);
 
 
 	SetRoot(TitleRoot);

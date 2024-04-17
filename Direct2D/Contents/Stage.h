@@ -26,8 +26,6 @@ private:
 	USpriteRenderer* TheOfficeRenderer = nullptr;
 	USpriteRenderer* FanRenderer = nullptr;
 
-	URenderer* TestRenderer = nullptr;
-
 	void DebugMessageFunction();
 };
 

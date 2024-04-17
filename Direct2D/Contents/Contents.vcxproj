@@ -19,7 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ContentsEnum.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GameDay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="LeftButton.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="RightButton.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -56,6 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameDay.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="LeftButton.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="RightButton.cpp">
       <SubType>
       </SubType>
     </ClCompile>
