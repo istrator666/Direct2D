@@ -240,6 +240,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Image.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
     <ClInclude Include="imgui_impl_dx11.h" />
@@ -281,6 +282,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="TileRenderer.h" />
+    <ClInclude Include="Widget.h" />
     <ClInclude Include="WorldObject.h">
       <SubType>
       </SubType>
@@ -355,6 +357,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
@@ -398,6 +401,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="TileRenderer.cpp" />
+    <ClCompile Include="Widget.cpp" />
     <ClCompile Include="WorldObject.cpp">
       <SubType>
       </SubType>
