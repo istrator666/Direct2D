@@ -39,8 +39,8 @@ void AMouseCursor::Tick(float _DeltaTime)
 
 			if ("StageUI" == ObjectType)
 			{
+				// SetRendererActive();
 				int a = 0;
-
 			}
 		}
 	);

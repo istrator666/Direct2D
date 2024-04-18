@@ -67,10 +67,15 @@ void UCore::Initialize()
 			UEngineSprite::CreateCutting("CameraEffects.png", 1, 16);
 		}
 
-		// Stage 이미지 커팅
+		// Lobby 이미지 커팅
 		{
 			UEngineSprite::CreateCutting("TheOffice.png", 1, 11);
 			UEngineSprite::CreateCutting("Fan.png", 3, 1);
+		}
+
+		// CCTV 이미지 커팅
+		{
+			UEngineSprite::CreateCutting("Camera.png", 4, 3);
 		}
 
 		// GameDay 이미지 커팅
