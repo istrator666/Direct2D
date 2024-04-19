@@ -25,6 +25,9 @@
     <Filter Include="Config">
       <UniqueIdentifier>{a6042488-1ab9-4698-8a26-0c048e436fea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{48e578c5-d9b0-41f3-b6d0-4431b2e00bd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="MouseCursor.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="FisheyeEffect.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -109,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="MouseCursor.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="FisheyeEffect.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

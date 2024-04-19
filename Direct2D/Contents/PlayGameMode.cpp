@@ -7,6 +7,7 @@
 #include "LeftButton.h"
 #include "RightButton.h"
 #include "MouseCursor.h"
+#include "FisheyeEffect.h"
 
 #include <EngineCore/Camera.h>
 #include <EngineCore/Image.h>
@@ -27,7 +28,10 @@ void APlayGameMode::BeginPlay()
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 	SetActor();
 	SetUI();
-	CameraMove();
+	//CameraMove();
+
+	GetWorld()->GetLastTarget()->AddEffect<UFisheyeEffect>();
+
 }
 
 void APlayGameMode::Tick(float _DeltaTime)

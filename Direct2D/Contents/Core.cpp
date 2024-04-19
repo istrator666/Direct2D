@@ -37,8 +37,6 @@ void UCore::Initialize()
 		{
 			FisheyeMaterial->SetVertexShader("Fisheye.fx");
 			FisheyeMaterial->SetPixelShader("Fisheye.fx");
-			FisheyeMaterial->SetRasterizer("EngineBase");
-			FisheyeMaterial->SetBlend("EngineBase");
 		}
 	}
 
