@@ -18,9 +18,17 @@ ALeftButton::ALeftButton()
 
 	ColLeftDoor = CreateDefaultSubObject<UCollision>("Collision");
 	ColLeftDoor->SetupAttachment(LeftButtonRoot);
-	ColLeftDoor->SetScale(FVector{ 50,50 });
+	ColLeftDoor->SetScale(FVector{ 50,75 });
+	ColLeftDoor->AddPosition(FVector(-400.f, -50.0f, 0.0f));
 	ColLeftDoor->SetCollisionGroup(EColType::LeftDoor);
 	ColLeftDoor->SetCollisionType(ECollisionType::Rect);
+
+	ColLeftLight = CreateDefaultSubObject<UCollision>("Collision");
+	ColLeftLight->SetupAttachment(LeftButtonRoot);
+	ColLeftLight->SetScale(FVector{ 50,75 });
+	ColLeftLight->AddPosition(FVector(-400.f, -150.0f, 0.0f));
+	ColLeftLight->SetCollisionGroup(EColType::LeftDoor);
+	ColLeftLight->SetCollisionType(ECollisionType::Rect);
 
 	SetRoot(LeftButtonRoot);
 }

@@ -24,13 +24,13 @@ void APlayGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+	Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 	SetActor();
 	SetUI();
-	//CameraMove();
+	CameraMove();
 
-	GetWorld()->GetLastTarget()->AddEffect<UFisheyeEffect>();
+	GetWorld()->GetMainCamera()->GetCameraTarget()->AddEffect<UFisheyeEffect>();
 
 }
 
@@ -178,27 +178,60 @@ void APlayGameMode::CameraMove()
 {
 	UImage* FastLeftMoveArea = CreateWidget<UImage>(GetWorld(), "FastLeftMoveArea");
 	FastLeftMoveArea->AddToViewPort(1);
-	FastLeftMoveArea->SetSprite("Test.png");
-	FastLeftMoveArea->SetScale(FVector( 300, 720));
-	FastLeftMoveArea->SetPosition({ -490, 0 });
+	FastLeftMoveArea->SetSprite("Transparency.png");
+	FastLeftMoveArea->SetScale(FVector(250, 720));
+	FastLeftMoveArea->SetPosition({ -520, 0 });
 
-	//UImage* SlowLeftMoveArea = CreateWidget<UImage>(GetWorld(), "SlowLeftMoveArea");
-	//SlowLeftMoveArea->AddToViewPort(1);
-	//SlowLeftMoveArea->SetSprite("Test.png");
-	//SlowLeftMoveArea->SetAutoSize(1.0f, true);
-	//SlowLeftMoveArea->SetPosition({ 0, -310 });
+	FastLeftMoveArea->SetHover([=]()
+		{
+			if (-110.0f <= Camera->GetActorLocation().X)
+			{
+				Camera->AddActorLocation(FVector(-0.2f, 0.0f, 0.0f));
+			}
+		});
 
-	//UImage* FastRightMoveArea = CreateWidget<UImage>(GetWorld(), "FastRightMoveArea");
-	//FastRightMoveArea->AddToViewPort(1);
-	//FastRightMoveArea->SetSprite("Test.png");
-	//FastRightMoveArea->SetAutoSize(1.0f, true);
-	//FastRightMoveArea->SetPosition({ 0, -310 });
+	UImage* SlowLeftMoveArea = CreateWidget<UImage>(GetWorld(), "SlowLeftMoveArea");
+	SlowLeftMoveArea->AddToViewPort(1);
+	SlowLeftMoveArea->SetSprite("Transparency.png");
+	SlowLeftMoveArea->SetScale(FVector(250, 720));
+	SlowLeftMoveArea->SetPosition({ -300, 0 });
+	
+	SlowLeftMoveArea->SetHover([=]()
+		{
+			if (-110.0f <= Camera->GetActorLocation().X)
+			{
+				Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
+			}
+		});
 
-	//UImage* SlowRightMoveArea = CreateWidget<UImage>(GetWorld(), "SlowRightMoveArea");
-	//SlowRightMoveArea->AddToViewPort(1);
-	//SlowRightMoveArea->SetSprite("Test.png");
-	//SlowRightMoveArea->SetAutoSize(1.0f, true);
-	//SlowRightMoveArea->SetPosition({ 0, -310 });
+	UImage* FastRightMoveArea = CreateWidget<UImage>(GetWorld(), "FastRightMoveArea");
+	FastRightMoveArea->AddToViewPort(1);
+	FastRightMoveArea->SetSprite("Transparency.png");
+	FastRightMoveArea->SetScale(FVector(250, 720));
+	FastRightMoveArea->SetPosition({ 520, 0 });
+
+	FastRightMoveArea->SetHover([=]()
+		{
+			if (110.0f >= Camera->GetActorLocation().X)
+			{
+				Camera->AddActorLocation(FVector(0.2f, 0.0f, 0.0f));
+			}
+		});
+
+	UImage* SlowRightMoveArea = CreateWidget<UImage>(GetWorld(), "SlowRightMoveArea");
+	SlowRightMoveArea->AddToViewPort(1);
+	SlowRightMoveArea->SetSprite("Transparency.png");
+	SlowRightMoveArea->SetScale(FVector(250, 720));
+	SlowRightMoveArea->SetPosition({ 300, 0 });
+
+	SlowRightMoveArea->SetHover([=]()
+		{
+			if (110.0f >= Camera->GetActorLocation().X)
+			{
+				Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
+			}
+		});
+
 
 
 }

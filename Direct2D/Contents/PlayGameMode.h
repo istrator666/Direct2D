@@ -22,9 +22,13 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	std::shared_ptr<UCamera> Camera = nullptr;
+
 	void SetActor();
 	void SetUI();
 	void CameraMove();
+
+	bool IsCCTV = false;
 
 };
 
