@@ -22,6 +22,9 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	void SetActor();
+	void SetUI();
+	void CameraMove();
 
 };
 

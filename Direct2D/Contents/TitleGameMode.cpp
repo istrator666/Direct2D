@@ -19,14 +19,9 @@ void ATitleGameMode::BeginPlay()
 
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+	SetActor();
+	SetUI();
 
-	{
-		std::shared_ptr<ATitleMenu> TitleMenu =GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
-	}
-
-	{
-		std::shared_ptr<ATitleSelect> TitleSelect = GetWorld()->SpawnActor<ATitleSelect>("TitleSelect");
-	}
 }
 
 void ATitleGameMode::Tick(float _DeltaTime)
@@ -47,5 +42,16 @@ void ATitleGameMode::LevelEnd(ULevel* _NextLevel)
 void ATitleGameMode::LevelStart(ULevel* _PrevLevel)
 {
 	Super::LevelStart(_PrevLevel);
+
+}
+
+void ATitleGameMode::SetActor()
+{
+	std::shared_ptr<ATitleMenu> TitleMenu = GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
+	std::shared_ptr<ATitleSelect> TitleSelect = GetWorld()->SpawnActor<ATitleSelect>("TitleSelect");
+}
+
+void ATitleGameMode::SetUI()
+{
 
 }

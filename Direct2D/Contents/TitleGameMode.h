@@ -25,6 +25,8 @@ protected:
 	void LevelStart(ULevel* _PrevLevel);
 
 private:
+	void SetActor();
+	void SetUI();
 
 };
 
