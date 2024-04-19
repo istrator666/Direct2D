@@ -13,6 +13,9 @@
     <Filter Include="Target">
       <UniqueIdentifier>{8517f875-1a3a-410f-8db7-6af0d0bfede5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{bd55aef4-2d56-4ee2-904c-2ff364e39481}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="ImageShader.fx">
@@ -26,6 +29,9 @@
     </FxCompile>
     <FxCompile Include="TargetCopyShader.fx">
       <Filter>Target</Filter>
+    </FxCompile>
+    <FxCompile Include="BlurEffectShader.fx">
+      <Filter>Effect</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
