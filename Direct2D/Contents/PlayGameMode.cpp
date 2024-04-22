@@ -28,17 +28,16 @@ void APlayGameMode::BeginPlay()
 	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 	SetActor();
 	SetUI();
-	CameraMove();
 
 	GetWorld()->GetMainCamera()->GetCameraTarget()->AddEffect<UFisheyeEffect>();
-
 }
 
 void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-
-
+	
+	CCTVActive();
+	CameraMove();
 }
 
 void APlayGameMode::SetActor()
@@ -134,104 +133,138 @@ void APlayGameMode::SetUI()
 
 	// CCTV or 로비화면 전환 Bar
 	{
-		UImage* ChangeBarRenderer = CreateWidget<UImage>(GetWorld(), "ChangeBarRenderer");
+		ChangeBarRenderer = CreateWidget<UImage>(GetWorld(), "ChangeBarRenderer");
 		ChangeBarRenderer->AddToViewPort(1);
 		ChangeBarRenderer->SetSprite("ChangeBar.png");
 		ChangeBarRenderer->SetAutoSize(1.0f, true);
 		ChangeBarRenderer->SetPosition({ -75, -310 });
 
-		UImage* ChangeCCTVRenderer = CreateWidget<UImage>(GetWorld(), "ChangeCCTVRenderer");
-		ChangeCCTVRenderer->AddToViewPort(0);
-		ChangeCCTVRenderer->SetSprite("Camera.png", 10);
-		ChangeCCTVRenderer->SetAutoSize(1.0f, true);
-		//ChangeCCTVRenderer->SetPosition({ -75, -310 });
-		ChangeCCTVRenderer->SetActive(false);
+		ChangeCCTVAnimation = CreateWidget<UImage>(GetWorld(), "ChangeCCTVAnimation");
+		ChangeCCTVAnimation->AddToViewPort(1);
+		ChangeCCTVAnimation->CreateAnimation("CCTVON", "Camera.png", 0.1f, false, 1, 10);
+		ChangeCCTVAnimation->CreateAnimation("CCTVOFF", "Camera.png", 0.1f, false, 10, 0);
+		ChangeCCTVAnimation->ChangeAnimation("CCTVON");
+		ChangeCCTVAnimation->SetAutoSize(1.0f, true);
+		ChangeCCTVAnimation->SetActive(false);
 
-		UImage* ChangeBarActiveArea = CreateWidget<UImage>(GetWorld(), "ChangeBarActiveArea");
+		ChangeBarActiveArea = CreateWidget<UImage>(GetWorld(), "ChangeBarActiveArea");
 		ChangeBarActiveArea->AddToViewPort(1);
 		ChangeBarActiveArea->SetSprite("Transparency.png");
 		ChangeBarActiveArea->SetAutoSize(1.0f, true);
-		ChangeBarActiveArea->SetPosition({ 0, -180 });
+		ChangeBarActiveArea->SetPosition({ 0, -150 });
+		ChangeBarActiveArea->SetActive(true);
+	}
 
+	// 카메라 움직일 투명벽
+	{
+		FastLeftMoveArea = CreateWidget<UImage>(GetWorld(), "FastLeftMoveArea");
+		FastLeftMoveArea->AddToViewPort(1);
+		FastLeftMoveArea->SetSprite("Transparency.png");
+		FastLeftMoveArea->SetScale(FVector(250, 720));
+		FastLeftMoveArea->SetPosition({ -520, 0 });
+
+		SlowLeftMoveArea = CreateWidget<UImage>(GetWorld(), "SlowLeftMoveArea");
+		SlowLeftMoveArea->AddToViewPort(1);
+		SlowLeftMoveArea->SetSprite("Transparency.png");
+		SlowLeftMoveArea->SetScale(FVector(250, 720));
+		SlowLeftMoveArea->SetPosition({ -300, 0 });
+
+		FastRightMoveArea = CreateWidget<UImage>(GetWorld(), "FastRightMoveArea");
+		FastRightMoveArea->AddToViewPort(1);
+		FastRightMoveArea->SetSprite("Transparency.png");
+		FastRightMoveArea->SetScale(FVector(250, 720));
+		FastRightMoveArea->SetPosition({ 520, 0 });
+
+		SlowRightMoveArea = CreateWidget<UImage>(GetWorld(), "SlowRightMoveArea");
+		SlowRightMoveArea->AddToViewPort(1);
+		SlowRightMoveArea->SetSprite("Transparency.png");
+		SlowRightMoveArea->SetScale(FVector(250, 720));
+		SlowRightMoveArea->SetPosition({ 300, 0 });
+	}
+
+	// 이미지 호버
+	{
 		ChangeBarRenderer->SetHover([=]()
 			{
-				if (false == ChangeCCTVRenderer->IsActive())
+				ChangeBarRenderer->SetActive(false);
+				ChangeCCTVAnimation->SetActive(true);
+
+				if (false == IsCCTV)
 				{
-					ChangeCCTVRenderer->SetActive(true);
-					ChangeBarRenderer->SetActive(false);
+					ChangeCCTVAnimation->ChangeAnimation("CCTVON");
+					IsCCTV = true;
 				}
-				else if (true == ChangeCCTVRenderer->IsActive())
+				else if (true == IsCCTV)
 				{
-					ChangeCCTVRenderer->SetActive(false);
-					ChangeBarRenderer->SetActive(false);
+					ChangeCCTVAnimation->ChangeAnimation("CCTVOFF");
+					IsCCTV = false;
 				}
 			});
 
 		ChangeBarActiveArea->SetHover([=]()
 			{
-				ChangeBarRenderer->SetActive(true);
+				if (false == ChangeBarRenderer->IsActive())
+				{
+					ChangeBarRenderer->SetActive(true);
+				}
+			});
+
+		FastLeftMoveArea->SetHover([=]()
+			{
+				if (-110.0f <= Camera->GetActorLocation().X)
+				{
+					Camera->AddActorLocation(FVector(-0.2f, 0.0f, 0.0f));
+				}
+			});
+
+		SlowLeftMoveArea->SetHover([=]()
+			{
+				if (-110.0f <= Camera->GetActorLocation().X)
+				{
+					Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
+				}
+			});
+
+		FastRightMoveArea->SetHover([=]()
+			{
+				if (110.0f >= Camera->GetActorLocation().X)
+				{
+					Camera->AddActorLocation(FVector(0.2f, 0.0f, 0.0f));
+				}
+			});
+
+		SlowRightMoveArea->SetHover([=]()
+			{
+				if (110.0f >= Camera->GetActorLocation().X)
+				{
+					Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
+				}
 			});
 	}
 }
 
 void APlayGameMode::CameraMove()
 {
-	UImage* FastLeftMoveArea = CreateWidget<UImage>(GetWorld(), "FastLeftMoveArea");
-	FastLeftMoveArea->AddToViewPort(1);
-	FastLeftMoveArea->SetSprite("Transparency.png");
-	FastLeftMoveArea->SetScale(FVector(250, 720));
-	FastLeftMoveArea->SetPosition({ -520, 0 });
+	if (false == IsCCTV)
+	{
+		FastLeftMoveArea->SetActive(true);
+		SlowLeftMoveArea->SetActive(true);
+		FastRightMoveArea->SetActive(true);
+		SlowRightMoveArea->SetActive(true);
+	}
+	else if (true == IsCCTV)
+	{
+		FastLeftMoveArea->SetActive(false);
+		SlowLeftMoveArea->SetActive(false);
+		FastRightMoveArea->SetActive(false);
+		SlowRightMoveArea->SetActive(false);
+	}
+}
 
-	FastLeftMoveArea->SetHover([=]()
-		{
-			if (-110.0f <= Camera->GetActorLocation().X)
-			{
-				Camera->AddActorLocation(FVector(-0.2f, 0.0f, 0.0f));
-			}
-		});
-
-	UImage* SlowLeftMoveArea = CreateWidget<UImage>(GetWorld(), "SlowLeftMoveArea");
-	SlowLeftMoveArea->AddToViewPort(1);
-	SlowLeftMoveArea->SetSprite("Transparency.png");
-	SlowLeftMoveArea->SetScale(FVector(250, 720));
-	SlowLeftMoveArea->SetPosition({ -300, 0 });
-	
-	SlowLeftMoveArea->SetHover([=]()
-		{
-			if (-110.0f <= Camera->GetActorLocation().X)
-			{
-				Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
-			}
-		});
-
-	UImage* FastRightMoveArea = CreateWidget<UImage>(GetWorld(), "FastRightMoveArea");
-	FastRightMoveArea->AddToViewPort(1);
-	FastRightMoveArea->SetSprite("Transparency.png");
-	FastRightMoveArea->SetScale(FVector(250, 720));
-	FastRightMoveArea->SetPosition({ 520, 0 });
-
-	FastRightMoveArea->SetHover([=]()
-		{
-			if (110.0f >= Camera->GetActorLocation().X)
-			{
-				Camera->AddActorLocation(FVector(0.2f, 0.0f, 0.0f));
-			}
-		});
-
-	UImage* SlowRightMoveArea = CreateWidget<UImage>(GetWorld(), "SlowRightMoveArea");
-	SlowRightMoveArea->AddToViewPort(1);
-	SlowRightMoveArea->SetSprite("Transparency.png");
-	SlowRightMoveArea->SetScale(FVector(250, 720));
-	SlowRightMoveArea->SetPosition({ 300, 0 });
-
-	SlowRightMoveArea->SetHover([=]()
-		{
-			if (110.0f >= Camera->GetActorLocation().X)
-			{
-				Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
-			}
-		});
-
-
-
+void APlayGameMode::CCTVActive()
+{
+	if (ChangeCCTVAnimation->IsCurAnimationEnd())
+	{
+		ChangeCCTVAnimation->SetActive(false);
+	}
 }

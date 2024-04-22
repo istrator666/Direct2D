@@ -1,7 +1,9 @@
 #pragma once
 #include <EngineCore/GameMode.h>
 
+
 // Ό³Έν :
+class UImage;
 class APlayGameMode : public AGameMode
 {
 	GENERATED_BODY(AGameMode)
@@ -27,8 +29,17 @@ private:
 	void SetActor();
 	void SetUI();
 	void CameraMove();
+	void CCTVActive();
 
 	bool IsCCTV = false;
+	UImage* ChangeCCTVAnimation = nullptr;
+	UImage* ChangeBarRenderer = nullptr;
+	UImage* ChangeBarActiveArea = nullptr;
+
+	UImage* FastLeftMoveArea = nullptr;
+	UImage* SlowLeftMoveArea = nullptr;
+	UImage* FastRightMoveArea = nullptr;
+	UImage* SlowRightMoveArea = nullptr;
 
 };
 

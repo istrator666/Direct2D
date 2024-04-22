@@ -22,7 +22,6 @@ ALobby::ALobby()
 	FanRenderer->CreateAnimation("FanRotation", "Fan.png", 0.01f, true, 0, 2);
 	FanRenderer->ChangeAnimation("FanRotation");
 	FanRenderer->SetScale(FVector(130.0f, 200.0f, 100.0f));
-	//FanRenderer->SetScale(FVector(110.0f, 200.0f, 100.0f));
 	FanRenderer->AddPosition(FVector(45.0f, -41.0f, 0.0f));
 	FanRenderer->SetOrder(EOrderType::Actor);
 
