@@ -15,6 +15,7 @@ ALobby::ALobby()
 	TheOfficeRenderer->SetSprite("TheOffice.png");
 	TheOfficeRenderer->SetScale(FVector(1500.0f, 720.0f, 100.0f));
 	TheOfficeRenderer->SetOrder(EOrderType::Background);
+	TheOfficeRenderer->SetActive(false);
 
 	FanRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	FanRenderer->SetupAttachment(StageRoot);

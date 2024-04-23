@@ -211,7 +211,7 @@ void APlayGameMode::SetUI()
 
 		FastLeftMoveArea->SetHover([=]()
 			{
-				if (-110.0f <= Camera->GetActorLocation().X)
+				if (-160.0f <= Camera->GetActorLocation().X)
 				{
 					Camera->AddActorLocation(FVector(-0.2f, 0.0f, 0.0f));
 				}
@@ -219,7 +219,7 @@ void APlayGameMode::SetUI()
 
 		SlowLeftMoveArea->SetHover([=]()
 			{
-				if (-110.0f <= Camera->GetActorLocation().X)
+				if (-160.0f <= Camera->GetActorLocation().X)
 				{
 					Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
 				}
@@ -227,7 +227,7 @@ void APlayGameMode::SetUI()
 
 		FastRightMoveArea->SetHover([=]()
 			{
-				if (110.0f >= Camera->GetActorLocation().X)
+				if (160.0f >= Camera->GetActorLocation().X)
 				{
 					Camera->AddActorLocation(FVector(0.2f, 0.0f, 0.0f));
 				}
@@ -235,7 +235,7 @@ void APlayGameMode::SetUI()
 
 		SlowRightMoveArea->SetHover([=]()
 			{
-				if (110.0f >= Camera->GetActorLocation().X)
+				if (160.0f >= Camera->GetActorLocation().X)
 				{
 					Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
 				}

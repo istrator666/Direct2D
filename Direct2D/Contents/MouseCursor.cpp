@@ -61,21 +61,25 @@ void AMouseCursor::ColLefButton()
 				{
 					IsLDoor = true;
 					LButton->SetButtonImage(2);
+					LButton->SetDoorAnimation("LeftDoorClose");
 				}
 				else if (false == IsLDoor && true == IsLLight)
 				{
 					IsLDoor = true;
 					LButton->SetButtonImage(3);
+					LButton->SetDoorAnimation("LeftDoorClose");
 				}
 				else if (true == IsLDoor && true == IsLLight)
 				{
 					IsLDoor = false;
 					LButton->SetButtonImage(1);
+					LButton->SetDoorAnimation("LeftDoorOpen");
 				}
 				else
 				{
 					IsLDoor = false;
 					LButton->SetButtonImage(0);
+					LButton->SetDoorAnimation("LeftDoorOpen");
 				}
 			}
 		}
@@ -89,7 +93,7 @@ void AMouseCursor::ColLefButton()
 				{
 					IsLLight = true;
 					LButton->SetButtonImage(1);
-					//LButton->SetDoorAnimation(true);
+					LButton->SetLightAnimation(true);
 				}
 				else if (true == IsLDoor && false == IsLLight)
 				{

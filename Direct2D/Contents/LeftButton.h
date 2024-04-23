@@ -22,11 +22,16 @@ public:
 		LeftButtonRenderer->SetSprite("Buttons.png", _index);
 	}
 
-	void SetDoorAnimation(bool _able)
+	void SetDoorAnimation(std::string_view _AnimationName)
 	{
-		LeftDoorAnimation->SetActive(_able);
+		LeftDoorAnimation->SetActive(true);
+		LeftDoorAnimation->ChangeAnimation(_AnimationName);
 	}
 
+	void SetLightAnimation(bool _Active)
+	{
+		LeftLightAnimation->SetActive(_Active);
+	}
 
 protected:
 	void BeginPlay() override;
