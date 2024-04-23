@@ -17,12 +17,18 @@ public:
 	ARightButton& operator=(const ARightButton& _Other) = delete;
 	ARightButton& operator=(ARightButton&& _Other) noexcept = delete;
 
+	void SetButtonImage(int _index)
+	{
+		RightButtonRenderer->SetSprite("Buttons.png", _index);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* RightButtonRenerer = nullptr;
-
+	USpriteRenderer* RightButtonRenderer = nullptr;
+	UCollision* ColRightDoor = nullptr;
+	UCollision* ColRightLight = nullptr;
 };
 

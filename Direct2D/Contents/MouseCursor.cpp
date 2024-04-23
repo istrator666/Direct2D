@@ -1,10 +1,14 @@
 #include "PreCompile.h"
 #include "MouseCursor.h"
-#include "StageCCTV.h"
 #include "ContentsEnum.h"
+#include "ContentsDefine.h"
+#include "LeftButton.h"
+#include "RightButton.h"
+#include "PlayGameMode.h"
 
 #include <EngineCore/Renderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
+
 
 AMouseCursor::AMouseCursor()
 {
@@ -15,6 +19,7 @@ AMouseCursor::AMouseCursor()
 
 
 	SetRoot(ColMouse);
+	InputOn();
 }
 
 AMouseCursor::~AMouseCursor()
@@ -24,26 +29,17 @@ AMouseCursor::~AMouseCursor()
 void AMouseCursor::BeginPlay()
 {
 	Super::BeginPlay();
-
-
+	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
+	LButton = PGameMode->GetLButton();
+	RButton = PGameMode->GetRButton();
 }
 
 void AMouseCursor::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 	SetMousePos();
-
-	ColMouse->CollisionEnter(EColType::ChangeBar, [=](std::shared_ptr<UCollision>_Collision)
-		{
-			std::string ObjectType = _Collision->GetActor()->GetName();
-
-			if ("StageUI" == ObjectType)
-			{
-				// SetRendererActive();
-				int a = 0;
-			}
-		}
-	);
+	ColLefButton();
+	ColRightButton();
 }
 
 void AMouseCursor::SetMousePos()
@@ -53,4 +49,123 @@ void AMouseCursor::SetMousePos()
 	FVector WindowScale = GEngine->EngineWindow.GetWindowScale();
 	FVector TargetPos = FVector(CamPos.X, CamPos.Y, 0.0f) + FVector(MousePos.X - WindowScale.hX(), -(MousePos.Y - WindowScale.hY()), 0.0f);
 	SetActorLocation(TargetPos);
+}
+
+void AMouseCursor::ColLefButton()
+{
+	ColMouse->CollisionStay(EColType::LeftDoor, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			if (IsDown(VK_LBUTTON))
+			{
+				if (false == IsLDoor && false == IsLLight)
+				{
+					IsLDoor = true;
+					LButton->SetButtonImage(2);
+				}
+				else if (false == IsLDoor && true == IsLLight)
+				{
+					IsLDoor = true;
+					LButton->SetButtonImage(3);
+				}
+				else if (true == IsLDoor && true == IsLLight)
+				{
+					IsLDoor = false;
+					LButton->SetButtonImage(1);
+				}
+				else
+				{
+					IsLDoor = false;
+					LButton->SetButtonImage(0);
+				}
+			}
+		}
+	);
+
+	ColMouse->CollisionStay(EColType::LeftLight, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			if (IsDown(VK_LBUTTON))
+			{
+				if (false == IsLDoor && false == IsLLight)
+				{
+					IsLLight = true;
+					LButton->SetButtonImage(1);
+					//LButton->SetDoorAnimation(true);
+				}
+				else if (true == IsLDoor && false == IsLLight)
+				{
+					IsLLight = true;
+					LButton->SetButtonImage(3);
+				}
+				else if (true == IsLDoor && true == IsLLight)
+				{
+					IsLLight = false;
+					LButton->SetButtonImage(2);
+				}
+				else
+				{
+					IsLLight = false;
+					LButton->SetButtonImage(0);
+				}
+			}
+		}
+	);
+}
+
+void AMouseCursor::ColRightButton()
+{
+	ColMouse->CollisionStay(EColType::RightDoor, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			if (IsDown(VK_LBUTTON))
+			{
+				if (false == IsRDoor && false == IsRLight)
+				{
+					IsRDoor = true;
+					RButton->SetButtonImage(6);
+				}
+				else if (false == IsRDoor && true == IsRLight)
+				{
+					IsRDoor = true;
+					RButton->SetButtonImage(7);
+				}
+				else if (true == IsRDoor && true == IsRLight)
+				{
+					IsRDoor = false;
+					RButton->SetButtonImage(5);
+				}
+				else
+				{
+					IsRDoor = false;
+					RButton->SetButtonImage(4);
+				}
+			}
+		}
+	);
+
+	ColMouse->CollisionStay(EColType::RightLight, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			if (IsDown(VK_LBUTTON))
+			{
+				if (false == IsRDoor && false == IsRLight)
+				{
+					IsRLight = true;
+					RButton->SetButtonImage(5);
+				}
+				else if (true == IsRDoor && false == IsRLight)
+				{
+					IsRLight = true;
+					RButton->SetButtonImage(7);
+				}
+				else if (true == IsRDoor && true == IsRLight)
+				{
+					IsRLight = false;
+					RButton->SetButtonImage(6);
+				}
+				else
+				{
+					IsRLight = false;
+					RButton->SetButtonImage(4);
+				}
+			}
+		}
+	);
 }

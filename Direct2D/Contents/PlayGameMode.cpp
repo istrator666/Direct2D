@@ -42,13 +42,13 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 void APlayGameMode::SetActor()
 {
-	std::shared_ptr<ALobby> Lobby = GetWorld()->SpawnActor<ALobby>("Lobby");
-	//std::shared_ptr<AGameDay> GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
-	//std::shared_ptr<AStageUI> StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
-	std::shared_ptr<AStageCCTV> StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
-	std::shared_ptr<ALeftButton> LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
-	std::shared_ptr<ARightButton> RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
-	std::shared_ptr<AMouseCursor> MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
+	Lobby = GetWorld()->SpawnActor<ALobby>("Lobby");
+	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
+	//StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
+	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
+	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
+	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
+	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
 }
 
 void APlayGameMode::SetUI()

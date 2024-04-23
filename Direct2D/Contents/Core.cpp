@@ -86,6 +86,11 @@ void UCore::Initialize()
 			UEngineSprite::CreateCutting("PowerMeter.png", 1, 5);
 		}
 
+		// 버튼 이미지 커팅
+		{
+			UEngineSprite::CreateCutting("Buttons.png", 4, 2);
+		}
+
 	}
 
 

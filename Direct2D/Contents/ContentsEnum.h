@@ -28,4 +28,3 @@ enum class EColType
 	ChangeBar,
 
 };
-

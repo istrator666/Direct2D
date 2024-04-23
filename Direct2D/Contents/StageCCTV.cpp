@@ -19,7 +19,7 @@ AStageCCTV::AStageCCTV()
 
 	CCTVRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	CCTVRenderer->SetupAttachment(CCTVRoot);
-	CCTVRenderer->SetSprite("LeftButton", 0);
+	CCTVRenderer->SetSprite("Buttons.png", 0);
 	CCTVRenderer->SetAutoSize(1.0f, true);
 	CCTVRenderer->AddPosition(FVector(-400.f, -100.0f, 0.0f));
 	CCTVRenderer->SetOrder(EOrderType::Actor);

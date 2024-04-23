@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "LeftButton.h"
 #include "ContentsEnum.h"
+#include "ContentsDefine.h"
 
 #include <EngineCore/Renderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
@@ -9,25 +10,36 @@ ALeftButton::ALeftButton()
 {
 	UDefaultSceneComponent* LeftButtonRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 
-	LeftButtonRenerer = CreateDefaultSubObject<USpriteRenderer>("Render");
-	LeftButtonRenerer->SetupAttachment(LeftButtonRoot);
-	LeftButtonRenerer->SetSprite("LeftButton", 0);
-	LeftButtonRenerer->SetAutoSize(1.0f, true);
-	LeftButtonRenerer->AddPosition(FVector(-400.f, -100.0f, 0.0f));
-	LeftButtonRenerer->SetOrder(EOrderType::Actor);
+	LeftButtonRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	LeftButtonRenderer->SetupAttachment(LeftButtonRoot);
+	LeftButtonRenderer->SetSprite("Buttons.png", LeftButtonOFF);
+	LeftButtonRenderer->SetAutoSize(1.0f, true);
+	LeftButtonRenderer->AddPosition(FVector(-700.f, -50.0f, 0.0f));
+	LeftButtonRenderer->SetOrder(EOrderType::Actor);
+
+	LeftDoorAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
+	LeftDoorAnimation->SetupAttachment(LeftButtonRoot);
+	LeftDoorAnimation->CreateAnimation("LeftDoorOpen", "LeftDoor", 0.1f, false, 0, 16);
+	LeftDoorAnimation->CreateAnimation("LeftDoorClose", "LeftDoor", 0.1f, false, 16, 0);
+	LeftDoorAnimation->SetAutoSize(1.0f, true);
+	LeftDoorAnimation->AddPosition(FVector(-700.f, -50.0f, 0.0f));
+	LeftDoorAnimation->SetOrder(EOrderType::Actor);
+	LeftDoorAnimation->SetActive(false);
+
+	LeftLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 
 	ColLeftDoor = CreateDefaultSubObject<UCollision>("Collision");
 	ColLeftDoor->SetupAttachment(LeftButtonRoot);
-	ColLeftDoor->SetScale(FVector{ 50,75 });
-	ColLeftDoor->AddPosition(FVector(-400.f, -50.0f, 0.0f));
+	ColLeftDoor->SetScale(FVector{ 50,50 });
+	ColLeftDoor->AddPosition(FVector(-700.f, 0.0f, 0.0f));
 	ColLeftDoor->SetCollisionGroup(EColType::LeftDoor);
 	ColLeftDoor->SetCollisionType(ECollisionType::Rect);
 
 	ColLeftLight = CreateDefaultSubObject<UCollision>("Collision");
 	ColLeftLight->SetupAttachment(LeftButtonRoot);
-	ColLeftLight->SetScale(FVector{ 50,75 });
-	ColLeftLight->AddPosition(FVector(-400.f, -150.0f, 0.0f));
-	ColLeftLight->SetCollisionGroup(EColType::LeftDoor);
+	ColLeftLight->SetScale(FVector{ 50,50 });
+	ColLeftLight->AddPosition(FVector(-700.f, -100.0f, 0.0f));
+	ColLeftLight->SetCollisionGroup(EColType::LeftLight);
 	ColLeftLight->SetCollisionType(ECollisionType::Rect);
 
 	SetRoot(LeftButtonRoot);
