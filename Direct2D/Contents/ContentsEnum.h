@@ -9,6 +9,7 @@ enum class EOrderType
 	Background,
 	Overlay,
 	Actor,
+	CCTVActor,
 	UI,
 	CutscenBackground,
 	Cutscene,

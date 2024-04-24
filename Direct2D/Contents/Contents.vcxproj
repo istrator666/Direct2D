@@ -43,7 +43,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Lobby.h">
+    <ClInclude Include="TheOffice.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -100,7 +100,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Lobby.cpp">
+    <ClCompile Include="TheOffice.cpp">
       <SubType>
       </SubType>
     </ClCompile>

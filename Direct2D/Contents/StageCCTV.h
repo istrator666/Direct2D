@@ -24,8 +24,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* ChangeCCTVRenderer = nullptr;
-	USpriteRenderer* CCTVRenderer = nullptr;
+	USpriteRenderer* ShowStageRenderer = nullptr;
 
 };
 

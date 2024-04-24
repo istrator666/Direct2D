@@ -65,9 +65,8 @@ void UCore::Initialize()
 			UEngineSprite::CreateCutting("CameraEffects.png", 1, 16);
 		}
 
-		// Lobby 이미지 커팅
+		// Office 이미지 커팅
 		{
-			UEngineSprite::CreateCutting("TheOffice.png", 1, 11);
 			UEngineSprite::CreateCutting("Fan.png", 3, 1);
 		}
 

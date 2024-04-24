@@ -4,7 +4,7 @@
 // Ό³Έν :
 class UImage;
 class UCamera;
-class ALobby;
+class ATheOffice;
 class AGameDay;
 class AStageUI;
 class AStageCCTV;
@@ -44,7 +44,7 @@ protected:
 
 private:
 	std::shared_ptr<UCamera> Camera = nullptr;
-	std::shared_ptr<ALobby> Lobby = nullptr;
+	std::shared_ptr<ATheOffice> Lobby = nullptr;
 	std::shared_ptr<AGameDay> GameDay = nullptr;
 	std::shared_ptr<AStageUI> StageUI = nullptr;
 	std::shared_ptr<AStageCCTV> StageCCTV = nullptr;
@@ -61,6 +61,12 @@ private:
 	UImage* ChangeCCTVAnimation = nullptr;
 	UImage* ChangeBarRenderer = nullptr;
 	UImage* ChangeBarActiveArea = nullptr;
+	
+	UImage* MuteCall = nullptr;
+
+	UImage* RecordingMark = nullptr;
+	UImage* CurMapName = nullptr;
+	UImage* CCTVMap = nullptr;
 
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;

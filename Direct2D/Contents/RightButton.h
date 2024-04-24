@@ -22,12 +22,25 @@ public:
 		RightButtonRenderer->SetSprite("Buttons.png", _index);
 	}
 
+	void SetDoorAnimation(std::string_view _AnimationName)
+	{
+		RightDoorAnimation->SetActive(true);
+		RightDoorAnimation->ChangeAnimation(_AnimationName);
+	}
+
+	void SetLightAnimation(bool _Active)
+	{
+		RightLightAnimation->SetActive(_Active);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
 	USpriteRenderer* RightButtonRenderer = nullptr;
+	USpriteRenderer* RightDoorAnimation = nullptr;
+	USpriteRenderer* RightLightAnimation = nullptr;
 	UCollision* ColRightDoor = nullptr;
 	UCollision* ColRightLight = nullptr;
 };

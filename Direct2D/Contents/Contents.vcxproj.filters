@@ -36,7 +36,7 @@
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
-    <ClInclude Include="Lobby.h">
+    <ClInclude Include="TheOffice.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TitleMenu.h">
@@ -89,7 +89,7 @@
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="Lobby.cpp">
+    <ClCompile Include="TheOffice.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="TitleMenu.cpp">

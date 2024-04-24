@@ -23,17 +23,16 @@ ALeftButton::ALeftButton()
 	LeftDoorAnimation->CreateAnimation("LeftDoorOpen", "LeftDoor", 0.05f, false, 14, 0);
 	LeftDoorAnimation->SetFrameCallback("LeftDoorOpen", 14, [=] { LeftDoorAnimation->SetActive(false); });
 	LeftDoorAnimation->SetAutoSize(1.0f, true);
-	LeftDoorAnimation->AddPosition(FVector(-600.0f, 0.0f, 0.0f));
+	LeftDoorAnimation->AddPosition(FVector(-620.0f, 0.0f, 0.0f));
 	LeftDoorAnimation->SetOrder(EOrderType::Actor);
 
 	LeftLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	LeftLightAnimation->SetupAttachment(LeftButtonRoot);
-	LeftLightAnimation->CreateAnimation("LeftLightON", "LeftLight", 0.05f, true, 1, 1);
+	LeftLightAnimation->CreateAnimation("LeftLightON", "LeftLight", 0.05f, true, 0, 1);
 	LeftLightAnimation->ChangeAnimation("LeftLightON");
 	LeftLightAnimation->SetAutoSize(1.0f, true);
-	//LeftLightAnimation->SetScale(FVector(1500.0f, 720.0f, 100.0f));
-	LeftLightAnimation->SetOrder(EOrderType::Actor);
-	LeftLightAnimation->SetActive(true);
+	LeftLightAnimation->SetOrder(EOrderType::Overlay);
+	LeftLightAnimation->SetActive(false);
 
 	ColLeftDoor = CreateDefaultSubObject<UCollision>("Collision");
 	ColLeftDoor->SetupAttachment(LeftButtonRoot);

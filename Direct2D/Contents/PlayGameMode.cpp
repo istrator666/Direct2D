@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
-#include "Lobby.h"
+#include "TheOffice.h"
 #include "GameDay.h"
 #include "StageUI.h"
 #include "StageCCTV.h"
@@ -42,7 +42,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 void APlayGameMode::SetActor()
 {
-	Lobby = GetWorld()->SpawnActor<ALobby>("Lobby");
+	Lobby = GetWorld()->SpawnActor<ATheOffice>("Lobby");
 	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 	//StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
 	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
@@ -59,31 +59,31 @@ void APlayGameMode::SetUI()
 		AMRenderer->AddToViewPort(1);
 		AMRenderer->SetSprite("AM.png");
 		AMRenderer->SetAutoSize(1.0f, true);
-		AMRenderer->SetPosition({ 600, 325 });
+		AMRenderer->SetPosition({ 575, 315 });
 
 		UImage* TimeRenderer01 = CreateWidget<UImage>(GetWorld(), "TimeRenderer01");
 		TimeRenderer01->AddToViewPort(1);
 		TimeRenderer01->SetSprite("Number01.png");
 		TimeRenderer01->SetAutoSize(1.3f, true);
-		TimeRenderer01->SetPosition({ 525, 325 });
+		TimeRenderer01->SetPosition({ 500, 315 });
 
 		UImage* TimeRenderer02 = CreateWidget<UImage>(GetWorld(), "TimeRenderer02");
 		TimeRenderer02->AddToViewPort(1);
 		TimeRenderer02->SetSprite("Number02.png");
 		TimeRenderer02->SetAutoSize(1.3f, true);
-		TimeRenderer02->SetPosition({ 550, 325 });
+		TimeRenderer02->SetPosition({ 525, 315 });
 
 		UImage* NightRenderer = CreateWidget<UImage>(GetWorld(), "NightRenderer");
 		NightRenderer->AddToViewPort(1);
 		NightRenderer->SetSprite("Night.png");
 		NightRenderer->SetAutoSize(1.0f, true);
-		NightRenderer->SetPosition({ 560, 290 });
+		NightRenderer->SetPosition({ 535, 280 });
 
 		UImage* DayRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
 		DayRenderer->AddToViewPort(1);
 		DayRenderer->SetSprite("Number01.png");
 		DayRenderer->SetAutoSize(0.8f, true);
-		DayRenderer->SetPosition({ 610, 290 });
+		DayRenderer->SetPosition({ 585, 280 });
 
 	}
 
@@ -180,6 +180,44 @@ void APlayGameMode::SetUI()
 		SlowRightMoveArea->SetSprite("Transparency.png");
 		SlowRightMoveArea->SetScale(FVector(250, 720));
 		SlowRightMoveArea->SetPosition({ 300, 0 });
+	}
+
+	// CCTV 전환 후 추가 UI 이미지
+	{
+		UImage* CCTVBorder = CreateWidget<UImage>(GetWorld(), "CCTVBorder");
+		CCTVBorder->AddToViewPort(1);
+		CCTVBorder->SetSprite("CCTVBorder.png");
+		CCTVBorder->SetAutoSize(1.0f, true);
+		CCTVBorder->SetPosition({ 0, 0 });
+		CCTVBorder->SetActive(true);
+
+		RecordingMark = CreateWidget<UImage>(GetWorld(), "RecordingMark");
+		RecordingMark->AddToViewPort(1);
+		RecordingMark->SetSprite("RecordingMark.png");
+		RecordingMark->SetAutoSize(1.0f, true);
+		RecordingMark->SetPosition({ -550, 280 });
+		RecordingMark->SetActive(true);
+
+		CurMapName = CreateWidget<UImage>(GetWorld(), "RecordingMark");
+		CurMapName->AddToViewPort(1);
+		CurMapName->SetSprite("RecordingMark.png");
+		CurMapName->SetAutoSize(1.0f, true);
+		CurMapName->SetPosition({ -550, 280 });
+		CurMapName->SetActive(true);
+
+		CCTVMap = CreateWidget<UImage>(GetWorld(), "RecordingMark");
+		CCTVMap->AddToViewPort(1);
+		CCTVMap->CreateAnimation("CCTVMap", "CCTVMap", 1.0f, true, 0, 1);
+		CCTVMap->ChangeAnimation("CCTVMap");
+		CCTVMap->SetAutoSize(1.0f, true);
+		CCTVMap->SetPosition({ 400, -150 });
+		CCTVMap->SetActive(true);
+
+	}
+
+	// MuteCall
+	{
+
 	}
 
 	// 이미지 호버

@@ -99,16 +99,19 @@ void AMouseCursor::ColLefButton()
 				{
 					IsLLight = true;
 					LButton->SetButtonImage(3);
+					LButton->SetLightAnimation(true);
 				}
 				else if (true == IsLDoor && true == IsLLight)
 				{
 					IsLLight = false;
 					LButton->SetButtonImage(2);
+					LButton->SetLightAnimation(false);
 				}
 				else
 				{
 					IsLLight = false;
 					LButton->SetButtonImage(0);
+					LButton->SetLightAnimation(false);
 				}
 			}
 		}
@@ -125,21 +128,25 @@ void AMouseCursor::ColRightButton()
 				{
 					IsRDoor = true;
 					RButton->SetButtonImage(6);
+					RButton->SetDoorAnimation("RightDoorClose");
 				}
 				else if (false == IsRDoor && true == IsRLight)
 				{
 					IsRDoor = true;
 					RButton->SetButtonImage(7);
+					RButton->SetDoorAnimation("RightDoorClose");
 				}
 				else if (true == IsRDoor && true == IsRLight)
 				{
 					IsRDoor = false;
 					RButton->SetButtonImage(5);
+					RButton->SetDoorAnimation("RightDoorOpen");
 				}
 				else
 				{
 					IsRDoor = false;
 					RButton->SetButtonImage(4);
+					RButton->SetDoorAnimation("RightDoorOpen");
 				}
 			}
 		}
@@ -153,21 +160,25 @@ void AMouseCursor::ColRightButton()
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(5);
+					RButton->SetLightAnimation(true);
 				}
 				else if (true == IsRDoor && false == IsRLight)
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(7);
+					RButton->SetLightAnimation(true);
 				}
 				else if (true == IsRDoor && true == IsRLight)
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(6);
+					RButton->SetLightAnimation(false);
 				}
 				else
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(4);
+					RButton->SetLightAnimation(false);
 				}
 			}
 		}
