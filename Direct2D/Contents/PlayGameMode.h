@@ -15,12 +15,6 @@ class ATimeUI;
 class ABatteryUI;
 class ACCTVUI;
 
-struct CamImage
-{
-	UImage* CamScreenBox = nullptr;
-	UImage* CamName = nullptr;
-};
-
 class APlayGameMode : public AGameMode
 {
 	GENERATED_BODY(AGameMode)
@@ -71,10 +65,6 @@ private:
 	void CameraMove();
 	
 	UImage* MuteCall = nullptr;
-
-	UImage* RecordingMark = nullptr;
-	UImage* CurMapName = nullptr;
-	UImage* CCTVMap = nullptr;
 	
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;

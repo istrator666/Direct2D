@@ -3,6 +3,13 @@
 
 class UImage;
 
+struct CamImage
+{
+	UImage* CamScreenBox = nullptr;
+	UImage* CamName = nullptr;
+};
+
+
 class ACCTVUI : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -34,6 +41,10 @@ private:
 	UImage* ChangeCCTVAnimation = nullptr;
 	UImage* ChangeBarRenderer = nullptr;
 	UImage* ChangeBarActiveArea = nullptr;
+
+	UImage* RecordingMark = nullptr;
+	UImage* CurMapName = nullptr;
+	UImage* CCTVMap = nullptr;
 
 };
 
