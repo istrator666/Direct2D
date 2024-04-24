@@ -6,11 +6,14 @@ class UImage;
 class UCamera;
 class ATheOffice;
 class AGameDay;
-class AStageUI;
 class AStageCCTV;
 class ALeftButton;
 class ARightButton;
 class AMouseCursor;
+
+class ATimeUI;
+class ABatteryUI;
+class ACCTVUI;
 
 struct CamImage
 {
@@ -49,24 +52,23 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	// Stage Actor
 	std::shared_ptr<UCamera> Camera = nullptr;
-	std::shared_ptr<ATheOffice> Lobby = nullptr;
+	std::shared_ptr<ATheOffice> TheOffice = nullptr;
 	std::shared_ptr<AGameDay> GameDay = nullptr;
-	std::shared_ptr<AStageUI> StageUI = nullptr;
 	std::shared_ptr<AStageCCTV> StageCCTV = nullptr;
 	std::shared_ptr<ALeftButton> LeftButton = nullptr;
 	std::shared_ptr<ARightButton> RightButton = nullptr;
 	std::shared_ptr<AMouseCursor> MouseCursor = nullptr;
 
+	// UI Actor
+	std::shared_ptr<ATimeUI> TimeUI = nullptr;
+	std::shared_ptr<ABatteryUI> BatteryUI = nullptr;
+	std::shared_ptr<ACCTVUI> CCTVUI = nullptr;
+
 	void SetActor();
 	void SetUI();
 	void CameraMove();
-	void CCTVActive();
-
-	bool IsCCTV = false;
-	UImage* ChangeCCTVAnimation = nullptr;
-	UImage* ChangeBarRenderer = nullptr;
-	UImage* ChangeBarActiveArea = nullptr;
 	
 	UImage* MuteCall = nullptr;
 
@@ -74,7 +76,6 @@ private:
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;
 	
-
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;
 	UImage* FastRightMoveArea = nullptr;

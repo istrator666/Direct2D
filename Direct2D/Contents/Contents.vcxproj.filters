@@ -28,6 +28,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{48e578c5-d9b0-41f3-b6d0-4431b2e00bd5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level\PlayLevel\UI">
+      <UniqueIdentifier>{d365faaf-fb84-4e1c-987c-a9f427bd3563}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -78,6 +81,15 @@
     <ClInclude Include="ContentsDefine.h">
       <Filter>Config</Filter>
     </ClInclude>
+    <ClInclude Include="TimeUI.h">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BatteryUI.h">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CCTVUI.h">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -121,6 +133,15 @@
     </ClCompile>
     <ClCompile Include="FisheyeEffect.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeUI.cpp">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BatteryUI.cpp">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CCTVUI.cpp">
+      <Filter>Level\PlayLevel\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

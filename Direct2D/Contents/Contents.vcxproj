@@ -19,6 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BatteryUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="CCTVUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <SubType>
       </SubType>
@@ -71,6 +79,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="TimeUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TitleGameMode.h" />
     <ClInclude Include="TitleMenu.h" />
     <ClInclude Include="TitleSelect.h">
@@ -80,6 +92,14 @@
     <ClInclude Include="ContentsDefine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BatteryUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="CCTVUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FisheyeEffect.cpp">
       <SubType>
       </SubType>
@@ -131,6 +151,10 @@
       </SubType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TimeUI.cpp">
+      <SubType>
+      </SubType>
     </ClCompile>
     <ClCompile Include="TitleGameMode.cpp" />
     <ClCompile Include="TitleMenu.cpp" />

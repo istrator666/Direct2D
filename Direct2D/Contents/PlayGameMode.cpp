@@ -1,5 +1,9 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
+
+#include "FisheyeEffect.h"
+#include "ContentsDefine.h"
+
 #include "TheOffice.h"
 #include "GameDay.h"
 #include "StageUI.h"
@@ -7,8 +11,10 @@
 #include "LeftButton.h"
 #include "RightButton.h"
 #include "MouseCursor.h"
-#include "FisheyeEffect.h"
-#include "ContentsDefine.h"
+
+#include "TimeUI.h"
+#include "BatteryUI.h"
+#include "CCTVUI.h"
 
 #include <EngineCore/Camera.h>
 #include <EngineCore/Image.h>
@@ -37,125 +43,28 @@ void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 	
-	CCTVActive();
+	
 	CameraMove();
 }
 
 void APlayGameMode::SetActor()
 {
-	Lobby = GetWorld()->SpawnActor<ATheOffice>("Lobby");
+	// Stage Actor
+	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
 	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
-	//StageUI = GetWorld()->SpawnActor<AStageUI>("StageUI");
 	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
 	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
 	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
 	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
+
+	// UI Actor
+	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
+	BatteryUI = GetWorld()->SpawnActor<ABatteryUI>("BatteryUI");
+	CCTVUI = GetWorld()->SpawnActor<ACCTVUI>("CCTVUI");
 }
 
 void APlayGameMode::SetUI()
 {
-	// 우측 상단 시간 및 날짜 랜더
-	{
-		UImage* AMRenderer = CreateWidget<UImage>(GetWorld(), "AMRenderer");
-		AMRenderer->AddToViewPort(1);
-		AMRenderer->SetSprite("AM.png");
-		AMRenderer->SetAutoSize(1.0f, true);
-		AMRenderer->SetPosition({ 575, 315 });
-
-		UImage* TimeRenderer01 = CreateWidget<UImage>(GetWorld(), "TimeRenderer01");
-		TimeRenderer01->AddToViewPort(1);
-		TimeRenderer01->SetSprite("Number01.png");
-		TimeRenderer01->SetAutoSize(1.3f, true);
-		TimeRenderer01->SetPosition({ 500, 315 });
-
-		UImage* TimeRenderer02 = CreateWidget<UImage>(GetWorld(), "TimeRenderer02");
-		TimeRenderer02->AddToViewPort(1);
-		TimeRenderer02->SetSprite("Number02.png");
-		TimeRenderer02->SetAutoSize(1.3f, true);
-		TimeRenderer02->SetPosition({ 525, 315 });
-
-		UImage* NightRenderer = CreateWidget<UImage>(GetWorld(), "NightRenderer");
-		NightRenderer->AddToViewPort(1);
-		NightRenderer->SetSprite("Night.png");
-		NightRenderer->SetAutoSize(1.0f, true);
-		NightRenderer->SetPosition({ 535, 280 });
-
-		UImage* DayRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
-		DayRenderer->AddToViewPort(1);
-		DayRenderer->SetSprite("Number01.png");
-		DayRenderer->SetAutoSize(0.8f, true);
-		DayRenderer->SetPosition({ 585, 280 });
-
-	}
-
-	// 배터리 잔량 랜더
-	{
-
-		UImage* PoewleftRenderer = CreateWidget<UImage>(GetWorld(), "PoewleftRenderer");
-		PoewleftRenderer->AddToViewPort(1);
-		PoewleftRenderer->SetSprite("Powerleft.png");
-		PoewleftRenderer->SetAutoSize(1.0f, true);
-		PoewleftRenderer->SetPosition({ -530, -275 });
-
-		UImage* PoewleftCheckRenderer01 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer01");
-		PoewleftCheckRenderer01->AddToViewPort(1);
-		PoewleftCheckRenderer01->SetSprite("Number09.png");
-		PoewleftCheckRenderer01->SetAutoSize(1.0f, true);
-		PoewleftCheckRenderer01->SetPosition({ -440, -270 });
-
-		UImage* PoewleftCheckRenderer02 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer02");
-		PoewleftCheckRenderer02->AddToViewPort(1);
-		PoewleftCheckRenderer02->SetSprite("Number09.png");
-		PoewleftCheckRenderer02->SetAutoSize(1.0f, true);
-		PoewleftCheckRenderer02->SetPosition({ -420, -270 });
-
-		UImage* PersentRenderer = CreateWidget<UImage>(GetWorld(), "PersentRenderer");
-		PersentRenderer->AddToViewPort(1);
-		PersentRenderer->SetSprite("Persent.png");
-		PersentRenderer->SetAutoSize(1.0f, true);
-		PersentRenderer->SetPosition({ -400, -270 });
-
-	}
-
-	// 배터리 사용량 랜더
-	{
-		UImage* UsageRenderer = CreateWidget<UImage>(GetWorld(), "UsageRenderer");
-		UsageRenderer->AddToViewPort(1);
-		UsageRenderer->SetSprite("Usage.png");
-		UsageRenderer->SetAutoSize(1.0f, true);
-		UsageRenderer->SetPosition({ -563, -315 });
-
-		UImage* PowerMeterRenderer = CreateWidget<UImage>(GetWorld(), "PowerMeterRenderer");
-		PowerMeterRenderer->AddToViewPort(1);
-		PowerMeterRenderer->SetSprite("PowerMeter.png");
-		PowerMeterRenderer->SetAutoSize(1.0f, true);
-		PowerMeterRenderer->SetPosition({ -468, -315 });
-	}
-
-	// CCTV or 로비화면 전환 Bar
-	{
-		ChangeBarRenderer = CreateWidget<UImage>(GetWorld(), "ChangeBarRenderer");
-		ChangeBarRenderer->AddToViewPort(1);
-		ChangeBarRenderer->SetSprite("ChangeBar.png");
-		ChangeBarRenderer->SetAutoSize(1.0f, true);
-		ChangeBarRenderer->SetPosition({ -75, -310 });
-
-		ChangeCCTVAnimation = CreateWidget<UImage>(GetWorld(), "ChangeCCTVAnimation");
-		ChangeCCTVAnimation->AddToViewPort(1);
-		ChangeCCTVAnimation->CreateAnimation("CCTVON", "Camera.png", 0.1f, false, 1, 10);
-		ChangeCCTVAnimation->CreateAnimation("CCTVOFF", "Camera.png", 0.1f, false, 10, 0);
-		ChangeCCTVAnimation->ChangeAnimation("CCTVON");
-		ChangeCCTVAnimation->SetAutoSize(1.0f, true);
-		ChangeCCTVAnimation->SetActive(false);
-
-		ChangeBarActiveArea = CreateWidget<UImage>(GetWorld(), "ChangeBarActiveArea");
-		ChangeBarActiveArea->AddToViewPort(1);
-		ChangeBarActiveArea->SetSprite("Transparency.png");
-		ChangeBarActiveArea->SetAutoSize(1.0f, true);
-		ChangeBarActiveArea->SetPosition({ 0, -150 });
-		ChangeBarActiveArea->SetActive(true);
-	}
-
 	// 카메라 움직일 투명벽
 	{
 		FastLeftMoveArea = CreateWidget<UImage>(GetWorld(), "FastLeftMoveArea");
@@ -220,7 +129,7 @@ void APlayGameMode::SetUI()
 		Cam1A.CamName->AddToViewPort(2);
 		Cam1A.CamName->SetSprite("cam1A.png");
 		Cam1A.CamName->SetAutoSize(1.0f, true);
-		Cam1A.CamName->SetPosition({ 330, 10 });
+		Cam1A.CamName->SetPosition({ 325, 10 });
 
 		Cam1A.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam1A.CamScreenBox->AddToViewPort(1);
@@ -229,6 +138,66 @@ void APlayGameMode::SetUI()
 		Cam1A.CamScreenBox->ChangeAnimation("Select");
 		Cam1A.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam1A.CamScreenBox->SetPosition({ 330, 10 });
+
+		CamImage Cam1B;
+		Cam1B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1B.CamName->AddToViewPort(2);
+		Cam1B.CamName->SetSprite("cam1B.png");
+		Cam1B.CamName->SetAutoSize(1.0f, true);
+		Cam1B.CamName->SetPosition({ 310, -45 });
+
+		Cam1B.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1B.CamScreenBox->AddToViewPort(1);
+		Cam1B.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam1B.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam1B.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam1B.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam1B.CamScreenBox->SetPosition({ 315, -45 });
+
+		CamImage Cam1C;
+		Cam1C.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1C.CamName->AddToViewPort(2);
+		Cam1C.CamName->SetSprite("cam1C.png");
+		Cam1C.CamName->SetAutoSize(1.0f, true);
+		Cam1C.CamName->SetPosition({ 280, -125 });
+
+		Cam1C.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1C.CamScreenBox->AddToViewPort(1);
+		Cam1C.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam1C.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam1C.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam1C.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam1C.CamScreenBox->SetPosition({ 285, -125 });
+
+		CamImage Cam2A;
+		Cam2A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam2A.CamName->AddToViewPort(2);
+		Cam2A.CamName->SetSprite("cam2A.png");
+		Cam2A.CamName->SetAutoSize(1.0f, true);
+		Cam2A.CamName->SetPosition({ 330, -240 });
+
+		Cam2A.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam2A.CamScreenBox->AddToViewPort(1);
+		Cam2A.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam2A.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam2A.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam2A.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam2A.CamScreenBox->SetPosition({ 335, -240 });
+
+		CamImage Cam2B;
+		Cam2B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam2B.CamName->AddToViewPort(2);
+		Cam2B.CamName->SetSprite("cam2B.png");
+		Cam2B.CamName->SetAutoSize(1.0f, true);
+		Cam2B.CamName->SetPosition({ 330, -280 });
+
+		Cam2B.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam2B.CamScreenBox->AddToViewPort(1);
+		Cam2B.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam2B.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam2B.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam2B.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam2B.CamScreenBox->SetPosition({ 335, -280 });
 	
 	}
 
@@ -239,31 +208,6 @@ void APlayGameMode::SetUI()
 
 	// 이미지 호버
 	{
-		ChangeBarRenderer->SetHover([=]()
-			{
-				ChangeBarRenderer->SetActive(false);
-				ChangeCCTVAnimation->SetActive(true);
-
-				if (false == IsCCTV)
-				{
-					ChangeCCTVAnimation->ChangeAnimation("CCTVON");
-					IsCCTV = true;
-				}
-				else if (true == IsCCTV)
-				{
-					ChangeCCTVAnimation->ChangeAnimation("CCTVOFF");
-					IsCCTV = false;
-				}
-			});
-
-		ChangeBarActiveArea->SetHover([=]()
-			{
-				if (false == ChangeBarRenderer->IsActive())
-				{
-					ChangeBarRenderer->SetActive(true);
-				}
-			});
-
 		FastLeftMoveArea->SetHover([=]()
 			{
 				if (-160.0f <= Camera->GetActorLocation().X)
@@ -300,26 +244,18 @@ void APlayGameMode::SetUI()
 
 void APlayGameMode::CameraMove()
 {
-	if (false == IsCCTV)
+	if (false == CCTVUI->GetIsCCTV())
 	{
 		FastLeftMoveArea->SetActive(true);
 		SlowLeftMoveArea->SetActive(true);
 		FastRightMoveArea->SetActive(true);
 		SlowRightMoveArea->SetActive(true);
 	}
-	else if (true == IsCCTV)
+	else if (true == CCTVUI->GetIsCCTV())
 	{
 		FastLeftMoveArea->SetActive(false);
 		SlowLeftMoveArea->SetActive(false);
 		FastRightMoveArea->SetActive(false);
 		SlowRightMoveArea->SetActive(false);
-	}
-}
-
-void APlayGameMode::CCTVActive()
-{
-	if (ChangeCCTVAnimation->IsCurAnimationEnd())
-	{
-		ChangeCCTVAnimation->SetActive(false);
 	}
 }
