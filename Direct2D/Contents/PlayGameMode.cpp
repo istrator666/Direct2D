@@ -8,6 +8,7 @@
 #include "RightButton.h"
 #include "MouseCursor.h"
 #include "FisheyeEffect.h"
+#include "ContentsDefine.h"
 
 #include <EngineCore/Camera.h>
 #include <EngineCore/Image.h>
@@ -193,19 +194,20 @@ void APlayGameMode::SetUI()
 
 		RecordingMark = CreateWidget<UImage>(GetWorld(), "RecordingMark");
 		RecordingMark->AddToViewPort(1);
-		RecordingMark->SetSprite("RecordingMark.png");
+		RecordingMark->CreateAnimation("Recording", "Recording", 1.0f, true, 1, 0);
+		RecordingMark->ChangeAnimation("Recording");
 		RecordingMark->SetAutoSize(1.0f, true);
 		RecordingMark->SetPosition({ -550, 280 });
 		RecordingMark->SetActive(true);
 
-		CurMapName = CreateWidget<UImage>(GetWorld(), "RecordingMark");
+		CurMapName = CreateWidget<UImage>(GetWorld(), "CurMapName");
 		CurMapName->AddToViewPort(1);
-		CurMapName->SetSprite("RecordingMark.png");
+		CurMapName->SetSprite("MapName", ShowStage);
 		CurMapName->SetAutoSize(1.0f, true);
-		CurMapName->SetPosition({ -550, 280 });
+		CurMapName->SetPosition({ 300, 50 });
 		CurMapName->SetActive(true);
 
-		CCTVMap = CreateWidget<UImage>(GetWorld(), "RecordingMark");
+		CCTVMap = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		CCTVMap->AddToViewPort(1);
 		CCTVMap->CreateAnimation("CCTVMap", "CCTVMap", 1.0f, true, 0, 1);
 		CCTVMap->ChangeAnimation("CCTVMap");
@@ -213,6 +215,35 @@ void APlayGameMode::SetUI()
 		CCTVMap->SetPosition({ 400, -150 });
 		CCTVMap->SetActive(true);
 
+		UImage* Cam1A = CreateWidget<UImage>(GetWorld(), "Cam1A");
+		Cam1A->AddToViewPort(1);
+		//Cam1A->SetSprite("cam1A.png");
+		Cam1A->CreateAnimation("CamBox", "CCTV", 1.0f, true, 11, 12);
+		Cam1A->ChangeAnimation("CamBoX");
+		Cam1A->SetAutoSize(1.0f, true);
+		Cam1A->SetPosition({ 325, 0 });
+		Cam1A->SetActive(true);
+
+		UImage* Cam1B = CreateWidget<UImage>(GetWorld(), "Cam1B");
+
+		UImage* Cam1C = CreateWidget<UImage>(GetWorld(), "Cam1C");
+
+		UImage* Cam2A = CreateWidget<UImage>(GetWorld(), "Cam2A");
+
+		UImage*Cam2B = CreateWidget<UImage>(GetWorld(), "Cam2B");
+
+		UImage*Cam3 = CreateWidget<UImage>(GetWorld(), "Cam3");
+
+		UImage*Cam4A = CreateWidget<UImage>(GetWorld(), "Cam4A");
+
+		UImage*Cam4B = CreateWidget<UImage>(GetWorld(), "Cam4B");
+
+		UImage*Cam5 = CreateWidget<UImage>(GetWorld(), "Cam5");
+
+		UImage*Cam6 = CreateWidget<UImage>(GetWorld(), "Cam6");
+
+		UImage*Cam7 = CreateWidget<UImage>(GetWorld(), "Cam7");
+	
 	}
 
 	// MuteCall

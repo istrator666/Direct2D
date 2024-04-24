@@ -12,6 +12,12 @@ class ALeftButton;
 class ARightButton;
 class AMouseCursor;
 
+struct CamImage
+{
+	UImage* CamBox = nullptr;
+	UImage* CamName = nullptr;
+};
+
 class APlayGameMode : public AGameMode
 {
 	GENERATED_BODY(AGameMode)
@@ -67,6 +73,7 @@ private:
 	UImage* RecordingMark = nullptr;
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;
+	CamImage Cam;
 
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;

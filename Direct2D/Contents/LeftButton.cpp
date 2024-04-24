@@ -12,7 +12,7 @@ ALeftButton::ALeftButton()
 
 	LeftButtonRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	LeftButtonRenderer->SetupAttachment(LeftButtonRoot);
-	LeftButtonRenderer->SetSprite("Buttons.png", LeftButtonOFF);
+	LeftButtonRenderer->SetSprite("Buttons.png", LeftButtonAllOFF);
 	LeftButtonRenderer->SetAutoSize(1.0f, true);
 	LeftButtonRenderer->AddPosition(FVector(-750.0f, -50.0f, 0.0f));
 	LeftButtonRenderer->SetOrder(EOrderType::Actor);

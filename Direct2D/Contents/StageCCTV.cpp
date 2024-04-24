@@ -15,7 +15,7 @@ AStageCCTV::AStageCCTV()
 	ShowStageRenderer->SetAutoSize(1.0f, true);
 	ShowStageRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	ShowStageRenderer->SetOrder(EOrderType::CCTVActor);
-	ShowStageRenderer->SetActive(true);
+	ShowStageRenderer->SetActive(false);
 
 	SetRoot(CCTVRoot);
 
