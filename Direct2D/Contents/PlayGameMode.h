@@ -14,7 +14,7 @@ class AMouseCursor;
 
 struct CamImage
 {
-	UImage* CamBox = nullptr;
+	UImage* CamScreenBox = nullptr;
 	UImage* CamName = nullptr;
 };
 
@@ -73,7 +73,7 @@ private:
 	UImage* RecordingMark = nullptr;
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;
-	CamImage Cam;
+	
 
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;

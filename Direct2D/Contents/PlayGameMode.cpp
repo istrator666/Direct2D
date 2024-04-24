@@ -204,7 +204,7 @@ void APlayGameMode::SetUI()
 		CurMapName->AddToViewPort(1);
 		CurMapName->SetSprite("MapName", ShowStage);
 		CurMapName->SetAutoSize(1.0f, true);
-		CurMapName->SetPosition({ 300, 50 });
+		CurMapName->SetPosition({ 300, 70 });
 		CurMapName->SetActive(true);
 
 		CCTVMap = CreateWidget<UImage>(GetWorld(), "CCTVMap");
@@ -215,34 +215,20 @@ void APlayGameMode::SetUI()
 		CCTVMap->SetPosition({ 400, -150 });
 		CCTVMap->SetActive(true);
 
-		UImage* Cam1A = CreateWidget<UImage>(GetWorld(), "Cam1A");
-		Cam1A->AddToViewPort(1);
-		//Cam1A->SetSprite("cam1A.png");
-		Cam1A->CreateAnimation("CamBox", "CCTV", 1.0f, true, 11, 12);
-		Cam1A->ChangeAnimation("CamBoX");
-		Cam1A->SetAutoSize(1.0f, true);
-		Cam1A->SetPosition({ 325, 0 });
-		Cam1A->SetActive(true);
+		CamImage Cam1A;
+		Cam1A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1A.CamName->AddToViewPort(2);
+		Cam1A.CamName->SetSprite("cam1A.png");
+		Cam1A.CamName->SetAutoSize(1.0f, true);
+		Cam1A.CamName->SetPosition({ 330, 10 });
 
-		UImage* Cam1B = CreateWidget<UImage>(GetWorld(), "Cam1B");
-
-		UImage* Cam1C = CreateWidget<UImage>(GetWorld(), "Cam1C");
-
-		UImage* Cam2A = CreateWidget<UImage>(GetWorld(), "Cam2A");
-
-		UImage*Cam2B = CreateWidget<UImage>(GetWorld(), "Cam2B");
-
-		UImage*Cam3 = CreateWidget<UImage>(GetWorld(), "Cam3");
-
-		UImage*Cam4A = CreateWidget<UImage>(GetWorld(), "Cam4A");
-
-		UImage*Cam4B = CreateWidget<UImage>(GetWorld(), "Cam4B");
-
-		UImage*Cam5 = CreateWidget<UImage>(GetWorld(), "Cam5");
-
-		UImage*Cam6 = CreateWidget<UImage>(GetWorld(), "Cam6");
-
-		UImage*Cam7 = CreateWidget<UImage>(GetWorld(), "Cam7");
+		Cam1A.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam1A.CamScreenBox->AddToViewPort(1);
+		Cam1A.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam1A.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam1A.CamScreenBox->ChangeAnimation("Select");
+		Cam1A.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam1A.CamScreenBox->SetPosition({ 330, 10 });
 	
 	}
 
