@@ -62,7 +62,7 @@ private:
 
 	void SetActor();
 	void SetUI();
-	void CameraMove();
+	void ChangeCCTV();
 	
 	UImage* MuteCall = nullptr;
 	

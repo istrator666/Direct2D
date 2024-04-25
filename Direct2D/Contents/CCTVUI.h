@@ -30,6 +30,10 @@ public:
 		return IsCCTV;
 	}
 
+	bool GetIsChangeCCTV();
+
+	void SetCCTVUIRendererActvie();
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

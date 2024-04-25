@@ -17,14 +17,14 @@ public:
 	AStageCCTV& operator=(const AStageCCTV& _Other) = delete;
 	AStageCCTV& operator=(AStageCCTV&& _Other) noexcept = delete;
 
-	void SetRendererActive(USpriteRenderer* _Renderer);
+	void SetRendererActive(bool _Active);
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* ShowStageRenderer = nullptr;
+	USpriteRenderer* StageCCTVRenderer = nullptr;
 
 };
 

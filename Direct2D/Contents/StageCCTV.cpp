@@ -8,14 +8,13 @@ AStageCCTV::AStageCCTV()
 {
 	UDefaultSceneComponent* CCTVRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 
-	ShowStageRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
-	ShowStageRenderer->SetupAttachment(CCTVRoot);
-	ShowStageRenderer->CreateAnimation("ShowStage", "ShowStage", 0.1f, false, 0, 0);
-	ShowStageRenderer->ChangeAnimation("ShowStage");
-	ShowStageRenderer->SetAutoSize(1.0f, true);
-	ShowStageRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
-	ShowStageRenderer->SetOrder(EOrderType::CCTVActor);
-	ShowStageRenderer->SetActive(false);
+	StageCCTVRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	StageCCTVRenderer->SetupAttachment(CCTVRoot);
+	StageCCTVRenderer->SetSprite("ShowStage", 0);
+	StageCCTVRenderer->SetAutoSize(1.0f, true);
+	StageCCTVRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
+	StageCCTVRenderer->SetOrder(EOrderType::CCTVActor);
+	StageCCTVRenderer->SetActive(false);
 
 	SetRoot(CCTVRoot);
 
@@ -37,12 +36,10 @@ void AStageCCTV::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-\
-
 }
 
 
-void AStageCCTV::SetRendererActive(USpriteRenderer* _Renderer)
+void AStageCCTV::SetRendererActive(bool _Active)
 {
-	_Renderer->SetActive(true);
+	StageCCTVRenderer->SetActive(_Active);
 }

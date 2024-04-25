@@ -36,7 +36,6 @@ ATheOffice::~ATheOffice()
 void ATheOffice::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 void ATheOffice::Tick(float _DeltaTime)

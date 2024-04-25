@@ -280,3 +280,18 @@ void ACCTVUI::CCTVActive()
 		ChangeCCTVAnimation->SetActive(false);
 	}
 }
+
+bool ACCTVUI::GetIsChangeCCTV()
+{
+	if (ChangeCCTVAnimation->IsCurAnimationEnd())
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void ACCTVUI::SetCCTVUIRendererActvie()
+{
+
+}

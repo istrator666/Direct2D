@@ -43,7 +43,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 	
 	
-	CameraMove();
+	ChangeCCTV();
 }
 
 void APlayGameMode::SetActor()
@@ -132,20 +132,26 @@ void APlayGameMode::SetUI()
 	}
 }
 
-void APlayGameMode::CameraMove()
+void APlayGameMode::ChangeCCTV()
 {
-	if (false == CCTVUI->GetIsCCTV())
+	if (true == CCTVUI->GetIsCCTV() && CCTVUI->GetIsChangeCCTV())
 	{
+		// 플레이어 이동 영역
 		FastLeftMoveArea->SetActive(true);
 		SlowLeftMoveArea->SetActive(true);
 		FastRightMoveArea->SetActive(true);
 		SlowRightMoveArea->SetActive(true);
+
+		// CCTV Render
+		StageCCTV->SetRendererActive(true);
 	}
-	else if (true == CCTVUI->GetIsCCTV())
+	else if (false == CCTVUI->GetIsCCTV())
 	{
 		FastLeftMoveArea->SetActive(false);
 		SlowLeftMoveArea->SetActive(false);
 		FastRightMoveArea->SetActive(false);
 		SlowRightMoveArea->SetActive(false);
+
+		StageCCTV->SetRendererActive(false);
 	}
 }
