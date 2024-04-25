@@ -174,6 +174,96 @@ void ACCTVUI::BeginPlay()
 		Cam2B.CamScreenBox->ChangeAnimation("NonSelect");
 		Cam2B.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam2B.CamScreenBox->SetPosition({ 335, -280 });
+
+		CamImage Cam3;
+		Cam3.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam3.CamName->AddToViewPort(2);
+		Cam3.CamName->SetSprite("Cam3.png");
+		Cam3.CamName->SetAutoSize(1.0f, true);
+		Cam3.CamName->SetPosition({ 245, -225 });
+
+		Cam3.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam3.CamScreenBox->AddToViewPort(1);
+		Cam3.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam3.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam3.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam3.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam3.CamScreenBox->SetPosition({ 250, -225 });
+
+		CamImage Cam4A;
+		Cam4A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam4A.CamName->AddToViewPort(2);
+		Cam4A.CamName->SetSprite("Cam4A.png");
+		Cam4A.CamName->SetAutoSize(1.0f, true);
+		Cam4A.CamName->SetPosition({ 435, -240 });
+
+		Cam4A.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam4A.CamScreenBox->AddToViewPort(1);
+		Cam4A.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam4A.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam4A.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam4A.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam4A.CamScreenBox->SetPosition({ 440, -240 });
+
+		CamImage Cam4B;
+		Cam4B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam4B.CamName->AddToViewPort(2);
+		Cam4B.CamName->SetSprite("Cam4B.png");
+		Cam4B.CamName->SetAutoSize(1.0f, true);
+		Cam4B.CamName->SetPosition({ 435, -280 });
+
+		Cam4B.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam4B.CamScreenBox->AddToViewPort(1);
+		Cam4B.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam4B.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam4B.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam4B.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam4B.CamScreenBox->SetPosition({ 440, -280 });
+
+		CamImage Cam5;
+		Cam5.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam5.CamName->AddToViewPort(2);
+		Cam5.CamName->SetSprite("Cam5.png");
+		Cam5.CamName->SetAutoSize(1.0f, true);
+		Cam5.CamName->SetPosition({ 205, -73 });
+
+		Cam5.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam5.CamScreenBox->AddToViewPort(1);
+		Cam5.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam5.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam5.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam5.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam5.CamScreenBox->SetPosition({ 210, -73 });
+
+		CamImage Cam6;
+		Cam6.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam6.CamName->AddToViewPort(2);
+		Cam6.CamName->SetSprite("Cam6.png");
+		Cam6.CamName->SetAutoSize(1.0f, true);
+		Cam6.CamName->SetPosition({ 535, -210 });
+
+		Cam6.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam6.CamScreenBox->AddToViewPort(1);
+		Cam6.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam6.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam6.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam6.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam6.CamScreenBox->SetPosition({ 540, -210 });
+
+		CamImage Cam7;
+		Cam7.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam7.CamName->AddToViewPort(2);
+		Cam7.CamName->SetSprite("Cam7.png");
+		Cam7.CamName->SetAutoSize(1.0f, true);
+		Cam7.CamName->SetPosition({ 543, -75 });
+
+		Cam7.CamScreenBox = CreateWidget<UImage>(GetWorld(), "CCTVMap");
+		Cam7.CamScreenBox->AddToViewPort(1);
+		Cam7.CamScreenBox->CreateAnimation("NonSelect", "CCTV", 0.5f, true, 11, 11);
+		Cam7.CamScreenBox->CreateAnimation("Select", "CCTV", 0.5f, true, 11, 12);
+		Cam7.CamScreenBox->ChangeAnimation("NonSelect");
+		Cam7.CamScreenBox->SetAutoSize(1.0f, true);
+		Cam7.CamScreenBox->SetPosition({ 548, -75 });
 	}
 }
 
