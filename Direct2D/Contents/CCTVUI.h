@@ -41,6 +41,7 @@ protected:
 
 private:
 	void CCTVActive();
+	void SwapSelectCam(UImage* _ChangeScreenBox);
 
 	bool IsCCTV = false;
 	int CamCount = 11;
@@ -52,6 +53,18 @@ private:
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;
 
-	std::vector<CamImage> CamImages;
+	CamImage Cam1A;
+	CamImage Cam1B;
+	CamImage Cam1C;
+	CamImage Cam2A;
+	CamImage Cam2B;
+	CamImage Cam3;
+	CamImage Cam4A;
+	CamImage Cam4B;
+	CamImage Cam5;
+	CamImage Cam6;
+	CamImage Cam7;
+
+	UImage* SelectScreenBox;
 };
 

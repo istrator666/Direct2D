@@ -16,8 +16,8 @@ ACCTVUI::~ACCTVUI()
 void ACCTVUI::BeginPlay()
 {
 	Super::BeginPlay();
-	CamImages.reserve(12);
 
+	InputOn();
 	// CCTV or 로비화면 전환 Bar
 	{
 		ChangeBarRenderer = CreateWidget<UImage>(GetWorld(), "ChangeBarRenderer");
@@ -101,8 +101,7 @@ void ACCTVUI::BeginPlay()
 		CCTVMap->SetPosition({ 400, -150 });
 		CCTVMap->SetActive(true);
 
-		// CamImages[0].CamName
-		CamImage Cam1A;
+		// Cam 이미지
 		Cam1A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam1A.CamName->AddToViewPort(2);
 		Cam1A.CamName->SetSprite("cam1A.png");
@@ -117,7 +116,6 @@ void ACCTVUI::BeginPlay()
 		Cam1A.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam1A.CamScreenBox->SetPosition({ 330, 10 });
 
-		CamImage Cam1B;
 		Cam1B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam1B.CamName->AddToViewPort(2);
 		Cam1B.CamName->SetSprite("cam1B.png");
@@ -132,7 +130,6 @@ void ACCTVUI::BeginPlay()
 		Cam1B.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam1B.CamScreenBox->SetPosition({ 315, -45 });
 
-		CamImage Cam1C;
 		Cam1C.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam1C.CamName->AddToViewPort(2);
 		Cam1C.CamName->SetSprite("cam1C.png");
@@ -147,7 +144,6 @@ void ACCTVUI::BeginPlay()
 		Cam1C.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam1C.CamScreenBox->SetPosition({ 285, -125 });
 
-		CamImage Cam2A;
 		Cam2A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam2A.CamName->AddToViewPort(2);
 		Cam2A.CamName->SetSprite("cam2A.png");
@@ -162,7 +158,6 @@ void ACCTVUI::BeginPlay()
 		Cam2A.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam2A.CamScreenBox->SetPosition({ 335, -240 });
 
-		CamImage Cam2B;
 		Cam2B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam2B.CamName->AddToViewPort(2);
 		Cam2B.CamName->SetSprite("cam2B.png");
@@ -177,7 +172,6 @@ void ACCTVUI::BeginPlay()
 		Cam2B.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam2B.CamScreenBox->SetPosition({ 335, -280 });
 
-		CamImage Cam3;
 		Cam3.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam3.CamName->AddToViewPort(2);
 		Cam3.CamName->SetSprite("Cam3.png");
@@ -192,7 +186,6 @@ void ACCTVUI::BeginPlay()
 		Cam3.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam3.CamScreenBox->SetPosition({ 250, -225 });
 
-		CamImage Cam4A;
 		Cam4A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam4A.CamName->AddToViewPort(2);
 		Cam4A.CamName->SetSprite("Cam4A.png");
@@ -207,7 +200,6 @@ void ACCTVUI::BeginPlay()
 		Cam4A.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam4A.CamScreenBox->SetPosition({ 440, -240 });
 
-		CamImage Cam4B;
 		Cam4B.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam4B.CamName->AddToViewPort(2);
 		Cam4B.CamName->SetSprite("Cam4B.png");
@@ -222,7 +214,6 @@ void ACCTVUI::BeginPlay()
 		Cam4B.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam4B.CamScreenBox->SetPosition({ 440, -280 });
 
-		CamImage Cam5;
 		Cam5.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam5.CamName->AddToViewPort(2);
 		Cam5.CamName->SetSprite("Cam5.png");
@@ -237,7 +228,6 @@ void ACCTVUI::BeginPlay()
 		Cam5.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam5.CamScreenBox->SetPosition({ 210, -73 });
 
-		CamImage Cam6;
 		Cam6.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam6.CamName->AddToViewPort(2);
 		Cam6.CamName->SetSprite("Cam6.png");
@@ -252,7 +242,6 @@ void ACCTVUI::BeginPlay()
 		Cam6.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam6.CamScreenBox->SetPosition({ 540, -210 });
 
-		CamImage Cam7;
 		Cam7.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam7.CamName->AddToViewPort(2);
 		Cam7.CamName->SetSprite("Cam7.png");
@@ -266,6 +255,24 @@ void ACCTVUI::BeginPlay()
 		Cam7.CamScreenBox->ChangeAnimation("NonSelect");
 		Cam7.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam7.CamScreenBox->SetPosition({ 548, -75 });
+
+		SelectScreenBox = Cam1A.CamScreenBox;
+
+		Cam1A.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam1A.CamScreenBox);
+				}
+			});
+
+		Cam1B.CamScreenBox->SetHover([=]() 
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam1B.CamScreenBox);
+				}
+			});
 
 	}
 }
@@ -297,4 +304,11 @@ bool ACCTVUI::GetIsChangeCCTV()
 void ACCTVUI::SetCCTVUIRendererActvie()
 {
 
+}
+
+void ACCTVUI::SwapSelectCam(UImage* _ChangeScreenBox)
+{
+	SelectScreenBox->ChangeAnimation("NonSelect");
+	_ChangeScreenBox->ChangeAnimation("Select");
+	SelectScreenBox = _ChangeScreenBox;
 }
