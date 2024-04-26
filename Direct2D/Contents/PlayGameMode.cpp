@@ -17,6 +17,7 @@
 
 #include <EngineCore/Camera.h>
 #include <EngineCore/Image.h>
+#include <EngineCore/DefaultSceneComponent.h>
 
 APlayGameMode::APlayGameMode() 
 {
@@ -43,7 +44,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 	
 	
-	ChangeCCTV();
+	ChangeCCTV(_DeltaTime);
 }
 
 void APlayGameMode::SetActor()
@@ -64,6 +65,8 @@ void APlayGameMode::SetActor()
 
 void APlayGameMode::SetUI()
 {
+	//MoveAreaRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
+
 	// 카메라 움직일 투명벽
 	{
 		FastLeftMoveArea = CreateWidget<UImage>(GetWorld(), "FastLeftMoveArea");
@@ -132,26 +135,67 @@ void APlayGameMode::SetUI()
 	}
 }
 
-void APlayGameMode::ChangeCCTV()
+void APlayGameMode::ChangeCCTV(float _DeltaTime)
 {
 	if (true == CCTVUI->GetIsCCTV() && CCTVUI->GetIsChangeCCTV())
 	{
 		// 플레이어 이동 영역
-		FastLeftMoveArea->SetActive(true);
-		SlowLeftMoveArea->SetActive(true);
-		FastRightMoveArea->SetActive(true);
-		SlowRightMoveArea->SetActive(true);
-
-		// CCTV Render
-		StageCCTV->SetRendererActive(true);
-	}
-	else if (false == CCTVUI->GetIsCCTV())
-	{
 		FastLeftMoveArea->SetActive(false);
 		SlowLeftMoveArea->SetActive(false);
 		FastRightMoveArea->SetActive(false);
 		SlowRightMoveArea->SetActive(false);
 
+		// CCTV Render
+		StageCCTV->SetRendererActive(true);
+
+		if (false == IsCameraPosSave)
+		{
+			PrevCameraPos = Camera->GetActorLocation();
+			Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+			IsCameraPosSave = true;
+		}
+
+		if (160 > static_cast<int>(Camera->GetActorLocation().X) && false == MoveChange)
+		{
+			Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
+		}
+		else if (160 == static_cast<int>(Camera->GetActorLocation().X) && false == MoveChange)
+		{
+			CameraPauseCheckTime -= _DeltaTime;
+			if (0 >= CameraPauseCheckTime)
+			{
+				MoveChange = true;
+				CameraPauseCheckTime = 2.0f;
+			}
+		}
+		
+		if (-160 < static_cast<int>(Camera->GetActorLocation().X) && true == MoveChange)
+		{
+			Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
+		}
+		else if (-160 == static_cast<int>(Camera->GetActorLocation().X) && true == MoveChange)
+		{
+			CameraPauseCheckTime -= _DeltaTime;
+			if (0 >= CameraPauseCheckTime)
+			{
+				MoveChange = false;
+				CameraPauseCheckTime = 2.0f;
+			}
+		}
+	}
+	else if (false == CCTVUI->GetIsCCTV())
+	{
+		FastLeftMoveArea->SetActive(true);
+		SlowLeftMoveArea->SetActive(true);
+		FastRightMoveArea->SetActive(true);
+		SlowRightMoveArea->SetActive(true);
+
 		StageCCTV->SetRendererActive(false);
+
+		if (true == IsCameraPosSave)
+		{
+			Camera->SetActorLocation(PrevCameraPos);
+			IsCameraPosSave = false;
+		}
 	}
 }

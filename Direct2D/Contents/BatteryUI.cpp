@@ -24,15 +24,15 @@ void ABatteryUI::BeginPlay()
 		PowerleftRenderer->SetAutoSize(1.0f, true);
 		PowerleftRenderer->SetPosition({ -530, -275 });
 
-		UImage* PowerleftCheckRenderer01 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer01");
+		PowerleftCheckRenderer01 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer01");
 		PowerleftCheckRenderer01->AddToViewPort(1);
-		PowerleftCheckRenderer01->SetSprite("Number09.png");
+		PowerleftCheckRenderer01->SetSprite("Number", PowerleftDecrease01);
 		PowerleftCheckRenderer01->SetAutoSize(1.0f, true);
 		PowerleftCheckRenderer01->SetPosition({ -440, -270 });
 
-		UImage* PowerleftCheckRenderer02 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer02");
+		PowerleftCheckRenderer02 = CreateWidget<UImage>(GetWorld(), "PoewleftCheckRenderer02");
 		PowerleftCheckRenderer02->AddToViewPort(1);
-		PowerleftCheckRenderer02->SetSprite("Number09.png");
+		PowerleftCheckRenderer02->SetSprite("Number", PowerleftDecrease02);
 		PowerleftCheckRenderer02->SetAutoSize(1.0f, true);
 		PowerleftCheckRenderer02->SetPosition({ -420, -270 });
 
@@ -54,7 +54,7 @@ void ABatteryUI::BeginPlay()
 
 		UImage* PowerMeterRenderer = CreateWidget<UImage>(GetWorld(), "PowerMeterRenderer");
 		PowerMeterRenderer->AddToViewPort(1);
-		PowerMeterRenderer->SetSprite("PowerMeter.png");
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
 		PowerMeterRenderer->SetAutoSize(1.0f, true);
 		PowerMeterRenderer->SetPosition({ -468, -315 });
 	}
@@ -63,4 +63,40 @@ void ABatteryUI::BeginPlay()
 void ABatteryUI::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	PowerleftDecrease(_DeltaTime);
+}
+
+
+void ABatteryUI::PowerleftDecrease(float _DeltaTime)
+{
+	PowerleftDecreaseTime -= _DeltaTime;
+
+	if (0 >= PowerleftDecreaseTime)
+	{
+		PowerleftDecreaseTime = 0.1f;
+
+		PowerleftDecrease02 -= 1;
+
+		if ( 0 > PowerleftDecrease02)
+		{
+			if (1 >= PowerleftDecrease01 && 0 < PowerleftDecrease01)
+			{
+				PowerleftCheckRenderer01->SetActive(false);
+			}
+			else if (0 >= PowerleftDecrease01)
+			{
+				return;
+			}
+
+			PowerleftDecrease01 -= 1;
+			PowerleftDecrease02 = 9;
+			PowerleftCheckRenderer01->SetSprite("Number", PowerleftDecrease01);
+			PowerleftCheckRenderer02->SetSprite("Number", PowerleftDecrease02);
+		}
+		else
+		{
+			PowerleftCheckRenderer02->SetSprite("Number", PowerleftDecrease02);
+		}
+	}
 }

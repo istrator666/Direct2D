@@ -6,6 +6,7 @@
 class APlayGameMode;
 class ALeftButton;
 class ARightButton;
+class ABatteryUI;
 
 class AMouseCursor : public AActor
 {

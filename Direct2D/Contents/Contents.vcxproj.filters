@@ -31,6 +31,12 @@
     <Filter Include="Level\PlayLevel\UI">
       <UniqueIdentifier>{d365faaf-fb84-4e1c-987c-a9f427bd3563}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level\PlayLevel\Actor\Stage">
+      <UniqueIdentifier>{c8ff7b37-01b1-4a6c-9303-37a433135e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\PlayLevel\Actor\Monster">
+      <UniqueIdentifier>{891cb522-9676-4ce3-b14c-a468d3ae2f0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -38,9 +44,6 @@
     </ClInclude>
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
-    </ClInclude>
-    <ClInclude Include="TheOffice.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TitleMenu.h">
       <Filter>Level\TitleLevel\Actor</Filter>
@@ -54,20 +57,8 @@
     <ClInclude Include="GameDay.h">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="StageUI.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="StageCCTV.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <Filter>Config</Filter>
-    </ClInclude>
-    <ClInclude Include="LeftButton.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="RightButton.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="MouseCursor.h">
       <Filter>Level\PlayLevel\Actor</Filter>
@@ -90,6 +81,21 @@
     <ClInclude Include="CCTVUI.h">
       <Filter>Level\PlayLevel\UI</Filter>
     </ClInclude>
+    <ClInclude Include="LeftButton.h">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="RightButton.h">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="StageCCTV.h">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="StageUI.h">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="TheOffice.h">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -101,9 +107,6 @@
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="TheOffice.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="TitleMenu.cpp">
       <Filter>Level\TitleLevel\Actor</Filter>
     </ClCompile>
@@ -114,18 +117,6 @@
       <Filter>Level\TitleLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="GameDay.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="StageUI.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="StageCCTV.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="LeftButton.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="RightButton.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="MouseCursor.cpp">
@@ -142,6 +133,21 @@
     </ClCompile>
     <ClCompile Include="CCTVUI.cpp">
       <Filter>Level\PlayLevel\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftButton.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="RightButton.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="StageCCTV.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="StageUI.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="TheOffice.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

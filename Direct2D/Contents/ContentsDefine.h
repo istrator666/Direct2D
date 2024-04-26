@@ -21,3 +21,6 @@
 #define BackStage 8
 #define Kitchen 9
 #define Restrooms 10
+
+#define PowerMeterUsagePlus 0
+#define PowerMeterUsageMinus 1

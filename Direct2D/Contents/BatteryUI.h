@@ -18,11 +18,30 @@ public:
 	ABatteryUI& operator=(const ABatteryUI& _Other) = delete;
 	ABatteryUI& operator=(ABatteryUI&& _Other) noexcept = delete;
 
+	void SetPowerMeterUsage(int _Sum)
+	{
+		if (0 > PowerMeterUsage)
+		{
+			return;
+		}
+
+		PowerMeterUsage += _Sum;
+	}
+
+	void PowerleftDecrease(float _DeltaTime);
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
+	float PowerleftDecreaseTime = 2.0f;
+	int PowerleftDecrease01 = 9;
+	int PowerleftDecrease02 = 9;
+	int PowerMeterUsage = 0;
+
+	UImage* PowerleftCheckRenderer01 = nullptr;
+	UImage* PowerleftCheckRenderer02 = nullptr;
 
 };
 

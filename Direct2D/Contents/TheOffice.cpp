@@ -27,6 +27,7 @@ ATheOffice::ATheOffice()
 
 
 	SetRoot(StageRoot);
+
 }
 
 ATheOffice::~ATheOffice()

@@ -62,14 +62,20 @@ private:
 
 	void SetActor();
 	void SetUI();
-	void ChangeCCTV();
+	void ChangeCCTV(float _DeltaTime);
 	
 	UImage* MuteCall = nullptr;
 	
+	//UDefaultSceneComponent* MoveAreaRoot = nullptr;
 	UImage* FastLeftMoveArea = nullptr;
 	UImage* SlowLeftMoveArea = nullptr;
 	UImage* FastRightMoveArea = nullptr;
 	UImage* SlowRightMoveArea = nullptr;
+
+	FVector PrevCameraPos;
+	bool IsCameraPosSave = false;
+	bool MoveChange = false;
+	float CameraPauseCheckTime = 2.0f;
 
 };
 

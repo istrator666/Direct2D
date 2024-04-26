@@ -6,7 +6,7 @@
 
 AStageCCTV::AStageCCTV()
 {
-	UDefaultSceneComponent* CCTVRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
+	CCTVRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 
 	StageCCTVRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	StageCCTVRenderer->SetupAttachment(CCTVRoot);
@@ -14,9 +14,20 @@ AStageCCTV::AStageCCTV()
 	StageCCTVRenderer->SetAutoSize(1.0f, true);
 	StageCCTVRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StageCCTVRenderer->SetOrder(EOrderType::CCTVActor);
-	StageCCTVRenderer->SetActive(false);
+
+	StaticRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	StaticRenderer->SetupAttachment(CCTVRoot);
+	StaticRenderer->SetMaterial("OverlayMaterial");
+	StaticRenderer->CreateAnimation("Noise", "Static.png", 0.1f, true, 0, 7);
+	StaticRenderer->ChangeAnimation("Noise");
+	StaticRenderer->SetScale(FVector(1600.0f, 720.0f, 0.0f));
+	StaticRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
+	StaticRenderer->SetOrder(EOrderType::Overlay);
+
 
 	SetRoot(CCTVRoot);
+
+	CCTVRoot->SetActive(false);
 
 }
 
@@ -27,8 +38,6 @@ AStageCCTV::~AStageCCTV()
 void AStageCCTV::BeginPlay()
 {
 	Super::BeginPlay();
-
-
 
 }
 
@@ -41,5 +50,5 @@ void AStageCCTV::Tick(float _DeltaTime)
 
 void AStageCCTV::SetRendererActive(bool _Active)
 {
-	StageCCTVRenderer->SetActive(_Active);
+	CCTVRoot->SetActive(_Active);
 }

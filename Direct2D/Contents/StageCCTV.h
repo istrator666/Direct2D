@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
 
+class UDefaultSceneComponent;
 class AStageCCTV : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -24,7 +25,9 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	UDefaultSceneComponent* CCTVRoot = nullptr;
 	USpriteRenderer* StageCCTVRenderer = nullptr;
+	USpriteRenderer* StaticRenderer = nullptr;
 
 };
 
