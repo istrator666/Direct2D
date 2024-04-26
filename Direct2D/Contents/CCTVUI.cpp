@@ -16,6 +16,7 @@ ACCTVUI::~ACCTVUI()
 void ACCTVUI::BeginPlay()
 {
 	Super::BeginPlay();
+	CamImages.reserve(12);
 
 	// CCTV or 로비화면 전환 Bar
 	{
@@ -100,6 +101,7 @@ void ACCTVUI::BeginPlay()
 		CCTVMap->SetPosition({ 400, -150 });
 		CCTVMap->SetActive(true);
 
+		// CamImages[0].CamName
 		CamImage Cam1A;
 		Cam1A.CamName = CreateWidget<UImage>(GetWorld(), "CCTVMap");
 		Cam1A.CamName->AddToViewPort(2);
@@ -264,6 +266,7 @@ void ACCTVUI::BeginPlay()
 		Cam7.CamScreenBox->ChangeAnimation("NonSelect");
 		Cam7.CamScreenBox->SetAutoSize(1.0f, true);
 		Cam7.CamScreenBox->SetPosition({ 548, -75 });
+
 	}
 }
 

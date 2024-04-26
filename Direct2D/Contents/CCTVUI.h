@@ -1,5 +1,6 @@
 #pragma once
 #include "EngineCore/Actor.h"
+#include <vector>
 
 class UImage;
 
@@ -42,6 +43,7 @@ private:
 	void CCTVActive();
 
 	bool IsCCTV = false;
+	int CamCount = 11;
 	UImage* ChangeCCTVAnimation = nullptr;
 	UImage* ChangeBarRenderer = nullptr;
 	UImage* ChangeBarActiveArea = nullptr;
@@ -50,5 +52,6 @@ private:
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;
 
+	std::vector<CamImage> CamImages;
 };
 
