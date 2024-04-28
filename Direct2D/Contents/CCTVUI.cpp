@@ -263,6 +263,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1A.CamScreenBox);
+					CurMapName->SetSprite("MapName", ShowStage);
 				}
 			});
 
@@ -271,6 +272,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1B.CamScreenBox);
+					CurMapName->SetSprite("MapName", DiningArea);
 				}
 			});
 
@@ -279,6 +281,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1C.CamScreenBox);
+					CurMapName->SetSprite("MapName", PirateCove);
 				}
 			});
 
@@ -287,6 +290,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam2A.CamScreenBox);
+					CurMapName->SetSprite("MapName", WestHall);
 				}
 			});
 
@@ -295,6 +299,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam2B.CamScreenBox);
+					CurMapName->SetSprite("MapName", WHallCorner);
 				}
 			});
 
@@ -303,6 +308,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam3.CamScreenBox);
+					CurMapName->SetSprite("MapName", SupplyCloset);
 				}
 			});
 
@@ -311,6 +317,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam4A.CamScreenBox);
+					CurMapName->SetSprite("MapName", EastHall);
 				}
 			});
 
@@ -319,6 +326,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam4B.CamScreenBox);
+					CurMapName->SetSprite("MapName", EHallCorner);
 				}
 			});
 
@@ -327,6 +335,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam5.CamScreenBox);
+					CurMapName->SetSprite("MapName", BackStage);
 				}
 			});
 
@@ -335,6 +344,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam6.CamScreenBox);
+					CurMapName->SetSprite("MapName", Kitchen);
 				}
 			});
 
@@ -343,6 +353,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam7.CamScreenBox);
+					CurMapName->SetSprite("MapName", Restrooms);
 				}
 			});
 
