@@ -1,6 +1,5 @@
 #pragma once
 #include "EngineCore/Actor.h"
-#include <vector>
 
 class UImage;
 
@@ -35,6 +34,11 @@ public:
 
 	void SetCCTVUIRendererActvie();
 
+	std::string_view GetSelectMap()
+	{
+		return SelectMap;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -66,5 +70,6 @@ private:
 	CamImage Cam7;
 
 	UImage* SelectScreenBox;
+	std::string_view SelectMap = "ShowStage";
 };
 

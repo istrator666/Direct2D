@@ -31,6 +31,13 @@ AStageCCTV::AStageCCTV()
 
 }
 
+void AStageCCTV::SetRendererActive(bool _Active)
+{
+	{
+		CCTVRoot->SetActive(_Active);
+	}
+}
+
 AStageCCTV::~AStageCCTV()
 {
 }
@@ -45,10 +52,4 @@ void AStageCCTV::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-}
-
-
-void AStageCCTV::SetRendererActive(bool _Active)
-{
-	CCTVRoot->SetActive(_Active);
 }

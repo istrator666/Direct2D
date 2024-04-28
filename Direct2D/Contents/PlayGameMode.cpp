@@ -45,6 +45,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	
 	
 	ChangeCCTV(_DeltaTime);
+	ChangeCCTVMap();
 }
 
 void APlayGameMode::SetActor()
@@ -202,4 +203,10 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 			IsCameraPosSave = false;
 		}
 	}
+}
+
+void APlayGameMode::ChangeCCTVMap()
+{
+	std::string_view Map = CCTVUI->GetSelectMap();
+	StageCCTV->SetStageCCTVRenderer(Map);
 }

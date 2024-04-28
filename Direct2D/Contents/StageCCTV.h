@@ -20,6 +20,11 @@ public:
 
 	void SetRendererActive(bool _Active);
 
+	void SetStageCCTVRenderer(std::string_view _SelectMap)
+	{
+		StageCCTVRenderer->SetSprite(_SelectMap, 0);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

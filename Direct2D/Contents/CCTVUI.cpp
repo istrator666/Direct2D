@@ -264,6 +264,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam1A.CamScreenBox);
 					CurMapName->SetSprite("MapName", ShowStage);
+					SelectMap = "ShowStage";
 				}
 			});
 
@@ -273,6 +274,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam1B.CamScreenBox);
 					CurMapName->SetSprite("MapName", DiningArea);
+					SelectMap = "DiningArea";
 				}
 			});
 
@@ -282,6 +284,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam1C.CamScreenBox);
 					CurMapName->SetSprite("MapName", PirateCove);
+					SelectMap = "PirateCove";
 				}
 			});
 
@@ -291,6 +294,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam2A.CamScreenBox);
 					CurMapName->SetSprite("MapName", WestHall);
+					SelectMap = "WestHall";
 				}
 			});
 
@@ -300,6 +304,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam2B.CamScreenBox);
 					CurMapName->SetSprite("MapName", WHallCorner);
+					SelectMap = "WHallCorner";
 				}
 			});
 
@@ -309,6 +314,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam3.CamScreenBox);
 					CurMapName->SetSprite("MapName", SupplyCloset);
+					SelectMap = "SupplyCloset";
 				}
 			});
 
@@ -318,6 +324,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam4A.CamScreenBox);
 					CurMapName->SetSprite("MapName", EastHall);
+					SelectMap = "EastHall";
 				}
 			});
 
@@ -327,6 +334,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam4B.CamScreenBox);
 					CurMapName->SetSprite("MapName", EHallCorner);
+					SelectMap = "EHallCorner";
 				}
 			});
 
@@ -336,6 +344,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam5.CamScreenBox);
 					CurMapName->SetSprite("MapName", BackStage);
+					SelectMap = "BackStage";
 				}
 			});
 
@@ -345,6 +354,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam6.CamScreenBox);
 					CurMapName->SetSprite("MapName", Kitchen);
+					SelectMap = "Kitchen";
 				}
 			});
 
@@ -354,6 +364,7 @@ void ACCTVUI::BeginPlay()
 				{
 					SwapSelectCam(Cam7.CamScreenBox);
 					CurMapName->SetSprite("MapName", Restrooms);
+					SelectMap = "Restrooms";
 				}
 			});
 

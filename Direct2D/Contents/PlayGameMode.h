@@ -63,6 +63,7 @@ private:
 	void SetActor();
 	void SetUI();
 	void ChangeCCTV(float _DeltaTime);
+	void ChangeCCTVMap();
 	
 	UImage* MuteCall = nullptr;
 	
