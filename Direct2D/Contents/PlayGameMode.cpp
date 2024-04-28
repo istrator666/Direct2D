@@ -147,6 +147,8 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 
 		// CCTV Render
 		StageCCTV->SetRendererActive(true);
+		LeftButton->SetLeftColActvie(false);
+		RightButton->SetRightColActive(false);
 
 		if (false == IsCameraPosSave)
 		{
@@ -191,6 +193,8 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 		SlowRightMoveArea->SetActive(true);
 
 		StageCCTV->SetRendererActive(false);
+		LeftButton->SetLeftColActvie(true);
+		RightButton->SetRightColActive(true);
 
 		if (true == IsCameraPosSave)
 		{

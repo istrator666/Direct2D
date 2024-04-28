@@ -274,6 +274,78 @@ void ACCTVUI::BeginPlay()
 				}
 			});
 
+		Cam1C.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam1C.CamScreenBox);
+				}
+			});
+
+		Cam2A.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam2A.CamScreenBox);
+				}
+			});
+
+		Cam2B.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam2B.CamScreenBox);
+				}
+			});
+
+		Cam3.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam3.CamScreenBox);
+				}
+			});
+
+		Cam4A.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam4A.CamScreenBox);
+				}
+			});
+
+		Cam4B.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam4B.CamScreenBox);
+				}
+			});
+
+		Cam5.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam5.CamScreenBox);
+				}
+			});
+
+		Cam6.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam6.CamScreenBox);
+				}
+			});
+
+		Cam7.CamScreenBox->SetHover([=]()
+			{
+				if (IsDown(VK_LBUTTON))
+				{
+					SwapSelectCam(Cam7.CamScreenBox);
+				}
+			});
+
 	}
 }
 

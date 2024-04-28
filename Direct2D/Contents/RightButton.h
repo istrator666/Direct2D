@@ -33,6 +33,12 @@ public:
 		RightLightAnimation->SetActive(_Active);
 	}
 
+	void SetRightColActive(bool _Active)
+	{
+		ColRightDoor->SetActive(_Active);
+		ColRightLight->SetActive(_Active);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
