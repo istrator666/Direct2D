@@ -31,7 +31,7 @@ ALeftButton::ALeftButton()
 	LeftLightAnimation->CreateAnimation("LeftLightON", "LeftLight", 0.05f, true, 0, 1);
 	LeftLightAnimation->ChangeAnimation("LeftLightON");
 	LeftLightAnimation->SetAutoSize(1.0f, true);
-	LeftLightAnimation->SetOrder(EOrderType::Overlay);
+	LeftLightAnimation->SetOrder(EOrderType::Actor);
 	LeftLightAnimation->SetActive(false);
 
 	ColLeftDoor = CreateDefaultSubObject<UCollision>("Collision");

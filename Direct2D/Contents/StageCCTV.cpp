@@ -15,6 +15,14 @@ AStageCCTV::AStageCCTV()
 	StageCCTVRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StageCCTVRenderer->SetOrder(EOrderType::CCTVActor);
 
+	KitchenBackgroundRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	KitchenBackgroundRenderer->SetupAttachment(CCTVRoot);
+	KitchenBackgroundRenderer->SetSprite("Kitchen", 1);
+	KitchenBackgroundRenderer->SetAutoSize(1.0f, true);
+	KitchenBackgroundRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
+	KitchenBackgroundRenderer->SetOrder(EOrderType::CCTVActor);
+	KitchenBackgroundRenderer->SetActive(false);
+
 	StaticRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	StaticRenderer->SetupAttachment(CCTVRoot);
 	StaticRenderer->SetMaterial("OverlayMaterial");

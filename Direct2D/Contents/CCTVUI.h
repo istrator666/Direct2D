@@ -32,11 +32,21 @@ public:
 
 	bool GetIsChangeCCTV();
 
-	void SetCCTVUIRendererActvie();
+	void SetCCTVUIRendererActvie(bool _Active);
 
 	std::string_view GetSelectMap()
 	{
 		return SelectMap;
+	}
+
+	void SetCamCameraReset(bool _CamCameraReset)
+	{
+		CamCameraReset = _CamCameraReset;
+	}
+
+	bool GetCamCameraReset()
+	{
+		return CamCameraReset;
 	}
 
 protected:
@@ -48,11 +58,12 @@ private:
 	void SwapSelectCam(UImage* _ChangeScreenBox);
 
 	bool IsCCTV = false;
-	int CamCount = 11;
+	bool CamCameraReset = false;
 	UImage* ChangeCCTVAnimation = nullptr;
 	UImage* ChangeBarRenderer = nullptr;
 	UImage* ChangeBarActiveArea = nullptr;
 
+	UImage* CCTVRoot = nullptr;
 	UImage* RecordingMark = nullptr;
 	UImage* CurMapName = nullptr;
 	UImage* CCTVMap = nullptr;

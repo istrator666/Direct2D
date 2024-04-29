@@ -23,6 +23,15 @@ public:
 	void SetStageCCTVRenderer(std::string_view _SelectMap)
 	{
 		StageCCTVRenderer->SetSprite(_SelectMap, 0);
+
+		if ("Kitchen" == _SelectMap)
+		{
+			KitchenBackgroundRenderer->SetActive(true);
+		}
+		else
+		{
+			KitchenBackgroundRenderer->SetActive(false);
+		}
 	}
 
 protected:
@@ -32,6 +41,7 @@ protected:
 private:
 	UDefaultSceneComponent* CCTVRoot = nullptr;
 	USpriteRenderer* StageCCTVRenderer = nullptr;
+	USpriteRenderer* KitchenBackgroundRenderer = nullptr;
 	USpriteRenderer* StaticRenderer = nullptr;
 
 };

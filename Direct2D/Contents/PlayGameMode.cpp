@@ -46,6 +46,7 @@ void APlayGameMode::Tick(float _DeltaTime)
 	
 	ChangeCCTV(_DeltaTime);
 	ChangeCCTVMap();
+	CamCameraReset();
 }
 
 void APlayGameMode::SetActor()
@@ -150,6 +151,7 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 		StageCCTV->SetRendererActive(true);
 		LeftButton->SetLeftColActvie(false);
 		RightButton->SetRightColActive(false);
+		CCTVUI->SetCCTVUIRendererActvie(true);
 
 		if (false == IsCameraPosSave)
 		{
@@ -196,6 +198,7 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 		StageCCTV->SetRendererActive(false);
 		LeftButton->SetLeftColActvie(true);
 		RightButton->SetRightColActive(true);
+		CCTVUI->SetCCTVUIRendererActvie(false);
 
 		if (true == IsCameraPosSave)
 		{
@@ -209,4 +212,14 @@ void APlayGameMode::ChangeCCTVMap()
 {
 	std::string_view Map = CCTVUI->GetSelectMap();
 	StageCCTV->SetStageCCTVRenderer(Map);
+}
+
+void APlayGameMode::CamCameraReset()
+{
+	if (true == CCTVUI->GetCamCameraReset())
+	{
+		Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+		CCTVUI->SetCamCameraReset(false);
+	}
+	
 }

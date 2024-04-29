@@ -31,7 +31,7 @@ ARightButton::ARightButton()
 	RightLightAnimation->CreateAnimation("RightLightON", "RightLight", 0.05f, true, 0, 1);
 	RightLightAnimation->ChangeAnimation("RightLightON");
 	RightLightAnimation->SetAutoSize(1.0f, true);
-	RightLightAnimation->SetOrder(EOrderType::Overlay);
+	RightLightAnimation->SetOrder(EOrderType::Actor);
 	RightLightAnimation->SetActive(false);
 
 	ColRightDoor = CreateDefaultSubObject<UCollision>("Collision");

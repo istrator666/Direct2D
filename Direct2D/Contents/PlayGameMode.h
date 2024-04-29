@@ -64,6 +64,7 @@ private:
 	void SetUI();
 	void ChangeCCTV(float _DeltaTime);
 	void ChangeCCTVMap();
+	void CamCameraReset();
 	
 	UImage* MuteCall = nullptr;
 	
