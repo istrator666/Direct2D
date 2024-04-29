@@ -28,3 +28,100 @@ enum class EColType
 	ChangeBar,
 
 };
+
+enum class EShowStage
+{
+	ShowStage_AllGone,
+	ShowStage_BCGone,
+	ShowStage_BCGone_Anomaly,
+	ShowStage_BonnieGone,
+	ShowStage_ChicaGone,
+	ShowStage_Default,
+	ShowStage_Default_Anomaly,
+};
+
+enum class EDiningArea
+{
+	DiningArea_Bonnie0,
+	DiningArea_Bonnie1,
+	DiningArea_Chica0,
+	DiningArea_Chica1,
+	DiningArea_Default,
+	DiningArea_Freddy,
+};
+
+enum class EPirateCove
+{
+	PirateCove_Lv1,
+	PirateCove_Lv2,
+	PirateCove_Lv3,
+	PirateCove_Lv4,
+	PirateCove_Lv4_Anomaly,
+};
+
+enum class EWestHall
+{
+	WestHallA_Bonnie,
+	WestHallA_Default,
+	WestHallA_Lightsup,
+};
+
+enum class EWHallCorner
+{
+	WestHallB_Anomaly0,
+	WestHallB_Anomaly1,
+	WestHallB_Bonnie0,
+	WestHallB_Bonnie1,
+	WestHallB_Bonnie2,
+	WestHallB_Default,
+};
+
+enum class ESupplyCloset
+{
+	SuppltCloset_Bonnie,
+	SupplyCloset_Default,
+};
+
+enum class EEastHall
+{
+	EastHallA_Anomaly0,
+	EastHallA_Anomaly1,
+	EastHallA_Chica0,
+	EastHallA_Chica1,
+	EastHallA_Default,
+	EastHallA_Freddy,
+};
+
+enum class EEHallCorner
+{
+	EastHallB_Anomaly0,
+	EastHallB_Anomaly1,
+	EastHallB_Anomaly2,
+	EastHallB_Anomaly3,
+	EastHallB_Chica0,
+	EastHallB_Chica1,
+	EastHallB_Chica2,
+	EastHallB_Default,
+	EastHallB_Freddy,
+};
+
+enum class EBackstage
+{
+	BackStage_Anomaly,
+	BackStage_Bonnie0,
+	BackStage_Bonnie1,
+	BackStage_Default,
+};
+
+enum class EKitchen
+{
+	CameraDisabled,
+};
+
+enum class ERestRooms
+{
+	RestRooms_Chica0,
+	RestRooms_Chica1,
+	RestRooms_Default,
+	RestRooms_Freddy,
+};

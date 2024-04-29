@@ -96,6 +96,9 @@
     <ClInclude Include="TheOffice.h">
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Bonnie.h">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="TheOffice.cpp">
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Bonnie.cpp">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
