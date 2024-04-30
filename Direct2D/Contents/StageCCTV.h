@@ -20,19 +20,7 @@ public:
 
 	void SetRendererActive(bool _Active);
 
-	void SetStageCCTVRenderer(std::string_view _SelectMap)
-	{
-		StageCCTVRenderer->SetSprite(_SelectMap, 0);
-
-		if ("Kitchen" == _SelectMap)
-		{
-			KitchenBackgroundRenderer->SetActive(true);
-		}
-		else
-		{
-			KitchenBackgroundRenderer->SetActive(false);
-		}
-	}
+	void SetStageCCTVRenderer(std::string_view _SelectMap);
 
 protected:
 	void BeginPlay() override;

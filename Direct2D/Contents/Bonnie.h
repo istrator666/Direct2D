@@ -16,22 +16,18 @@ public:
 	Bonnie& operator=(const Bonnie& _Other) = delete;
 	Bonnie& operator=(Bonnie&& _Other) noexcept = delete;
 
-	void SetIsBonnie(bool _IsBonnie)
-	{
-		IsBonnie = _IsBonnie;
-	}
-
-	bool GetIsBonnie()
-	{
-		return IsBonnie;
-	}
+	bool GetIsBonnie();
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	bool IsBonnie = false;
+	bool Bonnie1A = true;
+	bool Bonnie1B = false;
+	bool Bonnie2A = false;
+	bool Bonnie2B = false;
+	bool Bonnie3 = false;
 
 };
 

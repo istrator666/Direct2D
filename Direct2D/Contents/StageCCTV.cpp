@@ -46,6 +46,20 @@ void AStageCCTV::SetRendererActive(bool _Active)
 	}
 }
 
+void AStageCCTV::SetStageCCTVRenderer(std::string_view _SelectMap)
+{
+	if ("Kitchen" == _SelectMap)
+	{
+		KitchenBackgroundRenderer->SetActive(true);
+	}
+	else
+	{
+		KitchenBackgroundRenderer->SetActive(false);
+	}
+
+	StageCCTVRenderer->SetSprite(_SelectMap, 0);
+}
+
 AStageCCTV::~AStageCCTV()
 {
 }
