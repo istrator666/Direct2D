@@ -1,6 +1,5 @@
 #pragma once
 
-
 /// <summary>
 /// 이미지 오더 순서
 /// </summary>
@@ -54,6 +53,7 @@ enum class ECamMap
 	BackStage,
 	Kitchen,
 	Restrooms,
+	In,
 };
 
 enum class EBonniePos
@@ -66,6 +66,31 @@ enum class EBonniePos
 	BackStage,
 	Office,
 	In,
+};
+
+enum class EChicaPos
+{
+	ShowStage,
+	DiningArea,
+	EastHall,
+	EHallCorner,
+	Kitchen,
+	Restrooms,
+	Office,
+	In,
+};
+
+enum class EFoxyPos
+{
+	PirateCove,
+
+};
+
+enum class EFreddyPos
+{
+	ShowStage,
+	DiningArea,
+
 };
 
 enum class EShowStage

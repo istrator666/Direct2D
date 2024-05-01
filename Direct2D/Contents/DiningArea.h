@@ -6,24 +6,24 @@ class APlayGameMode;
 class ABonnie;
 class AChica;
 class AFreddy;
-class AShowStage : public AActor
+class ADiningArea : public AActor
 {
 	GENERATED_BODY(AActor)
 
 public:
 	// constrcuter destructer
-	AShowStage();
-	~AShowStage();
+	ADiningArea();
+	~ADiningArea();
 
 	// delete Function
-	AShowStage(const AShowStage& _Other) = delete;
-	AShowStage(AShowStage&& _Other) noexcept = delete;
-	AShowStage& operator=(const AShowStage& _Other) = delete;
-	AShowStage& operator=(AShowStage&& _Other) noexcept = delete;
+	ADiningArea(const ADiningArea& _Other) = delete;
+	ADiningArea(ADiningArea&& _Other) noexcept = delete;
+	ADiningArea& operator=(const ADiningArea& _Other) = delete;
+	ADiningArea& operator=(ADiningArea&& _Other) noexcept = delete;
 
-	int GetCurShowStageCam()
+	int GetCurDiningAreaCam()
 	{
-		return CurShowStageCam;
+		return CurDiningAreaCam;
 	}
 
 protected:
@@ -31,13 +31,13 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	void ShowStageMonsterCheck();
+	void DiningAreaMonsterCheck();
 
 	APlayGameMode* PGMode = nullptr;
 	std::shared_ptr<ABonnie> Bonnie = nullptr;
 	std::shared_ptr<AChica> Chica = nullptr;
 	std::shared_ptr<AFreddy> Freddy = nullptr;
 
-	int CurShowStageCam = static_cast<int>(EShowStage::ShowStage_Default);
+	int CurDiningAreaCam = static_cast<int>(EDiningArea::DiningArea_Default);
 };
 

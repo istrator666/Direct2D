@@ -1,9 +1,20 @@
+#include "PreCompile.h"
 #include "Foxy.h"
 
-Foxy::Foxy()
+AFoxy::AFoxy()
 {
 }
 
-Foxy::~Foxy()
+AFoxy::~AFoxy()
 {
+}
+
+void AFoxy::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+void AFoxy::Tick(float _DeltaTime)
+{
+	Super::Tick(_DeltaTime);
 }

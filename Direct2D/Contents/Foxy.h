@@ -1,20 +1,35 @@
 #pragma once
-class Foxy
+#include "ContentsEnum.h"
+
+#include "EngineCore/Actor.h"
+#include <EngineBase/EngineRandom.h>
+
+class AFoxy : public AActor
 {
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
-	Foxy();
-	~Foxy();
+	AFoxy();
+	~AFoxy();
 
 	// delete Function
-	Foxy(const Foxy& _Other) = delete;
-	Foxy(Foxy&& _Other) noexcept = delete;
-	Foxy& operator=(const Foxy& _Other) = delete;
-	Foxy& operator=(Foxy&& _Other) noexcept = delete;
+	AFoxy(const AFoxy& _Other) = delete;
+	AFoxy(AFoxy&& _Other) noexcept = delete;
+	AFoxy& operator=(const AFoxy& _Other) = delete;
+	AFoxy& operator=(AFoxy&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 private:
+	void BonnieMove();
 
+	UEngineRandom MoveChance;
+	int BonnieCurPos = static_cast<int>(EFoxyPos::PirateCove);
+	int BonnieLevel = 0;
+	float BonnieMTCheck = 5.0f;
+	float MoveTime = 5.0f;
 };
 

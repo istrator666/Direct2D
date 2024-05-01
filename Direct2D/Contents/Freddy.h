@@ -1,20 +1,40 @@
 #pragma once
-class Freddy
+#include "ContentsEnum.h"
+
+#include "EngineCore/Actor.h"
+#include <EngineBase/EngineRandom.h>
+
+class AFreddy : public AActor
 {
+	GENERATED_BODY(AActor)
+
 public:
 	// constrcuter destructer
-	Freddy();
-	~Freddy();
+	AFreddy();
+	~AFreddy();
 
 	// delete Function
-	Freddy(const Freddy& _Other) = delete;
-	Freddy(Freddy&& _Other) noexcept = delete;
-	Freddy& operator=(const Freddy& _Other) = delete;
-	Freddy& operator=(Freddy&& _Other) noexcept = delete;
+	AFreddy(const AFreddy& _Other) = delete;
+	AFreddy(AFreddy&& _Other) noexcept = delete;
+	AFreddy& operator=(const AFreddy& _Other) = delete;
+	AFreddy& operator=(AFreddy&& _Other) noexcept = delete;
+
+	int GetFreddyCurPos()
+	{
+		return FreddyCurPos;
+	}
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 private:
+	void FreddyMove();
 
+	UEngineRandom MoveChance;
+	int FreddyCurPos = static_cast<int>(EFreddyPos::ShowStage);
+	int FreddyLevel = 0;
+	float FreddyMTCheck = 3.0f;
+	float MoveTime = 3.0f;
 };
 

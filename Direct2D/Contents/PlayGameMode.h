@@ -10,8 +10,14 @@ class AStageCCTV;
 class ALeftButton;
 class ARightButton;
 class AMouseCursor;
-class AShowStage;
+
 class ABonnie;
+class AChica;
+class AFoxy;
+class AFreddy;
+
+class AShowStage;
+class ADiningArea;
 
 class ATimeUI;
 class ABatteryUI;
@@ -47,6 +53,21 @@ public:
 		return Bonnie;
 	}
 
+	std::shared_ptr<AChica> GetChica()
+	{
+		return Chica;
+	}
+
+	std::shared_ptr<AFoxy> GetFoxy()
+	{
+		return Foxy;
+	}
+
+	std::shared_ptr<AFreddy> GetFreddy()
+	{
+		return Freddy;
+	}
+
 	std::shared_ptr<AShowStage> GetShowStage()
 	{
 		return ShowStageCam;
@@ -69,9 +90,13 @@ private:
 
 	//Cam
 	std::shared_ptr<AShowStage> ShowStageCam = nullptr;
+	std::shared_ptr< ADiningArea> DiningArea = nullptr;
 
 	// ∏ÛΩ∫≈Õ
 	std::shared_ptr<ABonnie> Bonnie = nullptr;
+	std::shared_ptr<AChica> Chica = nullptr;
+	std::shared_ptr<AFoxy> Foxy = nullptr;
+	std::shared_ptr<AFreddy> Freddy = nullptr;
 
 	// UI Actor
 	std::shared_ptr<ATimeUI> TimeUI = nullptr;

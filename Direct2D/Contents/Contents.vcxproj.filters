@@ -114,6 +114,36 @@
     <ClInclude Include="Freddy.h">
       <Filter>Level\PlayLevel\Actor\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="DiningArea.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="PirateCove.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="WestHall.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="WHallCorner.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="SupplyCloset.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="EastHall.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="EHallCorner.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="BackStage.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="Kitchen.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="Restrooms.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -181,6 +211,36 @@
     </ClCompile>
     <ClCompile Include="Freddy.cpp">
       <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="DiningArea.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="PirateCove.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="WestHall.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="WHallCorner.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="SupplyCloset.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="EastHall.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="EHallCorner.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="BackStage.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="Kitchen.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="Restrooms.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

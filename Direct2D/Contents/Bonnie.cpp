@@ -24,21 +24,22 @@ void ABonnie::Tick(float _DeltaTime)
 	BonnieMTCheck -= _DeltaTime;
 	if (0 > BonnieMTCheck)
 	{
-		BonnieMTCheck = 5.0f;
+		BonnieMTCheck = MoveTime;
 		BonnieMove();
 	}
 }
 
 void ABonnie::BonnieMove()
 {
-	//  Bonnie 이동 방식
-	//	CAM 1A = CAM 1B, CAM 5. 
-	//	CAM 1B = CAM 5, CAM 2A.
-	//	CAM 5 = CAM 1B, CAM 2A.
-	//	CAM 3 = CAM 2A, 문앞.
-	//	CAM 2A = CAM 3, CAM 2B.
-	//	CAM 2B = CAM 3, 문앞.
-	//	문앞 = 경비실, CAM 1B
+	// Bonnie 이동 방식
+	// CAM 1A = CAM 1B, CAM 5. 
+	// CAM 1B = CAM 5, CAM 2A.
+	// CAM 5 = CAM 1B, CAM 2A.
+	// CAM 3 = CAM 2A, 문앞.
+	// CAM 2A = CAM 3, CAM 2B.
+	// CAM 2B = CAM 3, 문앞.
+	// 문앞 = 경비실, CAM 1B
+	// 보니는 CAM 3 이내로 들어오면 CAM 5쪽으로는 돌아가지 않는다. 대신 공격을 막을시 CAM 1B로 멀리 돌아간다.
 	
 	if (BonnieLevel >= MoveChance.RandomInt(1, 20))
 	{

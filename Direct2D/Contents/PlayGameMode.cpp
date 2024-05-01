@@ -12,8 +12,12 @@
 #include "MouseCursor.h"
 
 #include "ShowStage.h"
+#include "DiningArea.h"
 
 #include "Bonnie.h"
+#include "Chica.h"
+#include "Foxy.h"
+#include "Freddy.h"
 
 #include "TimeUI.h"
 #include "BatteryUI.h"
@@ -56,13 +60,18 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 void APlayGameMode::SetActor()
 {
+	// 생성 순서 주의
+	
 	// 몬스터
 	Bonnie = GetWorld()->SpawnActor<ABonnie>("Bonnie");
+	Chica = GetWorld()->SpawnActor<AChica>("Chica");
+	Foxy = GetWorld()->SpawnActor<AFoxy>("Foxy");
+	Freddy = GetWorld()->SpawnActor<AFreddy>("Freddy");
 
-	// StageCam
+	// Cam Info
 	ShowStageCam = GetWorld()->SpawnActor<AShowStage>("ShowStageCam");
+	DiningArea = GetWorld()->SpawnActor<ADiningArea>("DiningArea");
 
-	// 생성 순서 주의
 	// Stage Actor
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
 	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
@@ -227,9 +236,13 @@ void APlayGameMode::ChangeCCTVMap()
 	std::set<std::string_view> MapCheck{ "ShowStage", "DiningArea", "PirateCove", "WestHall", "WHallCorner", "SupplyCloset", "EastHall", "EHallCorner", "BackStage", "Kitchen", "Restrooms" };
 	int Index = 0;
 	
-	if (MapCheck.contains("ShowStage"))
+	if (MapCheck.contains(Map))
 	{
 		Index = ShowStageCam->GetCurShowStageCam();
+	}
+	else if (MapCheck.contains(Map))
+	{
+		Index = DiningArea->GetCurDiningAreaCam();
 	}
 
 	StageCCTV->SetStageCCTVRenderer(Map, Index);
