@@ -1,6 +1,8 @@
 #include "PreCompile.h"
 #include "StageCCTV.h"
 #include "ContentsEnum.h"
+#include "PlayGameMode.h"
+#include "ShowStage.h"
 
 #include <EngineCore/DefaultSceneComponent.h>
 
@@ -36,7 +38,6 @@ AStageCCTV::AStageCCTV()
 	SetRoot(CCTVRoot);
 
 	CCTVRoot->SetActive(false);
-
 }
 
 void AStageCCTV::SetRendererActive(bool _Active)
@@ -46,7 +47,7 @@ void AStageCCTV::SetRendererActive(bool _Active)
 	}
 }
 
-void AStageCCTV::SetStageCCTVRenderer(std::string_view _SelectMap)
+void AStageCCTV::SetStageCCTVRenderer(std::string_view _SelectMap, int _Index)
 {
 	if ("Kitchen" == _SelectMap)
 	{
@@ -57,7 +58,7 @@ void AStageCCTV::SetStageCCTVRenderer(std::string_view _SelectMap)
 		KitchenBackgroundRenderer->SetActive(false);
 	}
 
-	StageCCTVRenderer->SetSprite(_SelectMap, 0);
+	StageCCTVRenderer->SetSprite(_SelectMap, _Index);
 }
 
 AStageCCTV::~AStageCCTV()
@@ -67,7 +68,6 @@ AStageCCTV::~AStageCCTV()
 void AStageCCTV::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 void AStageCCTV::Tick(float _DeltaTime)

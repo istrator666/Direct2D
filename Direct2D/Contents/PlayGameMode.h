@@ -10,6 +10,8 @@ class AStageCCTV;
 class ALeftButton;
 class ARightButton;
 class AMouseCursor;
+class AShowStage;
+class ABonnie;
 
 class ATimeUI;
 class ABatteryUI;
@@ -40,6 +42,16 @@ public:
 		return RightButton;
 	}
 
+	std::shared_ptr<ABonnie> GetBonnie()
+	{
+		return Bonnie;
+	}
+
+	std::shared_ptr<AShowStage> GetShowStage()
+	{
+		return ShowStageCam;
+	}
+
 
 protected:
 	void BeginPlay() override;
@@ -54,6 +66,12 @@ private:
 	std::shared_ptr<ALeftButton> LeftButton = nullptr;
 	std::shared_ptr<ARightButton> RightButton = nullptr;
 	std::shared_ptr<AMouseCursor> MouseCursor = nullptr;
+
+	//Cam
+	std::shared_ptr<AShowStage> ShowStageCam = nullptr;
+
+	// ∏ÛΩ∫≈Õ
+	std::shared_ptr<ABonnie> Bonnie = nullptr;
 
 	// UI Actor
 	std::shared_ptr<ATimeUI> TimeUI = nullptr;

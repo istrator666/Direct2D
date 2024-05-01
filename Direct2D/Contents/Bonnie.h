@@ -1,33 +1,40 @@
 #pragma once
-#include "EngineCore/Actor.h"
+#include "ContentsEnum.h"
 
-class Bonnie : public AActor
+#include "EngineCore/Actor.h"
+#include <EngineBase/EngineRandom.h>
+
+
+class ABonnie : public AActor
 {
 	GENERATED_BODY(AActor)
 
 public:
 	// constrcuter destructer
-	Bonnie();
-	~Bonnie();
+	ABonnie();
+	~ABonnie();
 
 	// delete Function
-	Bonnie(const Bonnie& _Other) = delete;
-	Bonnie(Bonnie&& _Other) noexcept = delete;
-	Bonnie& operator=(const Bonnie& _Other) = delete;
-	Bonnie& operator=(Bonnie&& _Other) noexcept = delete;
+	ABonnie(const ABonnie& _Other) = delete;
+	ABonnie(ABonnie&& _Other) noexcept = delete;
+	ABonnie& operator=(const ABonnie& _Other) = delete;
+	ABonnie& operator=(ABonnie&& _Other) noexcept = delete;
 
-	bool GetIsBonnie();
+	int GetBonnieCurPos()
+	{
+		return BonnieCurPos;
+	}
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	bool Bonnie1A = true;
-	bool Bonnie1B = false;
-	bool Bonnie2A = false;
-	bool Bonnie2B = false;
-	bool Bonnie3 = false;
+	void BonnieMove();
 
+	UEngineRandom MoveChance;
+	int BonnieCurPos = static_cast<int>(EBonniePos::ShowStage);
+	int BonnieLevel = 0;
+	float BonnieMTCheck = 5.0f;
 };
 

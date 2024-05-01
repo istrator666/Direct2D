@@ -31,11 +31,23 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Chica.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="FisheyeEffect.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Foxy.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Freddy.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -52,6 +64,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="RightButton.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ShowStage.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -108,7 +124,19 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Chica.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FisheyeEffect.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Foxy.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Freddy.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -125,6 +153,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="RightButton.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ShowStage.cpp">
       <SubType>
       </SubType>
     </ClCompile>

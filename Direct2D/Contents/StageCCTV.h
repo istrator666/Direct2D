@@ -20,7 +20,7 @@ public:
 
 	void SetRendererActive(bool _Active);
 
-	void SetStageCCTVRenderer(std::string_view _SelectMap);
+	void SetStageCCTVRenderer(std::string_view _SelectMap, int _Index);
 
 protected:
 	void BeginPlay() override;

@@ -10,17 +10,17 @@
 #define RightDoorON 6
 #define RightButtonAllOn 7
 
-#define ShowStage 0
-#define DiningArea 1
-#define PirateCove 2
-#define WestHall 3
-#define WHallCorner 4
-#define SupplyCloset 5
-#define EastHall 6
-#define EHallCorner 7
-#define BackStage 8
-#define Kitchen 9
-#define Restrooms 10
+//#define ShowStage 0
+//#define DiningArea 1
+//#define PirateCove 2
+//#define WestHall 3
+//#define WHallCorner 4
+//#define SupplyCloset 5
+//#define EastHall 6
+//#define EHallCorner 7
+//#define BackStage 8
+//#define Kitchen 9
+//#define Restrooms 10
 
 #define PowerMeterUsagePlus 0
 #define PowerMeterUsageMinus 1

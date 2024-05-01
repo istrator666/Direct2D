@@ -29,6 +29,45 @@ enum class EColType
 
 };
 
+// 1A ShowStage
+// 1B DningArea
+// 1C PirateCove
+// 2A WestHall
+// 2B WHallCorner
+// 3 SupplyCloset
+// 4A EastHall
+// 4B EHallCorner
+// 5 BackStage
+// 6 Kitchen
+// 7 Restrooms
+
+enum class ECamMap
+{
+	ShowStage,
+	DiningArea,
+	PirateCove,
+	WestHall,
+	WHallCorner,
+	SupplyCloset,
+	EastHall,
+	EHallCorner,
+	BackStage,
+	Kitchen,
+	Restrooms,
+};
+
+enum class EBonniePos
+{
+	ShowStage,
+	DiningArea,
+	WestHall,
+	WHallCorner,
+	SupplyCloset,
+	BackStage,
+	Office,
+	In,
+};
+
 enum class EShowStage
 {
 	ShowStage_AllGone,

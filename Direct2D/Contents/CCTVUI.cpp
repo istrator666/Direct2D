@@ -2,6 +2,7 @@
 #include "CCTVUI.h"
 
 #include "ContentsDefine.h"
+#include "ContentsEnum.h"
 
 #include "EngineCore/Image.h"
 
@@ -94,7 +95,7 @@ void ACCTVUI::BeginPlay()
 		CurMapName = CreateWidget<UImage>(GetWorld(), "CurMapName");
 		CurMapName->SetupAttachment(CCTVRoot);
 		CurMapName->AddToViewPort(1);
-		CurMapName->SetSprite("MapName", ShowStage);
+		CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::ShowStage));
 		CurMapName->SetAutoSize(1.0f, true);
 		CurMapName->SetPosition({ 300, 70 });
 		CurMapName->SetActive(true);
@@ -283,7 +284,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1A.CamScreenBox);
-					CurMapName->SetSprite("MapName", ShowStage);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::ShowStage));
 					SelectMap = "ShowStage";
 					CamCameraReset = true;
 				}
@@ -294,7 +295,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1B.CamScreenBox);
-					CurMapName->SetSprite("MapName", DiningArea);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::DiningArea));
 					SelectMap = "DiningArea";
 					CamCameraReset = true;
 				}
@@ -305,7 +306,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam1C.CamScreenBox);
-					CurMapName->SetSprite("MapName", PirateCove);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::PirateCove));
 					SelectMap = "PirateCove";
 					CamCameraReset = true;
 				}
@@ -316,7 +317,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam2A.CamScreenBox);
-					CurMapName->SetSprite("MapName", WestHall);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::WestHall));
 					SelectMap = "WestHall";
 					CamCameraReset = true;
 				}
@@ -327,7 +328,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam2B.CamScreenBox);
-					CurMapName->SetSprite("MapName", WHallCorner);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::WHallCorner));
 					SelectMap = "WHallCorner";
 					CamCameraReset = true;
 				}
@@ -338,7 +339,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam3.CamScreenBox);
-					CurMapName->SetSprite("MapName", SupplyCloset);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::SupplyCloset));
 					SelectMap = "SupplyCloset";
 					CamCameraReset = true;
 				}
@@ -349,7 +350,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam4A.CamScreenBox);
-					CurMapName->SetSprite("MapName", EastHall);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::EastHall));
 					SelectMap = "EastHall";
 					CamCameraReset = true;
 				}
@@ -360,7 +361,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam4B.CamScreenBox);
-					CurMapName->SetSprite("MapName", EHallCorner);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::EHallCorner));
 					SelectMap = "EHallCorner";
 					CamCameraReset = true;
 				}
@@ -371,7 +372,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam5.CamScreenBox);
-					CurMapName->SetSprite("MapName", BackStage);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::BackStage));
 					SelectMap = "BackStage";
 					CamCameraReset = true;
 				}
@@ -382,7 +383,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam6.CamScreenBox);
-					CurMapName->SetSprite("MapName", Kitchen);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::Kitchen));
 					SelectMap = "Kitchen";
 					CamCameraReset = true;
 				}
@@ -393,7 +394,7 @@ void ACCTVUI::BeginPlay()
 				if (IsDown(VK_LBUTTON))
 				{
 					SwapSelectCam(Cam7.CamScreenBox);
-					CurMapName->SetSprite("MapName", Restrooms);
+					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::Restrooms));
 					SelectMap = "Restrooms";
 					CamCameraReset = true;
 				}

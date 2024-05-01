@@ -2,7 +2,6 @@
 #include "EngineCore/Actor.h"
 
 class UImage;
-
 struct CamImage
 {
 	UImage* CamScreenBox = nullptr;

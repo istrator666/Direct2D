@@ -37,6 +37,9 @@
     <Filter Include="Level\PlayLevel\Actor\Monster">
       <UniqueIdentifier>{891cb522-9676-4ce3-b14c-a468d3ae2f0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level\PlayLevel\Actor\Stage\Cam">
+      <UniqueIdentifier>{8168a33f-a4e0-4eb5-9ab2-8b40c40cf4f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -99,6 +102,18 @@
     <ClInclude Include="Bonnie.h">
       <Filter>Level\PlayLevel\Actor\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="ShowStage.h">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="Chica.h">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Foxy.h">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Freddy.h">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -153,6 +168,18 @@
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Bonnie.cpp">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowStage.cpp">
+      <Filter>Level\PlayLevel\Actor\Stage\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="Chica.cpp">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Foxy.cpp">
+      <Filter>Level\PlayLevel\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Freddy.cpp">
       <Filter>Level\PlayLevel\Actor\Monster</Filter>
     </ClCompile>
   </ItemGroup>
