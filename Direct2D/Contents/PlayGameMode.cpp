@@ -26,7 +26,6 @@
 #include <EngineCore/Camera.h>
 #include <EngineCore/Image.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include <set>
 
 APlayGameMode::APlayGameMode() 
 {
@@ -233,19 +232,52 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 void APlayGameMode::ChangeCCTVMap()
 {
 	std::string_view Map = CCTVUI->GetSelectMap();
-	std::set<std::string_view> MapCheck{ "ShowStage", "DiningArea", "PirateCove", "WestHall", "WHallCorner", "SupplyCloset", "EastHall", "EHallCorner", "BackStage", "Kitchen", "Restrooms" };
-	int Index = 0;
 	
-	if (MapCheck.contains(Map))
+	if (Map == "ShowStage")
 	{
-		Index = ShowStageCam->GetCurShowStageCam();
+		StageCCTV->SetStageCCTVRenderer(Map, ShowStageCam->GetCurShowStageCam());
 	}
-	else if (MapCheck.contains(Map))
+	else if (Map == "DiningArea")
 	{
-		Index = DiningArea->GetCurDiningAreaCam();
+		StageCCTV->SetStageCCTVRenderer(Map, DiningArea->GetCurDiningAreaCam());
 	}
+	else if (Map == "PirateCove")
+	{
 
-	StageCCTV->SetStageCCTVRenderer(Map, Index);
+	}
+	else if (Map == "WestHall")
+	{
+
+	}
+	else if (Map == "WHallCorner")
+	{
+
+	}
+	else if (Map == "SupplyCloset")
+	{
+
+	}
+	else if (Map == "EastHall")
+	{
+
+	}
+	else if (Map == "EHallCorner")
+	{
+
+	}
+	else if (Map == "BackStage")
+	{
+
+	}
+	else if (Map == "Kitchen")
+	{
+
+	}
+	else if (Map == "Restrooms")
+	{
+
+	}
+	
 }
 
 void APlayGameMode::CamCameraReset()

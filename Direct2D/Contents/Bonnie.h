@@ -25,6 +25,11 @@ public:
 		return BonnieCurPos;
 	}
 
+	bool GetBonnieIsBack()
+	{
+		return IsBack;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -37,5 +42,6 @@ private:
 	int BonnieLevel = 10;
 	float BonnieMTCheck = 5.0f;
 	float MoveTime = 5.0f;
+	bool IsBack = false;
 };
 

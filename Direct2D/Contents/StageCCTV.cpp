@@ -12,7 +12,7 @@ AStageCCTV::AStageCCTV()
 
 	StageCCTVRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	StageCCTVRenderer->SetupAttachment(CCTVRoot);
-	StageCCTVRenderer->SetSprite("ShowStage", 0);
+	StageCCTVRenderer->SetSprite("ShowStage", 5);
 	StageCCTVRenderer->SetAutoSize(1.0f, true);
 	StageCCTVRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StageCCTVRenderer->SetOrder(EOrderType::CCTVActor);
@@ -27,7 +27,7 @@ AStageCCTV::AStageCCTV()
 
 	StaticRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	StaticRenderer->SetupAttachment(CCTVRoot);
-	StaticRenderer->SetMaterial("OverlayMaterial");
+	StaticRenderer->SetMulColor({ 1.0f,1.0f,1.0f, 0.2f });
 	StaticRenderer->CreateAnimation("Noise", "Static.png", 0.1f, true, 0, 7);
 	StaticRenderer->ChangeAnimation("Noise");
 	StaticRenderer->SetScale(FVector(1600.0f, 720.0f, 0.0f));

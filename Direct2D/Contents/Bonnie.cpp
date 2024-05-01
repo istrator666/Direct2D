@@ -53,6 +53,7 @@ void ABonnie::BonnieMove()
 			}
 			else
 			{
+				IsBack = false;
 				BonnieCurPos = static_cast<int>(EBonniePos::BackStage);
 			}
 			break;
@@ -110,6 +111,7 @@ void ABonnie::BonnieMove()
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
+				IsBack = true;
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			else
@@ -126,6 +128,7 @@ void ABonnie::BonnieMove()
 			}
 			else
 			{
+				IsBack = true;
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			break;

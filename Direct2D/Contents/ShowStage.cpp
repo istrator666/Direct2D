@@ -14,6 +14,23 @@ AShowStage::~AShowStage()
 {
 }
 
+void AShowStage::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PGMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
+	Bonnie = PGMode->GetBonnie();
+	Chica = PGMode->GetChica();
+	Freddy = PGMode->GetFreddy();
+}
+
+void AShowStage::Tick(float _DeltaTime)
+{
+	Super::Tick(_DeltaTime);
+	ShowStageMonsterCheck();
+}
+
+
 void AShowStage::ShowStageMonsterCheck()
 {
 	if (static_cast<int>(EBonniePos::ShowStage) == Bonnie->GetBonnieCurPos()
@@ -46,21 +63,4 @@ void AShowStage::ShowStageMonsterCheck()
 	{
 		CurShowStageCam = static_cast<int>(EShowStage::ShowStage_AllGone);
 	}
-	
-}
-
-void AShowStage::BeginPlay()
-{
-	Super::BeginPlay();
-
-	PGMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
-	Bonnie = PGMode->GetBonnie();
-	Chica = PGMode->GetChica();
-	Freddy = PGMode->GetFreddy();
-}
-
-void AShowStage::Tick(float _DeltaTime)
-{
-	Super::Tick(_DeltaTime);
-	ShowStageMonsterCheck();
 }
