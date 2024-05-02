@@ -48,31 +48,7 @@ public:
 		return RightButton;
 	}
 
-	std::shared_ptr<ABonnie> GetBonnie()
-	{
-		return Bonnie;
-	}
-
-	std::shared_ptr<AChica> GetChica()
-	{
-		return Chica;
-	}
-
-	std::shared_ptr<AFoxy> GetFoxy()
-	{
-		return Foxy;
-	}
-
-	std::shared_ptr<AFreddy> GetFreddy()
-	{
-		return Freddy;
-	}
-
-	std::shared_ptr<AShowStage> GetShowStage()
-	{
-		return ShowStageCam;
-	}
-
+	//bool GetIsAnimatronics(ECamMap _RoomName);
 
 protected:
 	void BeginPlay() override;
@@ -90,7 +66,7 @@ private:
 
 	//Cam
 	std::shared_ptr<AShowStage> ShowStageCam = nullptr;
-	std::shared_ptr< ADiningArea> DiningArea = nullptr;
+	std::shared_ptr<ADiningArea> DiningArea = nullptr;
 
 	// ∏ÛΩ∫≈Õ
 	std::shared_ptr<ABonnie> Bonnie = nullptr;

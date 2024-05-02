@@ -34,7 +34,7 @@ APlayGameMode::~APlayGameMode()
 {
 }
 
-void APlayGameMode::BeginPlay() 
+void APlayGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -69,6 +69,11 @@ void APlayGameMode::SetActor()
 	// Cam Info
 	ShowStageCam = GetWorld()->SpawnActor<AShowStage>("ShowStageCam");
 	DiningArea = GetWorld()->SpawnActor<ADiningArea>("DiningArea");
+	
+	// 처음 몬스터 위치 설정
+	ShowStageCam->SetAnimatronics(Bonnie);
+	ShowStageCam->SetAnimatronics(Chica);
+	ShowStageCam->SetAnimatronics(Freddy);
 
 	// Stage Actor
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
@@ -288,3 +293,39 @@ void APlayGameMode::CamCameraReset()
 	}
 	
 }
+
+//bool APlayGameMode::GetIsAnimatronics(ECamMap _RoomName)
+//{
+//	switch (_RoomName)
+//	{
+//	case ECamMap::ShowStage:
+//		break;
+//	case ECamMap::DiningArea:
+//		DiningArea->GetIsAnimatronics();
+//		break;
+//	case ECamMap::PirateCove:
+//		break;
+//	case ECamMap::WestHall:
+//		break;
+//	case ECamMap::WHallCorner:
+//		break;
+//	case ECamMap::SupplyCloset:
+//		break;
+//	case ECamMap::EastHall:
+//		break;
+//	case ECamMap::EHallCorner:
+//		break;
+//	case ECamMap::BackStage:
+//		break;
+//	case ECamMap::Kitchen:
+//		break;
+//	case ECamMap::Restrooms:
+//		break;
+//	case ECamMap::In:
+//		break;
+//	default:
+//		break;
+//	}
+//
+//	return false;
+//}

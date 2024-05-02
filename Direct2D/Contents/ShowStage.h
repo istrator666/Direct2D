@@ -1,14 +1,10 @@
 #pragma once
-#include "EngineCore/Actor.h"
+#include "Rooms.h"
 #include "ContentsEnum.h"
 
-class APlayGameMode;
-class ABonnie;
-class AChica;
-class AFreddy;
-class AShowStage : public AActor
+class AShowStage : public Rooms
 {
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(Rooms)
 
 public:
 	// constrcuter destructer
@@ -26,17 +22,15 @@ public:
 		return CurShowStageCam;
 	}
 
+	void SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics) override;
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
 	void ShowStageMonsterCheck();
-
-	APlayGameMode* PGMode = nullptr;
-	std::shared_ptr<ABonnie> Bonnie = nullptr;
-	std::shared_ptr<AChica> Chica = nullptr;
-	std::shared_ptr<AFreddy> Freddy = nullptr;
+	std::vector<std::shared_ptr<AAnimatronics>> Animatronics;
 
 	int CurShowStageCam = static_cast<int>(EShowStage::ShowStage_Default);
 };

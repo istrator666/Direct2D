@@ -1,6 +1,5 @@
 #include "PreCompile.h"
 #include "ShowStage.h"
-#include "PlayGameMode.h"
 #include "Bonnie.h"
 #include "Chica.h"
 #include "Freddy.h"
@@ -18,10 +17,6 @@ void AShowStage::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PGMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
-	Bonnie = PGMode->GetBonnie();
-	Chica = PGMode->GetChica();
-	Freddy = PGMode->GetFreddy();
 }
 
 void AShowStage::Tick(float _DeltaTime)
@@ -30,9 +25,40 @@ void AShowStage::Tick(float _DeltaTime)
 	ShowStageMonsterCheck();
 }
 
+void AShowStage::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
+{
+	Animatronics.push_back(_Animatronics);
+}
+
 
 void AShowStage::ShowStageMonsterCheck()
 {
+	ABonnie* Bonnie = nullptr;
+	AChica* Chica = nullptr;
+	AFreddy* Freddy = nullptr;
+
+	for (size_t i = 0; i < Animatronics.size(); i++)
+	{
+		ABonnie* NewBonnie = dynamic_cast<ABonnie*>(Animatronics[i].get());
+		if (nullptr != NewBonnie)
+		{
+			Bonnie = NewBonnie;
+			continue;
+		}
+		AChica* NewChica = dynamic_cast<AChica*>(Animatronics[i].get());
+		if (nullptr != NewChica)
+		{
+			Chica = NewChica;
+			continue;
+		}
+		AFreddy* NewFreddy = dynamic_cast<AFreddy*>(Animatronics[i].get());
+		if (nullptr != NewFreddy)
+		{
+			Freddy = NewFreddy;
+			continue;
+		}
+	}
+
 	if (static_cast<int>(EBonniePos::ShowStage) == Bonnie->GetBonnieCurPos()
 		&& static_cast<int>(EChicaPos::ShowStage) == Chica->GetChicaCurPos()
 		&& static_cast<int>(EFreddyPos::ShowStage) == Freddy->GetFreddyCurPos())
@@ -44,12 +70,14 @@ void AShowStage::ShowStageMonsterCheck()
 		&& static_cast<int>(EFreddyPos::ShowStage) == Freddy->GetFreddyCurPos())
 	{
 		CurShowStageCam = static_cast<int>(EShowStage::ShowStage_BonnieGone);
+		Bonnie = nullptr;
 	}
 	else if (static_cast<int>(EChicaPos::ShowStage) != Chica->GetChicaCurPos()
 		&& static_cast<int>(EBonniePos::ShowStage) == Bonnie->GetBonnieCurPos()
 		&& static_cast<int>(EFreddyPos::ShowStage) == Freddy->GetFreddyCurPos())
 	{
 		CurShowStageCam = static_cast<int>(EShowStage::ShowStage_ChicaGone);
+		Chica = nullptr;
 	}
 	else if (static_cast<int>(EBonniePos::ShowStage) != Bonnie->GetBonnieCurPos()
 		&& static_cast<int>(EChicaPos::ShowStage) != Chica->GetChicaCurPos()
@@ -62,5 +90,6 @@ void AShowStage::ShowStageMonsterCheck()
 		&& static_cast<int>(EFreddyPos::ShowStage) != Freddy->GetFreddyCurPos())
 	{
 		CurShowStageCam = static_cast<int>(EShowStage::ShowStage_AllGone);
+		Freddy = nullptr;
 	}
 }

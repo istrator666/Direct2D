@@ -2,6 +2,7 @@
 #include "Bonnie.h"
 
 #include <EngineBase/EngineRandom.h>
+#include "PlayGameMode.h"
 
 ABonnie::ABonnie()
 {
@@ -15,6 +16,7 @@ ABonnie::~ABonnie()
 void ABonnie::BeginPlay()
 {
 	Super::BeginPlay();
+	//AAnimatronics::PGameMode->GetIsAnimatronics
 }
 
 void ABonnie::Tick(float _DeltaTime)

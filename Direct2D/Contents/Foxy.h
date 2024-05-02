@@ -1,12 +1,12 @@
 #pragma once
 #include "ContentsEnum.h"
 
-#include "EngineCore/Actor.h"
+#include "Animatronics.h"
 #include <EngineBase/EngineRandom.h>
 
-class AFoxy : public AActor
+class AFoxy : public AAnimatronics
 {
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(AAnimatronics)
 
 public:
 	// constrcuter destructer

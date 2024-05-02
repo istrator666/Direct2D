@@ -1,14 +1,11 @@
 #pragma once
 #include "EngineCore/Actor.h"
+#include "Rooms.h"
 #include "ContentsEnum.h"
 
-class APlayGameMode;
-class ABonnie;
-class AChica;
-class AFreddy;
-class ADiningArea : public AActor
+class ADiningArea : public Rooms
 {
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(Rooms)
 
 public:
 	// constrcuter destructer
@@ -26,6 +23,20 @@ public:
 		return CurDiningAreaCam;
 	}
 
+	bool GetIsAnimatronics()
+	{
+		if (nullptr == Animatronics)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	void SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics) override;
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -33,11 +44,7 @@ protected:
 private:
 	void DiningAreaMonsterCheck();
 
-	APlayGameMode* PGMode = nullptr;
-	std::shared_ptr<ABonnie> Bonnie = nullptr;
-	std::shared_ptr<AChica> Chica = nullptr;
-	std::shared_ptr<AFreddy> Freddy = nullptr;
-
+	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int CurDiningAreaCam = static_cast<int>(EDiningArea::DiningArea_Default);
 };
 
