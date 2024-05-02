@@ -5,7 +5,6 @@
 
 #include "TheOffice.h"
 #include "GameDay.h"
-#include "StageUI.h"
 #include "StageCCTV.h"
 #include "LeftButton.h"
 #include "RightButton.h"

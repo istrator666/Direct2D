@@ -93,9 +93,6 @@
     <ClInclude Include="StageCCTV.h">
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="StageUI.h">
-      <Filter>Level\PlayLevel\Actor\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="TheOffice.h">
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClInclude>
@@ -189,9 +186,6 @@
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClCompile>
     <ClCompile Include="StageCCTV.cpp">
-      <Filter>Level\PlayLevel\Actor\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="StageUI.cpp">
       <Filter>Level\PlayLevel\Actor\Stage</Filter>
     </ClCompile>
     <ClCompile Include="TheOffice.cpp">
