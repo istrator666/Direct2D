@@ -39,7 +39,7 @@ private:
 
 	UEngineRandom MoveChance;
 	int BonnieCurPos = static_cast<int>(EBonniePos::ShowStage);
-	int BonnieLevel = 10;
+	int BonnieLevel = 0;
 	float BonnieMTCheck = 5.0f;
 	float MoveTime = 5.0f;
 	bool IsBack = false;

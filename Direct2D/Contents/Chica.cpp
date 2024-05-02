@@ -1,6 +1,11 @@
 #include "PreCompile.h"
 #include "Chica.h"
 
+#include "PlayGameMode.h"
+#include "DiningArea.h"
+
+#include <EngineBase/EngineRandom.h>
+
 AChica::AChica()
 {
 }
@@ -43,8 +48,9 @@ void AChica::ChicaMove()
 		{
 		case static_cast<int>(EChicaPos::ShowStage):
 		{
-			if (16 >= MoveChance.RandomInt(1, 20))
+			if (16 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
+				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::DiningArea);
 			}
 			else
@@ -96,8 +102,9 @@ void AChica::ChicaMove()
 			{
 				ChicaCurPos = static_cast<int>(EChicaPos::EHallCorner);
 			}
-			else
+			else if (16 <= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
+				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::DiningArea);
 			}
 			break;
@@ -106,7 +113,7 @@ void AChica::ChicaMove()
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
-				ChicaCurPos = static_cast<int>(EChicaPos::Office);
+				ChicaCurPos = static_cast<int>(EChicaPos::RightOffice);
 			}
 			else
 			{
@@ -114,11 +121,11 @@ void AChica::ChicaMove()
 			}
 			break;
 		}
-		case static_cast<int>(EChicaPos::Office):
+		case static_cast<int>(EChicaPos::RightOffice):
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
-				ChicaCurPos = static_cast<int>(EChicaPos::In);
+				ChicaCurPos = static_cast<int>(EChicaPos::RightIn);
 			}
 			else
 			{

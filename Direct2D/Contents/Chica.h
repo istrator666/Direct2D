@@ -24,6 +24,11 @@ public:
 		return ChicaCurPos;
 	}
 
+	bool GetChicaBack()
+	{
+		return IsBack;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -33,8 +38,9 @@ private:
 
 	UEngineRandom MoveChance;
 	int ChicaCurPos = static_cast<int>(EChicaPos::ShowStage);
-	int ChicaLevel = 0;
+	int ChicaLevel = 10;
 	float ChicaMTCheck = 5.0f;
 	float MoveTime = 5.0f;
+	bool IsBack = false;
 };
 

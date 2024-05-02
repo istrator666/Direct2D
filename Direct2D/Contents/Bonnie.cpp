@@ -1,8 +1,10 @@
 #include "PreCompile.h"
 #include "Bonnie.h"
+#include "PlayGameMode.h"
+#include "DiningArea.h"
 
 #include <EngineBase/EngineRandom.h>
-#include "PlayGameMode.h"
+
 
 ABonnie::ABonnie()
 {
@@ -16,7 +18,7 @@ ABonnie::~ABonnie()
 void ABonnie::BeginPlay()
 {
 	Super::BeginPlay();
-	//AAnimatronics::PGameMode->GetIsAnimatronics
+	
 }
 
 void ABonnie::Tick(float _DeltaTime)
@@ -49,8 +51,9 @@ void ABonnie::BonnieMove()
 		{
 		case static_cast<int>(EBonniePos::ShowStage):
 		{
-			if (16 >= MoveChance.RandomInt(1, 20))
+			if (16 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
+				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			else
@@ -89,7 +92,7 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
-				BonnieCurPos = static_cast<int>(EBonniePos::Office);
+				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
 			else
 			{
@@ -101,7 +104,7 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
-				BonnieCurPos = static_cast<int>(EBonniePos::Office);
+				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
 			else
 			{
@@ -111,7 +114,7 @@ void ABonnie::BonnieMove()
 		}
 		case static_cast<int>(EBonniePos::BackStage):
 		{
-			if (10 >= MoveChance.RandomInt(1, 20))
+			if (10 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
 				IsBack = true;
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
@@ -122,13 +125,13 @@ void ABonnie::BonnieMove()
 			}
 			break;
 		}
-		case static_cast<int>(EBonniePos::Office):
+		case static_cast<int>(EBonniePos::LeftOffice):
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
-				BonnieCurPos = static_cast<int>(EBonniePos::In);
+				BonnieCurPos = static_cast<int>(EBonniePos::LeftIn);
 			}
-			else
+			else if (10 <= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
 				IsBack = true;
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);

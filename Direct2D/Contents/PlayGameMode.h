@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore/GameMode.h>
+#include "ContentsEnum.h"
 
 // Ό³Έν :
 class UImage;
@@ -48,7 +49,22 @@ public:
 		return RightButton;
 	}
 
-	//bool GetIsAnimatronics(ECamMap _RoomName);
+	std::shared_ptr<ADiningArea> GetDiningArea()
+	{
+		return DiningArea;
+	}
+
+	std::shared_ptr<ABonnie> GetBonnie()
+	{
+		return Bonnie;
+	}
+
+	std::shared_ptr<AChica> GetChica()
+	{
+		return Chica;
+	}
+
+	bool GetIsMapAnimatronics(ECamMap _RoomName);
 
 protected:
 	void BeginPlay() override;

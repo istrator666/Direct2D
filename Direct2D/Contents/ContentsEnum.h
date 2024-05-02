@@ -64,8 +64,8 @@ enum class EBonniePos
 	WHallCorner,
 	SupplyCloset,
 	BackStage,
-	Office,
-	In,
+	LeftOffice,
+	LeftIn,
 };
 
 enum class EChicaPos
@@ -76,8 +76,8 @@ enum class EChicaPos
 	EHallCorner,
 	Kitchen,
 	Restrooms,
-	Office,
-	In,
+	RightOffice,
+	RightIn,
 };
 
 enum class EFoxyPos

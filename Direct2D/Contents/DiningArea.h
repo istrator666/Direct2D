@@ -23,17 +23,7 @@ public:
 		return CurDiningAreaCam;
 	}
 
-	bool GetIsAnimatronics()
-	{
-		if (nullptr == Animatronics)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
+	bool GetIsAnimatronics();
 
 	void SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics) override;
 
