@@ -39,9 +39,9 @@ private:
 
 	UEngineRandom MoveChance;
 	int BonnieCurPos = static_cast<int>(EBonniePos::ShowStage);
-	int BonnieLevel = 0;
-	float BonnieMTCheck = 5.0f;
-	float MoveTime = 5.0f;
+	int BonnieLevel = 10;
+	float BonnieMTCheck = 3.0f;
+	float MoveTime = 3.0f;
 	bool IsBack = false;
 };
 

@@ -19,6 +19,11 @@ class AFreddy;
 
 class AShowStage;
 class ADiningArea;
+class AWestHall;
+class AWHallCorner;
+class ASupplyCloset;
+class ABackStage;
+
 
 class ATimeUI;
 class ABatteryUI;
@@ -49,9 +54,29 @@ public:
 		return RightButton;
 	}
 
-	std::shared_ptr<ADiningArea> GetDiningArea()
+	std::string_view GetCurCam()
 	{
-		return DiningArea;
+		return Map;
+	}
+
+	std::shared_ptr<ADiningArea> GetDiningAreaCam()
+	{
+		return DiningAreaCam;
+	}
+	
+	std::shared_ptr<ABackStage> GetBackStageCam()
+	{
+		return BackStageCam;
+	}
+
+	std::shared_ptr<AWestHall> GetWestHallCam()
+	{
+		return WestHallCam;
+	}
+
+	std::shared_ptr<AWHallCorner> GetWHallCornerCam()
+	{
+		return WHallCornerCam;
 	}
 
 	std::shared_ptr<ABonnie> GetBonnie()
@@ -81,8 +106,13 @@ private:
 	std::shared_ptr<AMouseCursor> MouseCursor = nullptr;
 
 	//Cam
+	std::string_view Map;
 	std::shared_ptr<AShowStage> ShowStageCam = nullptr;
-	std::shared_ptr<ADiningArea> DiningArea = nullptr;
+	std::shared_ptr<ADiningArea> DiningAreaCam = nullptr;
+	std::shared_ptr<AWestHall> WestHallCam = nullptr;
+	std::shared_ptr<AWHallCorner> WHallCornerCam = nullptr;
+	std::shared_ptr<ABackStage> BackStageCam = nullptr;
+	std::shared_ptr<ASupplyCloset> SupplyClosetCam = nullptr;
 
 	// ∏ÛΩ∫≈Õ
 	std::shared_ptr<ABonnie> Bonnie = nullptr;

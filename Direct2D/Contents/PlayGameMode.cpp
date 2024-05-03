@@ -12,6 +12,15 @@
 
 #include "ShowStage.h"
 #include "DiningArea.h"
+#include "PirateCove.h"
+#include "WestHall.h"
+#include "WHallCorner.h"
+#include "SupplyCloset.h"
+#include "EastHall.h"
+#include "EHallCorner.h"
+#include "BackStage.h"
+#include "Kitchen.h"
+#include "Restrooms.h"
 
 #include "Bonnie.h"
 #include "Chica.h"
@@ -68,7 +77,12 @@ void APlayGameMode::SetActor()
 
 	// Cam Info
 	ShowStageCam = GetWorld()->SpawnActor<AShowStage>("ShowStageCam");
-	DiningArea = GetWorld()->SpawnActor<ADiningArea>("DiningArea");
+	DiningAreaCam = GetWorld()->SpawnActor<ADiningArea>("DiningAreaCam");
+	WestHallCam = GetWorld()->SpawnActor<AWestHall>("WestHallCam");
+	WHallCornerCam = GetWorld()->SpawnActor<AWHallCorner>("WHallCornerCam");
+	SupplyClosetCam = GetWorld()->SpawnActor<ASupplyCloset>("SupplyClosetCam");
+	BackStageCam = GetWorld()->SpawnActor<ABackStage>("BackStageCam");
+
 	
 	// 처음 몬스터 위치 설정
 	ShowStageCam->SetAnimatronics(Bonnie);
@@ -235,7 +249,7 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 
 void APlayGameMode::ChangeCCTVMap()
 {
-	std::string_view Map = CCTVUI->GetSelectMap();
+	Map = CCTVUI->GetSelectMap();
 	
 	if (Map == "ShowStage")
 	{
@@ -243,7 +257,7 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "DiningArea")
 	{
-		StageCCTV->SetStageCCTVRenderer(Map, DiningArea->GetCurDiningAreaCam());
+		StageCCTV->SetStageCCTVRenderer(Map, DiningAreaCam->GetCurDiningAreaCam());
 	}
 	else if (Map == "PirateCove")
 	{
@@ -251,15 +265,15 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "WestHall")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, WestHallCam->GetCurWestHallCam());
 	}
 	else if (Map == "WHallCorner")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, WHallCornerCam->GetCurWHallCornerCam());
 	}
 	else if (Map == "SupplyCloset")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, SupplyClosetCam->GetCurSupplyClosetCam());
 	}
 	else if (Map == "EastHall")
 	{
@@ -271,7 +285,7 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "BackStage")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, BackStageCam->GetCurBackStageCam());
 	}
 	else if (Map == "Kitchen")
 	{
@@ -281,7 +295,6 @@ void APlayGameMode::ChangeCCTVMap()
 	{
 
 	}
-	
 }
 
 void APlayGameMode::CamCameraReset()
@@ -301,27 +314,29 @@ bool APlayGameMode::GetIsMapAnimatronics(ECamMap _RoomName)
 	case ECamMap::ShowStage:
 		break;
 	case ECamMap::DiningArea:
-		DiningArea->GetIsAnimatronics();
+		DiningAreaCam->GetIsAnimatronics();
 		break;
 	case ECamMap::PirateCove:
 		break;
 	case ECamMap::WestHall:
+		WestHallCam->GetIsAnimatronics();
 		break;
 	case ECamMap::WHallCorner:
+		WHallCornerCam->GetIsAnimatronics();
 		break;
 	case ECamMap::SupplyCloset:
+		SupplyClosetCam->GetIsAnimatronics();
 		break;
 	case ECamMap::EastHall:
 		break;
 	case ECamMap::EHallCorner:
 		break;
 	case ECamMap::BackStage:
+		BackStageCam->GetIsAnimatronics();
 		break;
 	case ECamMap::Kitchen:
 		break;
 	case ECamMap::Restrooms:
-		break;
-	case ECamMap::In:
 		break;
 	default:
 		break;

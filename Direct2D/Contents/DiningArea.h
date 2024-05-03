@@ -3,9 +3,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
-class ADiningArea : public Rooms
+class ADiningArea : public ARooms
 {
-	GENERATED_BODY(Rooms)
+	GENERATED_BODY(ARooms)
 
 public:
 	// constrcuter destructer

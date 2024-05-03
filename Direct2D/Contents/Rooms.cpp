@@ -1,23 +1,23 @@
 #include "PreCompile.h"
 #include "Rooms.h"
 
-Rooms::Rooms()
+ARooms::ARooms()
 {
 }
 
-Rooms::~Rooms()
+ARooms::~ARooms()
 {
 }
 
-void Rooms::BeginPlay()
+void ARooms::BeginPlay()
 {
 }
 
-void Rooms::Tick(float _DeltaTime)
+void ARooms::Tick(float _DeltaTime)
 {
 }
 
-void Rooms::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
+void ARooms::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
 
 }

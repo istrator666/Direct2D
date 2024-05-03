@@ -3,19 +3,19 @@
 #include "EngineCore/Actor.h"
 #include "Animatronics.h"
 
-class Rooms : public AActor
+class ARooms : public AActor
 {
 	GENERATED_BODY(AActor)
 public:
 	// constrcuter destructer
-	Rooms();
-	~Rooms();
+	ARooms();
+	~ARooms();
 
 	// delete Function
-	Rooms(const Rooms& _Other) = delete;
-	Rooms(Rooms&& _Other) noexcept = delete;
-	Rooms& operator=(const Rooms& _Other) = delete;
-	Rooms& operator=(Rooms&& _Other) noexcept = delete;
+	ARooms(const ARooms& _Other) = delete;
+	ARooms(ARooms&& _Other) noexcept = delete;
+	ARooms& operator=(const ARooms& _Other) = delete;
+	ARooms& operator=(ARooms&& _Other) noexcept = delete;
 
 
 protected:

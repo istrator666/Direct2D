@@ -2,9 +2,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
-class AShowStage : public Rooms
+class AShowStage : public ARooms
 {
-	GENERATED_BODY(Rooms)
+	GENERATED_BODY(ARooms)
 
 public:
 	// constrcuter destructer

@@ -25,6 +25,8 @@ void ADiningArea::Tick(float _DeltaTime)
 
 void ADiningArea::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
+	Super::SetAnimatronics(_Animatronics);
+
 	if (nullptr == Animatronics)
 	{
 		Animatronics = _Animatronics;
@@ -67,6 +69,7 @@ void ADiningArea::DiningAreaMonsterCheck()
 				CurDiningAreaCam = static_cast<int>(EDiningArea::DiningArea_Chica1);
 			}
 		}
+
 		AFreddy* NewFreddy = dynamic_cast<AFreddy*>(Animatronics.get());
 		if (nullptr != NewFreddy)
 		{
@@ -82,10 +85,10 @@ void ADiningArea::DiningAreaMonsterCheck()
 
 bool ADiningArea::GetIsAnimatronics()
 {
-	if (nullptr != Animatronics)
+	if (nullptr == Animatronics)
 	{
-		return true;
+		return false;
 	}
 
-	return false;
+	return true;
 }

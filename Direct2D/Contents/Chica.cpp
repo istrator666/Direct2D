@@ -50,7 +50,7 @@ void AChica::ChicaMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
-				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetChica());
+				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::DiningArea);
 			}
 			else
@@ -104,7 +104,7 @@ void AChica::ChicaMove()
 			}
 			else if (16 <= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
-				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetChica());
+				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::DiningArea);
 			}
 			break;

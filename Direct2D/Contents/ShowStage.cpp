@@ -27,6 +27,8 @@ void AShowStage::Tick(float _DeltaTime)
 
 void AShowStage::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
+	Super::SetAnimatronics(_Animatronics);
+
 	Animatronics.push_back(_Animatronics);
 }
 

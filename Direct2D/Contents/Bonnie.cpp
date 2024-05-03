@@ -1,7 +1,11 @@
 #include "PreCompile.h"
 #include "Bonnie.h"
 #include "PlayGameMode.h"
+
 #include "DiningArea.h"
+#include "BackStage.h"
+#include "WestHall.h"
+#include "WHallCorner.h"
 
 #include <EngineBase/EngineRandom.h>
 
@@ -53,12 +57,13 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
-				AAnimatronics::PGameMode->GetDiningArea()->SetAnimatronics(PGameMode->GetBonnie());
+				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			else
 			{
 				IsBack = false;
+				AAnimatronics::PGameMode->GetBackStageCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::BackStage);
 			}
 			break;
@@ -67,10 +72,12 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetBackStageCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::BackStage);
 			}
 			break;
@@ -79,6 +86,7 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WHallCorner);
 			}
 			else
@@ -108,6 +116,7 @@ void ABonnie::BonnieMove()
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
 			break;
@@ -121,6 +130,7 @@ void ABonnie::BonnieMove()
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
 			break;
@@ -137,6 +147,10 @@ void ABonnie::BonnieMove()
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			break;
+		}
+		case static_cast<int>(EBonniePos::LeftIn):
+		{
+			int a = 0;
 		}
 		}
 	}

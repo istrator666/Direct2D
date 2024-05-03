@@ -53,7 +53,6 @@ enum class ECamMap
 	BackStage,
 	Kitchen,
 	Restrooms,
-	In,
 };
 
 enum class EBonniePos
@@ -188,4 +187,16 @@ enum class ERestRooms
 	RestRooms_Chica1,
 	RestRooms_Default,
 	RestRooms_Freddy,
+};
+
+enum class ETheOffice
+{
+	TheOffice,
+	TheOffice_Bonnie,
+	TheOffice_Chica,
+};
+
+enum class EIn
+{
+
 };
