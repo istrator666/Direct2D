@@ -12,7 +12,7 @@ ATheOffice::ATheOffice()
 
 	TheOfficeRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	TheOfficeRenderer->SetupAttachment(StageRoot);
-	TheOfficeRenderer->SetSprite("TheOffice.png");
+	TheOfficeRenderer->SetSprite("The Office", static_cast<int>(ETheOffice::TheOffice));
 	TheOfficeRenderer->SetAutoSize(1.0f, true);
 	TheOfficeRenderer->SetOrder(EOrderType::Background);
 
@@ -25,6 +25,11 @@ ATheOffice::ATheOffice()
 	FanRenderer->AddPosition(FVector(48.0f, -41.0f, 0.0f));
 	FanRenderer->SetOrder(EOrderType::Actor);
 
+	JumpScareRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	JumpScareRenderer->SetupAttachment(StageRoot);
+	JumpScareRenderer->CreateAnimation("JumpScareBonnie", "JumpScareBonnie", 0.1f, true, 0, 10);
+	JumpScareRenderer->SetAutoSize(1.0f, true);
+	JumpScareRenderer->SetOrder(EOrderType::Cutscene);
 
 	SetRoot(StageRoot);
 
@@ -44,6 +49,11 @@ void ATheOffice::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	DebugMessageFunction();
+
+	//if (JumpScareRenderer->IsCurAnimationEnd())
+	//{
+	//	JumpScareRenderer->SetActive(false);
+	//}
 
 }
 

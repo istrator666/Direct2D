@@ -28,7 +28,7 @@ void ABackStage::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
 	Super::SetAnimatronics(_Animatronics);
 
-	if (nullptr == Animatronics)
+	if (nullptr == Animatronics || nullptr == _Animatronics)
 	{
 		Animatronics = _Animatronics;
 	}
@@ -54,10 +54,10 @@ void ABackStage::BackStageMonsterCheck()
 				CurBackStageCam = static_cast<int>(EBackstage::BackStage_Bonnie1);
 			}
 		}
-		else
-		{
-			CurBackStageCam = static_cast<int>(EBackstage::BackStage_Default);
-		}
+	}
+	else
+	{
+		CurBackStageCam = static_cast<int>(EBackstage::BackStage_Default);
 	}
 }
 

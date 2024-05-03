@@ -125,7 +125,7 @@ void AChica::ChicaMove()
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
-				ChicaCurPos = static_cast<int>(EChicaPos::RightIn);
+				
 			}
 			else
 			{

@@ -25,7 +25,7 @@ void AWHallCorner::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
 	Super::SetAnimatronics(_Animatronics);
 
-	if (nullptr == Animatronics)
+	if (nullptr == Animatronics || nullptr == _Animatronics)
 	{
 		Animatronics = _Animatronics;
 	}
@@ -47,10 +47,10 @@ void AWHallCorner::WHallCornerMonsterCheck()
 				WHallCornerCam = static_cast<int>(EWHallCorner::WestHallB_Bonnie0);
 			}
 		}
-		else
-		{
-			WHallCornerCam = static_cast<int>(EWHallCorner::WestHallB_Default);
-		}
+	}
+	else
+	{
+		WHallCornerCam = static_cast<int>(EWHallCorner::WestHallB_Default);
 	}
 }
 

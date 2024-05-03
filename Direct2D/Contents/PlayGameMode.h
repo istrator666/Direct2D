@@ -79,6 +79,11 @@ public:
 		return WHallCornerCam;
 	}
 
+	std::shared_ptr<ATheOffice> GetTheOffice()
+	{
+		return TheOffice;
+	}
+
 	std::shared_ptr<ABonnie> GetBonnie()
 	{
 		return Bonnie;

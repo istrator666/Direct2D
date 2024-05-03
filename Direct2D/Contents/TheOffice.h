@@ -18,6 +18,16 @@ public:
 	ATheOffice& operator=(const ATheOffice& _Other) = delete;
 	ATheOffice& operator=(ATheOffice&& _Other) noexcept = delete;
 
+	void SetTheOfficeRender(int _Index)
+	{
+		TheOfficeRenderer->SetSprite("The Office", _Index);
+	}
+
+	void SetJumpScareAnimation(std::string_view _JumpScareName)
+	{
+		JumpScareRenderer->ChangeAnimation(_JumpScareName);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -25,6 +35,7 @@ protected:
 private:
 	USpriteRenderer* TheOfficeRenderer = nullptr;
 	USpriteRenderer* FanRenderer = nullptr;
+	USpriteRenderer* JumpScareRenderer = nullptr;
 
 	void DebugMessageFunction();
 };

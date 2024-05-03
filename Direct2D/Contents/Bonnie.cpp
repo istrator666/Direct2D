@@ -6,6 +6,7 @@
 #include "BackStage.h"
 #include "WestHall.h"
 #include "WHallCorner.h"
+#include "TheOffice.h"
 
 #include <EngineBase/EngineRandom.h>
 
@@ -72,11 +73,13 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetBackStageCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::BackStage);
 			}
@@ -86,11 +89,14 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WHallCorner);
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(nullptr);
+
 				BonnieCurPos = static_cast<int>(EBonniePos::SupplyCloset);
 			}
 			break;
@@ -100,10 +106,14 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(nullptr);
+
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
 			else
 			{
+				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(nullptr);
+
 				BonnieCurPos = static_cast<int>(EBonniePos::SupplyCloset);
 			}
 			break;
@@ -112,10 +122,13 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
+
+
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
 			else
 			{
+
 				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
@@ -126,11 +139,12 @@ void ABonnie::BonnieMove()
 			if (10 >= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
 				IsBack = true;
+				AAnimatronics::PGameMode->GetBackStageCam()->SetAnimatronics(nullptr);
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			else
 			{
-				AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetBonnie());
+				AAnimatronics::PGameMode->GetBackStageCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::WestHall);
 			}
 			break;
@@ -139,7 +153,7 @@ void ABonnie::BonnieMove()
 		{
 			if (10 >= MoveChance.RandomInt(1, 20))
 			{
-				BonnieCurPos = static_cast<int>(EBonniePos::LeftIn);
+				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareBonnie");
 			}
 			else if (10 <= MoveChance.RandomInt(1, 20) && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
@@ -147,10 +161,6 @@ void ABonnie::BonnieMove()
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}
 			break;
-		}
-		case static_cast<int>(EBonniePos::LeftIn):
-		{
-			int a = 0;
 		}
 		}
 	}

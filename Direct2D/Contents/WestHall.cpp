@@ -26,7 +26,7 @@ void AWestHall::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 {
 	Super::SetAnimatronics(_Animatronics);
 
-	if (nullptr == Animatronics)
+	if (nullptr == Animatronics || nullptr == _Animatronics)
 	{
 		Animatronics = _Animatronics;
 	}
@@ -48,10 +48,10 @@ void AWestHall::WestHallMonsterCheck()
 				WestHallCam = static_cast<int>(EWestHall::WestHallA_Bonnie);
 			}
 		}
-		else
-		{
-			WestHallCam = static_cast<int>(EWestHall::WestHallA_Lightsup);
-		}
+	}
+	else
+	{
+		WestHallCam = static_cast<int>(EWestHall::WestHallA_Default);
 	}
 }
 
