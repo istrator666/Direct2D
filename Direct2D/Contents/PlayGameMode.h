@@ -79,6 +79,11 @@ public:
 		return WHallCornerCam;
 	}
 
+	std::shared_ptr<ASupplyCloset> GetSupplyClosetCam()
+	{
+		return SupplyClosetCam;
+	}
+
 	std::shared_ptr<ATheOffice> GetTheOffice()
 	{
 		return TheOffice;

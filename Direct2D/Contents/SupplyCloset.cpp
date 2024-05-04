@@ -20,6 +20,7 @@ void ASupplyCloset::BeginPlay()
 void ASupplyCloset::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+	SupplyClosetMonsterCheck();
 }
 
 void ASupplyCloset::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
@@ -32,7 +33,7 @@ void ASupplyCloset::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics
 	}
 }
 
-void ASupplyCloset::DiningAreaMonsterCheck()
+void ASupplyCloset::SupplyClosetMonsterCheck()
 {
 	if (nullptr != Animatronics)
 	{
@@ -48,6 +49,10 @@ void ASupplyCloset::DiningAreaMonsterCheck()
 				SupplyClosetCam = static_cast<int>(ESupplyCloset::SuppltCloset_Bonnie);
 			}
 		}
+	}
+	else
+	{
+		SupplyClosetCam = static_cast<int>(ESupplyCloset::SupplyCloset_Default);
 	}
 }
 

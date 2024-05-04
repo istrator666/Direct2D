@@ -31,6 +31,7 @@ public:
 	void SetLightAnimation(bool _Active, std::string_view _AniName)
 	{
 		LeftLightAnimation->SetActive(_Active);
+		LeftLightAnimation->AnimationReset();
 		LeftLightAnimation->ChangeAnimation(_AniName);
 	}
 
@@ -45,9 +46,19 @@ public:
 		IsBonnie = _Bonnie;
 	}
 
-	bool GetIsBonnie()
+	bool GetIsBonnie() const
 	{
 		return IsBonnie;
+	}
+
+	void SetIsCloseDoor(bool _IsCloseDoor)
+	{
+		IsCloseDoor = _IsCloseDoor;
+	}
+
+	bool GetIsCloseDoor() const
+	{
+		return IsCloseDoor;
 	}
 
 protected:
@@ -62,6 +73,7 @@ private:
 	UCollision* ColLeftLight = nullptr;
 
 	bool IsBonnie = false;
+	bool IsCloseDoor = false;
 
 };
 

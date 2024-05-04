@@ -32,7 +32,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	void DiningAreaMonsterCheck();
+	void SupplyClosetMonsterCheck();
 
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int SupplyClosetCam = static_cast<int>(ESupplyCloset::SupplyCloset_Default);
