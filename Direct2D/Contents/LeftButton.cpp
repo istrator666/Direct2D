@@ -29,6 +29,7 @@ ALeftButton::ALeftButton()
 	LeftLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	LeftLightAnimation->SetupAttachment(LeftButtonRoot);
 	LeftLightAnimation->CreateAnimation("LeftLightON", "LeftLight", 0.05f, true, 0, 1);
+	LeftLightAnimation->CreateAnimation("LeftBonnieON", "LeftBonnieLight", 0.05f, true, 0, 1);
 	LeftLightAnimation->ChangeAnimation("LeftLightON");
 	LeftLightAnimation->SetAutoSize(1.0f, true);
 	LeftLightAnimation->SetOrder(EOrderType::Actor);

@@ -8,6 +8,8 @@
 #include "WHallCorner.h"
 #include "TheOffice.h"
 
+#include "LeftButton.h"
+
 #include <EngineBase/EngineRandom.h>
 
 
@@ -107,7 +109,8 @@ void ABonnie::BonnieMove()
 			if (16 >= MoveChance.RandomInt(1, 20))
 			{
 				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(nullptr);
-
+				AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(false, "LeftBonnieON");
+				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(true);
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
 			else

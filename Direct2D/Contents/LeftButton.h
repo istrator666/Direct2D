@@ -28,15 +28,26 @@ public:
 		LeftDoorAnimation->ChangeAnimation(_AnimationName);
 	}
 
-	void SetLightAnimation(bool _Active)
+	void SetLightAnimation(bool _Active, std::string_view _AniName)
 	{
 		LeftLightAnimation->SetActive(_Active);
+		LeftLightAnimation->ChangeAnimation(_AniName);
 	}
 
 	void SetLeftColActvie(bool _Active)
 	{
 		ColLeftDoor->SetActive(_Active);
 		ColLeftLight->SetActive(_Active);
+	}
+
+	void SetIsBonnie(bool _Bonnie)
+	{
+		IsBonnie = _Bonnie;
+	}
+
+	bool GetIsBonnie()
+	{
+		return IsBonnie;
 	}
 
 protected:
@@ -49,6 +60,8 @@ private:
 	USpriteRenderer* LeftLightAnimation = nullptr;
 	UCollision* ColLeftDoor = nullptr;
 	UCollision* ColLeftLight = nullptr;
+
+	bool IsBonnie = false;
 
 };
 

@@ -89,30 +89,56 @@ void AMouseCursor::ColLefButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == IsLDoor && false == IsLLight)
+				if (false == IsLDoor && false == IsLLight && false == LButton->GetIsBonnie())
 				{
 					IsLLight = true;
 					LButton->SetButtonImage(LeftLightON);
-					LButton->SetLightAnimation(true);
+					LButton->SetLightAnimation(true, "LeftLightON");
 				}
-				else if (true == IsLDoor && false == IsLLight)
+				else if (true == IsLDoor && false == IsLLight && false == LButton->GetIsBonnie())
 				{
 					IsLLight = true;
 					LButton->SetButtonImage(LeftButtonAllOn);
-					LButton->SetLightAnimation(true);
+					LButton->SetLightAnimation(true, "LeftLightON");
 				}
-				else if (true == IsLDoor && true == IsLLight)
+				else if (true == IsLDoor && true == IsLLight && false == LButton->GetIsBonnie())
 				{
 					IsLLight = false;
 					LButton->SetButtonImage(LeftDoorON);
-					LButton->SetLightAnimation(false);
+					LButton->SetLightAnimation(false, "LeftLightON");
 				}
-				else
+				else if (false == IsLDoor && true == IsLLight && false == LButton->GetIsBonnie())
 				{
 					IsLLight = false;
 					LButton->SetButtonImage(LeftButtonAllOFF);
-					LButton->SetLightAnimation(false);
+					LButton->SetLightAnimation(false, "LeftLightON");
 				}
+				// 보니가 있을 때
+				else if (false == IsLDoor && false == IsLLight && true == LButton->GetIsBonnie())
+				{
+					IsLLight = true;
+					LButton->SetButtonImage(LeftLightON);
+					LButton->SetLightAnimation(true, "LeftBonnieON");
+				}
+				else if (true == IsLDoor && false == IsLLight && true == LButton->GetIsBonnie())
+				{
+					IsLLight = true;
+					LButton->SetButtonImage(LeftButtonAllOn);
+					LButton->SetLightAnimation(true, "LeftBonnieON");
+				}
+				else if (true == IsLDoor && true == IsLLight && true == LButton->GetIsBonnie())
+				{
+					IsLLight = false;
+					LButton->SetButtonImage(LeftDoorON);
+					LButton->SetLightAnimation(false, "LeftBonnieON");
+				}
+				else if (false == IsLDoor && true == IsLLight && true == LButton->GetIsBonnie())
+				{
+					IsLLight = false;
+					LButton->SetButtonImage(LeftButtonAllOFF);
+					LButton->SetLightAnimation(false, "LeftBonnieON");
+				} 
+
 			}
 		}
 	);
