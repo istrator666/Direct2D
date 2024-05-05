@@ -78,6 +78,7 @@ void APlayGameMode::SetActor()
 	// Cam Info
 	ShowStageCam = GetWorld()->SpawnActor<AShowStage>("ShowStageCam");
 	DiningAreaCam = GetWorld()->SpawnActor<ADiningArea>("DiningAreaCam");
+	PirateCoveCam = GetWorld()->SpawnActor<APirateCove>("PirateCove");
 	WestHallCam = GetWorld()->SpawnActor<AWestHall>("WestHallCam");
 	WHallCornerCam = GetWorld()->SpawnActor<AWHallCorner>("WHallCornerCam");
 	SupplyClosetCam = GetWorld()->SpawnActor<ASupplyCloset>("SupplyClosetCam");

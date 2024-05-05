@@ -1,5 +1,4 @@
 #pragma once
-#include "EngineCore/Actor.h"
 #include "Rooms.h"
 #include "ContentsEnum.h"
 

@@ -17,14 +17,6 @@ AStageCCTV::AStageCCTV()
 	StageCCTVRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StageCCTVRenderer->SetOrder(EOrderType::CCTVActor);
 
-	KitchenBackgroundRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
-	KitchenBackgroundRenderer->SetupAttachment(CCTVRoot);
-	KitchenBackgroundRenderer->SetSprite("Kitchen", 1);
-	KitchenBackgroundRenderer->SetAutoSize(1.0f, true);
-	KitchenBackgroundRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
-	KitchenBackgroundRenderer->SetOrder(EOrderType::CCTVActor);
-	KitchenBackgroundRenderer->SetActive(false);
-
 	StaticRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	StaticRenderer->SetupAttachment(CCTVRoot);
 	StaticRenderer->SetMulColor({ 1.0f,1.0f,1.0f, 0.2f });
@@ -49,15 +41,6 @@ void AStageCCTV::SetRendererActive(bool _Active)
 
 void AStageCCTV::SetStageCCTVRenderer(std::string_view _SelectMap, int _Index)
 {
-	if ("Kitchen" == _SelectMap)
-	{
-		KitchenBackgroundRenderer->SetActive(true);
-	}
-	else
-	{
-		KitchenBackgroundRenderer->SetActive(false);
-	}
-
 	StageCCTVRenderer->SetSprite(_SelectMap, _Index);
 }
 

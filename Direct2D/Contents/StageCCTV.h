@@ -29,7 +29,6 @@ protected:
 private:
 	UDefaultSceneComponent* CCTVRoot = nullptr;
 	USpriteRenderer* StageCCTVRenderer = nullptr;
-	USpriteRenderer* KitchenBackgroundRenderer = nullptr;
 	USpriteRenderer* StaticRenderer = nullptr;
 
 };

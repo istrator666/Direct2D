@@ -19,11 +19,15 @@ class AFreddy;
 
 class AShowStage;
 class ADiningArea;
+class APirateCove;
 class AWestHall;
 class AWHallCorner;
 class ASupplyCloset;
+class AEastHall;
+class AEHallCorner;
 class ABackStage;
-
+class AKitchen;
+class ARestrooms;
 
 class ATimeUI;
 class ABatteryUI;
@@ -119,10 +123,15 @@ private:
 	std::string_view Map;
 	std::shared_ptr<AShowStage> ShowStageCam = nullptr;
 	std::shared_ptr<ADiningArea> DiningAreaCam = nullptr;
+	std::shared_ptr<APirateCove> PirateCoveCam = nullptr;
 	std::shared_ptr<AWestHall> WestHallCam = nullptr;
 	std::shared_ptr<AWHallCorner> WHallCornerCam = nullptr;
-	std::shared_ptr<ABackStage> BackStageCam = nullptr;
 	std::shared_ptr<ASupplyCloset> SupplyClosetCam = nullptr;
+	std::shared_ptr<AEastHall> EastHallCam = nullptr;
+	std::shared_ptr<AEHallCorner> EHallCornerCam = nullptr;
+	std::shared_ptr<ABackStage> BackStageCam = nullptr;
+	std::shared_ptr<AKitchen> KitchenCam = nullptr;
+	std::shared_ptr<ARestrooms> RestroomsCam = nullptr;
 
 	// ∏ÛΩ∫≈Õ
 	std::shared_ptr<ABonnie> Bonnie = nullptr;
