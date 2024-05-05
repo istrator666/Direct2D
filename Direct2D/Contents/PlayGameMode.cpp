@@ -82,8 +82,11 @@ void APlayGameMode::SetActor()
 	WestHallCam = GetWorld()->SpawnActor<AWestHall>("WestHallCam");
 	WHallCornerCam = GetWorld()->SpawnActor<AWHallCorner>("WHallCornerCam");
 	SupplyClosetCam = GetWorld()->SpawnActor<ASupplyCloset>("SupplyClosetCam");
+	EastHallCam = GetWorld()->SpawnActor<AEastHall>("EastHallCam");
+	EHallCornerCam = GetWorld()->SpawnActor<AEHallCorner>("EHallCornerCam");
 	BackStageCam = GetWorld()->SpawnActor<ABackStage>("BackStageCam");
-
+	KitchenCam = GetWorld()->SpawnActor<AKitchen>("KitchenCam");
+	RestroomsCam = GetWorld()->SpawnActor<ARestrooms>("RestroomsCam");
 	
 	// 처음 몬스터 위치 설정
 	ShowStageCam->SetAnimatronics(Bonnie);
@@ -262,7 +265,7 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "PirateCove")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, PirateCoveCam->GetCurPirateCoveCam());
 	}
 	else if (Map == "WestHall")
 	{
@@ -278,11 +281,11 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "EastHall")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, EastHallCam->GetCurEastHallCam());
 	}
 	else if (Map == "EHallCorner")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, EHallCornerCam->GetEHallCornerCam());
 	}
 	else if (Map == "BackStage")
 	{
@@ -290,11 +293,11 @@ void APlayGameMode::ChangeCCTVMap()
 	}
 	else if (Map == "Kitchen")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, KitchenCam->GetCurKitchenCam());
 	}
 	else if (Map == "Restrooms")
 	{
-
+		StageCCTV->SetStageCCTVRenderer(Map, RestroomsCam->GetCurRestroomsCam());
 	}
 }
 
@@ -305,7 +308,6 @@ void APlayGameMode::CamCameraReset()
 		Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
 		CCTVUI->SetCamCameraReset(false);
 	}
-	
 }
 
 bool APlayGameMode::GetIsMapAnimatronics(ECamMap _RoomName)
@@ -329,15 +331,19 @@ bool APlayGameMode::GetIsMapAnimatronics(ECamMap _RoomName)
 		SupplyClosetCam->GetIsAnimatronics();
 		break;
 	case ECamMap::EastHall:
+		EastHallCam->GetIsAnimatronics();
 		break;
 	case ECamMap::EHallCorner:
+		EHallCornerCam->GetIsAnimatronics();
 		break;
 	case ECamMap::BackStage:
 		BackStageCam->GetIsAnimatronics();
 		break;
 	case ECamMap::Kitchen:
+		KitchenCam->GetIsAnimatronics();
 		break;
 	case ECamMap::Restrooms:
+		RestroomsCam->GetIsAnimatronics();
 		break;
 	default:
 		break;
