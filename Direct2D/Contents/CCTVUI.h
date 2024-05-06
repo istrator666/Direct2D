@@ -61,6 +61,7 @@ private:
 	UImage* ChangeCCTVAnimation = nullptr;
 	UImage* ChangeBarRenderer = nullptr;
 	UImage* ChangeBarActiveArea = nullptr;
+	UImage* CCTVScanLine = nullptr;
 
 	UImage* CCTVRoot = nullptr;
 	UImage* RecordingMark = nullptr;

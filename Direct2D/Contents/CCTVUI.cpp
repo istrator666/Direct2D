@@ -42,6 +42,15 @@ void ACCTVUI::BeginPlay()
 		ChangeBarActiveArea->SetPosition({ 0, -150 });
 		ChangeBarActiveArea->SetActive(true);
 
+		// CCTV 전환시 나오는 ScanLine
+		CCTVScanLine = CreateWidget<UImage>(GetWorld(), "CCTVScanLineAnimation");
+		CCTVScanLine->AddToViewPort(2);
+		CCTVScanLine->CreateAnimation("ScanLineAni", "ScanLine", 0.1f, true, 0, 6);
+		CCTVScanLine->ChangeAnimation("ScanLineAni");
+		CCTVScanLine->SetFrameCallback("ScanLineAni", 6, [=] {CCTVScanLine->SetActive(false); });
+		CCTVScanLine->SetAutoSize(1.0f, true);
+		CCTVScanLine->SetActive(false);
+
 
 		// 호버
 		ChangeBarRenderer->SetHover([=]()
@@ -446,6 +455,7 @@ void ACCTVUI::SetCCTVUIRendererActvie(bool _Active)
 
 void ACCTVUI::SwapSelectCam(UImage* _ChangeScreenBox)
 {
+	CCTVScanLine->SetActive(true);
 	SelectScreenBox->ChangeAnimation("NonSelect");
 	_ChangeScreenBox->ChangeAnimation("Select");
 	SelectScreenBox = _ChangeScreenBox;
