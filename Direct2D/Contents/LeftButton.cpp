@@ -15,7 +15,7 @@ ALeftButton::ALeftButton()
 	LeftButtonRenderer->SetSprite("Buttons.png", LeftButtonAllOFF);
 	LeftButtonRenderer->SetAutoSize(1.0f, true);
 	LeftButtonRenderer->AddPosition(FVector(-750.0f, -50.0f, 0.0f));
-	LeftButtonRenderer->SetOrder(EOrderType::Actor);
+	LeftButtonRenderer->SetOrder(EOrderType::CCTVActor);
 
 	LeftDoorAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	LeftDoorAnimation->SetupAttachment(LeftButtonRoot);

@@ -138,7 +138,6 @@ void AMouseCursor::ColLefButton()
 					LButton->SetButtonImage(LeftButtonAllOFF);
 					LButton->SetLightAnimation(false, "LeftBonnieON");
 				} 
-
 			}
 		}
 	);
@@ -182,30 +181,57 @@ void AMouseCursor::ColRightButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == RButton->GetIsCloseDoor() && false == IsRLight)
+				if (false == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == RButton->GetIsCloseDoor() && false == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == RButton->GetIsCloseDoor() && true == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && true == IsRLight && false == RButton->GetIsChica())
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(RightDoorON);
 					RButton->SetLightAnimation(false, "RightLightON");
 				}
-				else
+				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(RightButtonAllOFF);
 					RButton->SetLightAnimation(false, "RightLightON");
 				}
+
+				// 치카가 있을 때
+				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				{
+					IsRLight = true;
+					RButton->SetButtonImage(RightLightON);
+					RButton->SetLightAnimation(true, "RightChicaOn");
+				}
+				else if (true == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				{
+					IsRLight = true;
+					RButton->SetButtonImage(RightButtonAllOn);
+					RButton->SetLightAnimation(true, "RightChicaOn");
+				}
+				else if (true == RButton->GetIsCloseDoor() && true == IsRLight && true == RButton->GetIsChica())
+				{
+					IsRLight = false;
+					RButton->SetButtonImage(RightDoorON);
+					RButton->SetLightAnimation(false, "RightChicaOn");
+				}
+				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				{
+					IsRLight = false;
+					RButton->SetButtonImage(RightButtonAllOFF);
+					RButton->SetLightAnimation(false, "RightChicaOn");
+				}
+				
 			}
 		}
 	);

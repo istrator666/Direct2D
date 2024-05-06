@@ -15,7 +15,7 @@ ARightButton::ARightButton()
 	RightButtonRenderer->SetSprite("Buttons.png", RightButtonAllOFF);
 	RightButtonRenderer->SetAutoSize(1.0f, true);
 	RightButtonRenderer->AddPosition(FVector(750.f, -50.0f, 0.0f));
-	RightButtonRenderer->SetOrder(EOrderType::Actor);
+	RightButtonRenderer->SetOrder(EOrderType::CCTVActor);
 
 	RightDoorAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RightDoorAnimation->SetupAttachment(RightButtonRoot);
