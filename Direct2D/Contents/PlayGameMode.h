@@ -67,11 +67,6 @@ public:
 	{
 		return DiningAreaCam;
 	}
-	
-	std::shared_ptr<ABackStage> GetBackStageCam()
-	{
-		return BackStageCam;
-	}
 
 	std::shared_ptr<AWestHall> GetWestHallCam()
 	{
@@ -83,9 +78,39 @@ public:
 		return WHallCornerCam;
 	}
 
+	std::shared_ptr<APirateCove> GetPirateCoveCam()
+	{
+		return PirateCoveCam;
+	}
+
 	std::shared_ptr<ASupplyCloset> GetSupplyClosetCam()
 	{
 		return SupplyClosetCam;
+	}
+
+	std::shared_ptr<AEastHall> GetEastHallCam()
+	{
+		return EastHallCam;
+	}
+
+	std::shared_ptr<AEHallCorner> GetEHallCornerCam()
+	{
+		return EHallCornerCam;
+	}
+	
+	std::shared_ptr<ABackStage> GetBackStageCam()
+	{
+		return BackStageCam;
+	}
+
+	std::shared_ptr<AKitchen> GetKitchenCam()
+	{
+		return KitchenCam;
+	}
+
+	std::shared_ptr<ARestrooms> GetRestroomsCam()
+	{
+		return RestroomsCam;
 	}
 
 	std::shared_ptr<ATheOffice> GetTheOffice()

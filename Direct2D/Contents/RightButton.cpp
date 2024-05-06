@@ -29,6 +29,7 @@ ARightButton::ARightButton()
 	RightLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RightLightAnimation->SetupAttachment(RightButtonRoot);
 	RightLightAnimation->CreateAnimation("RightLightON", "RightLight", 0.05f, true, 0, 1);
+	RightLightAnimation->CreateAnimation("RightChicaOn", "RightChicaLight", 0.05f, true, 0, 1);
 	RightLightAnimation->ChangeAnimation("RightLightON");
 	RightLightAnimation->SetAutoSize(1.0f, true);
 	RightLightAnimation->SetOrder(EOrderType::Actor);

@@ -35,7 +35,7 @@ void AEHallCorner::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 
 void AEHallCorner::EHallCornerMonsterCheck()
 {
-
+	
 }
 
 bool AEHallCorner::GetIsAnimatronics()

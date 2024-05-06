@@ -28,6 +28,9 @@ ATheOffice::ATheOffice()
 	JumpScareRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	JumpScareRenderer->SetupAttachment(StageRoot);
 	JumpScareRenderer->CreateAnimation("JumpScareBonnie", "JumpScareBonnie", 0.1f, true, 0, 10);
+	JumpScareRenderer->CreateAnimation("JumpScareChica", "JumpScareChica", 0.1f, true, 0, 15);
+	JumpScareRenderer->CreateAnimation("JumpScareFreddy", "JumpScareFreddy", 0.1f, true, 0, 27);
+	JumpScareRenderer->CreateAnimation("JumpScareFoxy", "JumpScareFoxy", 0.1f, true, 0, 20);
 	JumpScareRenderer->SetAutoSize(1.0f, true);
 	JumpScareRenderer->SetOrder(EOrderType::Cutscene);
 

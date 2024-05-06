@@ -28,9 +28,41 @@ public:
 		RightDoorAnimation->ChangeAnimation(_AnimationName);
 	}
 
-	void SetLightAnimation(bool _Active)
+	void SetLightAnimation(bool _Active, std::string_view _AniName)
 	{
 		RightLightAnimation->SetActive(_Active);
+		RightLightAnimation->AnimationReset();
+		RightLightAnimation->ChangeAnimation(_AniName);
+	}
+
+	void SetIsChica(bool _Chica)
+	{
+		IsChica = _Chica;
+	}
+
+	bool GetIsChica()
+	{
+		return IsChica;
+	}
+
+	void SetIsFreddy(bool _Freddy)
+	{
+		IsFreddy = _Freddy;
+	}
+
+	bool GetIsFreddy()
+	{
+		return IsFreddy;
+	}
+
+	void SetIsCloseDoor(bool _IsCloseDoor)
+	{
+		IsCloseDoor = _IsCloseDoor;
+	}
+
+	bool GetIsCloseDoor() const
+	{
+		return IsCloseDoor;
 	}
 
 	void SetRightColActive(bool _Active)
@@ -49,5 +81,9 @@ private:
 	USpriteRenderer* RightLightAnimation = nullptr;
 	UCollision* ColRightDoor = nullptr;
 	UCollision* ColRightLight = nullptr;
+
+	bool IsChica = false;
+	bool IsFreddy = false;
+	bool IsCloseDoor = false;
 };
 

@@ -150,27 +150,27 @@ void AMouseCursor::ColRightButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == IsRDoor && false == IsRLight)
+				if (false == RButton->GetIsCloseDoor() && false == IsRLight)
 				{
-					IsRDoor = true;
+					RButton->SetIsCloseDoor(true);
 					RButton->SetButtonImage(RightDoorON);
 					RButton->SetDoorAnimation("RightDoorClose");
 				}
-				else if (false == IsRDoor && true == IsRLight)
+				else if (false == RButton->GetIsCloseDoor() && true == IsRLight)
 				{
-					IsRDoor = true;
+					RButton->SetIsCloseDoor(true);
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetDoorAnimation("RightDoorClose");
 				}
-				else if (true == IsRDoor && true == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && true == IsRLight)
 				{
-					IsRDoor = false;
+					RButton->SetIsCloseDoor(false);
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetDoorAnimation("RightDoorOpen");
 				}
 				else
 				{
-					IsRDoor = false;
+					RButton->SetIsCloseDoor(false);
 					RButton->SetButtonImage(RightButtonAllOFF);
 					RButton->SetDoorAnimation("RightDoorOpen");
 				}
@@ -182,29 +182,29 @@ void AMouseCursor::ColRightButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == IsRDoor && false == IsRLight)
+				if (false == RButton->GetIsCloseDoor() && false == IsRLight)
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(RightLightON);
-					RButton->SetLightAnimation(true);
+					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == IsRDoor && false == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && false == IsRLight)
 				{
 					IsRLight = true;
 					RButton->SetButtonImage(RightButtonAllOn);
-					RButton->SetLightAnimation(true);
+					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == IsRDoor && true == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && true == IsRLight)
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(RightDoorON);
-					RButton->SetLightAnimation(false);
+					RButton->SetLightAnimation(false, "RightLightON");
 				}
 				else
 				{
 					IsRLight = false;
 					RButton->SetButtonImage(RightButtonAllOFF);
-					RButton->SetLightAnimation(false);
+					RButton->SetLightAnimation(false, "RightLightON");
 				}
 			}
 		}

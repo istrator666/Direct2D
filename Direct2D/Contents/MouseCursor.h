@@ -38,7 +38,6 @@ private:
 	void ColRightButton();
 
 	bool IsLLight = false;
-	bool IsRDoor = false;
 	bool IsRLight = false;
 
 };
