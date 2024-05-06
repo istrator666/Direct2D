@@ -20,7 +20,7 @@ void ABackStage::BeginPlay()
 void ABackStage::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-	//FCamTimeCheck(_DeltaTime);
+	FCamTimeCheck(_DeltaTime);
 	BackStageMonsterCheck();
 }
 
@@ -45,14 +45,14 @@ void ABackStage::BackStageMonsterCheck()
 		{
 			Bonnie = NewBonnie;
 
-			if (static_cast<int>(EBonniePos::BackStage) == Bonnie->GetBonnieCurPos())
+			if (static_cast<int>(EBonniePos::BackStage) == Bonnie->GetBonnieCurPos() && 0 <= CamTimeCheck)
 			{
 				CurBackStageCam = static_cast<int>(EBackstage::BackStage_Bonnie0);
 			}
-			//else if (static_cast<int>(EBonniePos::BackStage) == Bonnie->GetBonnieCurPos() && 0 > CamTimeCheck)
-			//{
-			//	CurBackStageCam = static_cast<int>(EBackstage::BackStage_Bonnie1);
-			//}
+			else if (static_cast<int>(EBonniePos::BackStage) == Bonnie->GetBonnieCurPos() && 0 >= CamTimeCheck)
+			{
+				CurBackStageCam = static_cast<int>(EBackstage::BackStage_Bonnie1);
+			}
 		}
 	}
 	else
@@ -63,7 +63,7 @@ void ABackStage::BackStageMonsterCheck()
 
 void ABackStage::FCamTimeCheck(float _DeltaTime)
 {
-	if ("BackStage" == PGameMode->GetCurCam())
+	if ("BackStage" == PGameMode->GetCurCam() && nullptr != Animatronics)
 	{
 		CamTimeCheck -= _DeltaTime;
 	}
