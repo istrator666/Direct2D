@@ -3,7 +3,7 @@
 
 #include "Animatronics.h"
 #include <EngineBase/EngineRandom.h>
-
+#include <EngineCore/StateManager.h>
 
 class ABonnie : public AAnimatronics
 {
@@ -34,9 +34,33 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	//FSM
+	void Cam1AStart();
+	void Cam1AUpdate(float _DeltaTime);
+
+	void Cam1BStart();
+	void Cam1BUpdate(float _DeltaTime);
+
+	void Cam2AStart();
+	void Cam2AUpdate(float _DeltaTime);
+
+	void Cam2BStart();
+	void Cam2BUpdate(float _DeltaTime);
+
+	void Cam3Start();
+	void Cam3Update(float _DeltaTime);
+
+	void Cam5Start();
+	void Cam5Update(float _DeltaTime);
+
+	void OfficeLeftStart();
+	void OfficeLeftUpdate(float _DeltaTime);
+
+
 private:
 	void BonnieMove();
 
+	UStateManager State;
 	UEngineRandom MoveChance;
 	int BonnieCurPos = static_cast<int>(EBonniePos::ShowStage);
 	int BonnieLevel = 0;
