@@ -2,6 +2,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
+class APlayGameMode;
+class AChica;
+class AFreddy;
 class AEastHall : public ARooms
 {
 	GENERATED_BODY(ARooms)
@@ -31,8 +34,13 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	void EastHallMonsterCheck();
+	void EastHallMonsterCheck(float _DeltaTime);
 
+	APlayGameMode* PGameMode = nullptr;
+	AChica* Chica = nullptr;
+	AFreddy* Freddy = nullptr;
+
+	float CamTimeCheck = 3.0f;
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int EastHallCam = static_cast<int>(EWestHall::WestHallA_Default);
 };

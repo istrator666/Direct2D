@@ -2,6 +2,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
+class APlayGameMode;
+class AChica;
+class AFreddy;
 class ARestrooms : public ARooms
 {
 	GENERATED_BODY(ARooms)
@@ -32,7 +35,13 @@ protected:
 
 private:
 	void RestroomsMonsterCheck();
+	void FCamTimeCheck(float _DeltaTime);
 
+	APlayGameMode* PGameMode = nullptr;
+	AChica* Chica = nullptr;
+	AFreddy* Freddy = nullptr;
+
+	float CamTimeCheck = 5.0f;
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int CurRestroomsCam = static_cast<int>(ERestRooms::RestRooms_Default);
 

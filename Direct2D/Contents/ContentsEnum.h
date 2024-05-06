@@ -177,6 +177,7 @@ enum class EBackstage
 enum class EKitchen
 {
 	CameraDisabled,
+	Kitchen,
 };
 
 enum class ERestRooms

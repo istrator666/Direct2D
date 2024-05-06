@@ -2,6 +2,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
+class APlayGameMode;
+class AChica;
+class AFreddy;
 class AKitchen : public ARooms
 {
 	GENERATED_BODY(ARooms)
@@ -32,6 +35,10 @@ protected:
 
 private:
 	void KitchenMonsterCheck();
+
+	APlayGameMode* PGameMode = nullptr;
+	AChica* Chica = nullptr;
+	AFreddy* Freddy = nullptr;
 
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int CurKitchenCam = static_cast<int>(EKitchen::CameraDisabled);

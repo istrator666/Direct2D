@@ -1,6 +1,9 @@
 #include "PreCompile.h"
 #include "Kitchen.h"
+
+#include "PlayGameMode.h"
 #include "Chica.h"
+#include "Freddy.h"
 
 AKitchen::AKitchen()
 {
@@ -33,7 +36,27 @@ void AKitchen::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 
 void AKitchen::KitchenMonsterCheck()
 {
+	if (nullptr != Animatronics)
+	{
+		Chica = nullptr;
+		Freddy = nullptr;
 
+		AChica* NewChica = dynamic_cast<AChica*>(Animatronics.get());
+		AFreddy* NewFreddy = dynamic_cast<AFreddy*>(Animatronics.get());
+		if (nullptr != NewChica)
+		{
+			Chica = NewChica;
+
+			if (static_cast<int>(EChicaPos::Kitchen) == Chica->GetChicaCurPos())
+			{
+				CurKitchenCam = static_cast<int>(EKitchen::CameraDisabled);
+			}
+		}
+	}
+	else
+	{
+		CurKitchenCam = static_cast<int>(EKitchen::CameraDisabled);
+	}
 }
 
 bool AKitchen::GetIsAnimatronics()

@@ -26,6 +26,12 @@ AStageCCTV::AStageCCTV()
 	StaticRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StaticRenderer->SetOrder(EOrderType::Overlay);
 
+	KitchenBackRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	KitchenBackRenderer->SetupAttachment(CCTVRoot);
+	KitchenBackRenderer->SetSprite("Kitchen", 1);
+	KitchenBackRenderer->SetAutoSize(1.0f, true);
+	KitchenBackRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
+	KitchenBackRenderer->SetOrder(EOrderType::CCTVActor);
 
 	SetRoot(CCTVRoot);
 
