@@ -57,19 +57,19 @@ void AMouseCursor::ColLefButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == LButton->GetIsCloseDoor() && false == IsLLight)
+				if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight())
 				{
 					LButton->SetIsCloseDoor(true);
 					LButton->SetButtonImage(LeftDoorON);
 					LButton->SetDoorAnimation("LeftDoorClose");
 				}
-				else if (false == LButton->GetIsCloseDoor() && true == IsLLight)
+				else if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
 				{
 					LButton->SetIsCloseDoor(true);
 					LButton->SetButtonImage(LeftButtonAllOn);
 					LButton->SetDoorAnimation("LeftDoorClose");
 				}
-				else if (true == LButton->GetIsCloseDoor() && true == IsLLight)
+				else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
 				{
 					LButton->SetIsCloseDoor(false);
 					LButton->SetButtonImage(LeftLightON);
@@ -89,52 +89,44 @@ void AMouseCursor::ColLefButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == LButton->GetIsCloseDoor() && false == IsLLight && false == LButton->GetIsBonnie())
+				if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
-					IsLLight = true;
 					LButton->SetButtonImage(LeftLightON);
 					LButton->SetLightAnimation(true, "LeftLightON");
 				}
-				else if (true == LButton->GetIsCloseDoor() && false == IsLLight && false == LButton->GetIsBonnie())
+				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
-					IsLLight = true;
 					LButton->SetButtonImage(LeftButtonAllOn);
 					LButton->SetLightAnimation(true, "LeftLightON");
 				}
-				else if (true == LButton->GetIsCloseDoor() && true == IsLLight && false == LButton->GetIsBonnie())
+				else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
-					IsLLight = false;
 					LButton->SetButtonImage(LeftDoorON);
 					LButton->SetLightAnimation(false, "LeftLightON");
 				}
-				else if (false == LButton->GetIsCloseDoor() && true == IsLLight && false == LButton->GetIsBonnie())
+				else if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
-					IsLLight = false;
 					LButton->SetButtonImage(LeftButtonAllOFF);
 					LButton->SetLightAnimation(false, "LeftLightON");
 				}
 				// 보니가 있을 때
-				else if (false == LButton->GetIsCloseDoor() && false == IsLLight && true == LButton->GetIsBonnie())
+				else if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
-					IsLLight = true;
 					LButton->SetButtonImage(LeftLightON);
 					LButton->SetLightAnimation(true, "LeftBonnieON");
 				}
-				else if (true == LButton->GetIsCloseDoor() && false == IsLLight && true == LButton->GetIsBonnie())
+				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
-					IsLLight = true;
 					LButton->SetButtonImage(LeftButtonAllOn);
 					LButton->SetLightAnimation(true, "LeftBonnieON");
 				}
-				else if (true == LButton->GetIsCloseDoor() && true == IsLLight && true == LButton->GetIsBonnie())
+				else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
-					IsLLight = false;
 					LButton->SetButtonImage(LeftDoorON);
 					LButton->SetLightAnimation(false, "LeftBonnieON");
 				}
-				else if (false == LButton->GetIsCloseDoor() && true == IsLLight && true == LButton->GetIsBonnie())
+				else if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
-					IsLLight = false;
 					LButton->SetButtonImage(LeftButtonAllOFF);
 					LButton->SetLightAnimation(false, "LeftBonnieON");
 				} 
@@ -149,19 +141,19 @@ void AMouseCursor::ColRightButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == RButton->GetIsCloseDoor() && false == IsRLight)
+				if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight())
 				{
 					RButton->SetIsCloseDoor(true);
 					RButton->SetButtonImage(RightDoorON);
 					RButton->SetDoorAnimation("RightDoorClose");
 				}
-				else if (false == RButton->GetIsCloseDoor() && true == IsRLight)
+				else if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
 				{
 					RButton->SetIsCloseDoor(true);
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetDoorAnimation("RightDoorClose");
 				}
-				else if (true == RButton->GetIsCloseDoor() && true == IsRLight)
+				else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
 				{
 					RButton->SetIsCloseDoor(false);
 					RButton->SetButtonImage(RightLightON);
@@ -181,53 +173,45 @@ void AMouseCursor::ColRightButton()
 		{
 			if (IsDown(VK_LBUTTON))
 			{
-				if (false == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
+				if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
-					IsRLight = true;
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
+				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
-					IsRLight = true;
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetLightAnimation(true, "RightLightON");
 				}
-				else if (true == RButton->GetIsCloseDoor() && true == IsRLight && false == RButton->GetIsChica())
+				else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
-					IsRLight = false;
 					RButton->SetButtonImage(RightDoorON);
 					RButton->SetLightAnimation(false, "RightLightON");
 				}
-				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && false == RButton->GetIsChica())
+				else if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
-					IsRLight = false;
 					RButton->SetButtonImage(RightButtonAllOFF);
 					RButton->SetLightAnimation(false, "RightLightON");
 				}
 
 				// 치카가 있을 때
-				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				else if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
-					IsRLight = true;
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetLightAnimation(true, "RightChicaOn");
 				}
-				else if (true == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
-					IsRLight = true;
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetLightAnimation(true, "RightChicaOn");
 				}
-				else if (true == RButton->GetIsCloseDoor() && true == IsRLight && true == RButton->GetIsChica())
+				else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
-					IsRLight = false;
 					RButton->SetButtonImage(RightDoorON);
 					RButton->SetLightAnimation(false, "RightChicaOn");
 				}
-				else if (false == RButton->GetIsCloseDoor() && false == IsRLight && true == RButton->GetIsChica())
+				else if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
-					IsRLight = false;
 					RButton->SetButtonImage(RightButtonAllOFF);
 					RButton->SetLightAnimation(false, "RightChicaOn");
 				}

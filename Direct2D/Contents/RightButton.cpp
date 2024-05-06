@@ -60,9 +60,6 @@ ARightButton::~ARightButton()
 void ARightButton::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-
 }
 
 void ARightButton::Tick(float _DeltaTime)

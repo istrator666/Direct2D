@@ -61,6 +61,16 @@ public:
 		return IsCloseDoor;
 	}
 
+	void SetIsLight(bool _IsLight)
+	{
+		IsLight = _IsLight;
+	}
+
+	bool GetIsLight()
+	{
+		return IsLight;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -74,6 +84,7 @@ private:
 
 	bool IsBonnie = false;
 	bool IsCloseDoor = false;
+	bool IsLight = false;
 
 };
 

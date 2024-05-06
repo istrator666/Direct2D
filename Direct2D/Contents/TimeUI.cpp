@@ -32,14 +32,14 @@ void ATimeUI::BeginPlay()
 		UImage* TimeRenderer01 = CreateWidget<UImage>(GetWorld(), "TimeRenderer01");
 		TimeRenderer01->SetupAttachment(TimeUIRoot);
 		TimeRenderer01->AddToViewPort(1);
-		TimeRenderer01->SetSprite("Number01.png");
+		TimeRenderer01->SetSprite("Number", 1);
 		TimeRenderer01->SetAutoSize(1.3f, true);
 		TimeRenderer01->SetPosition({ 500, 315 });
 
 		UImage* TimeRenderer02 = CreateWidget<UImage>(GetWorld(), "TimeRenderer02");
 		TimeRenderer02->SetupAttachment(TimeUIRoot);
 		TimeRenderer02->AddToViewPort(1);
-		TimeRenderer02->SetSprite("Number02.png");
+		TimeRenderer02->SetSprite("Number", 2);
 		TimeRenderer02->SetAutoSize(1.3f, true);
 		TimeRenderer02->SetPosition({ 525, 315 });
 
@@ -53,7 +53,7 @@ void ATimeUI::BeginPlay()
 		UImage* DayRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
 		DayRenderer->SetupAttachment(TimeUIRoot);
 		DayRenderer->AddToViewPort(1);
-		DayRenderer->SetSprite("Number01.png");
+		DayRenderer->SetSprite("Number", 1);
 		DayRenderer->SetAutoSize(0.8f, true);
 		DayRenderer->SetPosition({ 585, 280 });
 

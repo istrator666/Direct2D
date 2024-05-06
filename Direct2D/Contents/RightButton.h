@@ -35,6 +35,12 @@ public:
 		RightLightAnimation->ChangeAnimation(_AniName);
 	}
 
+	void SetRightColActive(bool _Active)
+	{
+		ColRightDoor->SetActive(_Active);
+		ColRightLight->SetActive(_Active);
+	}
+
 	void SetIsChica(bool _Chica)
 	{
 		IsChica = _Chica;
@@ -65,10 +71,14 @@ public:
 		return IsCloseDoor;
 	}
 
-	void SetRightColActive(bool _Active)
+	void SetIsLight(bool _IsLight)
 	{
-		ColRightDoor->SetActive(_Active);
-		ColRightLight->SetActive(_Active);
+		IsLight = _IsLight;
+	}
+
+	bool GetIsLight()
+	{
+		return IsLight;
 	}
 
 protected:
@@ -85,5 +95,6 @@ private:
 	bool IsChica = false;
 	bool IsFreddy = false;
 	bool IsCloseDoor = false;
+	bool IsLight = false;
 };
 

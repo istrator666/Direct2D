@@ -37,8 +37,5 @@ private:
 	void ColLefButton();
 	void ColRightButton();
 
-	bool IsLLight = false;
-	bool IsRLight = false;
-
 };
 

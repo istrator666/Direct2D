@@ -24,5 +24,6 @@ protected:
 
 private:
 	UImage* TimeUIRoot = nullptr;
+	float DayTimeCheck = 5.0f;
 };
 

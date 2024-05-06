@@ -2,6 +2,9 @@
 #include "EngineCore/Actor.h"
 
 class UImage;
+class APlayGameMode;
+class ALeftButton;
+class ARightButton;
 
 class ABatteryUI : public AActor
 {
@@ -35,6 +38,8 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	void CurPowerMeter();
+
 	float PowerleftDecreaseTime = 2.0f;
 	int PowerleftDecrease01 = 9;
 	int PowerleftDecrease02 = 9;
@@ -42,6 +47,11 @@ private:
 
 	UImage* PowerleftCheckRenderer01 = nullptr;
 	UImage* PowerleftCheckRenderer02 = nullptr;
+	UImage* PowerMeterRenderer = nullptr;
+
+	APlayGameMode* PGameMode = nullptr;
+	std::shared_ptr<ALeftButton> LButton = nullptr;
+	std::shared_ptr<ARightButton> RButton = nullptr;
 
 };
 
