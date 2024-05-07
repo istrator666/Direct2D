@@ -15,32 +15,6 @@
 
 ABonnie::ABonnie()
 {
-	//// State 持失
-	//State.CreateState("Cam1A");
-	//State.CreateState("Cam1B");
-	//State.CreateState("Cam2A");
-	//State.CreateState("Cam2B");
-	//State.CreateState("Cam3");
-	//State.CreateState("Cam5");
-	//State.CreateState("OfficeLeft");
-
-	//// State Start 実特
-	//State.SetStartFunction("Cam1A", std::bind(&ABonnie::Cam1AStart, this));
-	//State.SetStartFunction("Cam1B", std::bind(&ABonnie::Cam1BStart, this));
-	//State.SetStartFunction("Cam2A", std::bind(&ABonnie::Cam2AStart, this));
-	//State.SetStartFunction("Cam2B", std::bind(&ABonnie::Cam2BStart, this));
-	//State.SetStartFunction("Cam3", std::bind(&ABonnie::Cam3Start, this));
-	//State.SetStartFunction("Cam5", std::bind(&ABonnie::Cam5Start, this));
-	//State.SetStartFunction("OfficeLeft", std::bind(&ABonnie::OfficeLeftStart, this));
-	//
-	//// State Update 室特
-	//State.SetUpdateFunction("Cam1A", std::bind(&ABonnie::Cam1AUpdate, this, std::placeholders::_1));
-	//State.SetUpdateFunction("Cam1B", std::bind(&ABonnie::Cam1BUpdate, this, std::placeholders::_1));
-	//State.SetUpdateFunction("Cam2A", std::bind(&ABonnie::Cam2AUpdate, this, std::placeholders::_1));
-	//State.SetUpdateFunction("Cam2B", std::bind(&ABonnie::Cam2BUpdate, this, std::placeholders::_1));
-	//State.SetUpdateFunction("Cam3", std::bind(&ABonnie::Cam3Update, this, std::placeholders::_1));
-	//State.SetUpdateFunction("Cam5", std::bind(&ABonnie::Cam5Update, this, std::placeholders::_1));
-	//State.SetUpdateFunction("OfficeLeft", std::bind(&ABonnie::OfficeLeftUpdate, this, std::placeholders::_1));
 }
 
 ABonnie::~ABonnie()

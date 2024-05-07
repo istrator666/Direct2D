@@ -24,12 +24,12 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	void BonnieMove();
+	void FoxyMove();
 
 	UEngineRandom MoveChance;
-	int BonnieCurPos = static_cast<int>(EFoxyPos::PirateCove);
-	int BonnieLevel = 0;
-	float BonnieMTCheck = 5.0f;
+	int FoxyCurPos = static_cast<int>(EFoxyPos::PirateCove);
+	int FoxyLevel = 0;
+	float FoxyMTCheck = 5.0f;
 	float MoveTime = 5.0f;
 };
 

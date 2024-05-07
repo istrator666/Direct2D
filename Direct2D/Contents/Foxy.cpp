@@ -17,4 +17,10 @@ void AFoxy::BeginPlay()
 void AFoxy::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+	FoxyMove();
+}
+
+void AFoxy::FoxyMove()
+{
+
 }
