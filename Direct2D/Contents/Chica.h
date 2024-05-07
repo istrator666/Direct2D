@@ -38,7 +38,7 @@ private:
 
 	UEngineRandom MoveChance;
 	int ChicaCurPos = static_cast<int>(EChicaPos::ShowStage);
-	int ChicaLevel = 15;
+	int ChicaLevel = 0;
 	float ChicaMTCheck = 3.0f;
 	float MoveTime = 3.0f;
 	bool IsBack = false;

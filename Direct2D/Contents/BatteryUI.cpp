@@ -2,8 +2,7 @@
 #include "BatteryUI.h"
 
 #include "PlayGameMode.h"
-#include "LeftButton.h"
-#include "RightButton.h"
+#include "MouseCursor.h"
 
 #include "EngineCore/Image.h"
 
@@ -19,8 +18,7 @@ void ABatteryUI::BeginPlay()
 {
 	Super::BeginPlay();
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
-	LButton = PGameMode->GetLButton();
-	RButton = PGameMode->GetRButton();
+	MouseCheck = PGameMode->GetMouseCursor();
 
 	// 배터리 잔량 랜더
 	{
@@ -77,43 +75,29 @@ void ABatteryUI::Tick(float _DeltaTime)
 
 void ABatteryUI::CurPowerMeter()
 {
-	if (true == LButton->GetIsCloseDoor())
-	{
-		++PowerMeterUsage;
-		//PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
-	}
-	else
-	{
-		--PowerMeterUsage;
-	}
+	PowerMeterUsage = MouseCheck->GetUpDownCheck();
 
-	if (true == LButton->GetIsLight())
+	if (0 <= PowerMeterUsage && 5 > PowerMeterUsage)
+	switch (PowerMeterUsage)
 	{
-		++PowerMeterUsage;
+	case 0:
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
+		break;
+	case 1:
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
+		break;
+	case 2:
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
+		break;
+	case 3:
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
+		break;
+	case 4:
+		PowerMeterRenderer->SetSprite("PowerMeter", PowerMeterUsage);
+		break;
+	default:
+		break;
 	}
-	else
-	{
-		--PowerMeterUsage;
-	}
-
-	if (true == RButton->GetIsCloseDoor())
-	{
-		++PowerMeterUsage;
-	}
-	else
-	{
-		--PowerMeterUsage;
-	}
-
-	if (true == RButton->GetIsLight())
-	{
-		++PowerMeterUsage;
-	}
-	else
-	{
-		--PowerMeterUsage;
-	}
-
 }
 
 

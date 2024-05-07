@@ -23,6 +23,11 @@ public:
 	AMouseCursor& operator=(const AMouseCursor& _Other) = delete;
 	AMouseCursor& operator=(AMouseCursor&& _Other) noexcept = delete;
 
+	int GetUpDownCheck()
+	{
+		return PowerMeterUpDownCheck;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -37,5 +42,6 @@ private:
 	void ColLefButton();
 	void ColRightButton();
 
+	int PowerMeterUpDownCheck = 0;
 };
 

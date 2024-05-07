@@ -66,62 +66,6 @@ void ABonnie::Tick(float _DeltaTime)
 	}
 }
 
-void ABonnie::Cam1AStart()
-{
-}
-
-void ABonnie::Cam1AUpdate(float _DeltaTime)
-{
-}
-
-void ABonnie::Cam1BStart()
-{
-}
-
-void ABonnie::Cam1BUpdate(float _DeltaTime)
-{
-}
-
-void ABonnie::Cam2AStart()
-{
-}
-
-void ABonnie::Cam2AUpdate(float _DeltaTime)
-{
-}
-
-void ABonnie::Cam2BStart()
-{
-}
-
-void ABonnie::Cam2BUpdate(float _DeltaTime)
-{
-}
-
-void ABonnie::Cam3Start()
-{
-}
-
-void ABonnie::Cam3Update(float _DeltaTime)
-{
-}
-
-void ABonnie::Cam5Start()
-{
-}
-
-void ABonnie::Cam5Update(float _DeltaTime)
-{
-}
-
-void ABonnie::OfficeLeftStart()
-{
-}
-
-void ABonnie::OfficeLeftUpdate(float _DeltaTime)
-{
-}
-
 void ABonnie::BonnieMove()
 {
 	// Bonnie 이동 방식
@@ -193,7 +137,14 @@ void ABonnie::BonnieMove()
 			if (16 >= MoveDice)
 			{
 				AAnimatronics::PGameMode->GetWHallCornerCam()->SetAnimatronics(nullptr);
-				AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(true, "LeftBonnieON");
+				if (false == PGameMode->GetLButton()->GetIsLight())
+				{
+					AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(false, "LeftBonnieON");
+				}
+				else
+				{
+					AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(true, "LeftBonnieON");
+				}
 				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(true);
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}
@@ -210,7 +161,14 @@ void ABonnie::BonnieMove()
 			if (16 >= MoveDice)
 			{
 				AAnimatronics::PGameMode->GetSupplyClosetCam()->SetAnimatronics(nullptr);
-				AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(true, "LeftBonnieON");
+				if (false == PGameMode->GetLButton()->GetIsLight())
+				{
+					AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(false, "LeftBonnieON");
+				}
+				else
+				{
+					AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(true, "LeftBonnieON");
+				}
 				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(true);
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
 			}

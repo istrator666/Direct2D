@@ -66,13 +66,13 @@ void AChica::ChicaMove()
 		case static_cast<int>(EChicaPos::DiningArea):
 		{
 			IsBack = false;
-			if (10 >= MoveDice)
+			if (12 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Restrooms))
 			{
 				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::Restrooms);
 			}
-			else
+			else if (12 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Kitchen))
 			{
 				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(PGameMode->GetChica());
@@ -82,7 +82,7 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::EastHall):
 		{
-			if (16 >= MoveDice)
+			if (16 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EHallCorner))
 			{
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetEHallCornerCam()->SetAnimatronics(PGameMode->GetChica());
@@ -99,14 +99,21 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::EHallCorner):
 		{
-			if (10 >= MoveDice)
+			if (16 >= MoveDice)
 			{
 				AAnimatronics::PGameMode->GetEHallCornerCam()->SetAnimatronics(nullptr);
-				AAnimatronics::PGameMode->GetRButton()->SetLightAnimation(true, "RightChicaOn");
+				if (false == AAnimatronics::PGameMode->GetRButton()->GetIsLight())
+				{
+					AAnimatronics::PGameMode->GetRButton()->SetLightAnimation(false, "RightChicaOn");
+				}
+				else
+				{
+					AAnimatronics::PGameMode->GetRButton()->SetLightAnimation(true, "RightChicaOn");
+				}
 				AAnimatronics::PGameMode->GetRButton()->SetIsChica(true);
 				ChicaCurPos = static_cast<int>(EChicaPos::RightOffice);
 			}
-			else
+			else if (16 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall))
 			{
 				AAnimatronics::PGameMode->GetEHallCornerCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetChica());
@@ -116,13 +123,13 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::Kitchen):
 		{
-			if (10 >= MoveDice)
+			if (8 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Restrooms))
 			{
 				AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::Restrooms);
 			}
-			else
+			else if(8 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall))
 			{
 				AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetChica());
@@ -132,13 +139,13 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::Restrooms):
 		{
-			if (10 >= MoveDice)
+			if (10 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Kitchen))
 			{
 				AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::Kitchen);
 			}
-			else
+			else if (10 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall))
 			{
 				AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(nullptr);
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetChica());
@@ -148,11 +155,11 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::RightOffice):
 		{
-			if (10 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
+			if (14 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareChica");
 			}
-			else if (10 <= MoveDice 
+			else if (14 <= MoveDice 
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall)
 				&& true == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{

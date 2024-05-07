@@ -3,8 +3,7 @@
 
 class UImage;
 class APlayGameMode;
-class ALeftButton;
-class ARightButton;
+class AMouseCursor;
 
 class ABatteryUI : public AActor
 {
@@ -50,8 +49,7 @@ private:
 	UImage* PowerMeterRenderer = nullptr;
 
 	APlayGameMode* PGameMode = nullptr;
-	std::shared_ptr<ALeftButton> LButton = nullptr;
-	std::shared_ptr<ARightButton> RButton = nullptr;
+	std::shared_ptr<AMouseCursor> MouseCheck = nullptr;
 
 };
 

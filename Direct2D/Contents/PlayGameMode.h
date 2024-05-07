@@ -128,6 +128,11 @@ public:
 		return Chica;
 	}
 
+	std::shared_ptr<AMouseCursor> GetMouseCursor()
+	{
+		return MouseCursor;
+	}
+
 	bool GetIsMapAnimatronics(ECamMap _RoomName);
 
 protected:
