@@ -1,6 +1,9 @@
 #include "PreCompile.h"
 #include "Foxy.h"
 
+#include "PirateCove.h"
+#include "LeftButton.h"
+
 AFoxy::AFoxy()
 {
 }

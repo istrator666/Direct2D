@@ -40,7 +40,7 @@ private:
 	UStateManager State;
 	UEngineRandom MoveChance;
 	int BonnieCurPos = static_cast<int>(EBonniePos::ShowStage);
-	int BonnieLevel = 15;
+	int BonnieLevel = 0;
 	float BonnieMTCheck = 3.0f;
 	float MoveTime = 3.0f;
 	bool IsBack = false;
