@@ -20,6 +20,11 @@ public:
 
 	void SetRendererActive(bool _Active);
 
+	void SetRunningFoxy(bool _Active)
+	{
+		RunningFoxy->SetActive(_Active);
+	}
+
 	void SetStageCCTVRenderer(std::string_view _SelectMap, int _Index);
 
 protected:
@@ -30,6 +35,7 @@ private:
 	UDefaultSceneComponent* CCTVRoot = nullptr;
 	USpriteRenderer* StageCCTVRenderer = nullptr;
 	USpriteRenderer* KitchenBackRenderer = nullptr;
+	USpriteRenderer* RunningFoxy = nullptr;
 	USpriteRenderer* StaticRenderer = nullptr;
 
 };

@@ -36,6 +36,7 @@ private:
 	void PirateCoveMonsterCheck();
 
 	APlayGameMode* PGameMode = nullptr;
+	AFoxy* Foxy = nullptr;
 
 	float CamTimeCheck = 5.0f;
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;

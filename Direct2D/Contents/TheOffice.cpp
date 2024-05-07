@@ -32,7 +32,7 @@ ATheOffice::ATheOffice()
 	JumpScareRenderer->CreateAnimation("JumpScareFreddy", "JumpScareFreddy", 0.1f, true, 0, 27);
 	JumpScareRenderer->CreateAnimation("JumpScareFoxy", "JumpScareFoxy", 0.1f, true, 0, 20);
 	JumpScareRenderer->SetAutoSize(1.0f, true);
-	JumpScareRenderer->SetOrder(EOrderType::Cutscene);
+	JumpScareRenderer->SetOrder(EOrderType::Actor);
 
 	SetRoot(StageRoot);
 

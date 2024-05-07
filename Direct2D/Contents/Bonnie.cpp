@@ -36,7 +36,6 @@ void ABonnie::Tick(float _DeltaTime)
 	{
 		BonnieMTCheck = MoveTime;
 		BonnieMove();
-		//State.Update(_DeltaTime);
 	}
 }
 

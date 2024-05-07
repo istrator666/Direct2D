@@ -4,6 +4,8 @@
 #include "Animatronics.h"
 #include <EngineBase/EngineRandom.h>
 
+class APlayGameMode;
+class ACCTVUI;
 class AFoxy : public AAnimatronics
 {
 	GENERATED_BODY(AAnimatronics)
@@ -19,17 +21,27 @@ public:
 	AFoxy& operator=(const AFoxy& _Other) = delete;
 	AFoxy& operator=(AFoxy&& _Other) noexcept = delete;
 
+	int GetFoxyCurPos()
+	{
+		return FoxyCurPos;
+
+	}
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	void FoxyMove();
+	void FoxyMove(float _DeltaTime);
 
 	UEngineRandom MoveChance;
-	int FoxyCurPos = static_cast<int>(EFoxyPos::PirateCove);
-	int FoxyLevel = 0;
-	float FoxyMTCheck = 5.0f;
-	float MoveTime = 5.0f;
+	APlayGameMode* PGameMode = nullptr;
+	std::shared_ptr<ACCTVUI> IsCCTVCam = nullptr;
+
+	int FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv1);
+	int FoxyLevel = 20;
+	float FoxyMTCheck = 3.0f;
+	//float FoxyMTCheck = MoveChance.RandomFloat(0.83f, 16.67f);
+	float limitTime = 25.0f;
+	bool FoxyResetTime = false;
 };
 

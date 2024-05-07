@@ -79,8 +79,12 @@ enum class EChicaPos
 
 enum class EFoxyPos
 {
-	PirateCove,
-
+	PirateCoveLv1,
+	PriateCoveLv2,
+	PriateCoveLv3,
+	PriateCoveLv4,
+	WestHall,
+	LeftOffice,
 };
 
 enum class EFreddyPos

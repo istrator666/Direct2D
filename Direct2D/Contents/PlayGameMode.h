@@ -128,9 +128,29 @@ public:
 		return Chica;
 	}
 
+	std::shared_ptr<AFoxy> GetFoxy()
+	{
+		return Foxy;
+	}
+
+	std::shared_ptr<AFreddy> GetFreddy()
+	{
+		return Freddy;
+	}
+
 	std::shared_ptr<AMouseCursor> GetMouseCursor()
 	{
 		return MouseCursor;
+	}
+
+	std::shared_ptr<ACCTVUI> GetCCTVUI()
+	{
+		return CCTVUI;
+	}
+
+	std::shared_ptr<AStageCCTV> GetStageCCTV()
+	{
+		return StageCCTV;
 	}
 
 	bool GetIsMapAnimatronics(ECamMap _RoomName);

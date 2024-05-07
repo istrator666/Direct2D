@@ -36,7 +36,37 @@ void APirateCove::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 
 void APirateCove::PirateCoveMonsterCheck()
 {
+	if (nullptr != Animatronics)
+	{
+		Foxy = nullptr;
 
+		AFoxy* NewFoxy = dynamic_cast<AFoxy*>(Animatronics.get());
+		if (nullptr != NewFoxy)
+		{
+			Foxy = NewFoxy;
+
+			if (static_cast<int>(EFoxyPos::PirateCoveLv1) == Foxy->GetFoxyCurPos())
+			{
+				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv1);
+			}
+			else if (static_cast<int>(EFoxyPos::PriateCoveLv2) == Foxy->GetFoxyCurPos())
+			{
+				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv2);
+			}
+			else if (static_cast<int>(EFoxyPos::PriateCoveLv3) == Foxy->GetFoxyCurPos())
+			{
+				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv3);
+			}
+			else if (static_cast<int>(EFoxyPos::PriateCoveLv4) == Foxy->GetFoxyCurPos())
+			{
+				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv4);
+			}
+			else if (static_cast<int>(EFoxyPos::WestHall) == Foxy->GetFoxyCurPos())
+			{
+				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv4_Anomaly);
+			}
+		}
+	}
 }
 
 bool APirateCove::GetIsAnimatronics()

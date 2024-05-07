@@ -67,7 +67,8 @@ void APlayGameMode::Tick(float _DeltaTime)
 
 void APlayGameMode::SetActor()
 {
-	// 생성 순서 주의
+	// Actor 생성 순서 주의
+	CCTVUI = GetWorld()->SpawnActor<ACCTVUI>("CCTVUI");
 	
 	// 몬스터
 	Bonnie = GetWorld()->SpawnActor<ABonnie>("Bonnie");
@@ -92,6 +93,7 @@ void APlayGameMode::SetActor()
 	ShowStageCam->SetAnimatronics(Bonnie);
 	ShowStageCam->SetAnimatronics(Chica);
 	ShowStageCam->SetAnimatronics(Freddy);
+	PirateCoveCam->SetAnimatronics(Foxy);
 
 	// Stage Actor
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
@@ -101,11 +103,8 @@ void APlayGameMode::SetActor()
 	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
 	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
 
-	// UI Actor
 	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
 	BatteryUI = GetWorld()->SpawnActor<ABatteryUI>("BatteryUI");
-	CCTVUI = GetWorld()->SpawnActor<ACCTVUI>("CCTVUI");
-
 }
 
 void APlayGameMode::SetUI()
@@ -320,6 +319,7 @@ bool APlayGameMode::GetIsMapAnimatronics(ECamMap _RoomName)
 		DiningAreaCam->GetIsAnimatronics();
 		break;
 	case ECamMap::PirateCove:
+		PirateCoveCam->GetIsAnimatronics();
 		break;
 	case ECamMap::WestHall:
 		WestHallCam->GetIsAnimatronics();
