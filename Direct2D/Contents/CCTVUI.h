@@ -2,6 +2,8 @@
 #include "EngineCore/Actor.h"
 
 class UImage;
+class APlayGameMode;
+class AMouseCursor;
 struct CamImage
 {
 	UImage* CamScreenBox = nullptr;
@@ -82,5 +84,7 @@ private:
 
 	UImage* SelectScreenBox;
 	std::string_view SelectMap = "ShowStage";
+	APlayGameMode* PGameMode = nullptr;
+	std::shared_ptr<AMouseCursor> PowerMeter = nullptr;
 };
 

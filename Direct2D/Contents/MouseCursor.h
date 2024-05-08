@@ -28,6 +28,13 @@ public:
 		return PowerMeterUpDownCheck;
 	}
 
+	void SetUpdownCheck(int _PowerMeterUpDownCheck)
+	{
+		PowerMeterUpDownCheck += _PowerMeterUpDownCheck;
+	}
+
+	void GetLightCheck();
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

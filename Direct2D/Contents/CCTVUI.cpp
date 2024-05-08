@@ -3,6 +3,8 @@
 
 #include "ContentsDefine.h"
 #include "ContentsEnum.h"
+#include "PlayGameMode.h"
+#include "MouseCursor.h"
 
 #include "EngineCore/Image.h"
 
@@ -17,6 +19,8 @@ ACCTVUI::~ACCTVUI()
 void ACCTVUI::BeginPlay()
 {
 	Super::BeginPlay();
+	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
+	PowerMeter = PGameMode->GetMouseCursor();
 
 	InputOn();
 	// CCTV or 로비화면 전환 Bar
@@ -62,11 +66,22 @@ void ACCTVUI::BeginPlay()
 				{
 					ChangeCCTVAnimation->ChangeAnimation("CCTVON");
 					IsCCTV = true;
+
+					if (nullptr != PowerMeter)
+					{
+						PowerMeter->SetUpdownCheck(1);
+						PowerMeter->GetLightCheck();
+					}
 				}
 				else if (true == IsCCTV)
 				{
 					ChangeCCTVAnimation->ChangeAnimation("CCTVOFF");
 					IsCCTV = false;
+
+					if (nullptr != PowerMeter)
+					{
+						PowerMeter->SetUpdownCheck(-1);
+					}
 				}
 			});
 

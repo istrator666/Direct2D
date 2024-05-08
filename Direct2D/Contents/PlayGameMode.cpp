@@ -68,6 +68,10 @@ void APlayGameMode::Tick(float _DeltaTime)
 void APlayGameMode::SetActor()
 {
 	// Actor 생성 순서 주의
+	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
+	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
+	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
+
 	CCTVUI = GetWorld()->SpawnActor<ACCTVUI>("CCTVUI");
 	
 	// 몬스터
@@ -99,9 +103,6 @@ void APlayGameMode::SetActor()
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
 	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
-	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
-	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
-	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
 
 	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
 	BatteryUI = GetWorld()->SpawnActor<ABatteryUI>("BatteryUI");
