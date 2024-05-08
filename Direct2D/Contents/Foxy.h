@@ -3,6 +3,7 @@
 
 #include "Animatronics.h"
 #include <EngineBase/EngineRandom.h>
+#include <EngineCore/StateManager.h>
 
 class APlayGameMode;
 class ACCTVUI;
@@ -30,18 +31,38 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-private:
-	void FoxyMove(float _DeltaTime);
+	void StateInit();
 
+private:
 	UEngineRandom MoveChance;
 	APlayGameMode* PGameMode = nullptr;
 	std::shared_ptr<ACCTVUI> IsCCTVCam = nullptr;
 
 	int FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv1);
 	int FoxyLevel = 20;
-	float FoxyMTCheck = 3.0f;
-	//float FoxyMTCheck = MoveChance.RandomFloat(0.83f, 16.67f);
+	//float FoxyMTCheck = 1.0f;
+	float FoxyMTCheck = MoveChance.RandomFloat(0.83f, 16.67f);
 	float limitTime = 25.0f;
 	bool FoxyResetTime = false;
+
+	UStateManager PirateCoveState;
+
+	void PirateCoveLv1Start();
+	void PirateCoveLv1Update(float _DeltaTime);
+
+	void PirateCoveLv2Start();
+	void PirateCoveLv2Update(float _DeltaTime);
+
+	void PirateCoveLv3Start();
+	void PirateCoveLv3Update(float _DeltaTime);
+
+	void PirateCoveLv4Start();
+	void PirateCoveLv4Update(float _DeltaTime);
+
+	void FoxyWestHallStart();
+	void FoxyWestHallUpdate(float _DeltaTime);
+
+	void FoxyLeftOfficeStart();
+	void FoxyLeftOfficeUpdate(float _DeltaTime);
 };
 

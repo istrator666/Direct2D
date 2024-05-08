@@ -20,9 +20,9 @@ public:
 
 	void SetRendererActive(bool _Active);
 
-	void SetRunningFoxy(bool _Active)
+	USpriteRenderer* GetRunningFoxy()
 	{
-		RunningFoxy->SetActive(_Active);
+		return RunningFoxy;
 	}
 
 	void SetStageCCTVRenderer(std::string_view _SelectMap, int _Index);

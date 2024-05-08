@@ -49,15 +49,15 @@ void APirateCove::PirateCoveMonsterCheck()
 			{
 				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv1);
 			}
-			else if (static_cast<int>(EFoxyPos::PriateCoveLv2) == Foxy->GetFoxyCurPos())
+			else if (static_cast<int>(EFoxyPos::PirateCoveLv2) == Foxy->GetFoxyCurPos())
 			{
 				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv2);
 			}
-			else if (static_cast<int>(EFoxyPos::PriateCoveLv3) == Foxy->GetFoxyCurPos())
+			else if (static_cast<int>(EFoxyPos::PirateCoveLv3) == Foxy->GetFoxyCurPos())
 			{
 				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv3);
 			}
-			else if (static_cast<int>(EFoxyPos::PriateCoveLv4) == Foxy->GetFoxyCurPos())
+			else if (static_cast<int>(EFoxyPos::PirateCoveLv4) == Foxy->GetFoxyCurPos())
 			{
 				CurPirateCoveCam = static_cast<int>(EPirateCove::PirateCove_Lv4);
 			}

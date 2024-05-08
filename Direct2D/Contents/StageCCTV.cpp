@@ -29,12 +29,9 @@ AStageCCTV::AStageCCTV()
 	RunningFoxy = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RunningFoxy->SetupAttachment(CCTVRoot);
 	RunningFoxy->CreateAnimation("RunningFoxy", "RunningFoxy", 0.05f, false, 0, 30);
-	RunningFoxy->ChangeAnimation("RunningFoxy");
-	RunningFoxy->SetFrameCallback("RunningFoxy", 30, [=] {RunningFoxy->SetActive(false); });
 	RunningFoxy->SetAutoSize(1.0f, true);
 	RunningFoxy->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	RunningFoxy->SetOrder(EOrderType::Cutscene);
-	RunningFoxy->SetActive(false);
 
 	KitchenBackRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	KitchenBackRenderer->SetupAttachment(CCTVRoot);
