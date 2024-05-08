@@ -24,7 +24,7 @@ ARightButton::ARightButton()
 	RightDoorAnimation->SetFrameCallback("RightDoorOpen", 14, [=] { RightDoorAnimation->SetActive(false); });
 	RightDoorAnimation->SetAutoSize(1.0f, true);
 	RightDoorAnimation->AddPosition(FVector(580.0f, 0.0f, 0.0f));
-	RightDoorAnimation->SetOrder(EOrderType::Actor);
+	RightDoorAnimation->SetOrder(EOrderType::CCTVActor);
 
 	RightLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RightLightAnimation->SetupAttachment(RightButtonRoot);

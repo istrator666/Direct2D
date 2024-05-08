@@ -24,7 +24,7 @@ ALeftButton::ALeftButton()
 	LeftDoorAnimation->SetFrameCallback("LeftDoorOpen", 14, [=] { LeftDoorAnimation->SetActive(false); });
 	LeftDoorAnimation->SetAutoSize(1.0f, true);
 	LeftDoorAnimation->AddPosition(FVector(-620.0f, 0.0f, 0.0f));
-	LeftDoorAnimation->SetOrder(EOrderType::Actor);
+	LeftDoorAnimation->SetOrder(EOrderType::CCTVActor);
 
 	LeftLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	LeftLightAnimation->SetupAttachment(LeftButtonRoot);

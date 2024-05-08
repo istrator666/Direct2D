@@ -99,6 +99,23 @@ void AMouseCursor::ColLefButton()
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftLightON);
 					LButton->SetLightAnimation(true, "LeftLightON");
+
+					if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightButtonAllOFF);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
+					else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightDoorON);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
 				}
 				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
@@ -106,6 +123,23 @@ void AMouseCursor::ColLefButton()
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftButtonAllOn);
 					LButton->SetLightAnimation(true, "LeftLightON");
+
+					if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightButtonAllOFF);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
+					else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightDoorON);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
 				}
 				else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
@@ -128,6 +162,23 @@ void AMouseCursor::ColLefButton()
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftLightON);
 					LButton->SetLightAnimation(true, "LeftBonnieON");
+
+					if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightButtonAllOFF);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
+					else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightDoorON);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
 				}
 				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
@@ -135,6 +186,23 @@ void AMouseCursor::ColLefButton()
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftButtonAllOn);
 					LButton->SetLightAnimation(true, "LeftBonnieON");
+
+					if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightButtonAllOFF);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
+					else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						RButton->SetIsLight(false);
+						RButton->SetButtonImage(RightDoorON);
+						RButton->SetLightAnimation(false, "RightLightON");
+						RButton->SetLightAnimation(false, "RightChicaOn");
+					}
 				}
 				else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
@@ -203,6 +271,23 @@ void AMouseCursor::ColRightButton()
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetLightAnimation(true, "RightLightON");
+
+					if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftButtonAllOFF);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
+					else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftDoorON);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
 				}
 				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
@@ -210,6 +295,23 @@ void AMouseCursor::ColRightButton()
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetLightAnimation(true, "RightLightON");
+
+					if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftButtonAllOFF);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
+					else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftDoorON);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
 				}
 				else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
@@ -233,6 +335,23 @@ void AMouseCursor::ColRightButton()
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightLightON);
 					RButton->SetLightAnimation(true, "RightChicaOn");
+
+					if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftButtonAllOFF);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
+					else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftDoorON);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
 				}
 				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
@@ -240,6 +359,23 @@ void AMouseCursor::ColRightButton()
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightButtonAllOn);
 					RButton->SetLightAnimation(true, "RightChicaOn");
+
+					if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftButtonAllOFF);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
+					else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
+					{
+						--PowerMeterUpDownCheck;
+						LButton->SetIsLight(false);
+						LButton->SetButtonImage(LeftDoorON);
+						LButton->SetLightAnimation(false, "LeftLightON");
+						LButton->SetLightAnimation(false, "LeftBonnieON");
+					}
 				}
 				else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
