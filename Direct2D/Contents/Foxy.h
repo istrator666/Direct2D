@@ -39,7 +39,7 @@ private:
 	std::shared_ptr<ACCTVUI> IsCCTVCam = nullptr;
 
 	int FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv1);
-	int FoxyLevel = 20;
+	int FoxyLevel = 0;
 	//float FoxyMTCheck = 1.0f;
 	float FoxyMTCheck = MoveChance.RandomFloat(0.83f, 16.67f);
 	float limitTime = 25.0f;

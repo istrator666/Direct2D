@@ -69,7 +69,7 @@ void ABackStage::FCamTimeCheck(float _DeltaTime)
 	}
 	else
 	{
-		CamTimeCheck = 5.0f;
+		CamTimeCheck = 2.0f;
 	}
 }
 

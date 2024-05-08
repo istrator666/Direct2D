@@ -103,11 +103,11 @@ void ABatteryUI::CurPowerMeter()
 
 void ABatteryUI::PowerleftDecrease(float _DeltaTime)
 {
-	PowerleftDecreaseTime -= _DeltaTime;
+	PowerleftDecreaseTime -= _DeltaTime + (_DeltaTime * (PowerMeterUsage / 2.0f));
 
 	if (0 >= PowerleftDecreaseTime)
 	{
-		PowerleftDecreaseTime = 0.1f;
+		PowerleftDecreaseTime = 10.0f;
 
 		PowerleftDecrease02 -= 1;
 

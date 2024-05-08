@@ -39,7 +39,7 @@ protected:
 private:
 	void CurPowerMeter();
 
-	float PowerleftDecreaseTime = 2.0f;
+	float PowerleftDecreaseTime = 10.0f;
 	int PowerleftDecrease01 = 9;
 	int PowerleftDecrease02 = 9;
 	int PowerMeterUsage = 0;

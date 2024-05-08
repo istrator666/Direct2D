@@ -38,7 +38,7 @@ private:
 
 	APlayGameMode* PGameMode = nullptr;
 	ABonnie* Bonnie = nullptr;
-	float CamTimeCheck = 5.0f;
+	float CamTimeCheck = 2.0f;
 	std::shared_ptr<AAnimatronics> Animatronics = nullptr;
 	int CurBackStageCam = static_cast<int>(EBackstage::BackStage_Default);
 
