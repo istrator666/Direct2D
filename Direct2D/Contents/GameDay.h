@@ -1,6 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
-#include <EngineCore/SpriteRenderer.h>
+
+class UImage;
 
 class AGameDay : public AActor
 {
@@ -22,9 +23,12 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* NewGameIntroRenderer = nullptr;
-	USpriteRenderer* DayBackgroundRenderer = nullptr;
-	USpriteRenderer* DailyRenderer = nullptr;
+	UImage* NewGameIntroRenderer = nullptr;
+	UImage* DayBackgroundRenderer = nullptr;
+	UImage* DailyRenderer = nullptr;
+	UImage* DailyScanLine = nullptr;
+
+	float4 DecreaseAlpha;
 
 
 };

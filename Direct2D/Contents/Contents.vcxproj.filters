@@ -46,6 +46,9 @@
     <Filter Include="Level\PlayLevel\Actor\Animatronics\Monster">
       <UniqueIdentifier>{ab4f2e4d-7b65-4a23-96d4-fb6764012982}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level\GameOverLevel">
+      <UniqueIdentifier>{5cf0e8c5-b1d3-4b56-a145-5de6d6fa41e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -62,9 +65,6 @@
     </ClInclude>
     <ClInclude Include="TitleSelect.h">
       <Filter>Level\TitleLevel\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="GameDay.h">
-      <Filter>Level\PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <Filter>Config</Filter>
@@ -153,6 +153,12 @@
     <ClInclude Include="Freddy.h">
       <Filter>Level\PlayLevel\Actor\Animatronics\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="GameOverGameMode.h">
+      <Filter>Level\GameOverLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDay.h">
+      <Filter>Level\PlayLevel\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -172,9 +178,6 @@
     </ClCompile>
     <ClCompile Include="TitleSelect.cpp">
       <Filter>Level\TitleLevel\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="GameDay.cpp">
-      <Filter>Level\PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="MouseCursor.cpp">
       <Filter>Level\PlayLevel\Actor</Filter>
@@ -253,6 +256,12 @@
     </ClCompile>
     <ClCompile Include="Freddy.cpp">
       <Filter>Level\PlayLevel\Actor\Animatronics\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverGameMode.cpp">
+      <Filter>Level\GameOverLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDay.cpp">
+      <Filter>Level\PlayLevel\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

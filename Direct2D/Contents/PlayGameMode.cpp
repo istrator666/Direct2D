@@ -68,6 +68,8 @@ void APlayGameMode::Tick(float _DeltaTime)
 void APlayGameMode::SetActor()
 {
 	// Actor 생성 순서 주의
+	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay", 1);
+	
 	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
 	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
 	MouseCursor = GetWorld()->SpawnActor<AMouseCursor>("MouseCursor");
@@ -101,7 +103,6 @@ void APlayGameMode::SetActor()
 
 	// Stage Actor
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
-	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay");
 	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
 
 	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
@@ -150,7 +151,7 @@ void APlayGameMode::SetUI()
 			{
 				if (-160.0f <= Camera->GetActorLocation().X)
 				{
-					Camera->AddActorLocation(FVector(-0.2f, 0.0f, 0.0f));
+					Camera->AddActorLocation(FVector(-0.3f, 0.0f, 0.0f));
 				}
 			});
 
@@ -166,7 +167,7 @@ void APlayGameMode::SetUI()
 			{
 				if (160.0f >= Camera->GetActorLocation().X)
 				{
-					Camera->AddActorLocation(FVector(0.2f, 0.0f, 0.0f));
+					Camera->AddActorLocation(FVector(0.3f, 0.0f, 0.0f));
 				}
 			});
 

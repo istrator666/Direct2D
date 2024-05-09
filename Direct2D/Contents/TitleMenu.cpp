@@ -12,8 +12,6 @@ ATitleMenu::ATitleMenu()
 	TitleBackgroundRenderer->SetupAttachment(TitleRoot);
 	TitleBackgroundRenderer->SetScale(FVector(1280.0f, 720.0f, 100.0f));
 	TitleBackgroundRenderer->SetSprite("IntroEndings.png", 0);
-	//TitleBackgroundRenderer->CreateAnimation("FaceChange", "IntroEndings.png", 0.1f, true, 0, 0);
-	//TitleBackgroundRenderer->ChangeAnimation("FaceChange");
 	TitleBackgroundRenderer->SetOrder(EOrderType::Background);
 
 	NoiseRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
@@ -24,14 +22,19 @@ ATitleMenu::ATitleMenu()
 	NoiseRenderer->ChangeAnimation("Noise");
 	NoiseRenderer->SetOrder(EOrderType::Overlay);
 
+	ScanLineRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	ScanLineRenderer->SetupAttachment(TitleRoot);
+	ScanLineRenderer->SetAutoSize(1.0f, true);
+	ScanLineRenderer->SetSprite("TitleScanLine.png");
+	ScanLineRenderer->SetMulColor({ 1.0f, 1.0f, 1.0f, 0.3f });
+	ScanLineRenderer->SetOrder(EOrderType::Overlay);
+	ScanLineRenderer->SetPosition(FVector(0.0f, DownLineSpeedY, 0.0f));
 
 	CameraEffectsRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	CameraEffectsRenderer->SetupAttachment(TitleRoot);
 	CameraEffectsRenderer->SetAutoSize(1.0f, true);
-	CameraEffectsRenderer->SetMaterial("OverlayMaterial");
-	CameraEffectsRenderer->CreateAnimation("CameraEffects", "CameraEffects.png", 0.1f, true, 0, 15);
-	CameraEffectsRenderer->ChangeAnimation("CameraEffects");
-	//CameraEffectsRenderer->SetOrder(2);
+	CameraEffectsRenderer->SetMulColor({ 1.0f, 1.0f, 1.0f, 0.3f });
+	CameraEffectsRenderer->SetOrder(2);
 
 	TitleNameRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	TitleNameRenderer->SetupAttachment(TitleRoot);
@@ -41,10 +44,7 @@ ATitleMenu::ATitleMenu()
 	TitleNameRenderer->AddPosition(FVector(-350.0f, -20.0f, 100.0f));
 	TitleNameRenderer->SetOrder(EOrderType::Overlay);
 
-
 	SetRoot(TitleRoot);
-
-
 }
 
 ATitleMenu::~ATitleMenu()
@@ -55,12 +55,53 @@ void ATitleMenu::BeginPlay()
 {
 	Super::BeginPlay();
 
-
 }
 
 void ATitleMenu::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	AccumulatedTime += _DeltaTime;
+	TitleBackTime += _DeltaTime;
+	ScanTime += _DeltaTime;
+	if (AccumulatedTime >= 0.01f)
+	{
+		DownLineSpeedY -= 0.2f;
+		AccumulatedTime = 0.0f;
+		ScanLineRenderer->SetPosition(FVector(0.0f, DownLineSpeedY, 0.0f));
+	}
+
+	if (DownLineSpeedY < -360.0f)
+	{
+		DownLineSpeedY = 300.0f;
+		ScanLineRenderer->SetPosition(FVector(0.0f, DownLineSpeedY, 0.0f));
+	}
+
+	if (Random.RandomFloat(3.0f, 5.0f) < TitleBackTime)
+	{
+		TitleBackTime = 0.0f;
+
+		int index = Random.RandomInt(1, 3);
+		TitleBackgroundRenderer->SetSprite("IntroEndings.png", index);
+	}
+	else if (0.1f < TitleBackTime)
+	{
+		TitleBackgroundRenderer->SetSprite("IntroEndings.png", 0);
+	}
+
+	if (Random.RandomFloat(0.7f, 1.0f) < ScanTime)
+	{
+		ScanTime = 0.0f;
+		int index = Random.RandomInt(10, 15);
+		CameraEffectsRenderer->SetActive(true);
+		CameraEffectsRenderer->SetSprite("CameraEffects.png", index);
+	}
+	else if (0.5 < ScanTime)
+	{
+		CameraEffectsRenderer->SetActive(false);
+	}
+
+	
 
 	DebugMessageFunction();
 }

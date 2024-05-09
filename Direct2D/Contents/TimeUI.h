@@ -1,4 +1,5 @@
 #pragma once
+
 #include <EngineCore/Actor.h>
 
 class UImage;
@@ -23,7 +24,14 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	void TimeChange(float _DeltaTime);
+
 	UImage* TimeUIRoot = nullptr;
+	UImage* TimeRenderer01 = nullptr;
+	UImage* TimeRenderer02 = nullptr;
+	UImage* DayRenderer = nullptr;
+	int TimeRenderChange = 0;
+	int DayRenderChage = 1;
 	float DayTimeCheck = 5.0f;
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <Enginecore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
+#include <EngineBase/EngineRandom.h>
 
 // Ό³Έν :
 class ATitleMenu : public AActor
@@ -25,8 +26,17 @@ protected:
 private:
 	USpriteRenderer* TitleBackgroundRenderer = nullptr;
 	USpriteRenderer* NoiseRenderer = nullptr;
+	USpriteRenderer* ScanLineRenderer = nullptr;
 	USpriteRenderer* CameraEffectsRenderer = nullptr;
 	USpriteRenderer* TitleNameRenderer = nullptr;
+
+	UEngineRandom Random;
+
+	float AccumulatedTime = 0.0f;
+	float TitleBackTime = 0.0f;
+	float ScanTime = 0.0f;
+	float SpeedY = -5.0f;
+	float DownLineSpeedY = 300.0f;
 
 	void DebugMessageFunction();
 };

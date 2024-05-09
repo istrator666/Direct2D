@@ -8,6 +8,7 @@ ATitleSelect::ATitleSelect()
 	TitleSelectRenderer->SetAutoSize(1.0f, true);
 	TitleSelectRenderer->SetSprite("Select.png", 0);
 	TitleSelectRenderer->AddPosition(FVector(-500.0f, -70.0f, 100.0f));
+	TitleSelectRenderer->SetOrder(2);
 
 	SetRoot(TitleSelectRenderer);
 
@@ -22,7 +23,7 @@ void ATitleSelect::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TitleSelectRenderer->SetOrder(2);
+	
 
 }
 
