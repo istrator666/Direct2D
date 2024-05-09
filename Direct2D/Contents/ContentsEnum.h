@@ -19,13 +19,14 @@ enum class EOrderType
 /// </summary>
 enum class EColType
 {
+	Start,
+	Continue,
 	Mouse,
 	LeftDoor,
 	RightDoor,
 	LeftLight,
 	RightLight,
 	ChangeBar,
-
 };
 
 // 1A ShowStage

@@ -7,7 +7,6 @@ ATitleMenu::ATitleMenu()
 {
 	UDefaultSceneComponent* TitleRoot = CreateDefaultSubObject<UDefaultSceneComponent>("Renderer");
 
-
 	TitleBackgroundRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	TitleBackgroundRenderer->SetupAttachment(TitleRoot);
 	TitleBackgroundRenderer->SetScale(FVector(1280.0f, 720.0f, 100.0f));
@@ -43,6 +42,20 @@ ATitleMenu::ATitleMenu()
 	TitleNameRenderer->SetSprite("GameTitle.png", 0);
 	TitleNameRenderer->AddPosition(FVector(-350.0f, -20.0f, 100.0f));
 	TitleNameRenderer->SetOrder(EOrderType::Overlay);
+
+	ColStart = CreateDefaultSubObject<UCollision>("Collision");
+	ColStart->SetupAttachment(TitleRoot);
+	ColStart->SetScale(FVector{ 200,50 });
+	ColStart->AddPosition(FVector(-350.0f, -70.0f, 0.0f));
+	ColStart->SetCollisionGroup(EColType::Start);
+	ColStart->SetCollisionType(ECollisionType::Rect);
+
+	ColContinue = CreateDefaultSubObject<UCollision>("Collision");
+	ColContinue->SetupAttachment(TitleRoot);
+	ColContinue->SetScale(FVector{ 200,50 });
+	ColContinue->AddPosition(FVector(-350.0f, -140.0f, 0.0f));
+	ColContinue->SetCollisionGroup(EColType::Continue);
+	ColContinue->SetCollisionType(ECollisionType::Rect);
 
 	SetRoot(TitleRoot);
 }

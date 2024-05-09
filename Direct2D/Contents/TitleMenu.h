@@ -30,6 +30,9 @@ private:
 	USpriteRenderer* CameraEffectsRenderer = nullptr;
 	USpriteRenderer* TitleNameRenderer = nullptr;
 
+	UCollision* ColStart = nullptr;
+	UCollision* ColContinue = nullptr;
+
 	UEngineRandom Random;
 
 	float AccumulatedTime = 0.0f;
