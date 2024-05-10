@@ -2,6 +2,10 @@
 #include "TitleGameMode.h"
 #include "TitleMenu.h"
 #include "TitleSelect.h"
+#include "PlayGameMode.h"
+
+#include "ContentsDebug.h"
+
 #include <EngineCore/Camera.h>
 
 ATitleGameMode::ATitleGameMode() 
@@ -32,12 +36,14 @@ void ATitleGameMode::Tick(float _DeltaTime)
 void ATitleGameMode::LevelEnd(ULevel* _NextLevel)
 {
 	Super::LevelEnd(_NextLevel);
+	GEngine->DestroyLevel("TitleLevel");
 }
 
 void ATitleGameMode::LevelStart(ULevel* _PrevLevel)
 {
 	Super::LevelStart(_PrevLevel);
-
+	UContentsDebug::StageNumber = 0;
+	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
 }
 
 void ATitleGameMode::SetActor()

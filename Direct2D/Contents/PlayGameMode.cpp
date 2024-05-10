@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
-
+#include "GameOverGameMode.h"
+#include "ContentsDebug.h"
 #include "FisheyeEffect.h"
 
 #include "TheOffice.h"
@@ -65,6 +66,19 @@ void APlayGameMode::Tick(float _DeltaTime)
 		ChangeCCTVMap();
 		CamCameraReset();
 	}
+}
+
+void APlayGameMode::LevelEnd(ULevel* _NextLevel)
+{
+	Super::LevelEnd(_NextLevel);
+	GEngine->DestroyLevel("PlayLevel");
+}
+
+void APlayGameMode::LevelStart(ULevel* _PrevLevel)
+{
+	Super::LevelStart(_PrevLevel);
+	UContentsDebug::StageNumber = 1;
+	GEngine->CreateLevel<AGameOverGameMode>("GameOverLevel");
 }
 
 void APlayGameMode::SetActor()

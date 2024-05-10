@@ -2,6 +2,8 @@
 #include "Core.h"
 #include "PlayGameMode.h"
 #include "TitleGameMode.h"
+#include "ContentsDebug.h"
+
 #include <EngineCore/EngineSprite.h>
 #include <EngineCore/EnginePixelShader.h>
 
@@ -15,6 +17,8 @@ UCore::~UCore()
 
 void UCore::Initialize()
 {
+	UEngineEditorGUI::CreateEditorWindow<UContentsDebug>("LevelChange");
+
 	{
 		UEngineDirectory Dir;
 		Dir.MoveToSearchChild("ContentsShader");
@@ -111,8 +115,6 @@ void UCore::Initialize()
 	//}
 
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
-	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("PlayLevel");
-
+	GEngine->ChangeLevel("TitleLevel");
 
 }

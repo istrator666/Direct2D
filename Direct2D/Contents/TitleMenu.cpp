@@ -120,22 +120,4 @@ void ATitleMenu::Tick(float _DeltaTime)
 	{
 		CameraEffectsRenderer->SetActive(false);
 	}
-
-	
-
-	DebugMessageFunction();
-}
-
-void ATitleMenu::DebugMessageFunction()
-{
-	{
-		std::string Msg = std::format("PlayerPos : {}\n", GetActorLocation().ToString());
-		UEngineDebugMsgWindow::PushMsg(Msg);
-	}
-
-	{
-		std::string Msg = std::format("MousePos : {}\n", GEngine->EngineWindow.GetScreenMousePos().ToString());
-		UEngineDebugMsgWindow::PushMsg(Msg);
-	}
-
 }

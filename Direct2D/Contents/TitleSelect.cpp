@@ -5,9 +5,9 @@
 
 #include "ContentsEnum.h"
 
-
 #include <EngineCore/Renderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
+#include "ContentsDebug.cpp"
 
 ATitleSelect::ATitleSelect()
 {
@@ -17,7 +17,6 @@ ATitleSelect::ATitleSelect()
 	ColMouse->SetCollisionType(ECollisionType::Rect);
 
 	SetRoot(ColMouse);
-
 	InputOn();
 }
 

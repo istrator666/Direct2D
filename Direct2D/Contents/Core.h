@@ -1,5 +1,7 @@
 #pragma once
 #include <EngineCore/EngineCore.h>
+#include <EngineCore/EngineDebugMsgWindow.h>
+#include <EngineCore/EngineEditorGUI.h>
 
 class UCore : public UserCore
 {

@@ -240,7 +240,9 @@ void AFoxy::FoxyLeftOfficeUpdate(float _DeltaTime)
 {
 	if (false == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 	{
+		AAnimatronics::PGameMode->SetCameraMoveActive(false);
 		AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareFoxy");
+		DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
 	}
 	else if (true == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 	{

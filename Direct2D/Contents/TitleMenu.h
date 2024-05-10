@@ -47,6 +47,5 @@ private:
 	float SpeedY = -5.0f;
 	float DownLineSpeedY = 300.0f;
 
-	void DebugMessageFunction();
 };
 

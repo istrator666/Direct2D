@@ -159,6 +159,10 @@
     <ClInclude Include="GameDay.h">
       <Filter>Level\PlayLevel\UI</Filter>
     </ClInclude>
+    <ClInclude Include="ContentsDebug.h" />
+    <ClInclude Include="GameOver.h">
+      <Filter>Level\GameOverLevel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -262,6 +266,10 @@
     </ClCompile>
     <ClCompile Include="GameDay.cpp">
       <Filter>Level\PlayLevel\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentsDebug.cpp" />
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Level\GameOverLevel</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

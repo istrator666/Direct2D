@@ -35,6 +35,5 @@ private:
 	void SetUI();
 
 	std::shared_ptr<ATitleMenu> TitleMenu = nullptr;
-
 };
 

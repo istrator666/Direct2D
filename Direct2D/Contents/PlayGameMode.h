@@ -165,6 +165,9 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void LevelEnd(ULevel* _NextLevel);
+	void LevelStart(ULevel* _PrevLevel);
+
 private:
 	// Stage Actor
 	std::shared_ptr<UCamera> Camera = nullptr;

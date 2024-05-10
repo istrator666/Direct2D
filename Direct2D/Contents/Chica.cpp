@@ -157,7 +157,9 @@ void AChica::ChicaMove()
 		{
 			if (14 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
+				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareChica");
+				DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
 			}
 			else if (14 <= MoveDice 
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall)

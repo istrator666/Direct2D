@@ -21,6 +21,7 @@ enum class EOrderType
 /// </summary>
 enum class EColType
 {
+	None,
 	Start,
 	Continue,
 	Mouse,

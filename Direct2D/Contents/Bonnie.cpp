@@ -176,6 +176,7 @@ void ABonnie::BonnieMove()
 			{
 				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareBonnie");
+				DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
 			}
 			else if(12 <= MoveDice 
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea) 
