@@ -174,6 +174,7 @@ void ABonnie::BonnieMove()
 		{
 			if (12 >= MoveDice && false == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 			{
+				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareBonnie");
 			}
 			else if(12 <= MoveDice 

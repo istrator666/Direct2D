@@ -58,11 +58,13 @@ void APlayGameMode::BeginPlay()
 void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-	
-	
-	ChangeCCTV(_DeltaTime);
-	ChangeCCTVMap();
-	CamCameraReset();
+
+	if (false == GameOver)
+	{
+		ChangeCCTV(_DeltaTime);
+		ChangeCCTVMap();
+		CamCameraReset();
+	}
 }
 
 void APlayGameMode::SetActor()
@@ -352,4 +354,19 @@ bool APlayGameMode::GetIsMapAnimatronics(ECamMap _RoomName)
 	}
 
 	return false;
+}
+
+void APlayGameMode::SetCameraMoveActive(bool _Active)
+{
+	GameOver = true;
+
+	if (false == _Active)
+	{
+		Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
+	}
+	
+	FastLeftMoveArea->SetActive(_Active);
+	SlowLeftMoveArea->SetActive(_Active);
+	FastRightMoveArea->SetActive(_Active);
+	SlowRightMoveArea->SetActive(_Active);
 }

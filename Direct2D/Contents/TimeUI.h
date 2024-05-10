@@ -3,7 +3,7 @@
 #include <EngineCore/Actor.h>
 
 class UImage;
-
+class APlayGameMode;
 class ATimeUI : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -26,6 +26,7 @@ protected:
 private:
 	void TimeChange(float _DeltaTime);
 
+	APlayGameMode* PGameMode = nullptr;
 	UImage* TimeUIRoot = nullptr;
 	UImage* TimeRenderer01 = nullptr;
 	UImage* TimeRenderer02 = nullptr;

@@ -58,6 +58,8 @@ void ACCTVUI::BeginPlay()
 
 		// 호버
 		ChangeBarRenderer->SetHover([=]()
+		{
+			if (true != PGameMode->GetIsGameOver())
 			{
 				ChangeBarRenderer->SetActive(false);
 				ChangeCCTVAnimation->SetActive(true);
@@ -83,15 +85,16 @@ void ACCTVUI::BeginPlay()
 						PowerMeter->SetUpdownCheck(-1);
 					}
 				}
-			});
+			}
+		});
 
-		ChangeBarActiveArea->SetHover([=]()
-			{
-				if (false == ChangeBarRenderer->IsActive())
+			ChangeBarActiveArea->SetHover([=]()
 				{
-					ChangeBarRenderer->SetActive(true);
-				}
-			});
+					if (false == ChangeBarRenderer->IsActive())
+					{
+						ChangeBarRenderer->SetActive(true);
+					}
+				});
 	}
 
 	// CCTV 전환 후 추가 UI 이미지

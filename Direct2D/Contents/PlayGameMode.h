@@ -153,7 +153,13 @@ public:
 		return StageCCTV;
 	}
 
+	bool GetIsGameOver()
+	{
+		return GameOver;
+	}
+
 	bool GetIsMapAnimatronics(ECamMap _RoomName);
+	void SetCameraMoveActive(bool _Active);
 
 protected:
 	void BeginPlay() override;
@@ -211,6 +217,7 @@ private:
 	FVector PrevCameraPos;
 	bool IsCameraPosSave = false;
 	bool MoveChange = false;
+	bool GameOver = false;
 	float CameraPauseCheckTime = 2.0f;
 
 };

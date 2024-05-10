@@ -69,8 +69,11 @@ void ABatteryUI::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	PowerleftDecrease(_DeltaTime);
-	CurPowerMeter();
+	if (true != PGameMode->GetIsGameOver())
+	{
+		PowerleftDecrease(_DeltaTime);
+		CurPowerMeter();
+	}
 }
 
 void ABatteryUI::CurPowerMeter()

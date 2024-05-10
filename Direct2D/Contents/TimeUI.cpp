@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "TimeUI.h"
+#include "PlayGameMode.h"
 
 #include <EngineCore/Image.h>
 
@@ -15,6 +16,7 @@ ATimeUI::~ATimeUI()
 void ATimeUI::BeginPlay()
 {
 	Super::BeginPlay();
+	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 
 	// 우측 상단 시간 및 날짜 랜더
 	{
@@ -64,7 +66,11 @@ void ATimeUI::BeginPlay()
 void ATimeUI::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-	TimeChange(_DeltaTime);
+
+	if (true != PGameMode->GetIsGameOver())
+	{
+		TimeChange(_DeltaTime);
+	}
 }
 
 void ATimeUI::TimeChange(float _DeltaTime)
