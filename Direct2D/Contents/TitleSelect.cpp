@@ -1,16 +1,22 @@
 #include "PreCompile.h"
 #include "TitleSelect.h"
+#include "TitleGameMode.h"
+#include "TitleMenu.h"
+
+#include "ContentsEnum.h"
+
+
+#include <EngineCore/Renderer.h>
+#include <EngineCore/DefaultSceneComponent.h>
 
 ATitleSelect::ATitleSelect()
 {
-	TitleSelectRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	TitleSelectRenderer->SetMaterial("OverlayMaterial");
-	TitleSelectRenderer->SetAutoSize(1.0f, true);
-	TitleSelectRenderer->SetSprite("Select.png", 0);
-	TitleSelectRenderer->AddPosition(FVector(-500.0f, -70.0f, 100.0f));
-	TitleSelectRenderer->SetOrder(2);
+	ColMouse = CreateDefaultSubObject<UCollision>("Collision");
+	ColMouse->SetScale(FVector{ 50,50 });
+	ColMouse->SetCollisionGroup(EColType::Mouse);
+	ColMouse->SetCollisionType(ECollisionType::Rect);
 
-	SetRoot(TitleSelectRenderer);
+	SetRoot(ColMouse);
 
 	InputOn();
 }
@@ -23,12 +29,47 @@ void ATitleSelect::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
-
+	TGameMode = dynamic_cast<ATitleGameMode*>(GetWorld()->GetGameMode().get());
+	TitleMenu = TGameMode->GetTitleMenu();
 }
 
 void ATitleSelect::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+	SetMousePos();
+	ColSelectMenu();
 
+}
+
+void ATitleSelect::SetMousePos()
+{
+	FVector CamPos = GetWorld()->GetMainCamera()->GetActorLocation();
+	FVector MousePos = GEngine->EngineWindow.GetScreenMousePos();
+	FVector WindowScale = GEngine->EngineWindow.GetWindowScale();
+	FVector TargetPos = FVector(CamPos.X, CamPos.Y, 0.0f) + FVector(MousePos.X - WindowScale.hX(), -(MousePos.Y - WindowScale.hY()), 0.0f);
+	SetActorLocation(TargetPos);
+}
+
+void ATitleSelect::ColSelectMenu()
+{
+	ColMouse->CollisionStay(EColType::Start, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			TitleMenu->SetTitleSelectPos(-70.0f);
+
+			if (true == IsDown(VK_LBUTTON))
+			{
+				GEngine->ChangeLevel("PlayLevel");
+			}
+		});
+
+	ColMouse->CollisionStay(EColType::Continue, [=](std::shared_ptr<UCollision>_Collision)
+		{
+			TitleMenu->SetTitleSelectPos(-140.0f);
+
+			if (true == IsDown(VK_LBUTTON))
+			{
+				// 이어서하기?
+				// GEngine->ChangeLevel("PlayLevel");
+			}
+		});
 }

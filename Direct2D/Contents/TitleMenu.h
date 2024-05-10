@@ -19,6 +19,11 @@ public:
 	ATitleMenu& operator=(const ATitleMenu& _Other) = delete;
 	ATitleMenu& operator=(ATitleMenu&& _Other) noexcept = delete;
 
+	void SetTitleSelectPos(float _PosY)
+	{
+		TitleSelectRenderer->SetPosition(FVector(-500.0f, _PosY, 100.0f));
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -29,6 +34,7 @@ private:
 	USpriteRenderer* ScanLineRenderer = nullptr;
 	USpriteRenderer* CameraEffectsRenderer = nullptr;
 	USpriteRenderer* TitleNameRenderer = nullptr;
+	USpriteRenderer* TitleSelectRenderer = nullptr;
 
 	UCollision* ColStart = nullptr;
 	UCollision* ColContinue = nullptr;

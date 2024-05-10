@@ -1,6 +1,10 @@
 #pragma once
 #include <Enginecore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
+#include <EngineCore/Collision.h>
+
+class ATitleGameMode;
+class ATitleMenu;
 
 class ATitleSelect : public AActor
 {
@@ -22,7 +26,12 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* TitleSelectRenderer = nullptr;
+	void SetMousePos();
+	void ColSelectMenu();
+
+	UCollision* ColMouse = nullptr;
+	ATitleGameMode* TGameMode = nullptr;
+	std::shared_ptr<ATitleMenu> TitleMenu = nullptr;
 
 };
 

@@ -112,7 +112,7 @@ void UCore::Initialize()
 
 	GEngine->CreateLevel<ATitleGameMode>("TitleLevel");
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("TitleLevel");
+	GEngine->ChangeLevel("PlayLevel");
 
 
 }

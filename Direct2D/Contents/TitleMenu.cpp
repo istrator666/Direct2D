@@ -43,6 +43,13 @@ ATitleMenu::ATitleMenu()
 	TitleNameRenderer->AddPosition(FVector(-350.0f, -20.0f, 100.0f));
 	TitleNameRenderer->SetOrder(EOrderType::Overlay);
 
+	TitleSelectRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	TitleSelectRenderer->SetMaterial("OverlayMaterial");
+	TitleSelectRenderer->SetAutoSize(1.0f, true);
+	TitleSelectRenderer->SetSprite("Select.png", 0);
+	TitleSelectRenderer->AddPosition(FVector(-500.0f, -70.0f, 100.0f));
+	TitleSelectRenderer->SetOrder(2);
+
 	ColStart = CreateDefaultSubObject<UCollision>("Collision");
 	ColStart->SetupAttachment(TitleRoot);
 	ColStart->SetScale(FVector{ 200,50 });

@@ -2,6 +2,7 @@
 #include <EngineCore/GameMode.h>
 
 // Ό³Έν :
+class ATitleMenu;
 class ATitleGameMode : public AGameMode
 {
 	GENERATED_BODY(AGameMode)
@@ -17,6 +18,11 @@ public:
 	ATitleGameMode& operator=(const ATitleGameMode& _Other) = delete;
 	ATitleGameMode& operator=(ATitleGameMode&& _Other) noexcept = delete;
 
+	std::shared_ptr<ATitleMenu> GetTitleMenu()
+	{
+		return TitleMenu;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -27,6 +33,8 @@ protected:
 private:
 	void SetActor();
 	void SetUI();
+
+	std::shared_ptr<ATitleMenu> TitleMenu = nullptr;
 
 };
 

@@ -6,7 +6,7 @@
 
 ATitleGameMode::ATitleGameMode() 
 {
-	InputOn();
+
 }
 
 ATitleGameMode::~ATitleGameMode() 
@@ -27,11 +27,6 @@ void ATitleGameMode::BeginPlay()
 void ATitleGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-
-	if (true == IsDown('P'))
-	{
-		GEngine->ChangeLevel("PlayLevel");
-	}
 }
 
 void ATitleGameMode::LevelEnd(ULevel* _NextLevel)
@@ -47,7 +42,7 @@ void ATitleGameMode::LevelStart(ULevel* _PrevLevel)
 
 void ATitleGameMode::SetActor()
 {
-	std::shared_ptr<ATitleMenu> TitleMenu = GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
+	TitleMenu = GetWorld()->SpawnActor<ATitleMenu>("TitleMenu");
 	std::shared_ptr<ATitleSelect> TitleSelect = GetWorld()->SpawnActor<ATitleSelect>("TitleSelect");
 }
 
