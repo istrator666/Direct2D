@@ -15,7 +15,7 @@ ARightButton::ARightButton()
 	RightButtonRenderer->SetSprite("Buttons.png", RightButtonAllOFF);
 	RightButtonRenderer->SetAutoSize(1.0f, true);
 	RightButtonRenderer->AddPosition(FVector(750.f, -50.0f, 0.0f));
-	RightButtonRenderer->SetOrder(EOrderType::CCTVActor);
+	RightButtonRenderer->SetOrder(EOrderType::FrontActor);
 
 	RightDoorAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RightDoorAnimation->SetupAttachment(RightButtonRoot);
@@ -24,7 +24,7 @@ ARightButton::ARightButton()
 	RightDoorAnimation->SetFrameCallback("RightDoorOpen", 14, [=] { RightDoorAnimation->SetActive(false); });
 	RightDoorAnimation->SetAutoSize(1.0f, true);
 	RightDoorAnimation->AddPosition(FVector(580.0f, 0.0f, 0.0f));
-	RightDoorAnimation->SetOrder(EOrderType::CCTVActor);
+	RightDoorAnimation->SetOrder(EOrderType::FrontActor);
 
 	RightLightAnimation = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RightLightAnimation->SetupAttachment(RightButtonRoot);
@@ -32,7 +32,7 @@ ARightButton::ARightButton()
 	RightLightAnimation->CreateAnimation("RightChicaOn", "RightChicaLight", 0.05f, true, 0, 1);
 	RightLightAnimation->ChangeAnimation("RightLightON");
 	RightLightAnimation->SetAutoSize(1.0f, true);
-	RightLightAnimation->SetOrder(EOrderType::Actor);
+	RightLightAnimation->SetOrder(EOrderType::BackActor);
 	RightLightAnimation->SetActive(false);
 
 	ColRightDoor = CreateDefaultSubObject<UCollision>("Collision");

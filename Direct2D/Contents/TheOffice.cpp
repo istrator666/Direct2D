@@ -23,7 +23,7 @@ ATheOffice::ATheOffice()
 	FanRenderer->ChangeAnimation("FanRotation");
 	FanRenderer->SetAutoSize(1.0f, true);
 	FanRenderer->AddPosition(FVector(48.0f, -41.0f, 0.0f));
-	FanRenderer->SetOrder(EOrderType::Actor);
+	FanRenderer->SetOrder(EOrderType::Object);
 
 	JumpScareRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
 	JumpScareRenderer->SetupAttachment(StageRoot);
@@ -32,7 +32,7 @@ ATheOffice::ATheOffice()
 	JumpScareRenderer->CreateAnimation("JumpScareFreddy", "JumpScareFreddy", 0.1f, true, 0, 27);
 	JumpScareRenderer->CreateAnimation("JumpScareFoxy", "JumpScareFoxy", 0.1f, true, 0, 20);
 	JumpScareRenderer->SetAutoSize(1.0f, true);
-	JumpScareRenderer->SetOrder(EOrderType::Actor);
+	JumpScareRenderer->SetOrder(EOrderType::Cutscene);
 
 	SetRoot(StageRoot);
 
