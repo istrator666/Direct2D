@@ -29,16 +29,11 @@ void AShowStage::SetAnimatronics(std::shared_ptr<AAnimatronics> _Animatronics)
 	Super::SetAnimatronics(_Animatronics);
 
 	Animatronics.push_back(_Animatronics);
-
 }
 
 
 void AShowStage::ShowStageMonsterCheck()
 {
-	ABonnie* Bonnie = nullptr;
-	AChica* Chica = nullptr;
-	AFreddy* Freddy = nullptr;
-
 	for (size_t i = 0; i < Animatronics.size(); i++)
 	{
 		ABonnie* NewBonnie = dynamic_cast<ABonnie*>(Animatronics[i].get());

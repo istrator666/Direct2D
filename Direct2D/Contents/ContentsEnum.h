@@ -95,7 +95,11 @@ enum class EFreddyPos
 {
 	ShowStage,
 	DiningArea,
-
+	EastHall,
+	EHallCorner,
+	Kitchen,
+	Restrooms,
+	RightOffice,
 };
 
 enum class EShowStage

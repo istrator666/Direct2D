@@ -31,7 +31,7 @@ void AFoxy::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	PirateCoveState.Update(_DeltaTime);
+	FoxyState.Update(_DeltaTime);
 
 }
 
@@ -45,33 +45,33 @@ void AFoxy::StateInit()
 	// 3단계에서 행동기회를 가지면 탈출해서 플레이어가 있는 곳으로 돌진
 	
 	// State 생성
-	PirateCoveState.CreateState("PirateCoveLv1");
-	PirateCoveState.CreateState("PirateCoveLv2");
-	PirateCoveState.CreateState("PirateCoveLv3");
-	PirateCoveState.CreateState("PirateCoveLv4");
-	PirateCoveState.CreateState("FoxyWestHall");
-	PirateCoveState.CreateState("FoxyLeftOffice");
+	FoxyState.CreateState("PirateCoveLv1");
+	FoxyState.CreateState("PirateCoveLv2");
+	FoxyState.CreateState("PirateCoveLv3");
+	FoxyState.CreateState("PirateCoveLv4");
+	FoxyState.CreateState("FoxyWestHall");
+	FoxyState.CreateState("FoxyLeftOffice");
 
 	// 함수 세팅
-	PirateCoveState.SetStartFunction("PirateCoveLv1", std::bind(&AFoxy::PirateCoveLv1Start, this));
-	PirateCoveState.SetUpdateFunction("PirateCoveLv1", std::bind(&AFoxy::PirateCoveLv1Update, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("PirateCoveLv1", std::bind(&AFoxy::PirateCoveLv1Start, this));
+	FoxyState.SetUpdateFunction("PirateCoveLv1", std::bind(&AFoxy::PirateCoveLv1Update, this, std::placeholders::_1));
 
-	PirateCoveState.SetStartFunction("PirateCoveLv2", std::bind(&AFoxy::PirateCoveLv2Start, this));
-	PirateCoveState.SetUpdateFunction("PirateCoveLv2", std::bind(&AFoxy::PirateCoveLv2Update, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("PirateCoveLv2", std::bind(&AFoxy::PirateCoveLv2Start, this));
+	FoxyState.SetUpdateFunction("PirateCoveLv2", std::bind(&AFoxy::PirateCoveLv2Update, this, std::placeholders::_1));
 
-	PirateCoveState.SetStartFunction("PirateCoveLv3", std::bind(&AFoxy::PirateCoveLv3Start, this));
-	PirateCoveState.SetUpdateFunction("PirateCoveLv3", std::bind(&AFoxy::PirateCoveLv3Update, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("PirateCoveLv3", std::bind(&AFoxy::PirateCoveLv3Start, this));
+	FoxyState.SetUpdateFunction("PirateCoveLv3", std::bind(&AFoxy::PirateCoveLv3Update, this, std::placeholders::_1));
 
-	PirateCoveState.SetStartFunction("PirateCoveLv4", std::bind(&AFoxy::PirateCoveLv4Start, this));
-	PirateCoveState.SetUpdateFunction("PirateCoveLv4", std::bind(&AFoxy::PirateCoveLv4Update, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("PirateCoveLv4", std::bind(&AFoxy::PirateCoveLv4Start, this));
+	FoxyState.SetUpdateFunction("PirateCoveLv4", std::bind(&AFoxy::PirateCoveLv4Update, this, std::placeholders::_1));
 
-	PirateCoveState.SetStartFunction("FoxyWestHall", std::bind(&AFoxy::FoxyWestHallStart, this));
-	PirateCoveState.SetUpdateFunction("FoxyWestHall", std::bind(&AFoxy::FoxyWestHallUpdate, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("FoxyWestHall", std::bind(&AFoxy::FoxyWestHallStart, this));
+	FoxyState.SetUpdateFunction("FoxyWestHall", std::bind(&AFoxy::FoxyWestHallUpdate, this, std::placeholders::_1));
 
-	PirateCoveState.SetStartFunction("FoxyLeftOffice", std::bind(&AFoxy::FoxyLeftOfficeStart, this));
-	PirateCoveState.SetUpdateFunction("FoxyLeftOffice", std::bind(&AFoxy::FoxyLeftOfficeUpdate, this, std::placeholders::_1));
+	FoxyState.SetStartFunction("FoxyLeftOffice", std::bind(&AFoxy::FoxyLeftOfficeStart, this));
+	FoxyState.SetUpdateFunction("FoxyLeftOffice", std::bind(&AFoxy::FoxyLeftOfficeUpdate, this, std::placeholders::_1));
 
-	PirateCoveState.ChangeState("PirateCoveLv1");
+	FoxyState.ChangeState("PirateCoveLv1");
 }
 
 void AFoxy::PirateCoveLv1Start()
@@ -101,7 +101,7 @@ void AFoxy::PirateCoveLv1Update(float _DeltaTime)
 				if (12 >= MoveDice)
 				{
 					FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv2);
-					PirateCoveState.ChangeState("PirateCoveLv2");
+					FoxyState.ChangeState("PirateCoveLv2");
 				}
 			}
 		}
@@ -138,7 +138,7 @@ void AFoxy::PirateCoveLv2Update(float _DeltaTime)
 				if (12 >= MoveDice)
 				{
 					FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv3);
-					PirateCoveState.ChangeState("PirateCoveLv3");
+					FoxyState.ChangeState("PirateCoveLv3");
 				}
 			}
 		}
@@ -175,7 +175,7 @@ void AFoxy::PirateCoveLv3Update(float _DeltaTime)
 				if (12 >= MoveDice)
 				{
 					FoxyCurPos = static_cast<int>(EFoxyPos::PirateCoveLv4);
-					PirateCoveState.ChangeState("PirateCoveLv4");
+					FoxyState.ChangeState("PirateCoveLv4");
 				}
 			}
 		}
@@ -201,7 +201,7 @@ void AFoxy::PirateCoveLv4Update(float _DeltaTime)
 			AAnimatronics::PGameMode->GetPirateCoveCam()->SetAnimatronics(nullptr);
 			AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(PGameMode->GetFoxy());
 			FoxyCurPos = static_cast<int>(EFoxyPos::WestHall);
-			PirateCoveState.ChangeState("FoxyWestHall");
+			FoxyState.ChangeState("FoxyWestHall");
 		}
 	}
 }
@@ -222,13 +222,13 @@ void AFoxy::FoxyWestHallUpdate(float _DeltaTime)
 		DelayCallBack(2.0f, [this]() { AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->AnimationReset()
 			, AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->SetActive(false)
 			, FoxyCurPos = static_cast<int>(EFoxyPos::LeftOffice)
-			, PirateCoveState.ChangeState("FoxyLeftOffice"); });
+			, FoxyState.ChangeState("FoxyLeftOffice"); });
 	}
 	else if (0 > limitTime)
 	{
 		AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(nullptr);
 		FoxyCurPos = static_cast<int>(EFoxyPos::LeftOffice);
-		PirateCoveState.ChangeState("FoxyLeftOffice");
+		FoxyState.ChangeState("FoxyLeftOffice");
 	}
 }
 
@@ -249,7 +249,7 @@ void AFoxy::FoxyLeftOfficeUpdate(float _DeltaTime)
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->AnimationReset();
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->SetActive(false);
 		AAnimatronics::PGameMode->GetPirateCoveCam()->SetAnimatronics(PGameMode->GetFoxy());
-		PirateCoveState.ChangeState("PirateCoveLv1");
+		FoxyState.ChangeState("PirateCoveLv1");
 	}
 
 	limitTime = 25.0f;

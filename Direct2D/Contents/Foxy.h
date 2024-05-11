@@ -45,7 +45,7 @@ private:
 	float limitTime = 25.0f;
 	bool FoxyResetTime = false;
 
-	UStateManager PirateCoveState;
+	UStateManager FoxyState;
 
 	void PirateCoveLv1Start();
 	void PirateCoveLv1Update(float _DeltaTime);

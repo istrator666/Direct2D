@@ -2,6 +2,9 @@
 #include "Rooms.h"
 #include "ContentsEnum.h"
 
+class ABonnie;
+class AChica;
+class AFreddy;
 class AShowStage : public ARooms
 {
 	GENERATED_BODY(ARooms)
@@ -33,5 +36,9 @@ private:
 	std::vector<std::shared_ptr<AAnimatronics>> Animatronics;
 
 	int CurShowStageCam = static_cast<int>(EShowStage::ShowStage_Default);
+
+	ABonnie* Bonnie = nullptr;
+	AChica* Chica = nullptr;
+	AFreddy* Freddy = nullptr;
 };
 
