@@ -32,6 +32,12 @@ public:
 
 	void PowerleftDecrease(float _DeltaTime);
 
+	void SetDebugPowerleft()
+	{
+		PowerleftDecrease01 = 0;
+		PowerleftDecrease02 = 0;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

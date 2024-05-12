@@ -17,6 +17,11 @@ void AGameDay::BeginPlay()
 {
 	Super::BeginPlay();
 
+	TitleMusic = UEngineSound::SoundPlay("TitleMusic.wav");
+	StaticLong = UEngineSound::SoundPlay("StaticLong.wav");
+	MenuSwitchSound = UEngineSound::SoundPlay("CCTVSwitch.wav");
+	MenuSwitchSound.Off();
+
 	{
 		DecreaseAlpha.A = 0.1f;
 
@@ -47,7 +52,7 @@ void AGameDay::BeginPlay()
 		DailyScanLine->SetActive(false);
 	}
 
-	DelayCallBack(3.0f, [this]() { NewGameIntroRenderer->SetActive(false), DailyRenderer->SetActive(true), DailyScanLine->SetActive(true); });
+	DelayCallBack(3.0f, [this]() { NewGameIntroRenderer->SetActive(false), DailyRenderer->SetActive(true), DailyScanLine->SetActive(true),TitleMusic.Off(), StaticLong.Off(), MenuSwitchSound.On(); });
 	DelayCallBack(6.0f, [this]() { DailyRenderer->SetActive(false), DayBackgroundRenderer->SetActive(false); });
 
 }

@@ -84,7 +84,7 @@ void APlayGameMode::LevelStart(ULevel* _PrevLevel)
 void APlayGameMode::SetActor()
 {
 	// Actor 생성 순서 주의
-	//GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay", 1);
+	GameDay = GetWorld()->SpawnActor<AGameDay>("GameDay", 1);
 	
 	LeftButton = GetWorld()->SpawnActor<ALeftButton>("LeftButton");
 	RightButton = GetWorld()->SpawnActor<ARightButton>("RightButton");
@@ -121,8 +121,8 @@ void APlayGameMode::SetActor()
 	TheOffice = GetWorld()->SpawnActor<ATheOffice>("Lobby");
 	StageCCTV = GetWorld()->SpawnActor<AStageCCTV>("StageCCTV");
 
-	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
 	BatteryUI = GetWorld()->SpawnActor<ABatteryUI>("BatteryUI");
+	TimeUI = GetWorld()->SpawnActor<ATimeUI>("TimeUI");
 }
 
 void APlayGameMode::SetUI()

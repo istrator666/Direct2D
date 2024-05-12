@@ -23,6 +23,6 @@ protected:
 	void OnGui(ULevel* Level, float _Delta) override;
 
 private:
-	
+
 };
 

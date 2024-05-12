@@ -25,6 +25,15 @@ public:
 		return RunningFoxy;
 	}
 
+	void AnimatronicsMove()
+	{
+		AnimatronicsMoveRenderer->SetActive(true);
+		AnimatronicsMoveScanRenderer->AnimationReset();
+		AnimatronicsMoveScanRenderer->ChangeAnimation("ScanLineAni");
+		AnimatronicsMoveScanRenderer->SetActive(true);
+		DelayCallBack(1.0f, [this]() { AnimatronicsMoveRenderer->SetActive(false), AnimatronicsMoveScanRenderer->SetActive(false); });
+	}
+
 	void SetStageCCTVRenderer(std::string_view _SelectMap, int _Index);
 
 protected:
@@ -34,6 +43,8 @@ protected:
 private:
 	UDefaultSceneComponent* CCTVRoot = nullptr;
 	USpriteRenderer* StageCCTVRenderer = nullptr;
+	USpriteRenderer* AnimatronicsMoveRenderer = nullptr;
+	USpriteRenderer * AnimatronicsMoveScanRenderer = nullptr;
 	USpriteRenderer* KitchenBackRenderer = nullptr;
 	USpriteRenderer* RunningFoxy = nullptr;
 	USpriteRenderer* StaticRenderer = nullptr;

@@ -31,8 +31,15 @@ private:
 	UImage* TimeRenderer01 = nullptr;
 	UImage* TimeRenderer02 = nullptr;
 	UImage* DayRenderer = nullptr;
+	UImage* MuteCallRenderer = nullptr;
+
+	UImage* NextDayBackRenderer = nullptr;
+	UImage* NextDayTimeRenderer = nullptr;
+	UImage* NextDayAMRenderer = nullptr;
+
 	int TimeRenderChange = 0;
 	int DayRenderChage = 1;
 	float DayTimeCheck = 5.0f;
+
 };
 

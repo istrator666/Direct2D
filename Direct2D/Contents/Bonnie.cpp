@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "Bonnie.h"
 #include "PlayGameMode.h"
+#include "StageCCTV.h"
 
 #include "DiningArea.h"
 #include "BackStage.h"
@@ -61,6 +62,8 @@ void ABonnie::BonnieMove()
 		{
 			if (16 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea))
 			{
+				// 캠 == 이동 시 동작
+				//AAnimatronics::PGameMode->GetStageCCTV()->AnimatronicsMove();
 				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetBonnie());
 				BonnieCurPos = static_cast<int>(EBonniePos::DiningArea);
 			}

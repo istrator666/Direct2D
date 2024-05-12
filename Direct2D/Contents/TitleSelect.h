@@ -33,5 +33,7 @@ private:
 	ATitleGameMode* TGameMode = nullptr;
 	std::shared_ptr<ATitleMenu> TitleMenu = nullptr;
 
+	UEngineSoundPlayer MenuSwitchSound;
+
 };
 

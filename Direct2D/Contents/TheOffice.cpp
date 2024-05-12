@@ -36,6 +36,10 @@ ATheOffice::ATheOffice()
 
 	SetRoot(StageRoot);
 
+	TheOfficeSound = UEngineSound::SoundPlay("Office.wav");
+	TheOfficeSound.SetVolume(0.5f);
+	TheOfficeSound.Loop();
+	TheOfficeSound.Off();
 }
 
 ATheOffice::~ATheOffice()

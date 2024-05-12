@@ -18,10 +18,12 @@ ATitleSelect::ATitleSelect()
 
 	SetRoot(ColMouse);
 	InputOn();
+
 }
 
 ATitleSelect::~ATitleSelect()
 {
+	MenuSwitchSound.Off();
 }
 
 void ATitleSelect::BeginPlay()
@@ -30,6 +32,9 @@ void ATitleSelect::BeginPlay()
 
 	TGameMode = dynamic_cast<ATitleGameMode*>(GetWorld()->GetGameMode().get());
 	TitleMenu = TGameMode->GetTitleMenu();
+
+	MenuSwitchSound = UEngineSound::SoundPlay("CCTVSwitch.wav");
+	MenuSwitchSound.Off();
 }
 
 void ATitleSelect::Tick(float _DeltaTime)
@@ -54,7 +59,7 @@ void ATitleSelect::ColSelectMenu()
 	ColMouse->CollisionStay(EColType::Start, [=](std::shared_ptr<UCollision>_Collision)
 		{
 			TitleMenu->SetTitleSelectPos(-70.0f);
-
+			MenuSwitchSound.On();
 			if (true == IsDown(VK_LBUTTON))
 			{
 				GEngine->ChangeLevel("PlayLevel");
@@ -64,7 +69,8 @@ void ATitleSelect::ColSelectMenu()
 	ColMouse->CollisionStay(EColType::Continue, [=](std::shared_ptr<UCollision>_Collision)
 		{
 			TitleMenu->SetTitleSelectPos(-140.0f);
-
+			MenuSwitchSound.On();
+			MenuSwitchSound.Replay();
 			if (true == IsDown(VK_LBUTTON))
 			{
 				// 이어서하기?

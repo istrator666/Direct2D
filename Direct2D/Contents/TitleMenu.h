@@ -4,6 +4,7 @@
 #include <EngineBase/EngineRandom.h>
 
 // Ό³Έν :
+class USoundManager;
 class ATitleMenu : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -38,6 +39,9 @@ private:
 
 	UCollision* ColStart = nullptr;
 	UCollision* ColContinue = nullptr;
+
+	UEngineSoundPlayer TitleMusic;
+	UEngineSoundPlayer StaticLong;
 
 	UEngineRandom Random;
 

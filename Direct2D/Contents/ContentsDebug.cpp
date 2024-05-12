@@ -50,4 +50,14 @@ void UContentsDebug::OnGui(ULevel* Level, float _Delta)
 		StageNumber = 2;
 		GEngine->ChangeLevel("GameOverLevel");
 	}
+
+	if (true == ImGui::Button("Battery") && 1 == StageNumber)
+	{
+		if (0 == StageNumber || 2 == StageNumber)
+		{
+			return;
+		}
+
+		
+	}
 }

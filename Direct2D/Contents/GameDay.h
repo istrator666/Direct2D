@@ -28,6 +28,10 @@ private:
 	UImage* DailyRenderer = nullptr;
 	UImage* DailyScanLine = nullptr;
 
+	UEngineSoundPlayer TitleMusic;
+	UEngineSoundPlayer StaticLong;
+	UEngineSoundPlayer MenuSwitchSound;
+
 	float4 DecreaseAlpha;
 
 

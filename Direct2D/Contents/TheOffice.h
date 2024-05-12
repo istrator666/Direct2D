@@ -37,6 +37,8 @@ private:
 	USpriteRenderer* FanRenderer = nullptr;
 	USpriteRenderer* JumpScareRenderer = nullptr;
 
+	UEngineSoundPlayer TheOfficeSound;
+
 	void DebugMessageFunction();
 };
 

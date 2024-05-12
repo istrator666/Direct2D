@@ -6,7 +6,7 @@
 
 ATimeUI::ATimeUI()
 {
-
+	InputOn();
 }
 
 ATimeUI::~ATimeUI()
@@ -59,6 +59,46 @@ void ATimeUI::BeginPlay()
 		DayRenderer->SetAutoSize(0.8f, true);
 		DayRenderer->SetPosition({ 585, 280 });
 
+		MuteCallRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
+		MuteCallRenderer->SetupAttachment(TimeUIRoot);
+		MuteCallRenderer->AddToViewPort(1);
+		MuteCallRenderer->SetSprite("UIMuteCall.png");
+		MuteCallRenderer->SetAutoSize(1.0f, true);
+		MuteCallRenderer->SetPosition({ -550, 320 });
+
+		NextDayBackRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
+		NextDayBackRenderer->SetupAttachment(TimeUIRoot);
+		NextDayBackRenderer->AddToViewPort(10);
+		NextDayBackRenderer->SetSprite("DayBackground.png");
+		NextDayBackRenderer->SetScale(FVector(1600.0f, 720.0f, -100.0f));
+		NextDayBackRenderer->SetActive(false);
+
+		NextDayTimeRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
+		NextDayTimeRenderer->SetupAttachment(TimeUIRoot);
+		NextDayTimeRenderer->AddToViewPort(11);
+		NextDayTimeRenderer->SetSprite("Miscellaneous", 1);
+		NextDayTimeRenderer->SetAutoSize(1.0f, true);
+		NextDayTimeRenderer->SetPosition({ -75, 0 });
+		NextDayTimeRenderer->SetActive(false);
+
+		NextDayAMRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
+		NextDayAMRenderer->SetupAttachment(TimeUIRoot);
+		NextDayAMRenderer->AddToViewPort(11);
+		NextDayAMRenderer->SetSprite("Miscellaneous", 3);
+		NextDayAMRenderer->SetAutoSize(1.0f, true);
+		NextDayAMRenderer->SetPosition({ 50, 0 });
+		NextDayAMRenderer->SetActive(false);
+
+		{
+			MuteCallRenderer->SetHover([=]() 
+				{
+					if (IsDown(VK_LBUTTON))
+					{
+						// 안내 음성 on, off
+					}
+				});
+		}
+
 		//TimeUIRoot->SetActive(false);
 	}
 }
@@ -103,14 +143,14 @@ void ATimeUI::TimeChange(float _DeltaTime)
 			TimeRenderer02->SetSprite("Number", 5);
 			break;
 		case 5:
-			if (6 >= DayRenderChage)
-			{
-				++DayRenderChage;
-				TimeRenderer01->SetActive(true);
-				TimeRenderer02->SetSprite("Number", 2);
-				TimeRenderChange = 0;
-				DayRenderer->SetSprite("Number", DayRenderChage);
-			}
+			//if (6 >= DayRenderChage)
+			//{
+			//	++DayRenderChage;
+			//	TimeRenderer01->SetActive(true);
+			//	TimeRenderer02->SetSprite("Number", 2);
+			//	TimeRenderChange = 0;
+			//	DayRenderer->SetSprite("Number", DayRenderChage);
+			//}
 			break;
 		default:
 			break;

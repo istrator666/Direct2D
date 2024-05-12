@@ -1,7 +1,8 @@
 #include "PreCompile.h"
 #include "TitleMenu.h"
-#include <EngineCore/DefaultSceneComponent.h>
 #include "ContentsEnum.h"
+
+#include <EngineCore/DefaultSceneComponent.h>
 
 ATitleMenu::ATitleMenu() 
 {
@@ -69,11 +70,17 @@ ATitleMenu::ATitleMenu()
 
 ATitleMenu::~ATitleMenu()
 {
+	TitleMusic.Off();
+	StaticLong.Off();
 }
 
 void ATitleMenu::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//TitleMusic = UEngineSound::SoundPlay("TitleMusic.wav");
+	//TitleMusic.Loop();
+	//StaticLong = UEngineSound::SoundPlay("StaticLong.wav");
 
 }
 

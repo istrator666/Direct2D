@@ -26,6 +26,21 @@ AStageCCTV::AStageCCTV()
 	StaticRenderer->AddPosition(FVector(0.0f, 0.0f, 0.0f));
 	StaticRenderer->SetOrder(EOrderType::Overlay);
 
+	AnimatronicsMoveRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	AnimatronicsMoveRenderer->SetupAttachment(CCTVRoot);
+	AnimatronicsMoveRenderer->SetSprite("DayBackground.png");
+	AnimatronicsMoveRenderer->SetScale(FVector(1600.0f, 720.0f, 0.0f));
+	AnimatronicsMoveRenderer->SetOrder(EOrderType::Overlay);
+	AnimatronicsMoveRenderer->SetActive(false);
+
+	AnimatronicsMoveScanRenderer = CreateDefaultSubObject<USpriteRenderer>("Render");
+	AnimatronicsMoveScanRenderer->SetupAttachment(CCTVRoot);
+	AnimatronicsMoveScanRenderer->CreateAnimation("ScanLineAni", "ScanLine", 0.1f, false, 0, 6);
+	AnimatronicsMoveScanRenderer->ChangeAnimation("ScanLineAni");
+	AnimatronicsMoveScanRenderer->SetScale(FVector(1600.0f, 720.0f, 0.0f));
+	AnimatronicsMoveScanRenderer->SetOrder(EOrderType::OverlayF);
+	AnimatronicsMoveScanRenderer->SetActive(false);
+
 	RunningFoxy = CreateDefaultSubObject<USpriteRenderer>("Render");
 	RunningFoxy->SetupAttachment(CCTVRoot);
 	RunningFoxy->CreateAnimation("RunningFoxy", "RunningFoxy", 0.05f, false, 0, 30);

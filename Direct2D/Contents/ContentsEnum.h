@@ -14,6 +14,7 @@ enum class EOrderType
 	CutscenBackground,
 	Cutscene,
 	Overlay,
+	OverlayF,
 };
 
 /// <summary>

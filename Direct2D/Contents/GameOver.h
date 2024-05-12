@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
 
+class USpriteRenderer;
 class AGameOver : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -22,6 +23,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-
+	USpriteRenderer* GameOverStaticRenderer = nullptr;
+	USpriteRenderer* GameOverScanLineRenderer = nullptr;
 };
 

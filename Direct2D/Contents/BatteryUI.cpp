@@ -3,6 +3,7 @@
 
 #include "PlayGameMode.h"
 #include "MouseCursor.h"
+#include "TheOffice.h"
 
 #include "EngineCore/Image.h"
 
@@ -134,5 +135,10 @@ void ABatteryUI::PowerleftDecrease(float _DeltaTime)
 		{
 			PowerleftCheckRenderer02->SetSprite("Number", PowerleftDecrease02);
 		}
+	}
+
+	if (0 >= PowerleftDecreaseTime && 0 >= PowerleftDecrease02)
+	{
+		PGameMode->GetTheOffice()->SetTheOfficeRender(1);
 	}
 }
