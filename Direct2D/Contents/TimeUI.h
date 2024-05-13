@@ -37,9 +37,13 @@ private:
 	UImage* NextDayTimeRenderer = nullptr;
 	UImage* NextDayAMRenderer = nullptr;
 
+	UImage* EndingRenderer = nullptr;
+
 	int TimeRenderChange = 0;
 	int DayRenderChage = 1;
 	float DayTimeCheck = 5.0f;
+
+	float4 UVMove;
 
 };
 

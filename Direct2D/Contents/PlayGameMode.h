@@ -153,6 +153,11 @@ public:
 		return StageCCTV;
 	}
 
+	void SetIsGameOver(bool _IsGameOver)
+	{
+		GameOver = _IsGameOver;
+	}
+
 	bool GetIsGameOver()
 	{
 		return GameOver;

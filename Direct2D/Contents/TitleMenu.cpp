@@ -10,13 +10,13 @@ ATitleMenu::ATitleMenu()
 
 	TitleBackgroundRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	TitleBackgroundRenderer->SetupAttachment(TitleRoot);
-	TitleBackgroundRenderer->SetScale(FVector(1280.0f, 720.0f, 100.0f));
+	TitleBackgroundRenderer->SetScale(FVector(1280.0f, 740.0f, 100.0f));
 	TitleBackgroundRenderer->SetSprite("IntroEndings.png", 0);
 	TitleBackgroundRenderer->SetOrder(EOrderType::Background);
 
 	NoiseRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	NoiseRenderer->SetupAttachment(TitleRoot);
-	NoiseRenderer->SetScale(FVector(1280.0f, 720.0f, 100.0f));
+	NoiseRenderer->SetScale(FVector(1280.0f, 740.0f, 100.0f));
 	NoiseRenderer->SetMaterial("OverlayMaterial");
 	NoiseRenderer->CreateAnimation("Noise", "static.png", 0.1f, true, 0, 7);
 	NoiseRenderer->ChangeAnimation("Noise");

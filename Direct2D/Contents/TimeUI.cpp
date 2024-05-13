@@ -67,14 +67,12 @@ void ATimeUI::BeginPlay()
 		MuteCallRenderer->SetPosition({ -550, 320 });
 
 		NextDayBackRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
-		NextDayBackRenderer->SetupAttachment(TimeUIRoot);
 		NextDayBackRenderer->AddToViewPort(10);
 		NextDayBackRenderer->SetSprite("DayBackground.png");
-		NextDayBackRenderer->SetScale(FVector(1600.0f, 720.0f, -100.0f));
+		NextDayBackRenderer->SetScale(FVector(1600.0f, 740.0f, -100.0f));
 		NextDayBackRenderer->SetActive(false);
 
 		NextDayTimeRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
-		NextDayTimeRenderer->SetupAttachment(TimeUIRoot);
 		NextDayTimeRenderer->AddToViewPort(11);
 		NextDayTimeRenderer->SetSprite("Miscellaneous", 1);
 		NextDayTimeRenderer->SetAutoSize(1.0f, true);
@@ -82,12 +80,17 @@ void ATimeUI::BeginPlay()
 		NextDayTimeRenderer->SetActive(false);
 
 		NextDayAMRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
-		NextDayAMRenderer->SetupAttachment(TimeUIRoot);
 		NextDayAMRenderer->AddToViewPort(11);
 		NextDayAMRenderer->SetSprite("Miscellaneous", 3);
 		NextDayAMRenderer->SetAutoSize(1.0f, true);
 		NextDayAMRenderer->SetPosition({ 50, 0 });
 		NextDayAMRenderer->SetActive(false);
+
+		EndingRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
+		EndingRenderer->AddToViewPort(11);
+		EndingRenderer->SetSprite("IntroEndings.png", 7);
+		EndingRenderer->SetScale(FVector(1600.0f, 740.0f, -100.0f));
+		EndingRenderer->SetActive(false);
 
 		{
 			MuteCallRenderer->SetHover([=]() 
@@ -111,6 +114,13 @@ void ATimeUI::Tick(float _DeltaTime)
 	{
 		TimeChange(_DeltaTime);
 	}
+
+	if (1.0f >= UVMove.Y && true ==  NextDayTimeRenderer->IsActive())
+	{
+		UVMove.Y += _DeltaTime;
+		DelayCallBack(0.5f, [this]() {NextDayTimeRenderer->SetSprite("Miscellaneous", 2); });
+	}
+	NextDayTimeRenderer->SetVertexUVPlus(UVMove);
 }
 
 void ATimeUI::TimeChange(float _DeltaTime)
@@ -154,8 +164,19 @@ void ATimeUI::TimeChange(float _DeltaTime)
 
 			if (6 >= DayRenderChage)
 			{
-				
+				NextDayBackRenderer->SetActive(true);
+				NextDayTimeRenderer->SetActive(true);
+				NextDayAMRenderer->SetActive(true);
+				++TimeRenderChange;
+				DelayCallBack(1.5f, [this]() { NextDayBackRenderer->SetActive(false)
+					, NextDayTimeRenderer->SetActive(false)
+					, NextDayAMRenderer->SetActive(false)
+					, PGameMode->SetIsGameOver(true)
+					, EndingRenderer->SetActive(true); });
 			}
+			break;
+		case 6:
+			//DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("TitleLevel"); });
 			break;
 		default:
 			break;
