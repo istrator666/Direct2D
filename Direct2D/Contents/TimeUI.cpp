@@ -151,6 +151,11 @@ void ATimeUI::TimeChange(float _DeltaTime)
 			//	TimeRenderChange = 0;
 			//	DayRenderer->SetSprite("Number", DayRenderChage);
 			//}
+
+			if (6 >= DayRenderChage)
+			{
+				
+			}
 			break;
 		default:
 			break;

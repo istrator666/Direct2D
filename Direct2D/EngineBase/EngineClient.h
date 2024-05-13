@@ -1,6 +1,7 @@
 #pragma once
 #include "EngineNet.h"
 #include "TCPSession.h"
+#include "EngineThread.h"
 
 // Ό³Έν :
 class UEngineClient : public UEngineNet
@@ -16,11 +17,23 @@ public:
 	UEngineClient& operator=(const UEngineClient& _Other) = delete;
 	UEngineClient& operator=(UEngineClient&& _Other) noexcept = delete;
 
+	void Send(std::shared_ptr<UEngineProtocol> _Protocol) override;
+
+	int GetSessionToken()
+	{
+		return Session.GetSessionToken();
+	}
+	void SetSessionToken(int _SessionToken)
+	{
+		Session.SetSessionToken(_SessionToken);
+	}
+
 protected:
 	void ServerOpen(int _Port, int _BackLog) override;
 	void Connect(std::string _Ip, int _Port) override;
 
 private:
 	UTCPSession Session;
+	UEngineThread RecvThread;
 };
 
