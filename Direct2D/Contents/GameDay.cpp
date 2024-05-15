@@ -1,6 +1,8 @@
 #include "PreCompile.h"
 #include "GameDay.h"
 #include "ContentsEnum.h"
+#include "PlayGameMode.h"
+#include "TheOffice.h"
 
 #include <EngineCore/Image.h>
 
@@ -17,9 +19,13 @@ void AGameDay::BeginPlay()
 {
 	Super::BeginPlay();
 
+	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	TitleMusic = UEngineSound::SoundPlay("TitleMusic.wav");
 	StaticLong = UEngineSound::SoundPlay("StaticLong.wav");
 	MenuSwitchSound = UEngineSound::SoundPlay("CCTVSwitch.wav");
+	TitleMusic.SetVolume(0.5f);
+	StaticLong.SetVolume(0.5f);
+	MenuSwitchSound.SetVolume(0.5f);
 	MenuSwitchSound.Off();
 
 	{
@@ -53,7 +59,7 @@ void AGameDay::BeginPlay()
 	}
 
 	DelayCallBack(3.0f, [this]() { NewGameIntroRenderer->SetActive(false), DailyRenderer->SetActive(true), DailyScanLine->SetActive(true),TitleMusic.Off(), StaticLong.Off(), MenuSwitchSound.On(); });
-	DelayCallBack(6.0f, [this]() { DailyRenderer->SetActive(false), DayBackgroundRenderer->SetActive(false); });
+	DelayCallBack(6.0f, [this]() { DailyRenderer->SetActive(false), DayBackgroundRenderer->SetActive(false), PGameMode->GetTheOffice()->SetTheOfficeSound(true); });
 
 }
 

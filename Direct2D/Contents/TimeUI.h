@@ -39,9 +39,13 @@ private:
 
 	UImage* EndingRenderer = nullptr;
 
+	UEngineSoundPlayer WinChimeSound;
+	UEngineSoundPlayer WinChildrenSound;
+
 	int TimeRenderChange = 0;
 	int DayRenderChage = 1;
-	float DayTimeCheck = 30.0f;
+	float DayTimeCheck = 300.0f;
+	float ResetTime = DayTimeCheck;
 
 	float4 UVMove;
 

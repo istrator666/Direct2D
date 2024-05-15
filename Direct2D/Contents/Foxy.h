@@ -46,6 +46,9 @@ private:
 	bool FoxyResetTime = false;
 	bool IsFoxyDebug = false;
 
+	UEngineSoundPlayer MoveSound;
+	UEngineSoundPlayer JumpScareSound;
+
 	UStateManager FoxyState;
 
 	void PirateCoveLv1Start();

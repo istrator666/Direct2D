@@ -30,6 +30,18 @@ public:
 		return IsBack;
 	}
 
+	void SetMoveSound(bool _Active)
+	{
+		if (true == _Active)
+		{
+			MoveSound.On();
+		}
+		else if (false == _Active)
+		{
+			MoveSound.Off();
+		}
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -45,5 +57,8 @@ private:
 	float MoveTime = 3.0f;
 	bool IsBack = false;
 	bool IsBonnieDebug = false;
+
+	UEngineSoundPlayer MoveSound;
+	UEngineSoundPlayer JumpScareSound;
 };
 

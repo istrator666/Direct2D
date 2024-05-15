@@ -22,6 +22,18 @@ void ACCTVUI::BeginPlay()
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	PowerMeter = PGameMode->GetMouseCursor();
 
+	CCTVSound = UEngineSound::SoundPlay("CCTV.wav");
+	CCTVSound.SetVolume(0.5f);
+	CCTVSound.Off();
+
+	CCTVOnOffSound = UEngineSound::SoundPlay("CCTVOnOff.wav");
+	CCTVOnOffSound.SetVolume(0.5f);
+	CCTVOnOffSound.Off();
+
+	CCTVSwitchSound = UEngineSound::SoundPlay("CCTVSwitch.wav");
+	CCTVSwitchSound.SetVolume(0.5f);
+	CCTVSwitchSound.Off();
+
 	InputOn();
 	// CCTV or 로비화면 전환 Bar
 	{
@@ -63,9 +75,14 @@ void ACCTVUI::BeginPlay()
 			{
 				ChangeBarRenderer->SetActive(false);
 				ChangeCCTVAnimation->SetActive(true);
+				CCTVSound.On();
+				CCTVSound.Replay();
+				PGameMode->GetMouseCursor()->SetLightSound(false);
 
 				if (false == IsCCTV)
 				{
+					CCTVOnOffSound.On();
+					CCTVOnOffSound.Replay();
 					ChangeCCTVAnimation->ChangeAnimation("CCTVON");
 					IsCCTV = true;
 
@@ -77,6 +94,9 @@ void ACCTVUI::BeginPlay()
 				}
 				else if (true == IsCCTV)
 				{
+					CCTVOnOffSound.On();
+					CCTVOnOffSound.Replay();
+					CCTVSound.Off();
 					ChangeCCTVAnimation->ChangeAnimation("CCTVOFF");
 					IsCCTV = false;
 
@@ -310,6 +330,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam1A.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::ShowStage));
 					SelectMap = "ShowStage";
@@ -321,6 +343,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam1B.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::DiningArea));
 					SelectMap = "DiningArea";
@@ -332,6 +356,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam1C.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::PirateCove));
 					SelectMap = "PirateCove";
@@ -343,6 +369,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam2A.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::WestHall));
 					SelectMap = "WestHall";
@@ -354,6 +382,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam2B.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::WHallCorner));
 					SelectMap = "WHallCorner";
@@ -365,6 +395,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam3.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::SupplyCloset));
 					SelectMap = "SupplyCloset";
@@ -376,6 +408,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam4A.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::EastHall));
 					SelectMap = "EastHall";
@@ -387,6 +421,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam4B.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::EHallCorner));
 					SelectMap = "EHallCorner";
@@ -398,6 +434,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam5.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::BackStage));
 					SelectMap = "BackStage";
@@ -409,6 +447,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam6.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::Kitchen));
 					SelectMap = "Kitchen";
@@ -420,6 +460,8 @@ void ACCTVUI::BeginPlay()
 			{
 				if (IsDown(VK_LBUTTON))
 				{
+					CCTVSwitchSound.On();
+					CCTVSwitchSound.Replay();
 					SwapSelectCam(Cam7.CamScreenBox);
 					CurMapName->SetSprite("MapName", static_cast<int>(ECamMap::Restrooms));
 					SelectMap = "Restrooms";

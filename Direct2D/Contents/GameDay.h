@@ -2,7 +2,7 @@
 #include <EngineCore/Actor.h>
 
 class UImage;
-
+class APlayGameMode;
 class AGameDay : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -27,6 +27,8 @@ private:
 	UImage* DayBackgroundRenderer = nullptr;
 	UImage* DailyRenderer = nullptr;
 	UImage* DailyScanLine = nullptr;
+
+	APlayGameMode* PGameMode = nullptr;
 
 	UEngineSoundPlayer TitleMusic;
 	UEngineSoundPlayer StaticLong;

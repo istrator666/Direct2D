@@ -18,6 +18,7 @@ ABatteryUI::~ABatteryUI()
 void ABatteryUI::BeginPlay()
 {
 	Super::BeginPlay();
+	InputOn();
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	MouseCheck = PGameMode->GetMouseCursor();
 
@@ -75,6 +76,12 @@ void ABatteryUI::Tick(float _DeltaTime)
 		PowerleftDecrease(_DeltaTime);
 		CurPowerMeter();
 	}
+
+	if (IsDown('5'))
+	{
+		PowerleftDecreaseTime = 0.05f;
+		PowerleftResetTime = PowerleftDecreaseTime;
+	}
 }
 
 void ABatteryUI::CurPowerMeter()
@@ -111,7 +118,7 @@ void ABatteryUI::PowerleftDecrease(float _DeltaTime)
 
 	if (0 >= PowerleftDecreaseTime)
 	{
-		PowerleftDecreaseTime = 10.0f;
+		PowerleftDecreaseTime = PowerleftResetTime;
 
 		PowerleftDecrease02 -= 1;
 
@@ -137,8 +144,9 @@ void ABatteryUI::PowerleftDecrease(float _DeltaTime)
 		}
 	}
 
-	if (0 >= PowerleftDecreaseTime && 0 >= PowerleftDecrease02)
+	if (false == PowerleftCheckRenderer01->IsActive() && 0 >= PowerleftDecrease02)
 	{
 		PGameMode->GetTheOffice()->SetTheOfficeRender(1);
+		PGameMode->GetTheOffice()->SetFanRenderer(false);
 	}
 }

@@ -26,6 +26,14 @@ void ABonnie::BeginPlay()
 {
 	Super::BeginPlay();
 	InputOn();
+
+	MoveSound = UEngineSound::SoundPlay("BonnieChicaMove.wav");
+	MoveSound.SetVolume(0.5f);
+	MoveSound.Off();
+
+	JumpScareSound = UEngineSound::SoundPlay("JumpScare.wav");
+	JumpScareSound.SetVolume(0.3f);
+	JumpScareSound.Off();
 }
 
 void ABonnie::Tick(float _DeltaTime)
@@ -88,6 +96,7 @@ void ABonnie::BonnieMove()
 		}
 		case static_cast<int>(EBonniePos::DiningArea):
 		{
+			MoveSound.Off();
 			if (16 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::WestHall))
 			{
 				AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(nullptr);
@@ -134,6 +143,8 @@ void ABonnie::BonnieMove()
 				}
 				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(true);
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
+				MoveSound.On();
+				MoveSound.Replay();
 			}
 			else if (16 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::SupplyCloset))
 			{
@@ -158,6 +169,8 @@ void ABonnie::BonnieMove()
 				}
 				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(true);
 				BonnieCurPos = static_cast<int>(EBonniePos::LeftOffice);
+				MoveSound.On();
+				MoveSound.Replay();
 			}
 			else if (16 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::WestHall))
 			{
@@ -186,8 +199,11 @@ void ABonnie::BonnieMove()
 		}
 		case static_cast<int>(EBonniePos::LeftOffice):
 		{
+			MoveSound.Off();
 			if (12 >= MoveDice && false == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 			{
+				JumpScareSound.On();
+				JumpScareSound.Replay();
 				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareBonnie");
 				DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
@@ -196,6 +212,8 @@ void ABonnie::BonnieMove()
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea) 
 				&& true == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 			{
+				MoveSound.On();
+				MoveSound.Replay();
 				IsBack = true;
 				AAnimatronics::PGameMode->GetLButton()->SetLightAnimation(true, "LeftLightON");
 				AAnimatronics::PGameMode->GetLButton()->SetIsBonnie(false);

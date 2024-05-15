@@ -23,6 +23,23 @@ public:
 		TheOfficeRenderer->SetSprite("The Office", _Index);
 	}
 
+	void SetFanRenderer(bool _IsActive)
+	{
+		FanRenderer->SetActive(_IsActive);
+	}
+
+	void SetTheOfficeSound(bool _IsActive)
+	{
+		if (true == _IsActive)
+		{
+			TheOfficeSound.On();
+		}
+		else if (false == _IsActive)
+		{
+			TheOfficeSound.Off();
+		}
+	}
+
 	void SetJumpScareAnimation(std::string_view _JumpScareName)
 	{
 		JumpScareRenderer->ChangeAnimation(_JumpScareName);

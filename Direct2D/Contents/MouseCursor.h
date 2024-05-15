@@ -33,6 +33,18 @@ public:
 		PowerMeterUpDownCheck += _PowerMeterUpDownCheck;
 	}
 
+	void SetLightSound(bool _Active)
+	{
+		if (true == _Active)
+		{
+			LightSound.On();
+		}
+		else if (false == _Active)
+		{
+			LightSound.Off();
+		}
+	}
+
 	void GetLightCheck();
 
 protected:
@@ -44,6 +56,10 @@ private:
 	APlayGameMode* PGameMode = nullptr;
 	std::shared_ptr<ALeftButton> LButton = nullptr;
 	std::shared_ptr<ARightButton> RButton = nullptr;
+
+	UEngineSoundPlayer DoorSound;
+	UEngineSoundPlayer LightSound;
+	UEngineSoundPlayer WindowScareSound;
 
 	void SetMousePos();
 	void ColLefButton();

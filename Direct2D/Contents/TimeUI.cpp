@@ -6,7 +6,6 @@
 
 ATimeUI::ATimeUI()
 {
-	InputOn();
 }
 
 ATimeUI::~ATimeUI()
@@ -16,12 +15,21 @@ ATimeUI::~ATimeUI()
 void ATimeUI::BeginPlay()
 {
 	Super::BeginPlay();
+	InputOn();
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 
 	// 우측 상단 시간 및 날짜 랜더
 	{
 		TimeUIRoot = CreateWidget<UImage>(GetWorld(), "TimeUIRoot");
 		TimeUIRoot->AddToViewPort(1);
+
+		WinChimeSound = UEngineSound::SoundPlay("WinChime.wav");
+		WinChimeSound.SetVolume(0.5f);
+		WinChimeSound.Off();
+
+		WinChildrenSound = UEngineSound::SoundPlay("WinChildren.wav");
+		WinChildrenSound.SetVolume(0.5f);
+		WinChildrenSound.Off();
 
 		UImage* AMRenderer = CreateWidget<UImage>(GetWorld(), "AMRenderer");
 		AMRenderer->SetupAttachment(TimeUIRoot);
@@ -65,6 +73,7 @@ void ATimeUI::BeginPlay()
 		MuteCallRenderer->SetSprite("UIMuteCall.png");
 		MuteCallRenderer->SetAutoSize(1.0f, true);
 		MuteCallRenderer->SetPosition({ -550, 320 });
+		MuteCallRenderer->SetActive(false);
 
 		NextDayBackRenderer = CreateWidget<UImage>(GetWorld(), "DayRenderer");
 		NextDayBackRenderer->AddToViewPort(10);
@@ -101,7 +110,6 @@ void ATimeUI::BeginPlay()
 					}
 				});
 		}
-
 		//TimeUIRoot->SetActive(false);
 	}
 }
@@ -121,6 +129,12 @@ void ATimeUI::Tick(float _DeltaTime)
 		DelayCallBack(0.5f, [this]() {NextDayTimeRenderer->SetSprite("Miscellaneous", 2); });
 	}
 	NextDayTimeRenderer->SetVertexUVPlus(UVMove);
+
+	if (IsDown('6'))
+	{
+		DayTimeCheck = 3.0f;
+		ResetTime = DayTimeCheck;
+	}
 }
 
 void ATimeUI::TimeChange(float _DeltaTime)
@@ -128,7 +142,7 @@ void ATimeUI::TimeChange(float _DeltaTime)
 	DayTimeCheck -= _DeltaTime;
 	if (0 > DayTimeCheck)
 	{
-		DayTimeCheck = 5.0f;
+		DayTimeCheck = ResetTime;
 		switch (TimeRenderChange)
 		{
 		case 0:
@@ -167,16 +181,19 @@ void ATimeUI::TimeChange(float _DeltaTime)
 				NextDayBackRenderer->SetActive(true);
 				NextDayTimeRenderer->SetActive(true);
 				NextDayAMRenderer->SetActive(true);
+				WinChimeSound.On();
+				WinChimeSound.Replay();
 				++TimeRenderChange;
-				DelayCallBack(1.5f, [this]() { NextDayBackRenderer->SetActive(false)
+				DelayCallBack(3.0f, [this]() { NextDayBackRenderer->SetActive(false)
 					, NextDayTimeRenderer->SetActive(false)
 					, NextDayAMRenderer->SetActive(false)
 					, PGameMode->SetIsGameOver(true)
-					, EndingRenderer->SetActive(true); });
+					, EndingRenderer->SetActive(true)
+					, WinChildrenSound.On()
+					, WinChildrenSound.Replay(); });
 			}
 			break;
 		case 6:
-			//DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("TitleLevel"); });
 			break;
 		default:
 			break;

@@ -32,12 +32,6 @@ public:
 
 	void PowerleftDecrease(float _DeltaTime);
 
-	void SetDebugPowerleft()
-	{
-		PowerleftDecrease01 = 0;
-		PowerleftDecrease02 = 0;
-	}
-
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -46,6 +40,7 @@ private:
 	void CurPowerMeter();
 
 	float PowerleftDecreaseTime = 10.0f;
+	float PowerleftResetTime = PowerleftDecreaseTime;
 	int PowerleftDecrease01 = 9;
 	int PowerleftDecrease02 = 9;
 	int PowerMeterUsage = 0;

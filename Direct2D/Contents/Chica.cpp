@@ -25,6 +25,14 @@ void AChica::BeginPlay()
 {
 	Super::BeginPlay();
 	InputOn();
+
+	MoveSound = UEngineSound::SoundPlay("BonnieChicaMove.wav");
+	MoveSound.SetVolume(0.5f);
+	MoveSound.Off();
+
+	JumpScareSound = UEngineSound::SoundPlay("JumpScare.wav");
+	JumpScareSound.SetVolume(0.3f);
+	JumpScareSound.Off();
 }
 
 void AChica::Tick(float _DeltaTime)
@@ -94,6 +102,7 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::EastHall):
 		{
+			MoveSound.Off();
 			if (16 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EHallCorner))
 			{
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(nullptr);
@@ -167,8 +176,11 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::RightOffice):
 		{
+			MoveSound.Off();
 			if (14 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
+				JumpScareSound.On();
+				JumpScareSound.Replay();
 				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareChica");
 				DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
@@ -177,6 +189,8 @@ void AChica::ChicaMove()
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall)
 				&& true == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
+				MoveSound.On();
+				MoveSound.Replay();
 				AAnimatronics::PGameMode->GetRButton()->SetLightAnimation(true, "RightLightON");
 				AAnimatronics::PGameMode->GetRButton()->SetIsChica(false);
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetChica());

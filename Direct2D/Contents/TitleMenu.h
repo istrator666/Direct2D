@@ -40,9 +40,6 @@ private:
 	UCollision* ColStart = nullptr;
 	UCollision* ColContinue = nullptr;
 
-	UEngineSoundPlayer TitleMusic;
-	UEngineSoundPlayer StaticLong;
-
 	UEngineRandom Random;
 
 	float AccumulatedTime = 0.0f;

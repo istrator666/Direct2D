@@ -37,9 +37,10 @@ ATheOffice::ATheOffice()
 	SetRoot(StageRoot);
 
 	TheOfficeSound = UEngineSound::SoundPlay("Office.wav");
-	TheOfficeSound.SetVolume(0.5f);
+	TheOfficeSound.SetVolume(0.1f);
 	TheOfficeSound.Loop();
 	TheOfficeSound.Off();
+
 }
 
 ATheOffice::~ATheOffice()
@@ -56,11 +57,6 @@ void ATheOffice::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	DebugMessageFunction();
-
-	//if (JumpScareRenderer->IsCurAnimationEnd())
-	//{
-	//	JumpScareRenderer->SetActive(false);
-	//}
 
 }
 

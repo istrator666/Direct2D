@@ -33,7 +33,13 @@ void ATitleSelect::BeginPlay()
 	TGameMode = dynamic_cast<ATitleGameMode*>(GetWorld()->GetGameMode().get());
 	TitleMenu = TGameMode->GetTitleMenu();
 
+	//TitleMusic = UEngineSound::SoundPlay("TitleMusic.wav");
+	//TitleMusic.Loop();
+	//StaticLong = UEngineSound::SoundPlay("StaticLong.wav");
+	//StaticLong.Loop();
+
 	MenuSwitchSound = UEngineSound::SoundPlay("CCTVSwitch.wav");
+	MenuSwitchSound.SetVolume(0.5f);
 	MenuSwitchSound.Off();
 }
 
@@ -59,7 +65,14 @@ void ATitleSelect::ColSelectMenu()
 	ColMouse->CollisionStay(EColType::Start, [=](std::shared_ptr<UCollision>_Collision)
 		{
 			TitleMenu->SetTitleSelectPos(-70.0f);
-			MenuSwitchSound.On();
+
+			//if (false == IsMenuSwitchSound)
+			//{
+			//	IsMenuSwitchSound = true;
+			//	MenuSwitchSound.On();
+			//	MenuSwitchSound.Replay();
+			//}
+
 			if (true == IsDown(VK_LBUTTON))
 			{
 				GEngine->ChangeLevel("PlayLevel");
@@ -69,8 +82,14 @@ void ATitleSelect::ColSelectMenu()
 	ColMouse->CollisionStay(EColType::Continue, [=](std::shared_ptr<UCollision>_Collision)
 		{
 			TitleMenu->SetTitleSelectPos(-140.0f);
-			MenuSwitchSound.On();
-			MenuSwitchSound.Replay();
+
+			//if (true == IsMenuSwitchSound)
+			//{
+			//	IsMenuSwitchSound = false;
+			//	MenuSwitchSound.On();
+			//	MenuSwitchSound.Replay();
+			//}
+
 			if (true == IsDown(VK_LBUTTON))
 			{
 				// 이어서하기?

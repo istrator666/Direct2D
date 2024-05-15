@@ -43,6 +43,9 @@ private:
 	float MoveTime = 3.0f;
 	bool IsFreddyDebug = false;
 
+	UEngineSoundPlayer MoveSound;
+	UEngineSoundPlayer JumpScareSound;
+
 	UStateManager FreddyState;
 
 	void ShowStageStart();

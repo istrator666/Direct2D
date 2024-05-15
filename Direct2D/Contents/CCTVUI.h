@@ -86,5 +86,9 @@ private:
 	std::string_view SelectMap = "ShowStage";
 	APlayGameMode* PGameMode = nullptr;
 	std::shared_ptr<AMouseCursor> PowerMeter = nullptr;
+
+	UEngineSoundPlayer CCTVSound;
+	UEngineSoundPlayer CCTVOnOffSound;
+	UEngineSoundPlayer CCTVSwitchSound;
 };
 
