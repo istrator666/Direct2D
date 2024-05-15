@@ -58,6 +58,16 @@ void ARestrooms::RestroomsMonsterCheck()
 				CurRestroomsCam = static_cast<int>(ERestRooms::RestRooms_Chica1);
 			}
 		}
+
+		if (nullptr != NewFreddy)
+		{
+			Freddy = NewFreddy;
+
+			if (static_cast<int>(EFreddyPos::Restrooms) == Freddy->GetFreddyCurPos())
+			{
+				CurRestroomsCam = static_cast<int>(ERestRooms::RestRooms_Freddy);
+			}
+		}
 	}
 	else
 	{

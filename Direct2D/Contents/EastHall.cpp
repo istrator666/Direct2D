@@ -56,6 +56,16 @@ void AEastHall::EastHallMonsterCheck(float _DeltaTime)
 				EastHallCam = static_cast<int>(EEastHall::EastHallA_Chica1);
 			}
 		}
+
+		if (nullptr != NewFreddy)
+		{
+			Freddy = NewFreddy;
+
+			if (static_cast<int>(EFreddyPos::EastHall) == Freddy->GetFreddyCurPos())
+			{
+				EastHallCam = static_cast<int>(EEastHall::EastHallA_Freddy);
+			}
+		}
 	}
 	else
 	{

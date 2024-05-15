@@ -75,6 +75,11 @@ void ADiningArea::DiningAreaMonsterCheck()
 		if (nullptr != NewFreddy)
 		{
 			Freddy = NewFreddy;
+
+			if (static_cast<int>(EFreddyPos::DiningArea) == Freddy->GetFreddyCurPos())
+			{
+				CurDiningAreaCam = static_cast<int>(EDiningArea::DiningArea_Freddy);
+			}
 		}
 	}
 	else

@@ -24,6 +24,7 @@ AChica::~AChica()
 void AChica::BeginPlay()
 {
 	Super::BeginPlay();
+	InputOn();
 }
 
 void AChica::Tick(float _DeltaTime)
@@ -35,6 +36,17 @@ void AChica::Tick(float _DeltaTime)
 	{
 		ChicaMTCheck = MoveTime;
 		ChicaMove();
+	}
+
+	if (IsDown('2') && false == IsChicaDebug)
+	{
+		IsChicaDebug = true;
+		ChicaLevel = 15;
+	}
+	else if (IsDown('2') && true == IsChicaDebug)
+	{
+		IsChicaDebug = false;
+		ChicaLevel = 0;
 	}
 }
 

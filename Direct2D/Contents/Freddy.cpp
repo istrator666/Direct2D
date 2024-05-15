@@ -25,6 +25,7 @@ AFreddy::~AFreddy()
 void AFreddy::BeginPlay()
 {
 	Super::BeginPlay();
+	InputOn();
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	IsCCTVCam = PGameMode->GetCCTVUI();
 
@@ -36,6 +37,18 @@ void AFreddy::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 
 	FreddyState.Update(_DeltaTime);
+
+	if (IsDown('4') && false == IsFreddyDebug)
+	{
+		IsFreddyDebug = true;
+		FreddyState.ChangeState("DiningArea");
+		FreddyLevel = 15;
+	}
+	else if (IsDown('4') && true == IsFreddyDebug)
+	{
+		IsFreddyDebug = false;
+		FreddyLevel = 0;
+	}
 }
 
 void AFreddy::StateInit()
@@ -87,8 +100,12 @@ void AFreddy::ShowStageStart()
 void AFreddy::ShowStageUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea)
 			&& static_cast<int>(EBonniePos::ShowStage) != AAnimatronics::PGameMode->GetBonnie()->GetBonnieCurPos()
@@ -103,13 +120,22 @@ void AFreddy::ShowStageUpdate(float _DeltaTime)
 
 void AFreddy::DiningAreaStart()
 {
+	if (true == IsFreddyDebug)
+	{
+		AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetFreddy());
+		FreddyCurPos = static_cast<int>(EFreddyPos::DiningArea);
+	}
 }
 
 void AFreddy::DiningAreaUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Restrooms))
 		{
@@ -128,8 +154,12 @@ void AFreddy::EastHallStart()
 void AFreddy::EastHallUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EHallCorner))
 		{
@@ -148,8 +178,12 @@ void AFreddy::EHallCornerStart()
 void AFreddy::EHallCornerUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice)
 		{
 			AAnimatronics::PGameMode->GetEHallCornerCam()->SetAnimatronics(nullptr);
@@ -167,8 +201,12 @@ void AFreddy::KitchenStart()
 void AFreddy::KitchenUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall))
 		{
@@ -187,11 +225,16 @@ void AFreddy::RestroomsStart()
 void AFreddy::RestroomsUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::Kitchen))
 		{
+			AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(nullptr);
 			AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::Kitchen);
 			FreddyState.ChangeState("Kitchen");
@@ -206,13 +249,17 @@ void AFreddy::RightOfficeStart()
 void AFreddy::RightOfficeUpdate(float _DeltaTime)
 {
 	int MoveDice = MoveChance.RandomInt(1, 20);
-	if (FreddyLevel >= MoveChance.RandomInt(1, 20))
+	FreddyMTCheck -= _DeltaTime;
+
+	if (FreddyLevel >= MoveChance.RandomInt(1, 20) && 0 > FreddyMTCheck)
 	{
+		FreddyMTCheck = MoveTime;
+
 		if (16 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 		{
 			AAnimatronics::PGameMode->SetCameraMoveActive(false);
 			AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareFreddy");
-			DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
+			DelayCallBack(2.5f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
 		}
 		else if (14 <= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea)

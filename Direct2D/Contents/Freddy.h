@@ -38,9 +38,10 @@ private:
 	APlayGameMode* PGameMode = nullptr;
 	std::shared_ptr<ACCTVUI> IsCCTVCam = nullptr;
 	int FreddyCurPos = static_cast<int>(EFreddyPos::ShowStage);
-	int FreddyLevel = 20;
+	int FreddyLevel = 0;
 	float FreddyMTCheck = 3.0f;
 	float MoveTime = 3.0f;
+	bool IsFreddyDebug = false;
 
 	UStateManager FreddyState;
 

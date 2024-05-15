@@ -25,7 +25,7 @@ ABonnie::~ABonnie()
 void ABonnie::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	InputOn();
 }
 
 void ABonnie::Tick(float _DeltaTime)
@@ -37,6 +37,17 @@ void ABonnie::Tick(float _DeltaTime)
 	{
 		BonnieMTCheck = MoveTime;
 		BonnieMove();
+	}
+
+	if (IsDown('1') && false == IsBonnieDebug)
+	{
+		IsBonnieDebug = true;
+		BonnieLevel = 15;
+	}
+	else if (IsDown('1') && true == IsBonnieDebug)
+	{
+		IsBonnieDebug = false;
+		BonnieLevel = 0;
 	}
 }
 

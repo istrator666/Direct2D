@@ -42,5 +42,6 @@ private:
 	float ChicaMTCheck = 3.0f;
 	float MoveTime = 3.0f;
 	bool IsBack = false;
+	bool IsChicaDebug = false;
 };
 

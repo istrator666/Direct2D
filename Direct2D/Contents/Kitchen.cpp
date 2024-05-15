@@ -52,6 +52,16 @@ void AKitchen::KitchenMonsterCheck()
 				CurKitchenCam = static_cast<int>(EKitchen::CameraDisabled);
 			}
 		}
+
+		if (nullptr != NewFreddy)
+		{
+			Freddy = NewFreddy;
+
+			if (static_cast<int>(EChicaPos::Kitchen) == Freddy->GetFreddyCurPos())
+			{
+				CurKitchenCam = static_cast<int>(EKitchen::CameraDisabled);
+			}
+		}
 	}
 	else
 	{

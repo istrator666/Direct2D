@@ -44,6 +44,7 @@ private:
 	float FoxyMTCheck = MoveChance.RandomFloat(0.83f, 16.67f);
 	float limitTime = 25.0f;
 	bool FoxyResetTime = false;
+	bool IsFoxyDebug = false;
 
 	UStateManager FoxyState;
 

@@ -59,6 +59,16 @@ void AEHallCorner::EHallCornerMonsterCheck()
 				CurEHallCornerCam = static_cast<int>(EEHallCorner::EastHallB_Chica1);
 			}
 		}
+
+		if (nullptr != NewFreddy)
+		{
+			Freddy = NewFreddy;
+
+			if (static_cast<int>(EFreddyPos::EHallCorner) == Freddy->GetFreddyCurPos())
+			{
+				CurEHallCornerCam = static_cast<int>(EEHallCorner::EastHallB_Freddy);
+			}
+		}
 	}
 	else
 	{

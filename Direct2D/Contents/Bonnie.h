@@ -44,5 +44,6 @@ private:
 	float BonnieMTCheck = 3.0f;
 	float MoveTime = 3.0f;
 	bool IsBack = false;
+	bool IsBonnieDebug = false;
 };
 

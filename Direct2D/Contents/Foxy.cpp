@@ -21,6 +21,7 @@ AFoxy::~AFoxy()
 void AFoxy::BeginPlay()
 {
 	Super::BeginPlay();
+	InputOn();
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	IsCCTVCam = PGameMode->GetCCTVUI();
 
@@ -33,6 +34,16 @@ void AFoxy::Tick(float _DeltaTime)
 
 	FoxyState.Update(_DeltaTime);
 
+	if (IsDown('3') && false == IsFoxyDebug)
+	{
+		IsFoxyDebug = true;
+		FoxyLevel = 20;
+	}
+	else if (IsDown('3') && true == IsFoxyDebug)
+	{
+		IsFoxyDebug = false;
+		FoxyLevel = 0;
+	}
 }
 
 void AFoxy::StateInit()
