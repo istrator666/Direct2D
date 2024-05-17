@@ -222,7 +222,7 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 
 		if (160 > static_cast<int>(Camera->GetActorLocation().X) && false == MoveChange)
 		{
-			Camera->AddActorLocation(FVector(0.1f, 0.0f, 0.0f));
+			Camera->AddActorLocation(FVector(0.05f, 0.0f, 0.0f));
 		}
 		else if (160 == static_cast<int>(Camera->GetActorLocation().X) && false == MoveChange)
 		{
@@ -236,7 +236,7 @@ void APlayGameMode::ChangeCCTV(float _DeltaTime)
 		
 		if (-160 < static_cast<int>(Camera->GetActorLocation().X) && true == MoveChange)
 		{
-			Camera->AddActorLocation(FVector(-0.1f, 0.0f, 0.0f));
+			Camera->AddActorLocation(FVector(-0.05f, 0.0f, 0.0f));
 		}
 		else if (-160 == static_cast<int>(Camera->GetActorLocation().X) && true == MoveChange)
 		{
