@@ -23,7 +23,8 @@ void ACCTVUI::BeginPlay()
 	PowerMeter = PGameMode->GetMouseCursor();
 
 	CCTVSound = UEngineSound::SoundPlay("CCTV.wav");
-	CCTVSound.SetVolume(0.5f);
+	CCTVSound.SetVolume(1.0f);
+	CCTVSound.Loop();
 	CCTVSound.Off();
 
 	CCTVOnOffSound = UEngineSound::SoundPlay("CCTVOnOff.wav");
@@ -76,7 +77,6 @@ void ACCTVUI::BeginPlay()
 				ChangeBarRenderer->SetActive(false);
 				ChangeCCTVAnimation->SetActive(true);
 				CCTVSound.On();
-				CCTVSound.Replay();
 				PGameMode->GetMouseCursor()->SetLightSound(false);
 
 				if (false == IsCCTV)
