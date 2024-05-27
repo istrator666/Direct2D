@@ -40,9 +40,13 @@ void AMouseCursor::BeginPlay()
 	DoorSound = UEngineSound::SoundPlay("Door.wav");
 	LightSound = UEngineSound::SoundPlay("DoorLight.wav");
 	WindowScareSound = UEngineSound::SoundPlay("WindowScare.wav");
+	LightSound.Loop();
+	WindowScareSound.Loop();
+
 	DoorSound.SetVolume(0.5f);
 	LightSound.SetVolume(0.5f);
 	WindowScareSound.SetVolume(0.5f);
+
 	DoorSound.Off();
 	LightSound.Off();
 	WindowScareSound.Off();
@@ -112,7 +116,6 @@ void AMouseCursor::ColLefButton()
 				if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftLightON);
@@ -140,7 +143,6 @@ void AMouseCursor::ColLefButton()
 				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && false == LButton->GetIsBonnie())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftButtonAllOn);
@@ -185,7 +187,6 @@ void AMouseCursor::ColLefButton()
 				else if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
 					WindowScareSound.On();
-					WindowScareSound.Replay();
 					++PowerMeterUpDownCheck;
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftLightON);
@@ -215,7 +216,6 @@ void AMouseCursor::ColLefButton()
 				else if (true == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftButtonAllOn);
@@ -308,7 +308,6 @@ void AMouseCursor::ColRightButton()
 				if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightLightON);
@@ -336,7 +335,6 @@ void AMouseCursor::ColRightButton()
 				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && false == RButton->GetIsChica())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightButtonAllOn);
@@ -382,7 +380,6 @@ void AMouseCursor::ColRightButton()
 				else if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
 					WindowScareSound.On();
-					WindowScareSound.Replay();
 					++PowerMeterUpDownCheck;
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightLightON);
@@ -410,7 +407,6 @@ void AMouseCursor::ColRightButton()
 				else if (true == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
 					LightSound.On();
-					LightSound.Replay();
 					++PowerMeterUpDownCheck;
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightButtonAllOn);
