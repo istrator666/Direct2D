@@ -187,6 +187,7 @@ void AMouseCursor::ColLefButton()
 				else if (false == LButton->GetIsCloseDoor() && false == LButton->GetIsLight() && true == LButton->GetIsBonnie())
 				{
 					WindowScareSound.On();
+					DelayCallBack(1.0f, [this]() { WindowScareSound.Off(), LightSound.On(); });
 					++PowerMeterUpDownCheck;
 					LButton->SetIsLight(true);
 					LButton->SetButtonImage(LeftLightON);
@@ -195,7 +196,6 @@ void AMouseCursor::ColLefButton()
 					if (false == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
 					{
 						LightSound.Off();
-						WindowScareSound.Off();
 						--PowerMeterUpDownCheck;
 						RButton->SetIsLight(false);
 						RButton->SetButtonImage(RightButtonAllOFF);
@@ -205,7 +205,6 @@ void AMouseCursor::ColLefButton()
 					else if (true == RButton->GetIsCloseDoor() && true == RButton->GetIsLight())
 					{
 						LightSound.Off();
-						WindowScareSound.Off();
 						--PowerMeterUpDownCheck;
 						RButton->SetIsLight(false);
 						RButton->SetButtonImage(RightDoorON);
@@ -380,6 +379,7 @@ void AMouseCursor::ColRightButton()
 				else if (false == RButton->GetIsCloseDoor() && false == RButton->GetIsLight() && true == RButton->GetIsChica())
 				{
 					WindowScareSound.On();
+					DelayCallBack(1.0f, [this]() { WindowScareSound.Off(), LightSound.On(); });
 					++PowerMeterUpDownCheck;
 					RButton->SetIsLight(true);
 					RButton->SetButtonImage(RightLightON);
@@ -387,7 +387,7 @@ void AMouseCursor::ColRightButton()
 
 					if (false == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
 					{
-						WindowScareSound.Off();
+						LightSound.Off();
 						--PowerMeterUpDownCheck;
 						LButton->SetIsLight(false);
 						LButton->SetButtonImage(LeftButtonAllOFF);
@@ -396,7 +396,7 @@ void AMouseCursor::ColRightButton()
 					}
 					else if (true == LButton->GetIsCloseDoor() && true == LButton->GetIsLight())
 					{
-						WindowScareSound.Off();
+						LightSound.Off();
 						--PowerMeterUpDownCheck;
 						LButton->SetIsLight(false);
 						LButton->SetButtonImage(LeftDoorON);
