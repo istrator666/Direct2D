@@ -73,6 +73,7 @@ void APlayGameMode::LevelEnd(ULevel* _NextLevel)
 	Super::LevelEnd(_NextLevel);
 	GEngine->DestroyLevel("PlayLevel");
 	TheOffice->SetTheOfficeSound(false);
+	MouseCursor->SetLightSound(false);
 }
 
 void APlayGameMode::LevelStart(ULevel* _PrevLevel)
