@@ -25,5 +25,8 @@ protected:
 private:
 	USpriteRenderer* GameOverStaticRenderer = nullptr;
 	USpriteRenderer* GameOverScanLineRenderer = nullptr;
+
+	UEngineSoundPlayer StaticLong;
+	UEngineSoundPlayer MenuSwitchSound;
 };
 

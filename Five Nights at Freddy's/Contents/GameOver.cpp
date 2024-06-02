@@ -45,8 +45,13 @@ void AGameOver::BeginPlay()
 {
 	Super::BeginPlay();
 
-	DelayCallBack(3.0f, [this]() { GameOverStaticRenderer->SetActive(false), GameOverScanLineRenderer->SetActive(false); });
-	DelayCallBack(5.0f, [this]() { GEngine->ChangeLevel("TitleLevel"); });
+	StaticLong = UEngineSound::SoundPlay("StaticLong.wav");
+	StaticLong.SetVolume(0.5);
+	StaticLong.Off();
+
+	DelayCallBack(0.1f, [this]() { StaticLong.On(); });
+	DelayCallBack(5.0f, [this]() { StaticLong.Off(), GameOverStaticRenderer->SetActive(false), GameOverScanLineRenderer->SetActive(false); });
+	DelayCallBack(8.0f, [this]() { GEngine->ChangeLevel("TitleLevel"); });
 }
 
 void AGameOver::Tick(float _DeltaTime)

@@ -72,6 +72,7 @@ void APlayGameMode::LevelEnd(ULevel* _NextLevel)
 {
 	Super::LevelEnd(_NextLevel);
 	GEngine->DestroyLevel("PlayLevel");
+	TheOffice->SetTheOfficeSound(false);
 }
 
 void APlayGameMode::LevelStart(ULevel* _PrevLevel)
@@ -79,6 +80,7 @@ void APlayGameMode::LevelStart(ULevel* _PrevLevel)
 	Super::LevelStart(_PrevLevel);
 	UContentsDebug::StageNumber = 1;
 	GEngine->CreateLevel<AGameOverGameMode>("GameOverLevel");
+	TheOffice->SetTheOfficeSound(false);
 }
 
 void APlayGameMode::SetActor()

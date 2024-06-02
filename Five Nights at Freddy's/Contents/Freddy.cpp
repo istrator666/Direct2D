@@ -29,6 +29,15 @@ void AFreddy::BeginPlay()
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	IsCCTVCam = PGameMode->GetCCTVUI();
 
+	MoveSound = UEngineSound::SoundPlay("FreddyMove0.wav");
+	MoveSound.SetVolume(0.5f);
+	MoveSound.Loop();
+	MoveSound.Off();
+
+	JumpScareSound = UEngineSound::SoundPlay("JumpScare.wav");
+	JumpScareSound.SetVolume(0.1f);
+	JumpScareSound.Off();
+
 	StateInit();
 }
 
@@ -114,6 +123,8 @@ void AFreddy::ShowStageUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::DiningArea);
 			FreddyState.ChangeState("DiningArea");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -143,6 +154,8 @@ void AFreddy::DiningAreaUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetRestroomsCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::Restrooms);
 			FreddyState.ChangeState("Restrooms");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -167,6 +180,8 @@ void AFreddy::EastHallUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetEHallCornerCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::EHallCorner);
 			FreddyState.ChangeState("EHallCorner");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -190,6 +205,8 @@ void AFreddy::EHallCornerUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetRButton()->SetIsFreddy(true);
 			FreddyCurPos = static_cast<int>(EFreddyPos::RightOffice);
 			FreddyState.ChangeState("RightOffice");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -214,6 +231,8 @@ void AFreddy::KitchenUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::EastHall);
 			FreddyState.ChangeState("EastHall");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -238,6 +257,8 @@ void AFreddy::RestroomsUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetKitchenCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EFreddyPos::Kitchen);
 			FreddyState.ChangeState("Kitchen");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }
@@ -257,9 +278,10 @@ void AFreddy::RightOfficeUpdate(float _DeltaTime)
 
 		if (16 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 		{
+			JumpScareSound.On();
 			AAnimatronics::PGameMode->SetCameraMoveActive(false);
 			AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareFreddy");
-			DelayCallBack(2.5f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
+			DelayCallBack(2.0f, [this]() { JumpScareSound.Off(), GEngine->ChangeLevel("GameOverLevel"); });
 		}
 		else if (14 <= MoveDice
 			&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::DiningArea)
@@ -269,6 +291,8 @@ void AFreddy::RightOfficeUpdate(float _DeltaTime)
 			AAnimatronics::PGameMode->GetDiningAreaCam()->SetAnimatronics(PGameMode->GetFreddy());
 			FreddyCurPos = static_cast<int>(EChicaPos::DiningArea);
 			FreddyState.ChangeState("DiningArea");
+			MoveSound.On();
+			DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 		}
 	}
 }

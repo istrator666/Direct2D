@@ -28,10 +28,11 @@ void AChica::BeginPlay()
 
 	MoveSound = UEngineSound::SoundPlay("BonnieChicaMove.wav");
 	MoveSound.SetVolume(0.5f);
+	MoveSound.Loop();
 	MoveSound.Off();
 
 	JumpScareSound = UEngineSound::SoundPlay("JumpScare.wav");
-	JumpScareSound.SetVolume(0.3f);
+	JumpScareSound.SetVolume(0.1f);
 	JumpScareSound.Off();
 }
 
@@ -102,7 +103,6 @@ void AChica::ChicaMove()
 		}
 		case static_cast<int>(EChicaPos::EastHall):
 		{
-			MoveSound.Off();
 			if (16 >= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EHallCorner))
 			{
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(nullptr);
@@ -133,6 +133,8 @@ void AChica::ChicaMove()
 				}
 				AAnimatronics::PGameMode->GetRButton()->SetIsChica(true);
 				ChicaCurPos = static_cast<int>(EChicaPos::RightOffice);
+				MoveSound.On();
+				DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 			}
 			else if (16 <= MoveDice && true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall))
 			{
@@ -180,21 +182,20 @@ void AChica::ChicaMove()
 			if (14 >= MoveDice && false == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
 				JumpScareSound.On();
-				JumpScareSound.Replay();
 				AAnimatronics::PGameMode->SetCameraMoveActive(false);
 				AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareChica");
-				DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
+				DelayCallBack(2.0f, [this]() { JumpScareSound.Off(), GEngine->ChangeLevel("GameOverLevel"); });
 			}
 			else if (14 <= MoveDice 
 				&& true != AAnimatronics::PGameMode->GetIsMapAnimatronics(ECamMap::EastHall)
 				&& true == AAnimatronics::PGameMode->GetRButton()->GetIsCloseDoor())
 			{
 				MoveSound.On();
-				MoveSound.Replay();
 				AAnimatronics::PGameMode->GetRButton()->SetLightAnimation(true, "RightLightON");
 				AAnimatronics::PGameMode->GetRButton()->SetIsChica(false);
 				AAnimatronics::PGameMode->GetEastHallCam()->SetAnimatronics(PGameMode->GetChica());
 				ChicaCurPos = static_cast<int>(EChicaPos::EastHall);
+				DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 			}
 			break;
 		}

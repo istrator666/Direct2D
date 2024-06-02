@@ -25,6 +25,15 @@ void AFoxy::BeginPlay()
 	PGameMode = dynamic_cast<APlayGameMode*>(GetWorld()->GetGameMode().get());
 	IsCCTVCam = PGameMode->GetCCTVUI();
 
+	MoveSound = UEngineSound::SoundPlay("FoxyRun.wav");
+	MoveSound.SetVolume(0.5f);
+	MoveSound.Loop();
+	MoveSound.Off();
+
+	JumpScareSound = UEngineSound::SoundPlay("JumpScare.wav");
+	JumpScareSound.SetVolume(0.1f);
+	JumpScareSound.Off();
+
 	StateInit();
 }
 
@@ -229,17 +238,21 @@ void AFoxy::FoxyWestHallUpdate(float _DeltaTime)
 	{
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->SetActive(true);
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->ChangeAnimation("RunningFoxy");
+		MoveSound.On();
 
 		DelayCallBack(2.0f, [this]() { AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->AnimationReset()
 			, AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->SetActive(false)
 			, FoxyCurPos = static_cast<int>(EFoxyPos::LeftOffice)
-			, FoxyState.ChangeState("FoxyLeftOffice"); });
+			, FoxyState.ChangeState("FoxyLeftOffice")
+			, MoveSound.Off(); });
 	}
 	else if (0 > limitTime)
 	{
 		AAnimatronics::PGameMode->GetWestHallCam()->SetAnimatronics(nullptr);
 		FoxyCurPos = static_cast<int>(EFoxyPos::LeftOffice);
 		FoxyState.ChangeState("FoxyLeftOffice");
+		MoveSound.On();
+		DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 	}
 }
 
@@ -251,16 +264,19 @@ void AFoxy::FoxyLeftOfficeUpdate(float _DeltaTime)
 {
 	if (false == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 	{
+		JumpScareSound.On();
 		AAnimatronics::PGameMode->SetCameraMoveActive(false);
 		AAnimatronics::PGameMode->GetTheOffice()->SetJumpScareAnimation("JumpScareFoxy");
-		DelayCallBack(3.0f, [this]() { GEngine->ChangeLevel("GameOverLevel"); });
+		DelayCallBack(2.0f, [this]() { JumpScareSound.Off(), GEngine->ChangeLevel("GameOverLevel"); });
 	}
 	else if (true == AAnimatronics::PGameMode->GetLButton()->GetIsCloseDoor())
 	{
+		MoveSound.On();
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->AnimationReset();
 		AAnimatronics::PGameMode->GetStageCCTV()->GetRunningFoxy()->SetActive(false);
 		AAnimatronics::PGameMode->GetPirateCoveCam()->SetAnimatronics(PGameMode->GetFoxy());
 		FoxyState.ChangeState("PirateCoveLv1");
+		DelayCallBack(2.0f, [this]() { MoveSound.Off(); });
 	}
 
 	limitTime = 25.0f;
